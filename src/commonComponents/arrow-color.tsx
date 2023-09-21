@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Arrow = () => {
+const ArrowColor = () => {
   return (
     <motion.svg
       width="221"
@@ -105,4 +105,4 @@ const Arrow = () => {
   );
 };
 
-export default Arrow;
+export default ArrowColor;
