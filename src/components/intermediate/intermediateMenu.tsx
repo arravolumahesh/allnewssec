@@ -19,7 +19,7 @@ const IntermediateMenu = () => {
                 <Box
                 sx={{
                     display:'flex',
-                    justifyContent:'space-around',
+                    justifyContent:{xs:'flex-start',lg:'space-around'},
                     overflow:'auto',
                     gap:{xs:5,lg:0}
                 }}

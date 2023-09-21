@@ -27,7 +27,7 @@ const contAnimation:MotionTypographyProps = {
 const IntermediateCount = () => {
     const invref = useRef(null);
     const isInView = useInView(invref,{once:true});
-    console.log(invref,isInView)
+    
 
     return (
         <>
