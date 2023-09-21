@@ -23,8 +23,7 @@ const KeyFocus = () => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <SectionWrapper
-      pt={{ xs: 7, md: 4 }}
-      pb={{ xs: 7, md: 8 }}
+      py={{ xs: 7, md: 12 }}
       rowGap={{ xs: 6, md: 8 }}
       SectionProps={{
         bgcolor: "common.white",
@@ -37,7 +36,7 @@ const KeyFocus = () => {
         columnGap={4}
         pl={{ xs: 0, md: "5.5%" }}
       >
-        <MotionImage src={Arrow} alt="" {...imageTransition} hidden={matches} />
+        <MotionImage src={Arrow} alt='' {...imageTransition} hidden={matches} />
         <Stack
           component={motion.div}
           variants={staggerDiv}
@@ -49,7 +48,7 @@ const KeyFocus = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant="h1"
+              variant='h1'
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -57,7 +56,7 @@ const KeyFocus = () => {
               OUR KEY FOCUS AREAS
             </MotionTypography>
             <MotionTypography
-              variant="h5"
+              variant='h5'
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -78,27 +77,19 @@ const KeyFocus = () => {
       >
         <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
-          subtitle="Providing skill-based education through various programs to strengthen
-          the foundation of a progressive nation."
-          textColor="primary.dark"
+          subtitle='Providing skill-based education through various programs to strengthen
+          the foundation of a progressive nation.'
+          textColor='primary.dark'
         >
           <Image
             src={skillImage}
-            alt="Skill Banner"
+            alt='Skill Banner'
             //   {...imageTransition}
             fill
           />
         </SlideAnimationWrapper>
       </Stack>
-      <Stack
-        component={motion.div}
-        variants={staggerCards}
-        initial={"initial"}
-        whileInView={"animate"}
-        viewport={{ once: true }}
-        direction="row"
-        alignItems={"center"}
-      >
+      <Stack direction='row' alignItems={"center"} width={"107%"}>
         {/* {data.map((item, idx) => (
           <SmallTitleCard
             key={idx}
@@ -115,17 +106,35 @@ const KeyFocus = () => {
             sx: {
               width: { xs: 200, lg: 328 },
               mr: { xs: 2, lg: 0 },
+              "&:hover": {
+                transform: "scale(1.1)",
+                transition: "all .3s",
+                zIndex: 1,
+              },
             },
           }}
-          sx={{ m: 0, overflow: "unset" }}
+          sx={{
+            m: { xs: "-48px 0 -56px -24px", md: "-64px 0 -96px -64px" },
+            p: {
+              xs: "48px 24px 56px 24px",
+              md: "64px 64px 96px 64px",
+            } /* , overflow: "unset" */,
+          }}
           SlideComponent={SmallTitleCard}
           data={data}
           SlideComponentProps={(index) => ({
-            sx: { backgroundPosition: "center" },
-            variants: staggerCardChildren,
-            initial: "initial",
-            whileInView: "animate",
-            whileHover: "zoom",
+            initial: {
+              opacity: 0,
+              y: "100%",
+            },
+            whileInView: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.6,
+                delay: index * 0.5,
+              },
+            },
             viewport: {
               once: true,
             },
@@ -174,34 +183,6 @@ const staggerChildren: MotionVariantProps = {
     transition: {
       duration: 0.6,
     },
-  },
-};
-
-const staggerCards: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.4,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const staggerCardChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "70%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-  zoom: {
-    transform: "scale(1.1)",
-    zIndex: 1,
   },
 };
 
