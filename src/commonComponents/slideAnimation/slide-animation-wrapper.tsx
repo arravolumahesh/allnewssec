@@ -45,8 +45,8 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         <MotionBox
           sx={{
             position: "relative",
-            width: { xs: "90%", md: 320, lg: 441, xl: 644, large: 644 },
-            height: { xs: "auto", md: 254, lg: 315, xl: 443, large: 443 },
+            width: { xs: "90%", md: 320, lg: 441, xl: 644 /* large: 644 */ },
+            height: { xs: "auto", md: 254, lg: 315, xl: 443 /* large: 443 */ },
             aspectRatio: 1.25,
             clipPath: "polygon(0% 0%, 84% 0%, 100% 50%, 84% 100%, 0% 100%)",
           }}
@@ -58,8 +58,8 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           sx={{
             position: "relative",
             ml: { xs: "-10%", md: "-43px", lg: "-62px", xl: "-85px" },
-            width: { xs: "20%", md: 83, lg: 120, xl: 171, large: 171 },
-            height: { xs: "auto", md: 254, lg: 315, xl: 443, large: 443 },
+            width: { xs: "20%", md: 83, lg: 120, xl: 171 /* large: 171 */ },
+            height: { xs: "auto", md: 254, lg: 315, xl: 443 /* large: 443 */ },
             aspectRatio: 0.32,
           }}
         >

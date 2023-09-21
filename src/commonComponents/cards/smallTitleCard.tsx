@@ -1,42 +1,54 @@
-import { Card, CardContent, CardProps, Typography } from "@mui/material";
-import React from "react";
-import { MotionVariantProps } from "../motion-elements";
+import { CardContent, Typography } from "@mui/material";
+import React, { forwardRef } from "react";
+import { EnhancedSwiperSlideData } from "@cc/enhanced-swiper";
+import { MotionCard, MotionCardProps } from "@cc/motion-elements";
 
-type SmallTitleCardProps = {
-  // data: {
+interface SmallTitleCardProps extends Omit<MotionCardProps, "children"> {
   img: string;
   title: string;
-  // };
-  variants?: MotionVariantProps;
-} & CardProps;
+}
 
-export const SmallTitleCard = (props: SmallTitleCardProps) => {
-  const { img, title, sx, ...restProps } = props;
-  // const { img, title } = props.data;
-  return (
-    <Card
-      sx={{
-        display: "flex",
-        position: "relative",
-        width: { xs: 200, lg: 328 },
-        height: { xs: 200, lg: 316 },
-        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.00) 34.18%), url(${img}), lightgray -133.577px -1.973px / 181.45% 101.249% no-repeat`,
-        backgroundSize: "cover",
-        borderRadius: 0,
-        ...sx,
-      }}
-      {...restProps}
-    >
-      <CardContent
+export const SmallTitleCard: EnhancedSwiperSlideData<SmallTitleCardProps> =
+  forwardRef((props, ref) => {
+    const {
+      img,
+      title,
+      sx,
+      index,
+      isPrev,
+      isActive,
+      isVisible,
+      isNext,
+      ...restProps
+    } = props;
+    return (
+      <MotionCard
+        ref={ref}
         sx={{
-          alignSelf: "flex-end",
-          pb: "16px !important",
+          display: "flex",
+          position: "relative",
+          width: { xs: 200, lg: 328 },
+          height: { xs: 200, lg: 316 },
+          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.00) 34.18%), url(${img}), lightgray -133.577px -1.973px / 181.45% 101.249% no-repeat`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          borderRadius: 0,
+          ...sx,
         }}
+        {...restProps}
       >
-        <Typography variant='h5' fontWeight={400} color={"white"}>
-          {title}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
-};
+        <CardContent
+          sx={{
+            alignSelf: "flex-end",
+            pb: "16px !important",
+          }}
+        >
+          <Typography variant='h5' fontWeight={400} color={"white"}>
+            {title}
+          </Typography>
+        </CardContent>
+      </MotionCard>
+    );
+  });
+
+SmallTitleCard.displayName = SmallTitleCard.name;

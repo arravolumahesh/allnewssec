@@ -1,6 +1,9 @@
 'use client'
 
-import { MotionTypography, MotionTypographyProps } from "@/commonComponents/motionElements"
+import {
+  MotionTypography,
+  MotionTypographyProps,
+} from "@/commonComponents/motion-elements";
 import SectionWrapper from "@/commonComponents/section-wrapper"
 import { Box, Grid, Typography } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"

@@ -1,8 +1,7 @@
 "use client"
-
-import { MotionButton } from "@/commonComponents/motionElements"
 import SectionWrapper from "@/commonComponents/section-wrapper"
-import { Box } from "@mui/material"
+import { Box } from "@mui/material";
+import { MotionButton } from "@cc/motion-elements";
 
 const IntermediateMenu = () => {
     return (
