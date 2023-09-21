@@ -23,8 +23,9 @@ const KeyFocus = () => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <SectionWrapper
-      py={{ xs: 7, md: 12 }}
-      rowGap={{ xs: 6, md: 8 }}
+      pt={{ xs: 7, md: 6 }}
+      pb={{ xs: 7, md: 12 }}
+      rowGap={{ xs: 6, md: 2 }}
       SectionProps={{
         bgcolor: "common.white",
       }}
@@ -74,6 +75,7 @@ const KeyFocus = () => {
         rowGap={3}
         justifyContent={"space-between"}
         alignItems={"center"}
+        mb={{ xs: 0, md: 6 }}
       >
         <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
@@ -81,25 +83,10 @@ const KeyFocus = () => {
           the foundation of a progressive nation.'
           textColor='primary.dark'
         >
-          <Image
-            src={skillImage}
-            alt='Skill Banner'
-            //   {...imageTransition}
-            fill
-          />
+          <Image src={skillImage} alt='Skill Banner' fill />
         </SlideAnimationWrapper>
       </Stack>
       <Stack direction='row' alignItems={"center"} width={"107%"}>
-        {/* {data.map((item, idx) => (
-          <SmallTitleCard
-            key={idx}
-            data={item}
-            sx={{ backgroundPosition: "center" }}
-            component={motion.div}
-            variants={staggerCardChildren}
-            whileHover={"zoom"}
-          />
-        ))} */}
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
@@ -118,7 +105,7 @@ const KeyFocus = () => {
             p: {
               xs: "48px 24px 56px 24px",
               md: "64px 64px 96px 64px",
-            } /* , overflow: "unset" */,
+            },
           }}
           SlideComponent={SmallTitleCard}
           data={data}
