@@ -106,13 +106,17 @@ const AboveProfits = () => {
             background:
               "url(http://localhost:3000/Group%20427321804.svg) repeat-x", //space
             backgroundSize: "contain",
-            animation: "slideIn 5s infinite linear",
-            "@keyframes slideIn": {
-              "0%": {
-                right: 0,
-              },
+            transform: "translate3d(0, 0, 0)",
+            animation: "scroll 5s infinite linear",
+            "@keyframes scroll": {
+              // "0%": {
+              //   right: 0,
+              // },
+              // "100%": {
+              //   right: "-100%",
+              // },
               "100%": {
-                right: "-100%",
+                WebkitTransform: "translateX(50%)",
               },
             },
           },

@@ -1,25 +1,38 @@
 "use client";
-import {Card} from "@mui/material";
+import { Card, CardMedia } from "@mui/material";
 import React from "react";
 
 export type LogoCardProps = {
-    data: {
-        img: string;
-    };
-};
-
-const data = {
-    img: "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+  data: {
+    img: string;
+  };
 };
 
 export const LogoCard = (props: LogoCardProps) => {
-    return (
-        <Card
-            sx={{
-                height: "113px",
-                background: `url(${data.img})`,
-                backgroundSize: "cover",
-            }}
-        ></Card>
-    );
+  const { img } = props.data;
+  return (
+    <Card
+      sx={{
+        width: { xs: 128, md: 199 },
+        minWidth: { xs: 128, md: 199 },
+        height: { xs: 64, md: 100 },
+        py: { xs: 1, md: 2 },
+        bgcolor: "common.white",
+        borderRadius: 0,
+        //background: `url(${img}) no-repeat center / contain `,
+        // backgroundSize: "contain",
+        // backgroundRepeat: "no-repeat",
+      }}
+      elevation={1}
+    >
+      <CardMedia
+        sx={{
+          height: "100%",
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+        }}
+        image={img}
+      />
+    </Card>
+  );
 };

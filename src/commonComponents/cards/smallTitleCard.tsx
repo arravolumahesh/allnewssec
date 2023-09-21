@@ -31,6 +31,7 @@ export const SmallTitleCard: EnhancedSwiperSlideData<SmallTitleCardProps> =
           height: { xs: 200, lg: 316 },
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.00) 34.18%), url(${img}), lightgray -133.577px -1.973px / 181.45% 101.249% no-repeat`,
           backgroundSize: "cover",
+          backgroundPosition: "center",
           borderRadius: 0,
           ...sx,
         }}
@@ -42,7 +43,7 @@ export const SmallTitleCard: EnhancedSwiperSlideData<SmallTitleCardProps> =
             pb: "16px !important",
           }}
         >
-          <Typography variant="h5" fontWeight={400} color={"white"}>
+          <Typography variant='h5' fontWeight={400} color={"white"}>
             {title}
           </Typography>
         </CardContent>
