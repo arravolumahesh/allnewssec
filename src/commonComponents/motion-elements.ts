@@ -1,5 +1,5 @@
 "use client";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, Stack, Typography } from "@mui/material";
 import { motion, MotionProps } from "framer-motion";
 import Image from "next/image";
 import MLink from "./m-link";
@@ -12,6 +12,8 @@ export const MotionButton = motion(MLink);
 export const MotionBox = motion(Box);
 export const MotionCard = motion(Card);
 export const MotionGrid = motion(Grid2);
+export const MotionStack = motion(Stack);
+export const MotionSvg = motion.svg;
 
 export type MotionImageProps = ComponentProps<typeof MotionImage>;
 export type MotionTypographyProps = ComponentProps<typeof MotionTypography>;
@@ -20,3 +22,5 @@ export type MotionBoxProps = ComponentProps<typeof MotionBox>;
 export type MotionVariantProps = MotionProps["variants"];
 export type MotionCardProps = ComponentProps<typeof MotionCard>;
 export type MotionGridProps = ComponentProps<typeof MotionGrid>;
+export type MotionStackProps = ComponentProps<typeof MotionStack>;
+export type MotionSvgProps = ComponentProps<typeof MotionSvg>;
