@@ -107,8 +107,8 @@ const AboveProfits = () => {
               "url(http://localhost:3000/Group%20427321804.svg) repeat-x", //space
             backgroundSize: "contain",
             transform: "translate3d(0, 0, 0)",
-            animation: "slideIn 5s infinite linear",
-            "@keyframes slideIn": {
+            animation: "scroll 5s infinite linear",
+            "@keyframes scroll": {
               // "0%": {
               //   right: 0,
               // },
