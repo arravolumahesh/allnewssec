@@ -23,6 +23,20 @@ const Partners = () => {
           xs: 3,
           md: 0,
         }}
+        initial={{
+          y: "30%",
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 0.4,
+          },
+        }}
+        viewport={{
+          once: true,
+        }}
       >
         ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY
       </MotionTypography>
