@@ -1,13 +1,14 @@
-import { motion } from "framer-motion";
+import { MotionSvg, MotionSvgProps } from "@cc/motion-elements";
 
-const ArrowColor = () => {
+const ArrowColor = (props: Omit<MotionSvgProps, "children">) => {
   return (
-    <motion.svg
+    <MotionSvg
       width="221"
       height="604"
       viewBox="0 0 221 604"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         d="M0 31.0327H52.4105L178.27 302.682H125.859L0 31.0327Z"
@@ -101,7 +102,7 @@ const ArrowColor = () => {
           <stop offset="1" stopColor="grey" stopOpacity="0" />
         </radialGradient>
       </defs>
-    </motion.svg>
+    </MotionSvg>
   );
 };
 
