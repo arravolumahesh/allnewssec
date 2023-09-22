@@ -136,7 +136,7 @@ export default KeyFocus;
 
 const imageTransition: MotionSvgProps = {
   initial: {
-    x: "-200%",
+    x: "-190%",
   },
   whileInView: {
     x: 0,
