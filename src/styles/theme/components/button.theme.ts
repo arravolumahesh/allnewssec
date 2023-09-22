@@ -184,7 +184,8 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
           display:'flex',
           alignItems:'center',
           [theme.breakpoints.down('md')]: {
-            top:0
+            top:0,
+            alignItems:'flex-start',
           },          
           '& svg':{              
             width:36,

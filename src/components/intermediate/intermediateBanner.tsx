@@ -12,6 +12,7 @@ import {
 } from "@/commonComponents/motion-elements";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import Image from "next/image";
+import CommonBreadcrumb from "@/commonComponents/breadcrumb";
 
 const IntermediateBanner = () => {
   const [textTransition, setTextTransition] = useState(false);
@@ -145,9 +146,13 @@ const IntermediateBanner = () => {
         }}
         sx={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
         }}
       >
+        <CommonBreadcrumb data={[{
+          'title':'All Initiatives',
+          'path':'/',
+        }]} />
         <MotionTypography
           variant="h3"
           color="white"
