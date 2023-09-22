@@ -30,6 +30,7 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
         onClick={() => {
           setIsDrawer((prev) => !prev);
         }}
+        className={"border"}
         {...restIconButtonProps}
       >
         {isDrawer ? <CloseRounded /> : <SearchRounded />}

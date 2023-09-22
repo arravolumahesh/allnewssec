@@ -56,6 +56,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
       direction={"row"}
       flexWrap={"nowrap"}
       position={"relative"}
+      overflow={"clip"}
       {...restStackProps}
     >
       <EnhancedSwiper

@@ -1,4 +1,4 @@
-import {Components, Theme} from "@mui/material";
+import {alpha, Components, Theme} from "@mui/material";
 
 /**
  * @IconButtonVariants
@@ -25,4 +25,17 @@ export const IconButtonVariants: Components<
   defaultProps: {
     centerRipple: false,
   },
+  variants: [
+    {
+      props: { className: "border" },
+      style: ({ theme }) => {
+        return theme.unstable_sx({
+          color: "inherit",
+          border: "1px solid",
+          borderColor: alpha(theme.palette.primary.contrastText, 0.3),
+          p: 0.375,
+        });
+      },
+    },
+  ],
 };

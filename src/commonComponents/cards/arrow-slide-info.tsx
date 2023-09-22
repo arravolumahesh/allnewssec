@@ -3,8 +3,12 @@ import { IconButton, Stack, StackProps } from "@mui/material";
 import { Swiper } from "swiper/types";
 import React, { useMemo } from "react";
 import { MotionTypography, MotionTypographyProps } from "@cc/motion-components";
-import MLink, { MLinkProps } from "@cc/m-link";
 import { StaticImageData } from "next/image";
+import {
+  NavigateBeforeRounded,
+  NavigateNextRounded,
+} from "@mui/icons-material";
+import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
 
 export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
   data: {
@@ -19,7 +23,7 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
     PrefixTypographyProps?: Omit<MotionTypographyProps, "children">;
     TitleTypographyProps?: Omit<MotionTypographyProps, "children">;
     DescriptionTypographyProps?: Omit<MotionTypographyProps, "children">;
-    ButtonProps?: Omit<MLinkProps, "children">;
+    ButtonProps?: Omit<AnimatedButtonProps, "children">;
   };
   isNavigation?: boolean;
   navigationWrapperProps?: Omit<StackProps, "children">;
@@ -46,12 +50,16 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
     return data[activeIndex || 0];
   }, [data, swiperInstance]);
   return (
-    <Stack {...restStackProps}>
+    <Stack color={"primary.dark"} spacing={3} {...restStackProps}>
       {prefix && (
-        <MotionTypography {...PrefixTypographyProps}>{prefix}</MotionTypography>
+        <MotionTypography variant={"body1"} {...PrefixTypographyProps}>
+          {prefix}
+        </MotionTypography>
       )}
       <MotionTypography
         key={title}
+        variant={"h4"}
+        fontWeight={"inherit"}
         animate={{
           opacity: 1,
           y: 0,
@@ -64,34 +72,45 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           opacity: 0,
           y: "150%",
         }}
-        sx={{
-          opacity: 0,
-          transform: "translateY(150%)",
-        }}
         {...TitleTypographyProps}
       >
         {title}
       </MotionTypography>
-      <MotionTypography {...DescriptionTypographyProps}>
+      <MotionTypography variant={"body1"} {...DescriptionTypographyProps}>
         {description}
       </MotionTypography>
-      <MLink href={"/"} {...ButtonProps}>
+      <AnimatedButton
+        href={"/"}
+        variant={"outlined"}
+        color={"primary"}
+        {...ButtonProps}
+      >
         {btnText}
-      </MLink>
-      <Stack direction={"row"} {...navigationWrapperProps}>
+      </AnimatedButton>
+      <Stack
+        direction={"row"}
+        {...navigationWrapperProps}
+        spacing={{
+          xs: 3,
+          sm: 2,
+          color: "inherit",
+        }}
+      >
         <IconButton
+          className={"border"}
           onClick={() => {
             swiperInstance?.slidePrev();
           }}
         >
-          {"<"}
+          <NavigateBeforeRounded />
         </IconButton>
         <IconButton
+          className={"border"}
           onClick={() => {
             swiperInstance?.slideNext();
           }}
         >
-          {">"}
+          <NavigateNextRounded />
         </IconButton>
       </Stack>
     </Stack>

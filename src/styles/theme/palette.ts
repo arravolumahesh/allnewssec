@@ -149,8 +149,10 @@ export const PaletteTheme = (
     },
     get text(): PaletteOptions["text"] {
       return {
-        primary: isLight ? this?.grey?.["900"] : "#d7dcec",
-        secondary: isLight ? this?.grey?.["A400"] : "#AEAEAE",
+        primary: isLight ? this?.common?.white : "#d7dcec",
+        secondary: isLight
+          ? (this?.primary as SimplePaletteColorOptions).dark
+          : "#AEAEAE",
         disabled: isLight ? this?.grey?.["500"] : "#ffffff50",
         body: isLight ? this?.grey?.["900"] : "#d7dcec",
         subtitle: isLight ? this?.grey?.["800"] : "#AEAEAE",

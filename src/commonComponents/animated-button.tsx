@@ -3,7 +3,7 @@ import { SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
 import { MotionButton, MotionButtonProps } from "./motion-components";
 
-interface AnimatedButtonProps extends MotionButtonProps {}
+export interface AnimatedButtonProps extends MotionButtonProps {}
 
 const AnimatedButton = (props: AnimatedButtonProps) => {
   const { sx, ...restProps } = props;
@@ -17,6 +17,7 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
           position: "absolute",
           top: 0,
           left: 0,
+          borderColor: "currentColor",
           borderTop: `1px solid ${theme.palette.common.white}`,
           borderRight: `1px solid ${theme.palette.common.white}`,
           width: "100%",

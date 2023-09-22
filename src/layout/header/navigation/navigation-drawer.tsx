@@ -31,12 +31,12 @@ export interface NavigationDrawerProps
 }
 
 const NavigationDrawer = (props: NavigationDrawerProps) => {
-  const { sx, routes, onToggle, ...restIconButtonProps } = props;
+    const { routes, onToggle, ...restIconButtonProps } = props;
   const [isDrawer, setIsDrawer] = useState(false);
   return (
     <>
       <IconButton
-        sx={[...sxArrayUtil(sx)]}
+        className={"border"}
         onClick={() => {
           if (isDrawer) {
             setIsDrawer(false);
