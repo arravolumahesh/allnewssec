@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react"
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper"
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard"
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y ,FreeMode} from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -21,6 +21,7 @@ import SlideButtons from "./swiper/swiperButton"
 import InitiativeCard from "./swiper/initiativeCard"
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import SvgIconArrow from "./icons/arrowIcon"
 
 
 
@@ -41,8 +42,7 @@ const CompanyInitiatives = (props:props) => {
    const matches = useMediaQuery(theme.breakpoints.down('sm'));  
    return (
     <Stack component={'div'} sx={{
-        pb:12,
-        background:'#fff',
+        py:{xs:5,lg:12},        
         '& .swiper':{
           width:'100%'
         }
@@ -52,26 +52,26 @@ const CompanyInitiatives = (props:props) => {
         <Swiper
           // install Swiper modules
             slidesPerView={matches ? 'auto' : 3}
-            spaceBetween={theme.spacing(3)}
+            spaceBetween={matches ? theme.spacing(2) : theme.spacing(3)}
+            freeMode={true}
             pagination={false}
             navigation={{
               enabled:true
             }}
-            modules={[Pagination,Navigation]}
-            onSlideChange={(swiper)=>{          
+            modules={[Pagination,Navigation,FreeMode]}
+            onSlideChange={(swiper)=>{
               setDisabledPrev(swiper.isBeginning)
               setDisabledNext(swiper.isEnd)
             }}       
         >
-          {Array(12).fill('da').map((item,index)=>(
+          {initiativedata.initiative.map((item,index)=>(
             <StyledSwiperSlide sx={{
-
               [theme.breakpoints.down("md")]:{
                   width:'300px'
               }
             }}  key={index}>        
             
-            <InitiativeCard />
+            <InitiativeCard data={item} {...{matches}} />
 
           </StyledSwiperSlide>
           ))}    
@@ -83,20 +83,23 @@ const CompanyInitiatives = (props:props) => {
               display: 'flex',
               flexDirection: 'row',
               justifyContent:'space-between',
+              alignItems:'center',
+              pb:{xs:2,md:7}
             }}
           >
 
             <Box>
-            <MLink href={""}>Bajaj Electricals Limited</MLink>
+            <MLink href={""} variant="companylink" disableRipple endIcon={<SvgIconArrow/>}>{initiativedata.companyName}</MLink>
             </Box>
 
-            <Box>
-              <SlideButtons 
-                disablePrev={disablePrev} 
-                disableNext={disableNext} 
-              />
-            </Box>
-
+            {!matches && 
+              <Box>
+                <SlideButtons 
+                  disablePrev={disablePrev} 
+                  disableNext={disableNext} 
+                />
+              </Box>
+            }
           </Stack>
         </Swiper>
       }    

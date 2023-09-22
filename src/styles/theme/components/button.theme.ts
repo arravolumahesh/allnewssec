@@ -13,6 +13,7 @@ import {helvetica} from "app/font";
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     menulink: true;
+    companylink: true;
   }
 }
 
@@ -144,6 +145,46 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
         }
       }
      }
-    }
+    },
+    {
+     props:{
+      variant:'companylink',
+     },
+     style:({ theme })=>{
+      return {
+        [theme.breakpoints.up('md')]: {
+          // Set font size for above md screen
+          fontSize: '32px',
+        },
+        [theme.breakpoints.up('xs')]: {          
+          fontSize: '24px',
+        },
+        [theme.breakpoints.down('md')]: {          
+          width:300,
+        },
+        // whiteSpace:'break-spaces',
+        width:'max-content',
+        color:theme.palette.primary.dark,
+        padding:0,
+        borderBottom:'2px solid',
+        borderColor:'transparent',
+        textTransform:'uppercase',
+        position:'relative',
+        "&.MuiButton-menulinkSecondary, &:hover ":{
+          color:theme.palette.primary.dark,
+          borderColor:theme.palette.primary.dark,
+          background:'none',
+        },
+        "& .MuiButton-endIcon":{
+          position:'absolute',
+          left:'100%',
+          '& svg':{              
+            width:36,
+            height:36,
+          }
+        }
+      }
+     }
+    },
   ]
 };
