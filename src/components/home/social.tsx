@@ -38,7 +38,6 @@ const Social = () => {
         >
           <MotionTypography
             variant='h1'
-            component='h3'
             fontWeight={400}
             color={"white"}
             width={"min-content"}
@@ -69,13 +68,12 @@ const Social = () => {
         {!matches && (
           <Grid2
             sm_md={8}
-            // display={{ xs: "none", sm_md: "flex" }}
+            display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
           >
             <MotionTypography
               variant='h1'
-              component='h3'
               fontWeight={400}
               color={"white"}
               width={"min-content"}

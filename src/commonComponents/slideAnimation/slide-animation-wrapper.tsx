@@ -73,7 +73,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
-        maxWidth={{ xs: 1, md: 350, lg: 448 }}
+        maxWidth={{ xs: 1, md: 350, lg: 536 }}
         rowGap={{ xs: 2, md: 3 }}
       >
         {prefix && (
