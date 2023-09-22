@@ -12,6 +12,7 @@ import {
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import Image from "next/image";
+import CommonBreadcrumb from "@/commonComponents/breadcrumb";
 
 const IntermediateBanner = () => {
   const [textTransition, setTextTransition] = useState(false);
@@ -34,24 +35,7 @@ const IntermediateBanner = () => {
     },
   };
 
-  const descTransition: MotionTypographyProps = {
-    initial: {
-      y: "-130%",
-      opacity: 0,
-    },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-    },
-    transition: {
-      duration: 0.5,
-      delay: 0.8,
-    },
-    viewport: {
-      once: true,
-    },
-  };
-
+ 
   const bannerBoxTransition: MotionBoxProps = {
     initial: {
       x: "-100%",
@@ -73,6 +57,10 @@ const IntermediateBanner = () => {
         background: "#fff",
         position: "relative",
         overflow: "hidden",
+        '& img':{
+          width:'100%',
+          height:'100%'
+        }
       }}
       component={"section"}
       ref={mainRef}
@@ -158,9 +146,13 @@ const IntermediateBanner = () => {
         }}
         sx={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
         }}
       >
+        <CommonBreadcrumb data={[{
+          'title':'All Initiatives',
+          'path':'/',
+        }]} />
         <MotionTypography
           variant="h3"
           color="white"

@@ -41,7 +41,7 @@ const IntermediateCount = () => {
                 }}
                 sx={{
                     pt: 5,
-                    pb: 12,
+                    pb: 0,
                     backgroundColor: 'white'
                 }} >
                 <Box
