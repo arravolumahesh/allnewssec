@@ -122,9 +122,11 @@ export default SlideAnimationWrapper;
 const boxTransition: MotionBoxProps = {
   initial: {
     x: "-107%",
+    opacity: 0,
   },
   whileInView: {
     x: 0,
+    opacity: 1,
   },
   transition: {
     duration: 0.8,
@@ -139,9 +141,11 @@ const boxTransition: MotionBoxProps = {
 const imageTransition: MotionSvgProps = {
   initial: {
     x: "-440%",
+    opacity: 0,
   },
   whileInView: {
     x: 0,
+    opacity: 1,
   },
   transition: {
     duration: 0.5,
