@@ -25,7 +25,12 @@ export const SmallTitleCard: EnhancedSwiperSlideData<SmallTitleCardProps> =
       ...restProps
     } = props;
     return (
-      <Link href={href}>
+      <Link
+        href={href}
+        style={{
+          textDecoration: "none",
+        }}
+      >
         <MotionCard
           ref={ref}
           sx={{
