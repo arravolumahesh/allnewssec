@@ -22,6 +22,7 @@ import twitter from "./images/twitter.svg";
 import yt from "./images/yt.svg";
 import insta from "./images/insta.svg";
 import linkd from "./images/linkd.svg";
+import Arrow from "@/commonComponents/arrow";
 
 const Social = () => {
   const theme = useTheme();
@@ -75,6 +76,7 @@ const Social = () => {
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
+            position={"relative"}
           >
             <MotionTypography
               variant='h1'
@@ -84,6 +86,10 @@ const Social = () => {
             >
               JOIN THE CONVERSATION
             </MotionTypography>
+            <Arrow
+              width={164}
+              style={{ position: "absolute", right: "-27%", bottom: "-177px" }}
+            />
           </Grid2>
         )}
         {!matches && (
