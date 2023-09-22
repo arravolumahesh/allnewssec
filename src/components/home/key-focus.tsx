@@ -1,6 +1,7 @@
 "use client";
 import {
   MotionImageProps,
+  MotionSvgProps,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-elements";
@@ -19,7 +20,7 @@ import Arrow from "@cc/arrow";
 
 const KeyFocus = () => {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <SectionWrapper
       pt={{ xs: 7, md: 6 }}
@@ -36,7 +37,7 @@ const KeyFocus = () => {
         columnGap={4}
         pl={{ xs: 0, md: "5.5%" }}
       >
-        <Arrow />
+        {matches && <Arrow width={126} height={381} {...imageTransition} />}
         <Stack
           component={motion.div}
           variants={staggerDiv}
@@ -133,7 +134,7 @@ const KeyFocus = () => {
 
 export default KeyFocus;
 
-const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
+const imageTransition: MotionSvgProps = {
   initial: {
     x: "-200%",
   },
