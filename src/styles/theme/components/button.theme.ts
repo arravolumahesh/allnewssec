@@ -156,13 +156,13 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
           // Set font size for above md screen
           fontSize: '32px',
         },
-        [theme.breakpoints.up('xs')]: {          
-          fontSize: '24px',
-        },
         [theme.breakpoints.down('md')]: {          
-          width:300,
+          fontSize: '24px',
+          display:'inline',
+          // paddingRight:theme.spacing(6),
         },
-        // whiteSpace:'break-spaces',
+        whiteSpace:'break-spaces',
+        display:'inline-block',
         width:'max-content',
         color:theme.palette.primary.dark,
         padding:0,
@@ -177,7 +177,15 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
         },
         "& .MuiButton-endIcon":{
           position:'absolute',
-          left:'100%',
+          top:0,
+          bottom:0,
+          margin:'auto',
+          right:'-40px',
+          display:'flex',
+          alignItems:'center',
+          [theme.breakpoints.down('md')]: {
+            top:0
+          },          
           '& svg':{              
             width:36,
             height:36,
