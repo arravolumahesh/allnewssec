@@ -13,80 +13,6 @@ import { PlayCircle } from "@mui/icons-material";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 
 const AboveProfits = () => {
-  const [textTransition, setTextTransition] = useState(false);
-
-  const headerTransition: MotionTypographyProps = {
-    initial: {
-      y: "30%",
-      opacity: 0,
-    },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-    },
-    transition: {
-      duration: 0.8,
-    },
-    viewport: {
-      once: true,
-    },
-  };
-
-  const videoBannerTransition: MotionBoxProps = {
-    initial: {
-      x: "-107%",
-      opacity: 0,
-    },
-    whileInView: {
-      x: 0,
-      opacity: 1,
-    },
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-    viewport: {
-      once: true,
-    },
-    // onTransitionEnd: () => setTextTransition(true),
-  };
-  const descTransition: MotionTypographyProps = {
-    initial: {
-      y: "-130%",
-      opacity: 0,
-    },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-    },
-    transition: {
-      duration: 0.5,
-      delay: 0.8,
-    },
-    viewport: {
-      once: true,
-    },
-  };
-  {
-    /* <Box
-    sx={{
-      position: "absolute",
-      top: 0,
-      left: "-100%",
-      animation: "slideIn 5s infinite linear",
-      "@keyframes slideIn": {
-        "0%": {
-          left: "-100%",
-        },
-        "100%": {
-          left: "100%",
-        },
-      },
-    }}
-  >
-    <Image src={dcd} alt='' />
-  </Box> */
-  }
   return (
     <SectionWrapper
       SectionProps={{
@@ -107,14 +33,8 @@ const AboveProfits = () => {
               "url(http://localhost:3000/Group%20427321804.svg) repeat-x", //space
             backgroundSize: "contain",
             transform: "translate3d(0, 0, 0)",
-            animation: "scroll 5s infinite linear",
+            animation: "scroll 15s infinite linear",
             "@keyframes scroll": {
-              // "0%": {
-              //   right: 0,
-              // },
-              // "100%": {
-              //   right: "-100%",
-              // },
               "100%": {
                 WebkitTransform: "translateX(50%)",
               },
@@ -179,3 +99,56 @@ const AboveProfits = () => {
 };
 
 export default AboveProfits;
+
+const headerTransition: MotionTypographyProps = {
+  initial: {
+    y: "30%",
+    opacity: 0,
+  },
+  whileInView: {
+    y: 0,
+    opacity: 1,
+  },
+  transition: {
+    duration: 0.8,
+  },
+  viewport: {
+    once: true,
+  },
+};
+
+const videoBannerTransition: MotionBoxProps = {
+  initial: {
+    x: "-107%",
+    opacity: 0,
+  },
+  whileInView: {
+    x: 0,
+    opacity: 1,
+  },
+  transition: {
+    duration: 0.8,
+    ease: "easeOut",
+  },
+  viewport: {
+    once: true,
+  },
+};
+
+const descTransition: MotionTypographyProps = {
+  initial: {
+    y: "-130%",
+    opacity: 0,
+  },
+  whileInView: {
+    y: 0,
+    opacity: 1,
+  },
+  transition: {
+    duration: 0.5,
+    delay: 0.8,
+  },
+  viewport: {
+    once: true,
+  },
+};
