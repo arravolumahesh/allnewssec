@@ -9,7 +9,9 @@ const Partners = () => {
     <SectionWrapper
       py={{ xs: 7, md: 12 }}
       px={0}
-      bgcolor={"common.white"}
+      SectionProps={{
+        bgcolor: "#e6e6e6",
+      }}
       overflow={"hidden"}
     >
       <MotionTypography

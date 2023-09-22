@@ -1,16 +1,17 @@
 import { Box, Stack, SxProps } from "@mui/material";
 import React from "react";
-import Arrow from "./Group 427321826.svg";
 import {
   MotionBox,
   MotionBoxProps,
   MotionImage,
   MotionImageProps,
+  MotionSvgProps,
   MotionTypography,
   MotionTypographyProps,
 } from "../motion-elements";
 import AnimatedButton from "../animated-button";
 import { MotionProps, motion } from "framer-motion";
+import Arrow from "../arrow";
 
 type SlideAnimationWrapper = {
   prefix?: string;
@@ -45,7 +46,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         <MotionBox
           sx={{
             position: "relative",
-            width: { xs: "90%", md: 320, lg: 441, xl: 644 /* large: 644 */ },
+            width: { xs: "91%", md: 320, lg: 441, xl: 644 /* large: 644 */ },
             height: { xs: "auto", md: 254, lg: 315, xl: 443 /* large: 443 */ },
             aspectRatio: 1.25,
             clipPath: "polygon(0% 0%, 84% 0%, 100% 50%, 84% 100%, 0% 100%)",
@@ -57,18 +58,13 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         <Box
           sx={{
             position: "relative",
-            ml: { xs: "-10%", md: "-43px", lg: "-62px", xl: "-85px" },
+            ml: { xs: "-11%", md: "-45px", lg: "-65px", xl: "-95px" },
             width: { xs: "20%", md: 83, lg: 120, xl: 171 /* large: 171 */ },
             height: { xs: "auto", md: 254, lg: 315, xl: 443 /* large: 443 */ },
             aspectRatio: 0.32,
           }}
         >
-          <MotionImage
-            src={Arrow}
-            alt='Bajaj Beyond Logo'
-            fill
-            {...imageTransition}
-          />
+          <Arrow width={"100%"} height={"100%"} {...imageTransition} />
         </Box>
       </Stack>
       <Stack
@@ -142,9 +138,9 @@ const boxTransition: MotionBoxProps = {
   },
   // onTransitionEnd: () => setTextTransition(true),
 };
-const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
+const imageTransition: MotionSvgProps = {
   initial: {
-    x: "-460%",
+    x: "-440%",
   },
   whileInView: {
     x: 0,

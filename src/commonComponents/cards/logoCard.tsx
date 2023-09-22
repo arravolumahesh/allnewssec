@@ -23,7 +23,7 @@ export const LogoCard = (props: LogoCardProps) => {
         // backgroundSize: "contain",
         // backgroundRepeat: "no-repeat",
       }}
-      elevation={1}
+      elevation={0}
     >
       <CardMedia
         sx={{

@@ -11,14 +11,19 @@ import React, { ReactNode, ReactComponentElement, ReactElement } from "react";
 
 const Social = () => {
   return (
-    <SectionWrapper py={{ xs: 7, md: 12 }} bgcolor={"primary.main"}>
+    <SectionWrapper
+      py={{ xs: 7, md: 12 }}
+      SectionProps={{
+        bgcolor: "primary.main",
+      }}
+    >
       <Grid2 container>
         <Grid2>
           <SocialCard
             img={
               "https://s3-alpha-sig.figma.com/img/fc1b/dfad/c4c32a16e73b950d463e2853f59a3c99?Expires=1696204800&Signature=D8MXXMWuSFR9OCqGAj1QCFA0UZVdYFV3HhNSPMEky9FhXNz5B6pzJGHbFlPHR0~U-~~FL2Oq8rck2CkGpsXBwTR0kqODKbiX2V0Sxcg37HDX2iGHiid6VkFKvG4k6L5ecOrgpZQWM9jvSnifCF2vx75GpddF2Dj6nFktZAHbHpmEg0QyiMM2uYgECT1RO1VMKqqHw4qgkqXKsYbzVcGOiqyT0he92U6qATaeZitMV-O4UQwXBeBz8uAosTi6n6B5bSutyf6aLeTQtlNh7Y~4snMgAW1Tm0woteIFUVOANIioooOfCdRUGQ-E~KmRuf0FvUpR~Qt6NOBrVj3pVMwCbQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
             }
-            SocialLogo={Facebook}
+            Icon={Facebook}
             sx={{
               backgroundPosition: "right top",
               backgroundSize: "270%",
@@ -34,10 +39,10 @@ export default Social;
 
 interface SocialCardProps extends Omit<MotionCardProps, "children"> {
   img: string;
-  SocialLogo: SvgIconComponent;
+  Icon: SvgIconComponent;
 }
 const SocialCard = (props: SocialCardProps) => {
-  const { img, SocialLogo, sx } = props;
+  const { img, Icon, sx } = props;
   return (
     <MotionCard
       sx={{
@@ -60,7 +65,7 @@ const SocialCard = (props: SocialCardProps) => {
           pb: "16px !important",
         }}
       >
-        <SocialLogo sx={{ color: "white" }} fontSize='large' />
+        <Icon sx={{ color: "white" }} fontSize='large' />
       </CardContent>
     </MotionCard>
   );
