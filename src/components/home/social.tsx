@@ -39,6 +39,7 @@ const Social = () => {
         <Stack
           // display={{ xs: "block", sm_md: "none" }}
           mb={"38px"}
+          position={"relative"}
         >
           <MotionTypography
             variant='h1'
@@ -48,6 +49,11 @@ const Social = () => {
           >
             JOIN THE CONVERSATION
           </MotionTypography>
+          <Arrow
+            width={62}
+            height={172}
+            style={{ position: "absolute", right: 0, bottom: "-70px" }}
+          />
         </Stack>
       )}
       <Grid2
@@ -86,10 +92,16 @@ const Social = () => {
             >
               JOIN THE CONVERSATION
             </MotionTypography>
-            <Arrow
-              width={164}
-              style={{ position: "absolute", right: "-27%", bottom: "-177px" }}
-            />
+            <Box
+              width={{ xs: "10vw", lg: 164 }}
+              sx={{
+                position: "absolute",
+                right: { xs: 0, lg: "-11.5vw" },
+                bottom: { xs: 0, lg: "-120px" },
+              }}
+            >
+              <Arrow width={"100%"} height={"100%"} />
+            </Box>
           </Grid2>
         )}
         {!matches && (
