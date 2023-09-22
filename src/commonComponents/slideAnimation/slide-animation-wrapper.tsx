@@ -29,7 +29,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
     prefix,
     title,
     subtitle,
-    btnText,
+    btnText = "Learn More",
     textColor,
     titleTypographyprops,
     btnProps,
@@ -112,7 +112,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           }}
           variants={staggerChildren}
         >
-          {btnText ? btnText : "Learn More"}
+          {btnText}
         </AnimatedButton>
       </Stack>
     </>
