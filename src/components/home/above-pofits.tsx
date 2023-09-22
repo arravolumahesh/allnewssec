@@ -34,7 +34,7 @@ const AboveProfits = () => {
 
   const videoBannerTransition: MotionBoxProps = {
     initial: {
-      x: "-118%",
+      x: "-107%",
       opacity: 0,
     },
     whileInView: {

@@ -28,8 +28,8 @@ const KeyFocus = () => {
       rowGap={{ xs: 6, md: 2 }}
       SectionProps={{
         bgcolor: "#e6e6e6",
+        overflow: "hidden",
       }}
-      overflow={"hidden"}
     >
       <Stack
         direction={"row"}
@@ -137,10 +137,12 @@ export default KeyFocus;
 
 const imageTransition: MotionSvgProps = {
   initial: {
-    x: "-190%",
+    x: "-180%",
+    opacity: 0,
   },
   whileInView: {
     x: 0,
+    opacity: 1,
     transition: {
       duration: 0.4,
       ease: "easeOut",
