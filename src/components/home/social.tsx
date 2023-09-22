@@ -75,7 +75,6 @@ const Social = () => {
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
-            sx={gridHover}
           >
             <MotionTypography
               variant='h1'
