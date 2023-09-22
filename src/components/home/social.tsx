@@ -2,12 +2,12 @@
 import {
   MotionCard,
   MotionCardProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Facebook, SvgIconComponent } from "@mui/icons-material";
-import { Card, CardContent, SvgIconOwnProps } from "@mui/material";
+import { CardContent } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import React, { ReactNode, ReactComponentElement, ReactElement } from "react";
+import React from "react";
 
 const Social = () => {
   return (

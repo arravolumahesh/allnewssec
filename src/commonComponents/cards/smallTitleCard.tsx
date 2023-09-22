@@ -1,14 +1,14 @@
 import { CardContent, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
-import { EnhancedSwiperSlideData } from "@cc/enhanced-swiper";
-import { MotionCard, MotionCardProps } from "@cc/motion-elements";
+import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
+import { MotionCard, MotionCardProps } from "@cc/motion-components";
 
 interface SmallTitleCardProps extends Omit<MotionCardProps, "children"> {
   img: string;
   title: string;
 }
 
-export const SmallTitleCard: EnhancedSwiperSlideData<SmallTitleCardProps> =
+export const SmallTitleCard: EnhancedSwiperSlideComponent<SmallTitleCardProps> =
   forwardRef((props, ref) => {
     const {
       img,
@@ -43,7 +43,7 @@ export const SmallTitleCard: EnhancedSwiperSlideData<SmallTitleCardProps> =
             pb: "16px !important",
           }}
         >
-          <Typography variant='h5' fontWeight={400} color={"white"}>
+          <Typography variant="h5" fontWeight={400} color={"white"}>
             {title}
           </Typography>
         </CardContent>

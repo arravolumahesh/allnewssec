@@ -1,7 +1,7 @@
 "use client";
 import { SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
-import { MotionButton, MotionButtonProps } from "./motion-elements";
+import { MotionButton, MotionButtonProps } from "./motion-components";
 
 interface AnimatedButtonProps extends MotionButtonProps {}
 

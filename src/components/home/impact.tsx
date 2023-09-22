@@ -3,7 +3,7 @@ import {
   MotionImage,
   MotionTypography,
   MotionVariantProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import React, { Fragment } from "react";

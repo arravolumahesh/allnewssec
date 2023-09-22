@@ -33,7 +33,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         </Stack>
       </Stack>
     );
-  }
+  },
 );
 
 export default SectionWrapper;

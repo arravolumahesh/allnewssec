@@ -6,8 +6,8 @@ import {
   Typography,
 } from "@mui/material";
 import React, { forwardRef } from "react";
-import { EnhancedSwiperSlideData } from "@cc/enhanced-swiper";
-import { MotionStack, MotionStackProps } from "@cc/motion-elements";
+import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
+import { MotionStack, MotionStackProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 
 export interface StorySlideProps extends Omit<MotionStackProps, "children"> {
@@ -20,7 +20,7 @@ export interface StorySlideProps extends Omit<MotionStackProps, "children"> {
   };
 }
 
-const StorySlide: EnhancedSwiperSlideData<StorySlideProps> = forwardRef(
+const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
   (props, ref) => {
     const { data, ...restCardProps } = props;
     const { bgImage, company, title, location, description } = data;

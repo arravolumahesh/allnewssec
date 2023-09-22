@@ -1,56 +1,54 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { ComponentProps, ComponentType, ReactNode } from "react";
 import "../../node_modules/swiper/swiper-bundle.min.css";
-import { styled } from "@mui/material/styles";
-import { Stack } from "@mui/material";
-import { SetOptional } from "type-fest";
+import { Stack, StackProps } from "@mui/material";
+import {
+  MaterialSwiper,
+  MaterialSwiperProps,
+  MaterialSwiperSlide,
+  MaterialSwiperSlideProps,
+} from "@cc/material-components";
 
 export type SlideData = {
-  isActive: boolean;
-  isPrev: boolean;
-  isNext: boolean;
-  isVisible: boolean;
-  index: number;
+  isActive?: boolean;
+  isPrev?: boolean;
+  isNext?: boolean;
+  isVisible?: boolean;
+  index?: number;
 };
 
 export interface EnhancedSwiperProps<
   T extends ComponentType<any> = ComponentType<any>,
   P extends ComponentProps<T> = ComponentProps<T>,
-  PS = P extends SlideData
-      ? SetOptional<P, "index" | "isActive" | "isPrev" | "isNext" | "isVisible">
-    : P,
-> extends ComponentProps<typeof MaterialSwiper> {
+  PS = P extends SlideData ? P & SlideData : P,
+> extends MaterialSwiperProps {
   data: PS[];
   passSlideState?: boolean;
   SlideWrapperProps?:
-    | ComponentProps<typeof MaterialSwiperSlide>
-    | ((index: number) => ComponentProps<typeof MaterialSwiperSlide>);
+    | MaterialSwiperSlideProps
+    | ((index: number) => MaterialSwiperSlideProps);
   SlideComponentProps?: Partial<PS> | ((index: number) => Partial<PS>);
   SlideComponent: ComponentType<P & SlideData>;
   Slots?: {
     ContainerStartChildren?: ReactNode;
-    ContainerStartProps?: ComponentProps<typeof Stack>;
+    ContainerStartProps?: StackProps;
     ContainerEndChildren?: ReactNode;
-    ContainerEndProps?: ComponentProps<typeof Stack>;
+    ContainerEndProps?: StackProps;
     WrapperStartChildren?: ReactNode;
-    WrapperEndProps?: ComponentProps<typeof Stack>;
+    WrapperEndProps?: StackProps;
     WrapperEndChildren?: ReactNode;
-    WrapperStartProps?: ComponentProps<typeof Stack>;
+    WrapperStartProps?: StackProps;
   };
 }
 
-export type EnhancedSwiperSlideData<T> = EnhancedSwiperProps<
+export type EnhancedSwiperSlideComponent<T> = EnhancedSwiperProps<
   any,
   T
 >["SlideComponent"];
 
-export const MaterialSwiper = styled(Swiper)(({ theme }) => {
-  return theme.unstable_sx({});
-});
-export const MaterialSwiperSlide = styled(SwiperSlide)(({ theme }) => {
-  return theme.unstable_sx({});
-});
+export type EnhancedSwiperSlideData<T> = ComponentProps<
+  EnhancedSwiperSlideComponent<T>
+>;
 
 const EnhancedSwiper = <
   T extends ComponentType<any>,
@@ -64,9 +62,19 @@ const EnhancedSwiper = <
     SlideComponent,
     SlideComponentProps,
     SlideWrapperProps,
-    Slots,
+    Slots = {},
     ...swiperProps
   } = props;
+  const {
+    ContainerStartChildren,
+    ContainerStartProps,
+    ContainerEndChildren,
+    ContainerEndProps,
+    WrapperStartChildren,
+    WrapperStartProps,
+    WrapperEndChildren,
+    WrapperEndProps,
+  } = Slots;
   return (
     <MaterialSwiper {...swiperProps}>
       {data.map((item, idx) => {
@@ -91,44 +99,26 @@ const EnhancedSwiper = <
           </MaterialSwiperSlide>
         );
       })}
-      {Slots &&
-        Object.keys(Slots).length &&
-        (() => {
-          const {
-            ContainerStartChildren,
-            ContainerStartProps,
-            ContainerEndChildren,
-            ContainerEndProps,
-            WrapperStartChildren,
-            WrapperStartProps,
-            WrapperEndChildren,
-            WrapperEndProps,
-          } = Slots;
-          return (
-            <>
-              {ContainerStartChildren && (
-                <Stack slot="container-start" {...ContainerStartProps}>
-                  {ContainerStartChildren}
-                </Stack>
-              )}
-              {ContainerEndChildren && (
-                <Stack slot="container-end" {...ContainerEndProps}>
-                  {ContainerEndChildren}
-                </Stack>
-              )}
-              {WrapperStartChildren && (
-                <Stack slot="wrapper-start" {...WrapperStartProps}>
-                  {WrapperStartChildren}
-                </Stack>
-              )}
-              {WrapperEndChildren && (
-                <Stack slot="wrapper-end" {...WrapperEndProps}>
-                  {WrapperEndChildren}
-                </Stack>
-              )}
-            </>
-          );
-        })()}
+      {ContainerStartChildren && (
+        <Stack slot="container-start" {...ContainerStartProps}>
+          {ContainerStartChildren}
+        </Stack>
+      )}
+      {ContainerEndChildren && (
+        <Stack slot="container-end" {...ContainerEndProps}>
+          {ContainerEndChildren}
+        </Stack>
+      )}
+      {WrapperStartChildren && (
+        <Stack slot="wrapper-start" {...WrapperStartProps}>
+          {WrapperStartChildren}
+        </Stack>
+      )}
+      {WrapperEndChildren && (
+        <Stack slot="wrapper-end" {...WrapperEndProps}>
+          {WrapperEndChildren}
+        </Stack>
+      )}
     </MaterialSwiper>
   );
 };

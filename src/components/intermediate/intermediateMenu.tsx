@@ -1,41 +1,45 @@
-"use client"
-import SectionWrapper from "@/commonComponents/section-wrapper"
+"use client";
+import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Box } from "@mui/material";
-import { MotionButton } from "@cc/motion-elements";
+import { MotionButton } from "@cc/motion-components";
 
 const IntermediateMenu = () => {
-    return (
-        <>
-            <SectionWrapper
-                SectionProps={{
-                    sx:{
-                    borderBottom: '1px solid var(--Stroke, #EAEAEA)',
-                    background: '#F8F8F8',                    
-                }
-                }}
-                sx={{py:0}}
-            >
-                <Box
-                sx={{
-                    display:'flex',
-                    justifyContent:{xs:'flex-start',lg:'space-around'},
-                    overflow:'auto',
-                    gap:{xs:5,lg:0}
-                }}
-                >
-                    {skillMenu.map((item,index)=> {
-                        return(
-                            <MotionButton variant="menulink" color={index === 1 ? "secondary" : "primary"} href={item.url} key={index}>
-                                {item.title}
-                            </MotionButton>
-                        )
-                    })}
-                </Box>
-                
-            </SectionWrapper>
-        </>
-    )
-}
+  return (
+    <>
+      <SectionWrapper
+        SectionProps={{
+          sx: {
+            borderBottom: "1px solid var(--Stroke, #EAEAEA)",
+            background: "#F8F8F8",
+          },
+        }}
+        sx={{ py: 0 }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: { xs: "flex-start", lg: "space-around" },
+            overflow: "auto",
+            gap: { xs: 5, lg: 0 },
+          }}
+        >
+          {skillMenu.map((item, index) => {
+            return (
+              <MotionButton
+                variant="menulink"
+                color={index === 1 ? "secondary" : "primary"}
+                href={item.url}
+                key={index}
+              >
+                {item.title}
+              </MotionButton>
+            );
+          })}
+        </Box>
+      </SectionWrapper>
+    </>
+  );
+};
 
 
 const skillMenu = [

@@ -8,7 +8,7 @@ import {
   MotionBoxProps,
   MotionTypography,
   MotionTypographyProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import { PlayCircle } from "@mui/icons-material";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 
@@ -126,8 +126,8 @@ const AboveProfits = () => {
     >
       <Stack textAlign={"center"} maxWidth={1051} m={"auto"}>
         <MotionTypography
-          variant='h3'
-          color='white'
+          variant="h3"
+          color="white"
           fontWeight={400}
           {...headerTransition}
         >
@@ -141,7 +141,7 @@ const AboveProfits = () => {
           zIndex={1}
           {...videoBannerTransition}
         >
-          <Image src={videoImage} alt='Video Thumbnail' fill />
+          <Image src={videoImage} alt="Video Thumbnail" fill />
           <IconButton
             sx={{
               position: "absolute",
@@ -161,8 +161,8 @@ const AboveProfits = () => {
           </IconButton>
         </MotionBox>
         <MotionTypography
-          variant='h6'
-          color='white'
+          variant="h6"
+          color="white"
           fontWeight={400}
           {...descTransition}
         >

@@ -1,5 +1,5 @@
 import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logoCard";
-import { MotionTypography } from "@/commonComponents/motion-elements";
+import { MotionTypography } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Stack } from "@mui/material";
 import React from "react";
@@ -13,7 +13,7 @@ const Partners = () => {
       overflow={"hidden"}
     >
       <MotionTypography
-        variant='h3'
+        variant="h3"
         fontWeight={400}
         color={"primary.dark"}
         textAlign={"center"}
@@ -51,7 +51,7 @@ const Partners = () => {
             },
           },
         }}
-        direction='row'
+        direction="row"
         justifyContent={"flex-end"}
         columnGap={{ xs: 2, md: 3 }}
         mt={{ xs: 5, md: 6 }}

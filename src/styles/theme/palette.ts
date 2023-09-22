@@ -158,7 +158,7 @@ export const PaletteTheme = (
       };
     },
     background: {
-      default: isLight ? "#fff" : "#121212",
+      default: isLight ? "#e6e6e6" : "#121212",
       paper: isLight ? "#405A76" : "#1e1e1e",
     },
     common: {

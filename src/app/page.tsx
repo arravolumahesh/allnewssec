@@ -4,6 +4,7 @@ import KeyFocus from "@/components/home/key-focus";
 import Impact from "@/components/home/impact";
 import Social from "@/components/home/social";
 import Partners from "@/components/home/partners";
+import KeyHighlights from "@/components/home/key-highlights";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <AboveProfits />
       <KeyFocus />
       <Impact />
+      <KeyHighlights />
       <Partners />
       <Social />
     </>

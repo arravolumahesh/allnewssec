@@ -9,7 +9,7 @@ import {
   MotionBoxProps,
   MotionTypography,
   MotionTypographyProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import Image from "next/image";
 

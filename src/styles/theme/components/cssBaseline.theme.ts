@@ -15,32 +15,32 @@ export const CssBaselineTheme: Components<
     styleOverrides: (theme: Theme) => {
         const {primary} = theme.palette;
         return theme.unstable_sx({
-            html: {
-                WebkitTapHighlightColor: 'transparent',
-                ...helvetica.style,
-            },
-            ':root': {
-                scrollBehavior: 'smooth',
-            },
-            '*, *::before, *::after': {
-                boxSizing: 'border-box',
-                margin: 0,
-                padding: 0,
-            },
-            '::-webkit-scrollbar': {
-                width: '8px',
-                background: 'transparent',
-            },
-            '::-webkit-scrollbar-thumb': {
-                borderRadius: '4px',
-                backgroundColor: primary.main,
-            },
-            '::-webkit-scrollbar-thumb:hover': {
-                background: primary.dark,
-            },
-            body: {
-                backgroundColor: theme.palette.background.paper,
-            },
+          html: {
+            WebkitTapHighlightColor: "transparent",
+            ...helvetica.style,
+          },
+          ":root": {
+            scrollBehavior: "smooth",
+          },
+          "*, *::before, *::after": {
+            boxSizing: "border-box",
+            margin: 0,
+            padding: 0,
+          },
+          "::-webkit-scrollbar": {
+            width: "8px",
+            background: "transparent",
+          },
+          "::-webkit-scrollbar-thumb": {
+            borderRadius: "4px",
+            backgroundColor: primary.main,
+          },
+          "::-webkit-scrollbar-thumb:hover": {
+            background: primary.dark,
+          },
+          body: {
+            backgroundColor: theme.palette.background.default,
+          },
         });
     },
     defaultProps: {

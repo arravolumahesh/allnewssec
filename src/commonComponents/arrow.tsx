@@ -1,4 +1,4 @@
-import { MotionSvg, MotionSvgProps } from "@cc/motion-elements";
+import { MotionSvg, MotionSvgProps } from "@cc/motion-components";
 
 const Arrow = (props: Omit<MotionSvgProps, "children">) => {
   const { style, ...restSvgProps } = props;

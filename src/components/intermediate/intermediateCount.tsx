@@ -1,31 +1,30 @@
-'use client'
+"use client";
 
 import {
   MotionTypography,
   MotionTypographyProps,
-} from "@/commonComponents/motion-elements";
-import SectionWrapper from "@/commonComponents/section-wrapper"
-import { Box, Grid, Typography } from "@mui/material"
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
+} from "@/commonComponents/motion-components";
+import SectionWrapper from "@/commonComponents/section-wrapper";
+import { Box, Grid } from "@mui/material";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
-const contAnimation:MotionTypographyProps = {
-    initial: {
-        y: "40%",
-        opacity: 0,
-      },
-      whileInView: {
-        y: 0,
-        opacity: 1,
-      },
-      transition: {
-        duration: 1,        
-      },
-      viewport: {
-        once: true,
-      },
-}
+const contAnimation: MotionTypographyProps = {
+  initial: {
+    y: "40%",
+    opacity: 0,
+  },
+  whileInView: {
+    y: 0,
+    opacity: 1,
+  },
+  transition: {
+    duration: 1,
+  },
+  viewport: {
+    once: true,
+  },
+};
 
 const IntermediateCount = () => {
     const invref = useRef(null);

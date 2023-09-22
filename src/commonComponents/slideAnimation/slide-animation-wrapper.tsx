@@ -8,9 +8,9 @@ import {
   MotionImageProps,
   MotionTypography,
   MotionTypographyProps,
-} from "../motion-elements";
+} from "../motion-components";
 import AnimatedButton from "../animated-button";
-import { MotionProps, motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 
 type SlideAnimationWrapper = {
   prefix?: string;

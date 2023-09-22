@@ -3,7 +3,7 @@ import {
   MotionImageProps,
   MotionTypography,
   MotionVariantProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
@@ -25,9 +25,6 @@ const KeyFocus = () => {
       pt={{ xs: 7, md: 6 }}
       pb={{ xs: 7, md: 12 }}
       rowGap={{ xs: 6, md: 2 }}
-      SectionProps={{
-        bgcolor: "#e6e6e6",
-      }}
       overflow={"hidden"}
     >
       <Stack
@@ -48,7 +45,7 @@ const KeyFocus = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant='h1'
+              variant="h1"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -56,7 +53,7 @@ const KeyFocus = () => {
               OUR KEY FOCUS AREAS
             </MotionTypography>
             <MotionTypography
-              variant='h5'
+              variant="h5"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -78,14 +75,14 @@ const KeyFocus = () => {
       >
         <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
-          subtitle='Providing skill-based education through various programs to strengthen
-          the foundation of a progressive nation.'
-          textColor='primary.dark'
+          subtitle="Providing skill-based education through various programs to strengthen
+          the foundation of a progressive nation."
+          textColor="primary.dark"
         >
-          <Image src={skillImage} alt='Skill Banner' fill />
+          <Image src={skillImage} alt="Skill Banner" fill />
         </SlideAnimationWrapper>
       </Stack>
-      <Stack direction='row' alignItems={"center"} width={"107%"}>
+      <Stack direction="row" alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
