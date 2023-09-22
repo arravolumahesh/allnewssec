@@ -30,7 +30,7 @@ const contAnimation:MotionTypographyProps = {
 const IntermediateCount = () => {
     const invref = useRef(null);
     const isInView = useInView(invref,{once:true});
-    console.log(invref,isInView)
+    
 
     return (
         <>
@@ -42,7 +42,7 @@ const IntermediateCount = () => {
                 }}
                 sx={{
                     pt: 5,
-                    pb: 12,
+                    pb: 0,
                     backgroundColor: 'white'
                 }} >
                 <Box
