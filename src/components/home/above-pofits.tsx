@@ -69,23 +69,23 @@ const AboveProfits = () => {
   };
   {
     /* <Box
-    sx={{
-      position: "absolute",
-      top: 0,
-      left: "-100%",
-      animation: "slideIn 5s infinite linear",
-      "@keyframes slideIn": {
-        "0%": {
+        sx={{
+          position: "absolute",
+          top: 0,
           left: "-100%",
-        },
-        "100%": {
-          left: "100%",
-        },
-      },
-    }}
-  >
-    <Image src={dcd} alt='' />
-  </Box> */
+          animation: "slideIn 5s infinite linear",
+          "@keyframes slideIn": {
+            "0%": {
+              left: "-100%",
+            },
+            "100%": {
+              left: "100%",
+            },
+          },
+        }}
+      >
+        <Image src={dcd} alt='' />
+      </Box> */
   }
   return (
     <SectionWrapper

@@ -3,18 +3,16 @@
 import { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
+  Button,
+  Divider,
   Stack,
   Typography,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Divider,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-import { SwipeCard } from "@/commonComponents/cards/swipeCard";
 
 import Image from "next/image";
 import { helvetica } from "@/app/font";

@@ -3,14 +3,12 @@ import React from "react";
 import {
   MotionBox,
   MotionBoxProps,
-  MotionImage,
-  MotionImageProps,
   MotionSvgProps,
   MotionTypography,
   MotionTypographyProps,
-} from "../motion-elements";
+} from "../motion-components";
 import AnimatedButton from "../animated-button";
-import { MotionProps, motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 import Arrow from "../arrow";
 
 type SlideAnimationWrapper = {
@@ -38,7 +36,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
   return (
     <>
       <Stack
-        direction='row'
+        direction="row"
         alignItems={"center"}
         //   justifyContent={"center"}
         width={{ xs: 1, md: "auto" }}
@@ -78,7 +76,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
       >
         {prefix && (
           <MotionTypography
-            variant='body1'
+            variant="body1"
             color={textColor}
             variants={staggerChildren}
           >
@@ -86,7 +84,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           </MotionTypography>
         )}
         <MotionTypography
-          variant='h3'
+          variant="h3"
           fontWeight={400}
           color={textColor}
           variants={staggerChildren}
@@ -95,16 +93,16 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           {title}
         </MotionTypography>
         <MotionTypography
-          variant='body1'
+          variant="body1"
           color={textColor}
           variants={staggerChildren}
         >
           {subtitle}
         </MotionTypography>
         <AnimatedButton
-          variant='outlined'
+          variant="outlined"
           href={"/"}
-          color='primary'
+          color="primary"
           sx={{
             width: { xs: "100%", md: "171px" },
             fontSize: { xs: "18px", md: "24px !important" },

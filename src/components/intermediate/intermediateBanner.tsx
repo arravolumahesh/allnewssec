@@ -35,7 +35,6 @@ const IntermediateBanner = () => {
     },
   };
 
- 
   const bannerBoxTransition: MotionBoxProps = {
     initial: {
       x: "-100%",
@@ -57,10 +56,10 @@ const IntermediateBanner = () => {
         background: "#fff",
         position: "relative",
         overflow: "hidden",
-        '& img':{
-          width:'100%',
-          height:'100%'
-        }
+        "& img": {
+          width: "100%",
+          height: "100%",
+        },
       }}
       component={"section"}
       ref={mainRef}
@@ -149,10 +148,14 @@ const IntermediateBanner = () => {
           justifyContent: "space-between",
         }}
       >
-        <CommonBreadcrumb data={[{
-          'title':'All Initiatives',
-          'path':'/',
-        }]} />
+        <CommonBreadcrumb
+          data={[
+            {
+              title: "All Initiatives",
+              path: "/",
+            },
+          ]}
+        />
         <MotionTypography
           variant="h3"
           color="white"

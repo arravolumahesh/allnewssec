@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @ToggleButtonGroupVariants
@@ -9,17 +9,17 @@ import {Components, Theme} from '@mui/material';
  * @see https://mui.com/material-ui/react-toggle-button
  */
 export const ToggleButtonGroupVariants: Components<
-    Omit<Theme, 'components'>
->['MuiToggleButtonGroup'] = {
-    styleOverrides: {
-        root: ({ownerState, theme}) => {
-            const {sx: style} = ownerState;
-            return theme.unstable_sx([
-                {
-                    height: '48px',
-                },
-                ...(Array.isArray(style) ? style : [style]),
-            ]);
+  Omit<Theme, "components">
+>["MuiToggleButtonGroup"] = {
+  styleOverrides: {
+    root: ({ ownerState, theme }) => {
+      const { sx: style } = ownerState;
+      return theme.unstable_sx([
+        {
+          height: "48px",
         },
+        ...(Array.isArray(style) ? style : [style]),
+      ]);
     },
+  },
 };

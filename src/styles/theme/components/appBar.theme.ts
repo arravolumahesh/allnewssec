@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @AppbarVariants
@@ -8,10 +8,12 @@ import {Components, Theme} from '@mui/material';
  *
  * @see https://mui.com/material-ui/react-app-bar
  */
-export const AppBarVariants: Components<Omit<Theme, 'components'>>['MuiAppBar'] = {
+export const AppBarVariants: Components<
+    Omit<Theme, "components">
+>["MuiAppBar"] = {
     defaultProps: {
-        position: 'sticky',
-        color: 'primary',
+        position: "sticky",
+        color: "primary",
     },
     styleOverrides: {
         root: ({theme}) => {

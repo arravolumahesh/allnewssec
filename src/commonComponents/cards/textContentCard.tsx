@@ -20,26 +20,26 @@ const data = {
 export const TextContentCard = (props: TextContentCardProps) => {
     const {} = props;
     return (
-        <Card
-            sx={{
-                width: "400px",
-                height: "338px",
-            }}
+      <Card
+        sx={{
+          width: "400px",
+          height: "338px",
+        }}
+      >
+        <CardMedia sx={{ height: "240px" }} image={data.img} />
+        <CardContent
+          sx={{
+            bgcolor: "#000",
+            px: 0,
+          }}
         >
-            <CardMedia sx={{height: "240px"}} image={data.img}/>
-            <CardContent
-                sx={{
-                    bgcolor: "#000",
-                    px: 0,
-                }}
-            >
-                <Typography variant='subtitle1' color={"#FFFFFF99"}>
-                    {data.title}
-                </Typography>
-                <Typography color={"#FFFFFFE5"} variant={"subtitle2"}>
-                    {data.description}
-                </Typography>
-            </CardContent>
-        </Card>
+          <Typography variant="subtitle1" color={"#FFFFFF99"}>
+            {data.title}
+          </Typography>
+          <Typography color={"#FFFFFFE5"} variant={"subtitle2"}>
+            {data.description}
+          </Typography>
+        </CardContent>
+      </Card>
     );
 };

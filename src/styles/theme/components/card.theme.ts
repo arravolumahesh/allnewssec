@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @CardVariants
@@ -8,7 +8,7 @@ import {Components, Theme} from '@mui/material';
  *
  * @see https://mui.com/material-ui/react-card
  */
-export const CardVariants: Components<Omit<Theme, 'components'>>['MuiCard'] = {
+export const CardVariants: Components<Omit<Theme, "components">>["MuiCard"] = {
     styleOverrides: {
         root: ({theme}) => {
             return theme.unstable_sx([{}]);
@@ -16,11 +16,11 @@ export const CardVariants: Components<Omit<Theme, 'components'>>['MuiCard'] = {
     },
     variants: [
         {
-            props: {variant: 'outlined'},
+            props: {variant: "outlined"},
             style: ({theme}) => {
                 return theme.unstable_sx({
-                    border: '1px solid',
-                    borderColor: 'primary.200',
+                    border: "1px solid",
+                    borderColor: "primary.200",
                 });
             },
         },

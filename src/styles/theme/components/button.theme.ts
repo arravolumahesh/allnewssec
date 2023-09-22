@@ -10,7 +10,7 @@ import {helvetica} from "app/font";
  * @see https://mui.com/material-ui/react-button/#customization
  */
 
-declare module '@mui/material/Button' {
+declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     menulink: true;
     companylink: true;
@@ -125,75 +125,75 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
       ]);
     },
   },
-  variants:[
+  variants: [
     {
-     props:{
-      variant:'menulink',
-     },
-     style:({ theme })=>{
-      return {
-        color:theme.palette.grey[500],
-        padding:theme.spacing(2),
-        paddingLeft:0,
-        paddingRight:0,        
-        borderBottom:'2px solid',
-        borderColor:'transparent',
-        "&.MuiButton-menulinkSecondary, &:hover ":{
-          color:theme.palette.primary.dark,
-          borderColor:theme.palette.primary.dark,
-          background:'none',
-        }
-      }
-     }
+      props: {
+        variant: "menulink",
+      },
+      style: ({ theme }) => {
+        return {
+          color: theme.palette.grey[500],
+          padding: theme.spacing(2),
+          paddingLeft: 0,
+          paddingRight: 0,
+          borderBottom: "2px solid",
+          borderColor: "transparent",
+          "&.MuiButton-menulinkSecondary, &:hover ": {
+            color: theme.palette.primary.dark,
+            borderColor: theme.palette.primary.dark,
+            background: "none",
+          },
+        };
+      },
     },
     {
-     props:{
-      variant:'companylink',
-     },
-     style:({ theme })=>{
-      return {
-        [theme.breakpoints.up('md')]: {
-          // Set font size for above md screen
-          fontSize: '32px',
-        },
-        [theme.breakpoints.down('md')]: {          
-          fontSize: '24px',
-          display:'inline',
-          // paddingRight:theme.spacing(6),
-        },
-        whiteSpace:'break-spaces',
-        display:'inline-block',
-        width:'max-content',
-        color:theme.palette.primary.dark,
-        padding:0,
-        borderBottom:'2px solid',
-        borderColor:'transparent',
-        textTransform:'uppercase',
-        position:'relative',
-        "&.MuiButton-menulinkSecondary, &:hover ":{
-          color:theme.palette.primary.dark,
-          borderColor:theme.palette.primary.dark,
-          background:'none',
-        },
-        "& .MuiButton-endIcon":{
-          position:'absolute',
-          top:0,
-          bottom:0,
-          margin:'auto',
-          right:'-40px',
-          display:'flex',
-          alignItems:'center',
-          [theme.breakpoints.down('md')]: {
-            top:0,
-            alignItems:'flex-start',
-          },          
-          '& svg':{              
-            width:36,
-            height:36,
-          }
-        }
-      }
-     }
+      props: {
+        variant: "companylink",
+      },
+      style: ({ theme }) => {
+        return {
+          [theme.breakpoints.up("md")]: {
+            // Set font size for above md screen
+            fontSize: "32px",
+          },
+          [theme.breakpoints.down("md")]: {
+            fontSize: "24px",
+            display: "inline",
+            // paddingRight:theme.spacing(6),
+          },
+          whiteSpace: "break-spaces",
+          display: "inline-block",
+          width: "max-content",
+          color: theme.palette.primary.dark,
+          padding: 0,
+          borderBottom: "2px solid",
+          borderColor: "transparent",
+          textTransform: "uppercase",
+          position: "relative",
+          "&.MuiButton-menulinkSecondary, &:hover ": {
+            color: theme.palette.primary.dark,
+            borderColor: theme.palette.primary.dark,
+            background: "none",
+          },
+          "& .MuiButton-endIcon": {
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            margin: "auto",
+            right: "-40px",
+            display: "flex",
+            alignItems: "center",
+            [theme.breakpoints.down("md")]: {
+              top: 0,
+              alignItems: "flex-start",
+            },
+            "& svg": {
+              width: 36,
+              height: 36,
+            },
+          },
+        };
+      },
     },
-  ]
+  ],
 };

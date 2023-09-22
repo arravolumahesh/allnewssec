@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @SelectVariants
@@ -8,21 +8,23 @@ import {Components, Theme} from '@mui/material';
  *
  * @see https://mui.com/material-ui/react-seslect/#customization
  */
-export const SelectVariants: Components<Omit<Theme, 'components'>>['MuiSelect'] = {
+export const SelectVariants: Components<
+    Omit<Theme, "components">
+>["MuiSelect"] = {
     variants: [
         {
-            props: {variant: 'outlined', color: 'primary'},
+            props: {variant: "outlined", color: "primary"},
             style: ({theme}) => {
                 return theme.unstable_sx({
-                    '& .MuiSvgIcon-root': {
-                        color: 'primary.main',
-                        transition: 'all 0.4s ease-in-out',
+                    "& .MuiSvgIcon-root": {
+                        color: "primary.main",
+                        transition: "all 0.4s ease-in-out",
                     },
-                    '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'primary.main',
+                    "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "primary.main",
                     },
-                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'primary.main',
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "primary.main",
                     },
                 });
             },

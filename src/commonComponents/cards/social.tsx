@@ -1,11 +1,12 @@
 import { SvgIconComponent } from "@mui/icons-material";
-import { MotionCard, MotionCardProps } from "../motion-elements";
+import { MotionCard, MotionCardProps } from "../motion-components";
 import { CardContent } from "@mui/material";
 
 interface SocialCardProps extends Omit<MotionCardProps, "children"> {
   img: string;
   Icon: SvgIconComponent;
 }
+
 const SocialCard = (props: SocialCardProps) => {
   const { img, Icon, sx, ...restProps } = props;
   return (
