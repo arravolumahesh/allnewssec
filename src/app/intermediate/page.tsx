@@ -9,8 +9,8 @@ const IntermediatePage:NextPage = () => {
     <>
       <IntermediateBanner />
       <IntermediateMenu />
-      {/* <IntermediateCount />      
-      <IntermediateInitiatives /> */}
+      <IntermediateCount />      
+      <IntermediateInitiatives />
     </>
   );
 };

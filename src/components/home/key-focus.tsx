@@ -1,6 +1,5 @@
 "use client";
 import {
-  MotionImage,
   MotionImageProps,
   MotionTypography,
   MotionVariantProps,
@@ -8,7 +7,6 @@ import {
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import Arrow from "./images/Group 427321806.svg";
 import skillImage from "./images/Rectangle 24993.png";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
 import { motion } from "framer-motion";
@@ -17,6 +15,7 @@ import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
 import SectionWrapper from "@/commonComponents/section-wrapper";
+import Arrow from "@cc/arrow";
 
 const KeyFocus = () => {
   const theme = useTheme();
@@ -27,7 +26,7 @@ const KeyFocus = () => {
       pb={{ xs: 7, md: 12 }}
       rowGap={{ xs: 6, md: 2 }}
       SectionProps={{
-        bgcolor: "common.white",
+        bgcolor: "#e6e6e6",
       }}
       overflow={"hidden"}
     >
@@ -37,7 +36,7 @@ const KeyFocus = () => {
         columnGap={4}
         pl={{ xs: 0, md: "5.5%" }}
       >
-        <MotionImage src={Arrow} alt='' {...imageTransition} hidden={matches} />
+        <Arrow />
         <Stack
           component={motion.div}
           variants={staggerDiv}
