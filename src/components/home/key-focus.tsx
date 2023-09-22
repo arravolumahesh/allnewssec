@@ -73,7 +73,8 @@ const KeyFocus = () => {
       <Stack
         direction={{ xs: "column", md: "row" }}
         rowGap={3}
-        justifyContent={"space-between"}
+        columnGap={5}
+        // justifyContent={"space-between"}
         alignItems={"center"}
         mb={{ xs: 0, md: 6 }}
       >
