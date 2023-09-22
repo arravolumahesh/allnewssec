@@ -11,6 +11,9 @@ const IntermediateMenu = () => {
                     sx:{
                     borderBottom: '1px solid var(--Stroke, #EAEAEA)',
                     background: '#F8F8F8',                    
+                    position: 'sticky',
+                    top: 0,
+                    zIndex: 9999,
                 }
                 }}
                 sx={{py:0}}
