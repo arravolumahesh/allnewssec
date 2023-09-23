@@ -93,14 +93,15 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
         spacing={{
           xs: 3,
           sm: 2,
-          color: "inherit",
         }}
+        color={"primary.dark"}
       >
         <IconButton
           className={"border"}
           onClick={() => {
             swiperInstance?.slidePrev();
           }}
+          color={"primary"}
         >
           <NavigateBeforeRounded />
         </IconButton>
@@ -109,6 +110,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           onClick={() => {
             swiperInstance?.slideNext();
           }}
+          color={"primary"}
         >
           <NavigateNextRounded />
         </IconButton>

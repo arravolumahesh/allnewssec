@@ -1,25 +1,27 @@
 "use client";
-import { SxProps, Theme } from "@mui/material";
+import { buttonClasses, SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
 import { MotionButton, MotionButtonProps } from "./motion-components";
 
 export interface AnimatedButtonProps extends MotionButtonProps {}
 
 const AnimatedButton = (props: AnimatedButtonProps) => {
-  const { sx, ...restProps } = props;
+  const { sx, color, ...restProps } = props;
   const [isInView, setIsInView] = useState(false);
 
   const animatedButtonOnViewportEnterSx: SxProps<Theme> = useMemo(() => {
     return (theme) => {
+      const { palette } = theme;
+      const borderColor = palette["primary"].main;
       return {
         "&::before": {
           content: '""',
           position: "absolute",
           top: 0,
           left: 0,
-          borderColor: "currentColor",
-          borderTop: `1px solid ${theme.palette.common.white}`,
-          borderRight: `1px solid ${theme.palette.common.white}`,
+          borderColor,
+          borderTop: `1px solid`,
+          borderRight: `1px solid`,
           width: "100%",
           height: "0",
           borderRadius: "inherit",
@@ -35,8 +37,9 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
           position: "absolute",
           bottom: 0,
           right: 0,
-          borderBottom: `1px solid ${theme.palette.common.white}`,
-          borderLeft: `1px solid ${theme.palette.common.white}`,
+          borderColor,
+          borderBottom: `1px solid`,
+          borderLeft: `1px solid`,
           width: "100%",
           height: "0",
           borderRadius: "inherit",
@@ -50,6 +53,7 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
       };
     };
   }, [isInView]);
+
   return (
     <MotionButton
       sx={[
@@ -58,7 +62,7 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
       variant={"outlined"}
-      color={"inherit"}
+      color={color || "inherit"}
       onViewportEnter={() => setIsInView(true)}
       onViewportLeave={() => setIsInView(false)}
       {...restProps}
@@ -70,7 +74,13 @@ export default AnimatedButton;
 
 const animatedButtonInitialSx: SxProps<Theme> = () => {
   return {
+    overflow: "hidden",
     position: "relative",
-    border: "none",
+    [`&.${buttonClasses.outlined}`]: {
+      border: "none",
+      "&:hover": {
+        border: "none",
+      },
+    },
   };
 };

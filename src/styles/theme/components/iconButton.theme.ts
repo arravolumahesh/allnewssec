@@ -13,7 +13,7 @@ export const IconButtonVariants: Components<
 >["MuiIconButton"] = {
   styleOverrides: {
     root: ({ ownerState, theme }) => {
-      const { sx } = ownerState;
+      const { sx, color } = ownerState;
       return theme.unstable_sx([
         {
           borderRadius: 0,
