@@ -1,5 +1,6 @@
 import {Components, Theme} from "@mui/material";
 import {helvetica} from "app/font";
+import {Button} from "@theme/components/typography.fontvariant";
 
 /**
  * @ButtonVariants
@@ -9,26 +10,19 @@ import {helvetica} from "app/font";
  *
  * @see https://mui.com/material-ui/react-button/#customization
  */
-
-declare module "@mui/material/Button" {
-  interface ButtonPropsVariantOverrides {
-    menulink: true;
-    companylink: true;
-  }
-}
-
-export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] = {
+export const ButtonVariants: Components<
+  Omit<Theme, "components">
+>["MuiButton"] = {
   styleOverrides: {
     root: ({ ownerState, theme }) => {
       const { sx: style } = ownerState;
       return theme.unstable_sx([
         {
           ...helvetica.style,
-          textTransform: "none",
           whiteSpace: "nowrap",
           lineHeight: "150%",
           fontWeight: 500,
-          fontSize: { xs: "16px" },
+          fontSize: Button,
           textRendering: "optimizeSpeed",
           letterSpacing: "normal",
           height: "inherit",
@@ -37,50 +31,13 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
           paddingInline: 2,
           paddingBlock: 1,
           borderRadius: 0,
+          overflow: "hidden",
         },
         ...(Array.isArray(style) ? style : [style]),
       ]);
     },
-    startIcon: ({ theme }) => {
-      return theme.unstable_sx({
-        // mr: { xs: '0.3rem', sm: '0.3rem', lg: '0.3rem' },
-        "& > :nth-of-type(1)": {
-          fontSize: {
-            // xs: '1.2rem',
-          },
-        },
-      });
-    },
-    endIcon: ({ theme }) => {
-      return theme.unstable_sx({
-        // ml: { xs: '0.3rem', sm: '0.3rem', lg: '0.3rem' },
-        "& > :nth-of-type(1)": {
-          fontSize: {
-            // xs: '1.2rem',
-          },
-        },
-      });
-    },
-    contained: ({ ownerState, theme }) => {
-      const { color } = ownerState;
-      const { palette } = theme;
-      return theme.unstable_sx([
-        {
-          "&.Mui-disabled": {
-            color:
-              color === "inherit" || !color
-                ? "inherit"
-                : palette[color].contrastText,
-            backgroundColor:
-              color === "inherit" || !color ? "inherit" : palette[color].dark,
-            opacity: 0.4,
-          },
-        },
-      ]);
-    },
     text: ({ ownerState, theme }) => {
-      const { disableRipple, color } = ownerState;
-      const { palette } = theme;
+      const { disableRipple } = ownerState;
       return theme.unstable_sx([
         {
           padding: disableRipple ? 0 : "0.625rem 1.5rem",
@@ -92,14 +49,6 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
             background: disableRipple ? "transparent" : "default",
           },
         },
-        {
-          "&.Mui-disabled": {
-            color:
-              color === "inherit" || !color ? "inherit" : palette[color].main,
-            backgroundColor: "transparent",
-            opacity: 0.4,
-          },
-        },
       ]);
     },
     outlined: ({ ownerState, theme }) => {
@@ -107,20 +56,10 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
       const { palette } = theme;
       return theme.unstable_sx([
         {
-          color: color === "inherit" || !color ? "white" : palette[color].main,
-          overflow: "hidden",
+          color:
+            color === "inherit" || !color ? "inherit" : palette[color].main,
           borderColor:
             color === "inherit" || !color ? "inherit" : palette[color].main,
-        },
-        {
-          "&.Mui-disabled": {
-            color:
-              color === "inherit" || !color ? "inherit" : palette[color].main,
-            backgroundColor: "transparent",
-            borderColor:
-              color === "inherit" || !color ? "inherit" : palette[color].main,
-            opacity: 0.4,
-          },
         },
       ]);
     },
@@ -197,3 +136,10 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
     },
   ],
 };
+
+declare module "@mui/material/Button" {
+  interface ButtonPropsVariantOverrides {
+    menulink: true;
+    companylink: true;
+  }
+}
