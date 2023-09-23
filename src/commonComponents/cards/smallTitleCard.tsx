@@ -1,11 +1,13 @@
 import { CardContent, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
+import Link from "next/link";
 import { MotionCard, MotionCardProps } from "@cc/motion-components";
 
 interface SmallTitleCardProps extends Omit<MotionCardProps, "children"> {
   img: string;
   title: string;
+  href: string;
 }
 
 export const SmallTitleCard: EnhancedSwiperSlideComponent<SmallTitleCardProps> =
@@ -13,6 +15,7 @@ export const SmallTitleCard: EnhancedSwiperSlideComponent<SmallTitleCardProps> =
     const {
       img,
       title,
+      href,
       sx,
       index,
       isPrev,
@@ -22,32 +25,39 @@ export const SmallTitleCard: EnhancedSwiperSlideComponent<SmallTitleCardProps> =
       ...restProps
     } = props;
     return (
-      <MotionCard
-        ref={ref}
-        sx={{
-          display: "flex",
-          position: "relative",
-          width: { xs: 200, lg: 328 },
-          height: { xs: 200, lg: 316 },
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.00) 34.18%), url(${img}), lightgray -133.577px -1.973px / 181.45% 101.249% no-repeat`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          borderRadius: 0,
-          ...sx,
+      <Link
+        href={href}
+        style={{
+          textDecoration: "none",
         }}
-        {...restProps}
       >
-        <CardContent
+        <MotionCard
+          ref={ref}
           sx={{
-            alignSelf: "flex-end",
-            pb: "16px !important",
+            display: "flex",
+            position: "relative",
+            width: { xs: 200, lg: 328 },
+            height: { xs: 200, lg: 316 },
+            background: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.00) 34.18%), url(${img}), lightgray -133.577px -1.973px / 181.45% 101.249% no-repeat`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            borderRadius: 0,
+            ...sx,
           }}
+          {...restProps}
         >
-          <Typography variant="h5" fontWeight={400} color={"white"}>
-            {title}
-          </Typography>
-        </CardContent>
-      </MotionCard>
+          <CardContent
+            sx={{
+              alignSelf: "flex-end",
+              pb: "16px !important",
+            }}
+          >
+            <Typography variant='h5' fontWeight={400} color={"white"}>
+              {title}
+            </Typography>
+          </CardContent>
+        </MotionCard>
+      </Link>
     );
   });
 
