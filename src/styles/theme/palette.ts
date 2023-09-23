@@ -13,44 +13,44 @@ export const PaletteTheme = (
   return {
     mode: mode,
     primary: {
-      main: "#326CCF", // Got form design
-      light: "#e3f2fd",
-      dark: "#005dab", // Got form design
-      50: "#e3f2fd",
-      100: "#bbdefb",
-      200: "#90caf9",
-      300: "#64b5f6",
-      400: "#249DD1",
-      500: "#326CCF",
-      600: "#1e88e5",
-      700: "#1976d2",
-      800: "#1565c0",
-      900: "#244A8F",
+      main: "#005dac",
+      dark: "#003b8e",
+      light: "#a2c0e9",
+      50: "#ebf1fa",
+      100: "#c8d9f1",
+      200: "#a2c0e9",
+      300: "#79a7e1",
+      400: "#588fda",
+      500: "#3682ca",
+      600: "#005dac",
+      700: "#0053a3",
+      800: "#004899",
+      900: "#003b8e",
       A100: "#82b1ff",
       A200: "#448aff",
       A400: "#2979ff",
-      A700: "#2962ff", // Got form design
+      A700: "#1471ff",
       contrastText: "#fff",
     },
     secondary: {
-      main: "#10365D",
-      light: "#15283b",
-      dark: "#0c1220",
-      50: "#15283b",
-      100: "#142538",
-      200: "#132335",
-      300: "#122132",
-      400: "#111e2f",
-      500: "#101b2c",
-      600: "#0f1829",
-      700: "#0e1626",
-      800: "#0d1423",
-      900: "#0c1220",
-      A100: "#0c1220",
-      A200: "#0d1423",
-      A400: "#0e1626",
-      A700: "#0f182A", // Got form design
-      contrastText: "#fff",
+      main: "#ffffff",
+      light: "#ffffff",
+      dark: "#b3b3b3",
+      50: "#ffffff",
+      100: "#ffffff",
+      200: "#ffffff",
+      300: "#ffffff",
+      400: "#ffffff",
+      500: "#e6e6e6",
+      600: "#cccccc",
+      700: "#b3b3b3",
+      800: "#999999",
+      900: "#808080",
+      A100: "#ffffff",
+      A200: "#ffffff",
+      A400: "#ffffff",
+      A700: "#ffffff",
+      contrastText: "#005dac",
     },
     success: {
       main: "#66bb6a",
@@ -133,54 +133,50 @@ export const PaletteTheme = (
       contrastText: "#fff",
     },
     grey: {
-      "50": "#e6e6e6",
-      "100": "#cccccc",
-      "200": "#b3b3b3",
-      "300": "#999999",
-      "400": "#808080",
-      "500": "#666666",
-      "600": "#4d4d4d",
-      "700": "#333333",
-      "800": "#1a1a1a",
-      "900": "#000000",
-      A100: "#ffffff",
-      A200: "#ffffff",
-      A400: "#ffffff",
-      A700: "#ffffff",
+      50: "#fafafa",
+      100: "#f5f5f5",
+      200: "#eeeeee",
+      300: "#e0e0e0",
+      400: "#bdbdbd",
+      500: "#9e9e9e",
+      600: "#757575",
+      700: "#616161",
+      800: "#424242",
+      900: "#121212",
+      A100: "#d5d5d5",
+      A200: "#aaaaaa",
+      A400: "#616161",
+      A700: "#303030",
     },
     get text(): PaletteOptions["text"] {
       return {
-        primary: isLight ? this?.common?.white : "#d7dcec",
-        secondary: isLight
-          ? (this?.primary as SimplePaletteColorOptions).dark
-          : "#AEAEAE",
+        primary: (this?.primary as SimplePaletteColorOptions).contrastText,
+        secondary: (this?.secondary as SimplePaletteColorOptions).contrastText,
         disabled: isLight ? this?.grey?.["500"] : "#ffffff50",
-        body: isLight ? this?.grey?.["900"] : "#d7dcec",
-        subtitle: isLight ? this?.grey?.["800"] : "#AEAEAE",
-        caption: isLight ? this?.grey?.["700"] : "#ffffff50",
       };
     },
     background: {
-      default: isLight ? "#e6e6e6" : "#121212",
-      paper: isLight ? "#405A76" : "#1e1e1e",
+      default: "#e6e6e6",
+      paper: "#FFFFFF",
     },
     common: {
-      black: "#000",
-      white: "#fff",
+      black: "#000000",
+      white: "#ffffff",
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
     get divider() {
-      return isLight ? this?.grey?.["200"] : "#424242";
+      return this?.grey?.["200"];
     },
     get gradient() {
       return {
-        primary: `linear-gradient(90deg, ${
-          (this?.secondary as SimplePaletteColorOptions).dark
-        } 0%, ${(this?.secondary as SimplePaletteColorOptions).main} 45%, ${
-          (this?.secondary as SimplePaletteColorOptions).dark
-        } 100%)`,
-        secondary: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+        header:
+          "linear-gradient(90deg, #0C1220 0%, #10365D 48.7%, #0C1220 100%)",
+        darkToLight:
+          "linear-gradient(180deg, #0C1425 0%, #162B52 17.68%, #1F3F78 35.36%, #254F98 53.05%, #2B5CB0 70.73%, #2F65C1 89.77%, #316ACB 110.17%, #326CCF 136.02%)",
+        lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
+        transparentToDark:
+          "linear-gradient(90deg, #0A0A0A 64.71%, rgba(10, 10, 10, 0.00) 84.55%)",
       };
     },
   };
@@ -189,25 +185,19 @@ export const PaletteTheme = (
 declare module "@mui/material/styles" {
   interface Palette {
     gradient: {
-      primary: string;
-      secondary: string;
+      header: string;
+      darkToLight: string;
+      lightToDark: string;
+      transparentToDark: string;
     };
   }
 
   interface PaletteOptions {
     gradient: {
-      primary: string;
-      secondary: string;
+      header: string;
+      darkToLight: string;
+      lightToDark: string;
+      transparentToDark: string;
     };
-  }
-
-  /**
-   * @mui/material/styles
-   * Here we can override the TypeText
-   */
-  interface TypeText {
-    body: string;
-    subtitle: string;
-    caption: string;
   }
 }

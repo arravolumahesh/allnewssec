@@ -64,7 +64,9 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
       variant={"outlined"}
       color={color || "inherit"}
       onViewportEnter={() => setIsInView(true)}
-      onViewportLeave={() => setIsInView(false)}
+      viewport={{
+        once: true,
+      }}
       {...restProps}
     />
   );
