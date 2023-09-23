@@ -1,4 +1,4 @@
-import {Components, Theme} from "@mui/material";
+import {alpha, Components, Theme} from "@mui/material";
 import {helvetica} from "app/font";
 import {Button} from "@theme/components/typography.fontvariant";
 
@@ -31,7 +31,9 @@ export const ButtonVariants: Components<
           paddingInline: 2,
           paddingBlock: 1,
           borderRadius: 0,
+          boxShadow: "none",
           overflow: "hidden",
+          textTransform: "capitalize",
         },
         ...(Array.isArray(style) ? style : [style]),
       ]);
@@ -43,25 +45,52 @@ export const ButtonVariants: Components<
           padding: disableRipple ? 0 : "0.625rem 1.5rem",
           background: "transparent",
           fontWeight: 400,
-          border: "none",
-          boxShadow: "none",
           "&:hover": {
             background: disableRipple ? "transparent" : "default",
           },
         },
       ]);
     },
-    outlined: ({ ownerState, theme }) => {
-      const { color } = ownerState;
-      const { palette } = theme;
-      return theme.unstable_sx([
-        {
-          color:
-            color === "inherit" || !color ? "inherit" : palette[color].main,
-          borderColor:
-            color === "inherit" || !color ? "inherit" : palette[color].main,
+    containedPrimary: ({theme}) => {
+      return theme.unstable_sx({
+        background: alpha(theme.palette.primary.main, 0.1),
+        color: theme.palette.primary.main,
+        "&:hover": {
+          background: theme.palette.primary.main,
+          color: theme.palette.primary.contrastText,
         },
-      ]);
+      });
+    },
+    containedSecondary: ({theme}) => {
+      return theme.unstable_sx({
+        background: alpha(theme.palette.secondary.main, 0.3),
+        color: theme.palette.secondary.main,
+        "&:hover": {
+          border: "none",
+          background: theme.palette.secondary.main,
+          color: theme.palette.grey["A700"],
+        },
+      });
+    },
+    outlinedPrimary: ({theme}) => {
+      return theme.unstable_sx({
+        background: "transparent",
+        color: theme.palette.primary.main,
+        "&:hover": {
+          background: alpha(theme.palette.primary.main, 0.1),
+          color: theme.palette.primary.main,
+        },
+      });
+    },
+    outlinedSecondary: ({theme}) => {
+      return theme.unstable_sx({
+        background: "transparent",
+        color: theme.palette.secondary.main,
+        "&:hover": {
+          background: alpha(theme.palette.secondary.main, 0.1),
+          color: theme.palette.secondary.main,
+        },
+      });
     },
   },
   variants: [

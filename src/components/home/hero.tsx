@@ -62,10 +62,12 @@ const Hero = () => {
             sx={{
               mt: 4,
               width: { xs: "100%", md: "207px" },
-              bgcolor: "rgba(255, 255, 255, 0.10)",
               fontSize: { xs: "18px", md: "24px !important" },
             }}
             href={"./"}
+            variant={"contained"}
+            color={"secondary"}
+            animationDelay={1000}
             variants={staggerChildren}
           >
             View Initiatives
@@ -160,7 +162,7 @@ const staggerDiv: MotionVariantProps = {
   animate: {
     transition: {
       staggerChildren: 0.4,
-      delayChildren: 1,
+      delayChildren: 0.2,
     },
   },
 };
@@ -173,7 +175,7 @@ const staggerChildren: MotionVariantProps = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.4,
     },
   },
 };

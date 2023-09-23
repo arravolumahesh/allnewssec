@@ -1,58 +1,102 @@
 "use client";
-import { buttonClasses, SxProps, Theme } from "@mui/material";
+import { alpha, buttonClasses, SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
 import { MotionButton, MotionButtonProps } from "./motion-components";
 
-export interface AnimatedButtonProps extends MotionButtonProps {}
+export interface AnimatedButtonProps extends MotionButtonProps {
+  animationDelay?: number;
+  rotation?: "clockwise" | "anticlockwise";
+}
 
 const AnimatedButton = (props: AnimatedButtonProps) => {
-  const { sx, color, ...restProps } = props;
+  const {
+    sx,
+    animationDelay = 0,
+    rotation = "clockwise",
+    ...restProps
+  } = props;
+  const { color, variant } = restProps;
   const [isInView, setIsInView] = useState(false);
+
+  const { before, after } = useMemo(() => {
+    const isClockwise = rotation === "clockwise";
+    return {
+      before: {
+        initial: {
+          height: "0",
+          width: "0",
+          transition: "none",
+          borderStyle: isClockwise
+            ? "solid solid none none"
+            : "none none solid solid",
+        },
+        animate: {
+          height: "100%",
+          width: "100%",
+          transition: isClockwise
+            ? "width 0.4s linear 0.6s, height 0.2s linear 1s"
+            : "height 0.2s linear, width 0.4s linear 0.2s",
+        },
+      },
+      after: {
+        initial: {
+          height: "0",
+          width: "0",
+          transition: "none",
+          borderStyle: isClockwise
+            ? "none none solid solid"
+            : "solid solid none none",
+        },
+        animate: {
+          height: "100%",
+          width: "100%",
+          transition: isClockwise
+            ? "width 0.4s linear, height 0.2s linear 0.4s"
+            : "height 0.2s linear 0.6s, width 0.4s linear 0.8s",
+        },
+      },
+    };
+  }, [rotation]);
 
   const animatedButtonOnViewportEnterSx: SxProps<Theme> = useMemo(() => {
     return (theme) => {
       const { palette } = theme;
-      const borderColor = palette["primary"].main;
+      let borderColor = !color
+        ? palette.primary.main
+        : color === "inherit"
+        ? "inherit"
+        : palette[color].main;
+      if (variant === "contained") {
+        if (color === "secondary") {
+          borderColor = alpha(borderColor, 0.3);
+        } else {
+          borderColor = alpha(borderColor, 0.8);
+        }
+      }
       return {
         "&::before": {
           content: '""',
           position: "absolute",
           top: 0,
           left: 0,
-          borderColor,
-          borderTop: `1px solid`,
-          borderRight: `1px solid`,
-          width: "100%",
-          height: "0",
+          border: `1px solid ${borderColor}`,
           borderRadius: "inherit",
-          transform: "translateX(-100%)",
-          ...(isInView && {
-            transition: "transform 0.4s linear 0.6s, height 0.2s linear 1s",
-            height: "100%",
-            transform: "translateX(0)",
-          }),
+          ...before.initial,
+          ...(isInView && before.animate),
         },
         "&::after": {
           content: '""',
           position: "absolute",
           bottom: 0,
           right: 0,
-          borderColor,
-          borderBottom: `1px solid`,
-          borderLeft: `1px solid`,
-          width: "100%",
-          height: "0",
+          border: `1px solid ${borderColor}`,
           borderRadius: "inherit",
-          transform: "translateX(100%)",
-          ...(isInView && {
-            transition: "transform 0.4s linear, height 0.2s linear 0.4s",
-            height: "100%",
-            transform: "translateX(0)",
-          }),
+          ...after.initial,
+          ...(isInView && after.animate),
         },
       };
     };
-  }, [isInView]);
+  }, [after, before, color, isInView, variant]);
 
   return (
     <MotionButton
@@ -62,8 +106,11 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
       variant={"outlined"}
-      color={color || "inherit"}
-      onViewportEnter={() => setIsInView(true)}
+      onViewportEnter={() => {
+        setTimeout(() => {
+          setIsInView(true);
+        }, animationDelay);
+      }}
       viewport={{
         once: true,
       }}
