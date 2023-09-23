@@ -1,4 +1,4 @@
-import {alpha, Components, inputBaseClasses, Theme} from "@mui/material";
+import {Components, inputAdornmentClasses, inputBaseClasses, outlinedInputClasses, Theme,} from "@mui/material";
 
 /**
  * @TextFieldVariants
@@ -21,22 +21,19 @@ export const TextFieldVariants: Components<
       return theme.unstable_sx([
         {
           overflow: "clip",
-          "& .MuiInputBase-root": {
+          [`& .${inputBaseClasses.root}`]: {
             overflow: "clip",
             height: "48px",
-            background: alpha(palette.background.default, 0.8),
-            "&.Mui-focused": {
-              background: palette.background.default,
-            },
           },
-          "& .MuiInputAdornment-root": {
+          [`& .${inputAdornmentClasses.root}`]: {
             color: finalColor,
           },
-          "& .MuiOutlinedInput-root:hover": {
-            "input:not([disabled]) ~ .MuiOutlinedInput-notchedOutline": {
-              borderColor: finalColor,
-            },
-            "& .MuiOutlinedInput-notcheOutline": {
+          [`& .${outlinedInputClasses.root}:hover`]: {
+            [`input:not([disabled]) ~ .${outlinedInputClasses.notchedOutline}`]:
+              {
+                borderColor: finalColor,
+              },
+            [`& .${outlinedInputClasses.notchedOutline}`]: {
               borderColor: finalColor,
             },
           },

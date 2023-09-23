@@ -49,7 +49,12 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
           }),
         }}
       >
-        <SectionWrapper bgcolor={"common.white"} py={0}>
+        <SectionWrapper
+          SectionProps={{
+            bgcolor: "background.paper",
+          }}
+          py={0}
+        >
           <TextField
             variant={"standard"}
             fullWidth

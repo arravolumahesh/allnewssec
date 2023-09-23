@@ -11,7 +11,7 @@ const ReactiveAppBar = styled((props: AppBarProps) => {
   );
 })(({ theme }) => {
   return theme.unstable_sx({
-    background: theme.palette.gradient.primary,
+    background: theme.palette.gradient.header,
     color: "primary.contrastText",
     height: { xs: 64, md: 92, xl: 120 },
     boxShadow: "none",

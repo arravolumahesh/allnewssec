@@ -10,9 +10,7 @@ import {Button} from "@theme/components/typography.fontvariant";
  *
  * @see https://mui.com/material-ui/react-button/#customization
  */
-export const ButtonVariants: Components<
-  Omit<Theme, "components">
->["MuiButton"] = {
+export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] = {
   styleOverrides: {
     root: ({ ownerState, theme }) => {
       const { sx: style } = ownerState;
@@ -31,7 +29,6 @@ export const ButtonVariants: Components<
           paddingInline: 2,
           paddingBlock: 1,
           borderRadius: 0,
-          boxShadow: "none",
           overflow: "hidden",
           textTransform: "capitalize",
         },
@@ -51,7 +48,7 @@ export const ButtonVariants: Components<
         },
       ]);
     },
-    containedPrimary: ({theme}) => {
+    containedPrimary: ({ theme }) => {
       return theme.unstable_sx({
         background: alpha(theme.palette.primary.main, 0.1),
         color: theme.palette.primary.main,
@@ -61,9 +58,9 @@ export const ButtonVariants: Components<
         },
       });
     },
-    containedSecondary: ({theme}) => {
+    containedSecondary: ({ theme }) => {
       return theme.unstable_sx({
-        background: alpha(theme.palette.secondary.main, 0.3),
+        background: alpha(theme.palette.secondary.main, 0.1),
         color: theme.palette.secondary.main,
         "&:hover": {
           border: "none",
@@ -72,7 +69,7 @@ export const ButtonVariants: Components<
         },
       });
     },
-    outlinedPrimary: ({theme}) => {
+    outlinedPrimary: ({ theme }) => {
       return theme.unstable_sx({
         background: "transparent",
         color: theme.palette.primary.main,
@@ -82,7 +79,7 @@ export const ButtonVariants: Components<
         },
       });
     },
-    outlinedSecondary: ({theme}) => {
+    outlinedSecondary: ({ theme }) => {
       return theme.unstable_sx({
         background: "transparent",
         color: theme.palette.secondary.main,
@@ -164,6 +161,9 @@ export const ButtonVariants: Components<
       },
     },
   ],
+  defaultProps: {
+    disableElevation: true,
+  },
 };
 
 declare module "@mui/material/Button" {
