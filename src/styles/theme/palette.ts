@@ -146,6 +146,7 @@ export const PaletteTheme = (
       A100: "#ffffff",
       A200: "#ffffff",
       A400: "#ffffff",
+      A700: "#ffffff",
     },
     get text(): PaletteOptions["text"] {
       return {

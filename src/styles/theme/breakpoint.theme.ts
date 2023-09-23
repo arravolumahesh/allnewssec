@@ -31,8 +31,8 @@ export const BreakpointTheme: ThemeOptions["breakpoints"] = {
     xl: 1280,
     xl_xxl: 1360,
     xxl: 1440,
-    xxl_large: 1520,
-    large: 1600,
+    xxl_wide: 1520,
+    wide: 1600,
   },
 };
 
@@ -53,7 +53,7 @@ declare module "@mui/material/styles" {
     xl: true;
     xl_xxl: true;
     xxl: true;
-    xxl_large: true;
-    large: true;
+    xxl_wide: true;
+    wide: true;
   }
 }

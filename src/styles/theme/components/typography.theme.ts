@@ -1,5 +1,6 @@
 import {Components, Theme, ThemeOptions} from "@mui/material";
 import {helvetica} from "app/font";
+import {Body1, Body2, Button, H1, H2, H3, H4, H5, H6,} from "@theme/components/typography.fontvariant";
 
 /**
  * @ThemeOptions['typography']
@@ -8,16 +9,19 @@ import {helvetica} from "app/font";
  * @see https://material-ui.com/customization/typography
  */
 export const TypographyTheme: ThemeOptions["typography"] = {
-    allVariants: {
-        fontSmooth: "always",
-        textRendering: "optimizeSpeed",
-        lineHeight: "normal",
-        letterSpacing: "normal",
-        fontStretch: "normal",
-        position: "relative",
-        fontSize: "inherit",
-        ...helvetica.style,
-    },
+  allVariants: {
+    fontSmooth: "always",
+    textRendering: "optimizeSpeed",
+    lineHeight: "normal",
+    letterSpacing: "normal",
+    fontStretch: "normal",
+    position: "relative",
+    fontSize: "inherit",
+    ...helvetica.style,
+  },
+  fontSize: 16,
+  htmlFontSize: 16,
+  fontFamily: helvetica.style.fontFamily,
 };
 
 /**
@@ -33,62 +37,59 @@ export const TypographyVariants: Components<
   Omit<Theme, "components">
 >["MuiTypography"] = {
   styleOverrides: {
-    root: ({ ownerState, theme }) => {
-      const isDark = theme.palette.mode === "dark";
-      const isHeading = ownerState.variant?.startsWith("h");
+    root: ({ theme }) => {
       return theme.unstable_sx({
         color: "inherit",
         fontWeight: "inherit",
-        filter: isDark && !isHeading ? "contrast(0.85)" : "contrast(0.95)",
       });
     },
     h1: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "32px", lg: "64px" },
+        fontSize: H1,
         fontWeight: 700,
       });
     },
     h2: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "28px", lg: "56px" },
+        fontSize: H2,
         fontWeight: 700,
       });
     },
     h3: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "24px", lg: "48px" },
+        fontSize: H3,
         fontWeight: 700,
       });
     },
     h4: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "24px", lg: "32px" },
+        fontSize: H4,
         fontWeight: 700,
         lineHeight: "140%",
       });
     },
     h5: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "20px", lg: "24px" },
+        fontSize: H5,
         fontWeight: 700,
         lineHeight: "150%",
       });
     },
     h6: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "18px", lg: "24px" },
+        fontSize: H6,
         fontWeight: 700,
       });
     },
     body1: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "16px", lg: "18px" },
+        fontSize: Body1,
         lineHeight: "150%",
       });
     },
     body2: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "14px", lg: "16px" },
+        fontSize: Body2,
         lineHeight: "150%",
         fontWeight: 500,
       });
@@ -97,21 +98,18 @@ export const TypographyVariants: Components<
       return theme.unstable_sx({
         fontSize: { xs: "12px", lg: "14px" },
         lineHeight: "150%",
-        color: "text.subtitle",
       });
     },
     subtitle2: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: { xs: "10px", lg: "12px" },
         lineHeight: "150%",
-        color: "text.subtitle",
       });
     },
     caption: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: { xs: "10px", lg: "10px" },
         lineHeight: "150%",
-        color: "text.caption",
       });
     },
     gutterBottom: ({ theme }) => {
@@ -122,6 +120,7 @@ export const TypographyVariants: Components<
     button: ({ theme }) => {
       return theme.unstable_sx({
         textTransform: "capitalize",
+        fontSize: Button,
       });
     },
   },
