@@ -6,13 +6,15 @@ import keyHighlights from "@/components/home/images/key-highlights.jpg";
 import inTheNews from "@/components/home/images/in-the-news.jpg";
 import ArrowSwiper from "@cc/arrow-swiper";
 import SectionWrapper from "@cc/section-wrapper";
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper } from "swiper/types";
 import { BehaviorSubject } from "rxjs";
 
-const $swiperInstance = new BehaviorSubject<Swiper | null>(null);
-
 const InTheNews = () => {
+  const $swiperInstance = useRef(
+    new BehaviorSubject<Swiper | null>(null),
+  ).current;
+
   return (
     <SectionWrapper
       direction={{ md_lg: "row" }}

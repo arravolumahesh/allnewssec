@@ -65,16 +65,15 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
         SlideWrapperProps={slideWrapperProps}
         modules={[Navigation, ...swiperModules]}
         loop
-        navigation={
-          typeof navigation === "boolean"
-            ? navigation
-            : {
-                enabled: true,
-                prevEl: ".swiper-prev",
-                nextEl: null,
-                ...navigation,
+        navigation={{
+          prevEl: ".swiper-prev",
+          nextEl: null,
+          ...(typeof navigation === "boolean"
+            ? {
+                enabled: navigation,
               }
-        }
+            : navigation),
+        }}
         spaceBetween={40}
         sx={[enhancedSwiperSx, ...sxArrayUtil(sx)]}
         SlideComponent={ArrowSlideDefaultImage}
