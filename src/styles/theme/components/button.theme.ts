@@ -1,6 +1,6 @@
 import {alpha, Components, Theme} from "@mui/material";
 import {helvetica} from "app/font";
-import {Button} from "@theme/components/typography.fontvariant";
+import {Button, H6_2} from "@theme/components/typography.fontvariant";
 
 /**
  * @ButtonVariants
@@ -20,7 +20,7 @@ export const ButtonVariants: Components<
         {
           ...helvetica.style,
           whiteSpace: "nowrap",
-          lineHeight: "150%",
+          lineHeight: "128%",
           fontWeight: 500,
           fontSize: Button,
           textRendering: "optimizeSpeed",
@@ -29,7 +29,7 @@ export const ButtonVariants: Components<
           fontSmooth: "always",
           minWidth: "fit-content",
           width: fullWidth ? "100%" : "fit-content",
-          paddingInline: 2,
+          px: 2,
           py: 1.5,
           borderRadius: 0,
           overflow: "hidden",
@@ -64,9 +64,11 @@ export const ButtonVariants: Components<
           : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
         px: 3,
+        height: 56,
         border: `1px solid`,
         borderColor,
         background,
+        fontSize: H6_2,
         color: !color || color === "inherit" ? "inherit" : palette[color].main,
         "&:hover": {
           background:
@@ -96,6 +98,7 @@ export const ButtonVariants: Components<
           ? "inherit"
           : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
+        height: 48,
         border: `1px solid`,
         borderColor,
         color: !color || color === "inherit" ? "inherit" : palette[color].main,

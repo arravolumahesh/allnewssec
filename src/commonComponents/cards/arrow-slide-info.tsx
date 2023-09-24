@@ -1,5 +1,5 @@
 "use client";
-import { Stack, StackProps, SxProps, Theme } from "@mui/material";
+import { Stack, StackProps } from "@mui/material";
 import { Swiper } from "swiper/types";
 import React, { useEffect, useMemo, useState } from "react";
 import { MotionTypography, MotionTypographyProps } from "@cc/motion-components";
@@ -9,7 +9,9 @@ import {
   NavigateNextRounded,
 } from "@mui/icons-material";
 import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
-import BorderedIconButton from "@cc/bordered-icon-button";
+import BorderedIconButton, {
+  iconButtonLargeSx,
+} from "@cc/bordered-icon-button";
 import { BehaviorSubject } from "rxjs";
 import { useObservable } from "react-use";
 import { H5_1 } from "@theme/components/typography.fontvariant";
@@ -71,7 +73,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   }, [swiper, activeIndex]);
 
   return (
-    <Stack color={"primary.main"} spacing={3} {...restStackProps}>
+    <Stack color={"primary.main"} {...restStackProps}>
       {prefix && (
         <MotionTypography variant={"subtitle1"} {...PrefixTypographyProps}>
           {prefix}
@@ -115,7 +117,6 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
             xs: 3,
             sm: 2,
           }}
-          mt={{ xs: 5, md: 4 }}
           color={"primary.main"}
           {...NavigationWrapperProps}
         >
@@ -124,7 +125,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
             onClick={() => {
               swiper?.slidePrev();
             }}
-            sx={navButtonSx}
+            sx={iconButtonLargeSx}
           >
             <NavigateBeforeRounded />
           </BorderedIconButton>
@@ -133,7 +134,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
             onClick={() => {
               swiper?.slideNext();
             }}
-            sx={navButtonSx}
+            sx={iconButtonLargeSx}
           >
             <NavigateNextRounded />
           </BorderedIconButton>
@@ -143,8 +144,3 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   );
 };
 export default ArrowSlideInfo;
-
-const navButtonSx: SxProps<Theme> = {
-  width: 48,
-  height: 48,
-};

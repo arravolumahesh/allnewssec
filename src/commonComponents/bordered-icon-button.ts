@@ -1,4 +1,11 @@
-import { alpha, IconButton, styled, svgIconClasses } from "@mui/material";
+import {
+  alpha,
+  IconButton,
+  styled,
+  svgIconClasses,
+  SxProps,
+  Theme,
+} from "@mui/material";
 
 const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
   theme.unstable_sx({
@@ -28,3 +35,16 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
 );
 
 export default BorderedIconButton;
+
+export const iconButtonLargeSx: SxProps<Theme> = {
+  width: { xs: 32, md: 40, xl: 48 },
+  height: { xs: 32, md: 40, xl: 48 },
+  "&:hover": {
+    "&::before": {
+      left: { xs: 3, md: 4, xl: 5 },
+      top: { xs: 3, md: 4, xl: 5 },
+      right: { xs: 3, md: 4, xl: 5 },
+      bottom: { xs: 3, md: 4, xl: 5 },
+    },
+  },
+};

@@ -36,7 +36,7 @@ const InTheNews = () => {
       <ArrowSwiper
         data={data}
         sx={{
-          width: { xs: 1, lg: 0.5, xl: 690 },
+          width: { xs: 1, lg: 560, xl: 690 },
           aspectRatio: "5/3.21",
         }}
         SwiperProps={{
@@ -55,9 +55,9 @@ const InTheNews = () => {
         }}
         height={"fit-content"}
         width={{
-          xs: "100%",
-          md: "50%",
-          xl: "40%",
+          xs: 1,
+          lg: 0.45,
+          xl: 0.4,
         }}
       />
     </SectionWrapper>

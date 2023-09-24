@@ -49,7 +49,7 @@ export const fontSize: FontSize = {
   Subtitle2: { xs: "16px", md: "16px", xl: "16px" },
   Caption: { xs: "14px", md: "14px", xl: "14px" },
   Overline: { xs: "14px", md: "18px", xl: "20px" },
-  Button: { xs: "18px", md: "18px", xl: "16px" },
+  Button: { xs: "16px", md: "18px", xl: "18px" },
 } as const;
 
 export const {
