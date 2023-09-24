@@ -52,7 +52,7 @@ const Hero = () => {
           </MotionTypography>
           <MotionTypography
             variant="body1"
-            color={"#fff"}
+            color={"secondary.main"}
             variants={staggerChildren}
           >
             The wheels of a self-reliant future are turning with equal
