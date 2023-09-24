@@ -44,6 +44,7 @@ const NavigationDrawer = (props: NavigationDrawerProps) => {
           setIsDrawer((prev) => !prev);
         }}
         color={"secondary"}
+        size={"small"}
         {...restIconButtonProps}
       >
         {isDrawer ? <CloseRounded /> : <MenuRounded />}

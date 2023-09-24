@@ -13,7 +13,7 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
         : alpha(theme.palette[color].main, 0.3),
     backdropFilter: "blur(20px)",
     [`& .${svgIconClasses.root}`]: {
-      fontSize: 18,
+      fontSize: "inherit",
     },
     "&:hover": {
       "&::before": {
