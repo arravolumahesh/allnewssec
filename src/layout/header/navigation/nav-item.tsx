@@ -14,17 +14,17 @@ import { MouseEvent, useCallback, useMemo, useState } from "react";
 import { ExpandMoreRounded, NavigateNextRounded } from "@mui/icons-material";
 import { sxArrayUtil } from "@util/sx-helpers";
 
-export interface NavItemProps extends Omit<ButtonProps, "children"> {
+export interface NavItemProps
+  extends Omit<ButtonProps & MLinkProps, "href" | "children"> {
   data: {
     title: string;
     href?: MLinkProps["href"];
     children?: NavItemProps["data"][];
   };
-  MLinkProps?: Omit<MLinkProps, "href" | "children">;
 }
 
 const NavItem = (props: NavItemProps) => {
-  const { data, MLinkProps, sx, ...restButtonProps } = props;
+  const { data, sx, ...restButtonProps } = props;
   const { title, href, children } = data;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -59,7 +59,7 @@ const NavItem = (props: NavItemProps) => {
   return (
     <>
       {href && !children ? (
-        <MLink href={href} {...itemProps} {...MLinkProps} />
+        <MLink href={href} {...itemProps} {...restButtonProps} />
       ) : (
         <Button
           {...itemProps}
@@ -98,10 +98,11 @@ const NavItem = (props: NavItemProps) => {
               >
                 <NavItem
                   data={child}
-                  MLinkProps={{
-                    disableRipple: true,
-                    variant: "text",
-                  }}
+                  disableRipple
+                  variant={"text"}
+                  endIcon={
+                    children && children.length > 0 && <NavigateNextRounded />
+                  }
                   sx={{
                     "&:hover": {
                       background: "transparent",
