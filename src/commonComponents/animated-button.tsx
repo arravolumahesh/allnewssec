@@ -1,5 +1,5 @@
 "use client";
-import { alpha, buttonClasses, SxProps, Theme } from "@mui/material";
+import { buttonClasses, SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
 import { MotionButton, MotionButtonProps } from "./motion-components";
 
@@ -61,26 +61,24 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
   const animatedButtonOnViewportEnterSx: SxProps<Theme> = useMemo(() => {
     return (theme) => {
       const { palette } = theme;
-      let borderColor = !color
+      const borderColor = !color
         ? palette.primary.main
         : color === "inherit"
         ? "inherit"
         : palette[color].main;
-      if (variant === "contained") {
-        if (color === "secondary") {
-          borderColor = alpha(borderColor, 0.3);
-        } else {
-          borderColor = alpha(borderColor, 0.8);
-        }
-      }
+      const opacity =
+        variant === "contained" ? (color === "secondary" ? 0.3 : 0.8) : 1;
+
       return {
         "&::before": {
           content: '""',
           position: "absolute",
           top: 0,
           left: 0,
-          border: `1px solid ${borderColor}`,
+          border: `1px solid`,
+          borderColor,
           borderRadius: "inherit",
+          opacity,
           ...before.initial,
           ...(isInView && before.animate),
         },
@@ -89,8 +87,10 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
           position: "absolute",
           bottom: 0,
           right: 0,
-          border: `1px solid ${borderColor}`,
+          border: `1px solid`,
+          borderColor,
           borderRadius: "inherit",
+          opacity,
           ...after.initial,
           ...(isInView && after.animate),
         },

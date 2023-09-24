@@ -6,12 +6,13 @@ import keyHighlights from "@/components/home/images/key-highlights.jpg";
 import inTheNews from "@/components/home/images/in-the-news.jpg";
 import ArrowSwiper from "@cc/arrow-swiper";
 import SectionWrapper from "@cc/section-wrapper";
-import React, { useState } from "react";
+import React from "react";
 import { Swiper } from "swiper/types";
+import { BehaviorSubject } from "rxjs";
+
+const $swiperInstance = new BehaviorSubject<Swiper | null>(null);
 
 const InTheNews = () => {
-  const [swiper, setSwiper] = useState<Swiper | null>(null);
-
   return (
     <SectionWrapper direction={"row"}>
       <ArrowSwiper
@@ -21,13 +22,13 @@ const InTheNews = () => {
           width: 644,
         }}
         SwiperProps={{
-          onSwiper: setSwiper,
+          onSwiper: (swiper) => $swiperInstance.next(swiper),
           navigation: {
             enabled: true,
           },
         }}
       />
-      <ArrowSlideInfo data={data} swiperInstance={swiper} />
+      <ArrowSlideInfo data={data} swiperInstance={$swiperInstance} />
     </SectionWrapper>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 import { Stack, StackProps } from "@mui/material";
-import { Swiper as SwiperType } from "swiper/types";
-import React, { useEffect, useMemo } from "react";
+import { Swiper } from "swiper/types";
+import React, { useEffect, useMemo, useState } from "react";
 import { MotionTypography, MotionTypographyProps } from "@cc/motion-components";
 import { StaticImageData } from "next/image";
 import {
@@ -10,6 +10,8 @@ import {
 } from "@mui/icons-material";
 import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
 import BorderedIconButton from "@cc/bordered-icon-button";
+import { BehaviorSubject } from "rxjs";
+import { useObservable } from "react-use";
 
 export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
   data: {
@@ -28,7 +30,7 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
   };
   isNavigation?: boolean;
   navigationWrapperProps?: Omit<StackProps, "children">;
-  swiperInstance?: SwiperType | null;
+  swiperInstance: BehaviorSubject<Swiper | null>;
 }
 
 const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
@@ -46,23 +48,31 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
     DescriptionTypographyProps,
     ButtonProps,
   } = SlotProps;
+  const swiper = useObservable(swiperInstance, null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const { prefix, title, description, btnText } = useMemo(() => {
-    const { activeIndex } = swiperInstance || {};
-    return data[activeIndex || 0];
-  }, [data, swiperInstance]);
+    return data[activeIndex];
+  }, [activeIndex, data]);
 
   useEffect(() => {
-    console.log("-> swiper instance added");
-    swiperInstance &&
-      swiperInstance.on("slideChange", (swiper) => {
-        console.log("-> slide changed");
+    if (swiper) {
+      swiper.on("slideChange", (swiper) => {
+        swiper.activeIndex !== activeIndex &&
+          setActiveIndex(swiper.activeIndex);
       });
-  }, [swiperInstance]);
+    }
+    return () => {
+      if (swiper) {
+        swiper.off("slideChange");
+      }
+    };
+  }, [swiper, activeIndex]);
 
   return (
-    <Stack color={"primary.dark"} spacing={3} {...restStackProps}>
+    <Stack color={"primary.main"} spacing={3} {...restStackProps}>
       {prefix && (
-        <MotionTypography variant={"body1"} {...PrefixTypographyProps}>
+        <MotionTypography variant={"subtitle1"} {...PrefixTypographyProps}>
           {prefix}
         </MotionTypography>
       )}
@@ -104,12 +114,22 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           xs: 3,
           sm: 2,
         }}
-        color={"primary.dark"}
+        color={"primary.main"}
       >
-        <BorderedIconButton color={"primary"}>
+        <BorderedIconButton
+          color={"primary"}
+          onClick={() => {
+            swiper?.slidePrev();
+          }}
+        >
           <NavigateBeforeRounded />
         </BorderedIconButton>
-        <BorderedIconButton color={"primary"}>
+        <BorderedIconButton
+          color={"primary"}
+          onClick={() => {
+            swiper?.slideNext();
+          }}
+        >
           <NavigateNextRounded />
         </BorderedIconButton>
       </Stack>

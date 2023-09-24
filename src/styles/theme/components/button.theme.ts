@@ -10,7 +10,9 @@ import {Button} from "@theme/components/typography.fontvariant";
  *
  * @see https://mui.com/material-ui/react-button/#customization
  */
-export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] = {
+export const ButtonVariants: Components<
+  Omit<Theme, "components">
+>["MuiButton"] = {
   styleOverrides: {
     root: ({ ownerState, theme }) => {
       const { sx: style } = ownerState;
@@ -89,7 +91,7 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
         !color || color === "inherit" ? "inherit" : palette[color].main;
       const background =
         !color || color === "inherit"
-          ? "transparent"
+          ? "inherit"
           : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
         border: `1px solid`,
@@ -97,26 +99,6 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
         color: !color || color === "inherit" ? "inherit" : palette[color].main,
         "&:hover": {
           background,
-        },
-      });
-    },
-    outlinedPrimary: ({ theme }) => {
-      return theme.unstable_sx({
-        background: "transparent",
-        color: theme.palette.primary.main,
-        "&:hover": {
-          background: alpha(theme.palette.primary.main, 0.1),
-          color: theme.palette.primary.main,
-        },
-      });
-    },
-    outlinedSecondary: ({ theme }) => {
-      return theme.unstable_sx({
-        background: "transparent",
-        color: theme.palette.secondary.main,
-        "&:hover": {
-          background: alpha(theme.palette.secondary.main, 0.1),
-          color: theme.palette.secondary.main,
         },
       });
     },
