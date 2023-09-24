@@ -13,16 +13,16 @@ import {
   accordionSummaryClasses,
   Divider,
   Drawer,
-  IconButton,
   IconButtonProps,
   List,
   ListItem,
   Typography,
 } from "@mui/material";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { HeaderProps } from "@/layout/header";
 import MLink, { MLinkProps } from "@cc/m-link";
 import { appbarHeight } from "@/layout/header/reactive-appbar";
+import BorderedIconButton from "@cc/bordered-icon-button";
 
 export interface NavigationDrawerProps
   extends Omit<IconButtonProps, "children"> {
@@ -31,25 +31,23 @@ export interface NavigationDrawerProps
 }
 
 const NavigationDrawer = (props: NavigationDrawerProps) => {
-    const { routes, onToggle, ...restIconButtonProps } = props;
+  const { routes, onToggle, ...restIconButtonProps } = props;
   const [isDrawer, setIsDrawer] = useState(false);
+
+  useEffect(() => {
+    onToggle && onToggle(isDrawer);
+  }, [isDrawer, onToggle]);
   return (
     <>
-      <IconButton
-        className={"border"}
+      <BorderedIconButton
         onClick={() => {
-          if (isDrawer) {
-            setIsDrawer(false);
-            onToggle && onToggle(false);
-          } else {
-            setIsDrawer(true);
-            onToggle && onToggle(true);
-          }
+          setIsDrawer((prev) => !prev);
         }}
+        color={"secondary"}
         {...restIconButtonProps}
       >
         {isDrawer ? <CloseRounded /> : <MenuRounded />}
-      </IconButton>
+      </BorderedIconButton>
       <Drawer
         open={isDrawer}
         variant={"temporary"}

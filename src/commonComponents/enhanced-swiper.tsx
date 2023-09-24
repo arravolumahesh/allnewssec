@@ -1,4 +1,3 @@
-"use client";
 import { ComponentProps, ComponentType, ReactNode } from "react";
 import "../../node_modules/swiper/swiper-bundle.min.css";
 import { Stack, StackProps } from "@mui/material";

@@ -15,6 +15,7 @@ import {
 import { useState } from "react";
 import SectionWrapper from "@cc/section-wrapper";
 import { appbarHeight } from "@/layout/header/reactive-appbar";
+import BorderedIconButton from "@cc/bordered-icon-button";
 
 export interface SearchDrawerTogglerProps
   extends Omit<IconButtonProps, "children"> {}
@@ -25,16 +26,16 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   return (
     <>
-      <IconButton
+      <BorderedIconButton
         sx={[...sxArrayUtil(sx)]}
         onClick={() => {
           setIsDrawer((prev) => !prev);
         }}
-        className={"border"}
+        color={"secondary"}
         {...restIconButtonProps}
       >
         {isDrawer ? <CloseRounded /> : <SearchRounded />}
-      </IconButton>
+      </BorderedIconButton>
       <Drawer
         open={isDrawer}
         variant={"temporary"}

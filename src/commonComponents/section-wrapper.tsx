@@ -1,4 +1,3 @@
-"use client";
 import { Breakpoint, Stack, StackProps } from "@mui/material";
 import { forwardRef } from "react";
 

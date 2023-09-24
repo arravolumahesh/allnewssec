@@ -1,4 +1,3 @@
-"use client";
 import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
 import { Stack, StackProps } from "@mui/material";
 import React, { ComponentProps, ComponentType, useCallback } from "react";

@@ -1,4 +1,3 @@
-"use client";
 import { StaticImageData } from "next/image";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import { MotionImage } from "@cc/motion-components";

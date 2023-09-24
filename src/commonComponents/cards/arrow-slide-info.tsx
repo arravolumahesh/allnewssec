@@ -1,5 +1,5 @@
 "use client";
-import { IconButton, Stack, StackProps } from "@mui/material";
+import { Stack, StackProps } from "@mui/material";
 import { Swiper } from "swiper/types";
 import React, { useMemo } from "react";
 import { MotionTypography, MotionTypographyProps } from "@cc/motion-components";
@@ -9,6 +9,9 @@ import {
   NavigateNextRounded,
 } from "@mui/icons-material";
 import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
+import { MaterialSwiper, MaterialSwiperSlide } from "@cc/material-components";
+import { Controller, Navigation } from "swiper/modules";
+import BorderedIconButton from "@cc/bordered-icon-button";
 
 export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
   data: {
@@ -50,44 +53,59 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
     return data[activeIndex || 0];
   }, [data, swiperInstance]);
   return (
-    <Stack color={"primary.dark"} spacing={3} {...restStackProps}>
-      {prefix && (
-        <MotionTypography variant={"body1"} {...PrefixTypographyProps}>
-          {prefix}
-        </MotionTypography>
-      )}
-      <MotionTypography
-        key={title}
-        variant={"h4"}
-        fontWeight={"inherit"}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 2,
-            duration: 0.6,
-          },
-        }}
-        initial={{
-          opacity: 0,
-          y: "150%",
-        }}
-        {...TitleTypographyProps}
-      >
-        {title}
-      </MotionTypography>
-      <MotionTypography variant={"body1"} {...DescriptionTypographyProps}>
-        {description}
-      </MotionTypography>
-      <AnimatedButton
-        href={"/"}
-        variant={"outlined"}
-        color={"primary"}
-        {...ButtonProps}
-      >
-        {btnText}
-      </AnimatedButton>
+    <MaterialSwiper
+      modules={[Controller, Navigation]}
+      navigation={{
+        enabled: true,
+        prevEl: ".swiper-prev",
+        nextEl: ".swiper-next",
+      }}
+      controller={{
+        control: swiperInstance,
+      }}
+    >
+      <MaterialSwiperSlide>
+        <Stack color={"primary.dark"} spacing={3} {...restStackProps}>
+          {prefix && (
+            <MotionTypography variant={"body1"} {...PrefixTypographyProps}>
+              {prefix}
+            </MotionTypography>
+          )}
+          <MotionTypography
+            key={title}
+            variant={"h4"}
+            fontWeight={"inherit"}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: 2,
+                duration: 0.6,
+              },
+            }}
+            initial={{
+              opacity: 0,
+              y: "150%",
+            }}
+            {...TitleTypographyProps}
+          >
+            {title}
+          </MotionTypography>
+          <MotionTypography variant={"body1"} {...DescriptionTypographyProps}>
+            {description}
+          </MotionTypography>
+          <AnimatedButton
+            href={"/"}
+            variant={"outlined"}
+            color={"primary"}
+            {...ButtonProps}
+          >
+            {btnText}
+          </AnimatedButton>
+        </Stack>
+      </MaterialSwiperSlide>
       <Stack
+        slot={"container-start"}
         direction={"row"}
         {...navigationWrapperProps}
         spacing={{
@@ -96,26 +114,14 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
         }}
         color={"primary.dark"}
       >
-        <IconButton
-          className={"border"}
-          onClick={() => {
-            swiperInstance?.slidePrev();
-          }}
-          color={"primary"}
-        >
+        <BorderedIconButton className={"swiper-prev"} color={"primary"}>
           <NavigateBeforeRounded />
-        </IconButton>
-        <IconButton
-          className={"border"}
-          onClick={() => {
-            swiperInstance?.slideNext();
-          }}
-          color={"primary"}
-        >
+        </BorderedIconButton>
+        <BorderedIconButton className={"swiper-next"} color={"primary"}>
           <NavigateNextRounded />
-        </IconButton>
+        </BorderedIconButton>
       </Stack>
-    </Stack>
+    </MaterialSwiper>
   );
 };
 export default ArrowSlideInfo;
