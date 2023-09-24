@@ -15,11 +15,11 @@ const $swiperInstance = new BehaviorSubject<Swiper | null>(null);
 const InTheNews = () => {
   return (
     <SectionWrapper
-      direction={{ lg: "row" }}
-      alignItems={"center"}
+      direction={{ md_lg: "row" }}
+      alignItems={"flex-start"}
       justifyContent={"space-between"}
       color={"primary.main"}
-      rowGap={{ xs: 4, md: 0 }}
+      rowGap={{ xs: 4, md_lg: 0 }}
       SectionHeaderProps={{
         title: "In The News",
       }}
@@ -27,7 +27,7 @@ const InTheNews = () => {
       <ArrowSwiper
         data={data}
         sx={{
-          width: { xs: 1, lg: 560, xl: 690 },
+          width: { xs: 1, sm: 490, md_lg: 400, lg: 540, xl: 690 },
           aspectRatio: "5/3.21",
         }}
         SwiperProps={{
@@ -44,7 +44,8 @@ const InTheNews = () => {
         height={"fit-content"}
         width={{
           xs: 1,
-          lg: 0.45,
+          md_lg: 0.5,
+          lg: 0.47,
           xl: 0.4,
         }}
       />

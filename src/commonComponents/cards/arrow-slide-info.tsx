@@ -73,7 +73,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   }, [swiper, activeIndex]);
 
   return (
-    <Stack color={"primary.main"} {...restStackProps}>
+    <Stack color={"primary.main"} my={"auto"} {...restStackProps}>
       {prefix && (
         <MotionTypography
           variant={"subtitle1"}
@@ -133,8 +133,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           }}
           mt={{
             xs: 5,
-            md: 4.5,
-            xl: 4,
+            md: 4,
           }}
           {...NavigationWrapperProps}
         >
