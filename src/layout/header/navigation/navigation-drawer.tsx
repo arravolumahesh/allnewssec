@@ -22,7 +22,6 @@ import {
 import { Fragment, useState } from "react";
 import { appbarHeight, HeaderProps } from "@/layout/header";
 import MLink, { MLinkProps } from "@cc/m-link";
-import { ColorPartial } from "@mui/material/styles/createPalette";
 
 export interface NavigationDrawerProps
   extends Omit<IconButtonProps, "children"> {
@@ -63,9 +62,7 @@ const NavigationDrawer = (props: NavigationDrawerProps) => {
             mt: appbarHeight,
             minWidth: 280,
             width: { xs: "100%", sm: 390 },
-            backgroundImage: `linear-gradient(0deg, ${
-              (theme.palette.secondary as ColorPartial)["A700"]
-            } 35.16%, ${(theme.palette.primary as ColorPartial)["900"]} 100%)`,
+            background: theme.palette.gradient.lightToDark,
           }),
         }}
       >
@@ -144,6 +141,7 @@ export const NavigationDrawerItem = (props: NavigationDrawerItemProps) => {
         sx={{
           py: 0,
           px: 3,
+          mb: isAccordionOpen ? 1 : 0,
         }}
       >
         <List disablePadding>
