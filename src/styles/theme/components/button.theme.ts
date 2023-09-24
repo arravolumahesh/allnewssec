@@ -48,24 +48,55 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
         },
       ]);
     },
-    containedPrimary: ({ theme }) => {
+    contained: ({ ownerState, theme }) => {
+      const { color } = ownerState;
+      const { palette } = theme;
+      const borderColor =
+        !color || color === "inherit"
+          ? "inherit"
+          : alpha(palette[color].main, 0.8);
+      const background =
+        !color || color === "inherit"
+          ? "transparent"
+          : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
-        background: alpha(theme.palette.primary.main, 0.1),
-        color: theme.palette.primary.main,
+        border: `1px solid`,
+        borderColor,
+        background,
+        color: !color || color === "inherit" ? "inherit" : palette[color].main,
         "&:hover": {
-          background: theme.palette.primary.main,
-          color: theme.palette.primary.contrastText,
+          background:
+            !color || color === "inherit" ? "inherit" : palette[color].main,
+          color:
+            !color || color === "inherit"
+              ? "inherit"
+              : palette[color].contrastText,
         },
       });
     },
     containedSecondary: ({ theme }) => {
       return theme.unstable_sx({
-        background: alpha(theme.palette.secondary.main, 0.1),
-        color: theme.palette.secondary.main,
+        borderColor: alpha(theme.palette.secondary.main, 0.3),
         "&:hover": {
-          border: "none",
-          background: theme.palette.secondary.main,
           color: theme.palette.grey["A700"],
+        },
+      });
+    },
+    outlined: ({ ownerState, theme }) => {
+      const { color } = ownerState;
+      const { palette } = theme;
+      const borderColor =
+        !color || color === "inherit" ? "inherit" : palette[color].main;
+      const background =
+        !color || color === "inherit"
+          ? "transparent"
+          : alpha(palette[color].main, 0.1);
+      return theme.unstable_sx({
+        border: `1px solid`,
+        borderColor,
+        color: !color || color === "inherit" ? "inherit" : palette[color].main,
+        "&:hover": {
+          background,
         },
       });
     },
