@@ -30,16 +30,16 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
     ButtonProps?: Omit<AnimatedButtonProps, "children">;
   };
   isNavigation?: boolean;
-  navigationWrapperProps?: Omit<StackProps, "children">;
-  swiperInstance: BehaviorSubject<Swiper | null>;
+  NavigationWrapperProps?: Omit<StackProps, "children">;
+  SwiperInstance: BehaviorSubject<Swiper | null>;
 }
 
 const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   const {
     data,
     isNavigation,
-    navigationWrapperProps,
-    swiperInstance,
+    NavigationWrapperProps,
+    SwiperInstance,
     SlotProps = {},
     ...restStackProps
   } = props;
@@ -49,7 +49,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
     DescriptionTypographyProps,
     ButtonProps,
   } = SlotProps;
-  const swiper = useObservable(swiperInstance, null);
+  const swiper = useObservable(SwiperInstance, null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const { prefix, title, description, btnText } = useMemo(() => {
@@ -80,7 +80,6 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
       <MotionTypography
         key={title}
         variant={"h4"}
-        fontWeight={"inherit"}
         fontSize={H5_1}
         animate={{
           opacity: 1,
@@ -109,34 +108,37 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
       >
         {btnText}
       </AnimatedButton>
-      <Stack
-        direction={"row"}
-        {...navigationWrapperProps}
-        spacing={{
-          xs: 3,
-          sm: 2,
-        }}
-        color={"primary.main"}
-      >
-        <BorderedIconButton
-          color={"primary"}
-          onClick={() => {
-            swiper?.slidePrev();
+      {isNavigation && (
+        <Stack
+          direction={"row"}
+          spacing={{
+            xs: 3,
+            sm: 2,
           }}
-          sx={navButtonSx}
+          mt={{ xs: 5, md: 4 }}
+          color={"primary.main"}
+          {...NavigationWrapperProps}
         >
-          <NavigateBeforeRounded />
-        </BorderedIconButton>
-        <BorderedIconButton
-          color={"primary"}
-          onClick={() => {
-            swiper?.slideNext();
-          }}
-          sx={navButtonSx}
-        >
-          <NavigateNextRounded />
-        </BorderedIconButton>
-      </Stack>
+          <BorderedIconButton
+            color={"primary"}
+            onClick={() => {
+              swiper?.slidePrev();
+            }}
+            sx={navButtonSx}
+          >
+            <NavigateBeforeRounded />
+          </BorderedIconButton>
+          <BorderedIconButton
+            color={"primary"}
+            onClick={() => {
+              swiper?.slideNext();
+            }}
+            sx={navButtonSx}
+          >
+            <NavigateNextRounded />
+          </BorderedIconButton>
+        </Stack>
+      )}
     </Stack>
   );
 };

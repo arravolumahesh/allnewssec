@@ -9,17 +9,35 @@ import SectionWrapper from "@cc/section-wrapper";
 import React from "react";
 import { Swiper } from "swiper/types";
 import { BehaviorSubject } from "rxjs";
+import { Typography } from "@mui/material";
 
 const $swiperInstance = new BehaviorSubject<Swiper | null>(null);
 
 const InTheNews = () => {
   return (
-    <SectionWrapper direction={"row"}>
+    <SectionWrapper
+      direction={{ md: "row" }}
+      alignItems={"center"}
+      justifyContent={"space-between"}
+      flexWrap={"wrap"}
+      color={"primary.main"}
+    >
+      <Typography
+        variant={"h1"}
+        component={"h2"}
+        color={"inherit"}
+        width={1}
+        mx={"auto"}
+        textAlign={"center"}
+        mb={7}
+      >
+        In the News
+      </Typography>
       <ArrowSwiper
         data={data}
         sx={{
-          height: 424,
-          width: 644,
+          width: { xs: 1, lg: 0.5, xl: 690 },
+          aspectRatio: "5/3.21",
         }}
         SwiperProps={{
           onSwiper: (swiper) => $swiperInstance.next(swiper),
@@ -28,7 +46,20 @@ const InTheNews = () => {
           },
         }}
       />
-      <ArrowSlideInfo data={data} swiperInstance={$swiperInstance} />
+      <ArrowSlideInfo
+        data={data}
+        SwiperInstance={$swiperInstance}
+        isNavigation
+        NavigationWrapperProps={{
+          alignSelf: "flex-end",
+        }}
+        height={"fit-content"}
+        width={{
+          xs: "100%",
+          md: "50%",
+          xl: "40%",
+        }}
+      />
     </SectionWrapper>
   );
 };

@@ -1,6 +1,19 @@
 import {Components, Theme, ThemeOptions} from "@mui/material";
 import {helvetica} from "app/font";
-import {Body1, Body2, Button, H1, H2, H3, H4, H5, H6,} from "@theme/components/typography.fontvariant";
+import {
+  Body1,
+  Body2,
+  Button,
+  Caption,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Subtitle1,
+  Subtitle2,
+} from "@theme/components/typography.fontvariant";
 
 /**
  * @ThemeOptions['typography']
@@ -41,75 +54,68 @@ export const TypographyVariants: Components<
       return theme.unstable_sx({
         color: "inherit",
         fontWeight: "inherit",
+        lineHeight: "128%",
       });
     },
     h1: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: H1,
-        fontWeight: 700,
+        textTransform: "uppercase",
       });
     },
     h2: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: H2,
-        fontWeight: 700,
+        textTransform: "uppercase",
       });
     },
     h3: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: H3,
-        fontWeight: 700,
+        textTransform: "uppercase",
       });
     },
     h4: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: H4,
-        fontWeight: 700,
-        lineHeight: "140%",
+        textTransform: "uppercase",
       });
     },
     h5: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: H5,
-        fontWeight: 700,
-        lineHeight: "150%",
+        textTransform: "uppercase",
       });
     },
     h6: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: H6,
-        fontWeight: 700,
+        textTransform: "uppercase",
       });
     },
     body1: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: Body1,
-        lineHeight: "150%",
       });
     },
     body2: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: Body2,
-        lineHeight: "150%",
-        fontWeight: 500,
       });
     },
     subtitle1: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "12px", lg: "14px" },
-        lineHeight: "150%",
+        fontSize: Subtitle1,
       });
     },
     subtitle2: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "10px", lg: "12px" },
-        lineHeight: "150%",
+        fontSize: Subtitle2,
       });
     },
     caption: ({ theme }) => {
       return theme.unstable_sx({
-        fontSize: { xs: "10px", lg: "10px" },
-        lineHeight: "150%",
+        fontSize: Caption,
       });
     },
     gutterBottom: ({ theme }) => {
