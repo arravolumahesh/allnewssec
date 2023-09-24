@@ -98,6 +98,7 @@ export const ButtonVariants: Components<
           ? "inherit"
           : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
+        px: { xs: 3, md: 2.5, lg: 2 },
         height: 48,
         border: `1px solid`,
         borderColor,

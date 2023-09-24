@@ -9,7 +9,6 @@ import SectionWrapper from "@cc/section-wrapper";
 import React from "react";
 import { Swiper } from "swiper/types";
 import { BehaviorSubject } from "rxjs";
-import { Typography } from "@mui/material";
 
 const $swiperInstance = new BehaviorSubject<Swiper | null>(null);
 
@@ -19,20 +18,12 @@ const InTheNews = () => {
       direction={{ md: "row" }}
       alignItems={"center"}
       justifyContent={"space-between"}
-      flexWrap={"wrap"}
       color={"primary.main"}
+      rowGap={{ xs: 4, md: 0 }}
+      SectionHeaderProps={{
+        title: "In The News",
+      }}
     >
-      <Typography
-        variant={"h1"}
-        component={"h2"}
-        color={"inherit"}
-        width={1}
-        mx={"auto"}
-        textAlign={"center"}
-        mb={7}
-      >
-        In the News
-      </Typography>
       <ArrowSwiper
         data={data}
         sx={{

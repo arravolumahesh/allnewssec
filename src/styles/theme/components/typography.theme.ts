@@ -120,7 +120,7 @@ export const TypographyVariants: Components<
     },
     gutterBottom: ({ theme }) => {
       return theme.unstable_sx({
-        mb: { xs: 1, lg: 1.25 },
+        mb: { xs: 2, md: 2.5, lg: 3 },
       });
     },
     button: ({ theme }) => {

@@ -1,33 +1,54 @@
 import { Breakpoint, Stack, StackProps } from "@mui/material";
 import { forwardRef } from "react";
+import SectionHeader, { SectionHeaderProps } from "@cc/section-header";
 
 interface SectionWrapperProps extends StackProps {
   SectionProps?: Omit<StackProps, "children">;
+  ContainerProps?: Omit<StackProps, "children">;
+  SectionHeaderProps?: Omit<SectionHeaderProps, "children">;
 }
 
 const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
   (props, ref) => {
-    const { children, SectionProps, ...rest } = props;
-    return (
-      <Stack
-        component={"section"}
-        alignItems={"center"}
-        height={1}
-        ref={ref}
-        {...SectionProps}
-      >
+      const {
+        children,
+        SectionProps,
+        ContainerProps,
+        SectionHeaderProps,
+        ...rest
+      } = props;
+
+      return (
         <Stack
-          px={basePx}
-          py={basePy}
-          width={1}
-          maxWidth={"xxl"}
-          height={"inherit"}
-          {...rest}
+          component={"section"}
+          alignItems={"center"}
+          height={1}
+          ref={ref}
+          {...SectionProps}
         >
-          {children}
+          <Stack
+            px={basePx}
+            py={basePy}
+            width={1}
+            maxWidth={"xxl"}
+            height={"inherit"}
+            color={rest.color || "inherit"}
+            {...ContainerProps}
+            {...(SectionHeaderProps && SectionHeaderProps.title ? {} : rest)}
+          >
+            {SectionHeaderProps && SectionHeaderProps.title ? (
+              <>
+                <SectionHeader {...SectionHeaderProps} />
+                <Stack color={"inherit"} width={1} {...rest}>
+                  {children}
+                </Stack>
+              </>
+            ) : (
+              children
+            )}
+          </Stack>
         </Stack>
-      </Stack>
-    );
+      );
   },
 );
 

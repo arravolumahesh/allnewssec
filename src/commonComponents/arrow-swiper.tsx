@@ -1,5 +1,5 @@
 import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
-import { Stack, StackProps, SxProps, Theme } from "@mui/material";
+import { Box, Stack, StackProps, SxProps, Theme } from "@mui/material";
 import React, { ComponentProps, ComponentType, useCallback } from "react";
 import { Navigation } from "swiper/modules";
 import { SetOptional } from "type-fest";
@@ -60,15 +60,6 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
       overflow={"clip"}
       {...restStackProps}
     >
-      <ArrowGradient
-        height={"100%"}
-        style={{
-          position: "absolute",
-          top: 0,
-          right: -42,
-          bottom: 0,
-        }}
-      />
       <EnhancedSwiper
         data={data}
         SlideWrapperProps={slideWrapperProps}
@@ -98,6 +89,9 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
               />
             )}
       </EnhancedSwiper>
+      <Box width={"10%"} height={"100%"} ml={"-100px"}>
+        <ArrowGradient height={"100%"} />
+      </Box>
     </Stack>
   );
 };

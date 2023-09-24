@@ -75,7 +75,11 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   return (
     <Stack color={"primary.main"} {...restStackProps}>
       {prefix && (
-        <MotionTypography variant={"subtitle1"} {...PrefixTypographyProps}>
+        <MotionTypography
+          variant={"subtitle1"}
+          gutterBottom
+          {...PrefixTypographyProps}
+        >
           {prefix}
         </MotionTypography>
       )}
@@ -83,6 +87,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
         key={title}
         variant={"h4"}
         fontSize={H5_1}
+        gutterBottom
         animate={{
           opacity: 1,
           y: 0,
@@ -99,7 +104,11 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
       >
         {title}
       </MotionTypography>
-      <MotionTypography variant={"body1"} {...DescriptionTypographyProps}>
+      <MotionTypography
+        variant={"body1"}
+        mb={3}
+        {...DescriptionTypographyProps}
+      >
         {description}
       </MotionTypography>
       <AnimatedButton
@@ -118,6 +127,11 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
             sm: 2,
           }}
           color={"primary.main"}
+          mt={{
+            xs: 5,
+            md: 4.5,
+            xl: 4,
+          }}
           {...NavigationWrapperProps}
         >
           <BorderedIconButton
