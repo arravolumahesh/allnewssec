@@ -26,7 +26,7 @@ const ClippedImage = styled((props: ClippedImageProps) => {
       {...rest}
     />
   );
-})();
+})({});
 
 export default ClippedImage;
 
