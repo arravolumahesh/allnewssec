@@ -13,7 +13,9 @@ export interface NavigationActionsProps {
 const NavigationActions = (props: NavigationActionsProps) => {
   const { routes } = props;
   const [isNavDrawer, setNavDrawer] = useState(false);
-  const isXl = useMediaQuery<Theme>((theme) => theme.breakpoints.up("xl"));
+    const isLg_Xl = useMediaQuery<Theme>((theme) =>
+      theme.breakpoints.down("lg_xl"),
+    );
   return (
     <Stack
       direction={"row"}
@@ -42,14 +44,14 @@ const NavigationActions = (props: NavigationActionsProps) => {
           },
         }}
       />
-      {!isXl && (
+      {isLg_Xl && (
         <NavigationDrawer
           routes={routes}
           sx={[
             {
               display: {
                 xs: "flex",
-                xl: "none",
+                lg_xl: "none",
               },
             },
           ]}

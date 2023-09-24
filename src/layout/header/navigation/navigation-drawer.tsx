@@ -20,8 +20,9 @@ import {
   Typography,
 } from "@mui/material";
 import { Fragment, useState } from "react";
-import { appbarHeight, HeaderProps } from "@/layout/header";
+import { HeaderProps } from "@/layout/header";
 import MLink, { MLinkProps } from "@cc/m-link";
+import { appbarHeight } from "@/layout/header/reactive-appbar";
 
 export interface NavigationDrawerProps
   extends Omit<IconButtonProps, "children"> {

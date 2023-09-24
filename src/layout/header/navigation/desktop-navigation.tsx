@@ -17,7 +17,7 @@ const DesktopNavigation = (props: DesktopNavigationProps) => {
         height: "inherit",
         display: {
           xs: "none",
-          xl: "flex",
+          lg_xl: "flex",
         },
       }}
     >
@@ -31,7 +31,7 @@ const DesktopNavigation = (props: DesktopNavigationProps) => {
             sx={{
               fontSize: () => ({
                 xs: 18,
-                lg: 14,
+                lg_xl: 14,
               }),
             }}
           />

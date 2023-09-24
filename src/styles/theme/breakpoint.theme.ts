@@ -26,7 +26,7 @@ export const BreakpointTheme: ThemeOptions["breakpoints"] = {
     sm_md: 672,
     md: 768,
     md_lg: 880,
-    lg: 992,
+    lg: 991,
     lg_xl: 1136,
     xl: 1280,
     xl_xxl: 1360,

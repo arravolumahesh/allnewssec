@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import SectionWrapper from "@cc/section-wrapper";
-import { appbarHeight } from "@/layout/header";
+import { appbarHeight } from "@/layout/header/reactive-appbar";
 
 export interface SearchDrawerTogglerProps
   extends Omit<IconButtonProps, "children"> {}

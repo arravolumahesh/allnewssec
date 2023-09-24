@@ -21,7 +21,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
           px={{
             xs: 3,
             md: 5,
-            xl: 8,
+            xxl: 8,
           }}
           py={3.5}
           width={1}
