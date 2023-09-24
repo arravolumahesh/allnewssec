@@ -1,5 +1,5 @@
 "use client";
-import { Stack, StackProps } from "@mui/material";
+import { Breakpoint, Stack, StackProps } from "@mui/material";
 import { forwardRef } from "react";
 
 interface SectionWrapperProps extends StackProps {
@@ -18,12 +18,8 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         {...SectionProps}
       >
         <Stack
-          px={{
-            xs: 3,
-            md: 5,
-            xxl: 8,
-          }}
-          py={3.5}
+          px={basePx}
+          py={basePy}
           width={1}
           maxWidth={"xxl"}
           height={"inherit"}
@@ -39,3 +35,17 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
 export default SectionWrapper;
 
 SectionWrapper.displayName = SectionWrapper.name;
+
+export type BasePadding = {
+  [keys in Breakpoint]?: string | number;
+};
+
+export const basePx: BasePadding = {
+  xs: 3,
+  md: 5,
+  xxl: 8,
+};
+
+export const basePy: BasePadding = {
+  xs: 3.5,
+};

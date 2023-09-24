@@ -10,7 +10,7 @@ import {
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
-import SectionWrapper from "@/commonComponents/section-wrapper";
+import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
 
 const Hero = () => {
   const [logoAnimate, setLogoAnimate] = useState(false);
@@ -20,14 +20,15 @@ const Hero = () => {
 
   return (
     <SectionWrapper
-      pt={3.75}
-      pb={67}
+      pt={6}
+      pb={{ xxl: 8.25 }}
+      px={{ ...basePx, xxl: 22 }}
       direction={{ xs: "column-reverse", md: "row" }}
       alignItems={"center"}
       justifyContent={"space-between"}
       SectionProps={{
         sx: {
-          background: "radial-gradient(circle,  #326ccf 0%,  #0C1220 97%)",
+          background: (theme) => theme.palette.gradient.radialLightToDark,
         },
       }}
     >

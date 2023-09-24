@@ -172,6 +172,7 @@ export const PaletteTheme = (
       return {
         header:
           "linear-gradient(90deg, #0C1220 0%, #10365D 48.7%, #0C1220 100%)",
+        radialLightToDark: "radial-gradient(circle,  #326ccf 0%,  #0C1220 97%)",
         darkToLight:
           "linear-gradient(180deg, #0C1425 0%, #162B52 17.68%, #1F3F78 35.36%, #254F98 53.05%, #2B5CB0 70.73%, #2F65C1 89.77%, #316ACB 110.17%, #326CCF 136.02%)",
         lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
@@ -186,6 +187,7 @@ declare module "@mui/material/styles" {
   interface Palette {
     gradient: {
       header: string;
+      radialLightToDark: string;
       darkToLight: string;
       lightToDark: string;
       transparentToDark: string;
@@ -195,6 +197,7 @@ declare module "@mui/material/styles" {
   interface PaletteOptions {
     gradient: {
       header: string;
+      radialLightToDark: string;
       darkToLight: string;
       lightToDark: string;
       transparentToDark: string;
