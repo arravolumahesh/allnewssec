@@ -12,6 +12,7 @@ const DesktopNavigation = (props: DesktopNavigationProps) => {
   return (
     <ButtonGroup
       variant={"outlined"}
+      color={"secondary"}
       sx={{
         height: "inherit",
         display: {
