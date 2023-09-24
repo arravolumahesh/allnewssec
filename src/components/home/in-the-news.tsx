@@ -8,7 +8,6 @@ import ArrowSwiper from "@cc/arrow-swiper";
 import SectionWrapper from "@cc/section-wrapper";
 import React, { useState } from "react";
 import { Swiper } from "swiper/types";
-import { Controller } from "swiper/modules";
 
 const InTheNews = () => {
   const [swiper, setSwiper] = useState<Swiper | null>(null);
@@ -23,7 +22,9 @@ const InTheNews = () => {
         }}
         SwiperProps={{
           onSwiper: setSwiper,
-          modules: [Controller],
+          navigation: {
+            enabled: true,
+          },
         }}
       />
       <ArrowSlideInfo data={data} swiperInstance={swiper} />

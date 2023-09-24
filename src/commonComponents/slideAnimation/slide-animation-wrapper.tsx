@@ -9,7 +9,7 @@ import {
 } from "../motion-components";
 import AnimatedButton from "../animated-button";
 import { motion, MotionProps } from "framer-motion";
-import Arrow from "../arrow";
+import ArrowGradient from "../arrow-gradient";
 
 type SlideAnimationWrapper = {
   prefix?: string;
@@ -62,7 +62,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
             aspectRatio: 0.32,
           }}
         >
-          <Arrow width={"100%"} height={"100%"} {...imageTransition} />
+          <ArrowGradient width={"100%"} height={"100%"} {...imageTransition} />
         </Box>
       </Stack>
       <Stack

@@ -1,13 +1,14 @@
 import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
-import { Stack, StackProps } from "@mui/material";
+import { Stack, StackProps, SxProps, Theme } from "@mui/material";
 import React, { ComponentProps, ComponentType, useCallback } from "react";
-import { Controller, Navigation, Virtual } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { SetOptional } from "type-fest";
 import { clipImagePath } from "@cc/clipped-image";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { MaterialSwiperSlideProps } from "@cc/material-components";
-import Arrow from "@cc/arrow";
+import ArrowGradient from "@cc/arrow-gradient";
 import ArrowSlideDefaultImage from "@cc/cards/arrow-slide-default-image";
+import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
 
 export interface SwiperSectionProps<
   T extends ComponentType<any>,
@@ -28,6 +29,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
     modules: swiperModules = [],
     SlideWrapperProps,
     sx,
+    navigation,
     ...swiperProps
   } = SwiperProps;
 
@@ -58,36 +60,52 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
       overflow={"clip"}
       {...restStackProps}
     >
-      <EnhancedSwiper
-        data={data}
-        SlideWrapperProps={slideWrapperProps}
-        modules={[Virtual, Controller, Navigation].concat(swiperModules)}
-        loop
-        virtual
-        spaceBetween={40}
-        sx={[
-          {
-            mx: "unset",
-            width: "90%",
-            clipPath: clipImagePath,
-          },
-          ...sxArrayUtil(sx),
-        ]}
-        SlideComponent={ArrowSlideDefaultImage}
-        {...swiperProps}
-      />
-      <Arrow
+      <ArrowGradient
         height={"100%"}
         style={{
           position: "absolute",
           top: 0,
           right: -42,
           bottom: 0,
-          zIndex: 9,
         }}
       />
+      <EnhancedSwiper
+        data={data}
+        SlideWrapperProps={slideWrapperProps}
+        modules={[Navigation, ...swiperModules]}
+        loop
+        navigation={
+          typeof navigation === "boolean"
+            ? navigation
+            : {
+                enabled: true,
+                prevEl: ".swiper-prev",
+                nextEl: null,
+                ...navigation,
+              }
+        }
+        spaceBetween={40}
+        sx={[enhancedSwiperSx, ...sxArrayUtil(sx)]}
+        SlideComponent={ArrowSlideDefaultImage}
+        {...swiperProps}
+      >
+        {typeof navigation === "boolean"
+          ? navigation
+          : navigation?.enabled && (
+              <SwiperNavigationArrowIcon
+                direction={"next"}
+                className={"swiper-prev"}
+              />
+            )}
+      </EnhancedSwiper>
     </Stack>
   );
 };
 
 export default ArrowSwiper;
+
+const enhancedSwiperSx: SxProps<Theme> = {
+  mx: "unset",
+  width: "90%",
+  clipPath: clipImagePath,
+};

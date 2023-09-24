@@ -62,6 +62,7 @@ const EnhancedSwiper = <
     SlideComponentProps,
     SlideWrapperProps,
     Slots = {},
+    children,
     ...swiperProps
   } = props;
   const {
@@ -118,6 +119,7 @@ const EnhancedSwiper = <
           {WrapperEndChildren}
         </Stack>
       )}
+      {children}
     </MaterialSwiper>
   );
 };

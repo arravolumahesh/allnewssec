@@ -15,7 +15,7 @@ import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import Arrow from "@cc/arrow";
+import ArrowGradient from "@cc/arrow-gradient";
 
 const KeyFocus = () => {
   const theme = useTheme();
@@ -37,7 +37,9 @@ const KeyFocus = () => {
         columnGap={4}
         pl={{ xs: 0, md: "5.5%" }}
       >
-        {matches && <Arrow width={126} height={381} {...imageTransition} />}
+        {matches && (
+          <ArrowGradient width={126} height={381} {...imageTransition} />
+        )}
         <Stack
           component={motion.div}
           variants={staggerDiv}

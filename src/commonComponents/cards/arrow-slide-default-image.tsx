@@ -12,6 +12,7 @@ const ArrowSlideDefaultImage: EnhancedSwiperSlideComponent<
   ArrowSlideDefaultImageProps
 > = (props) => {
   const { image, title, index } = props;
+    if (!image) throw new Error("ArrowSlideDefaultImage: image is required");
   return (
     <MotionImage
       src={image}

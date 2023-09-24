@@ -1,6 +1,6 @@
 import { MotionSvg, MotionSvgProps } from "@cc/motion-components";
 
-const Arrow = (props: Omit<MotionSvgProps, "children">) => {
+const ArrowGradient = (props: Omit<MotionSvgProps, "children">) => {
   const { style, ...restSvgProps } = props;
   return (
     <MotionSvg
@@ -142,4 +142,4 @@ const Arrow = (props: Omit<MotionSvgProps, "children">) => {
   );
 };
 
-export default Arrow;
+export default ArrowGradient;
