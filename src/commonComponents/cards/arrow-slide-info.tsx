@@ -122,11 +122,15 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
       {isNavigation && (
         <Stack
           direction={"row"}
+          color={"primary.main"}
+          alignSelf={{
+            xs: "center",
+            md: "flex-start",
+          }}
           spacing={{
             xs: 3,
             sm: 2,
           }}
-          color={"primary.main"}
           mt={{
             xs: 5,
             md: 4.5,

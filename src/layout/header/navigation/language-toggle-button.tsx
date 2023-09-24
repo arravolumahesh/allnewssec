@@ -50,10 +50,10 @@ const LanguageToggleButton = (props: LanguageToggleButtonProps) => {
       }}
       {...restButtonProps}
     >
-      <Typography variant={"subtitle1"} color={"inherit"}>
+      <Typography variant={"caption"} color={"inherit"}>
         {languages[0]}
       </Typography>
-      <Typography variant={"subtitle1"} color={"inherit"}>
+      <Typography variant={"caption"} color={"inherit"}>
         {languages[1]}
       </Typography>
     </Button>

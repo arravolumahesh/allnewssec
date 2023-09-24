@@ -15,7 +15,7 @@ const $swiperInstance = new BehaviorSubject<Swiper | null>(null);
 const InTheNews = () => {
   return (
     <SectionWrapper
-      direction={{ md: "row" }}
+      direction={{ lg: "row" }}
       alignItems={"center"}
       justifyContent={"space-between"}
       color={"primary.main"}
@@ -32,9 +32,6 @@ const InTheNews = () => {
         }}
         SwiperProps={{
           onSwiper: (swiper) => $swiperInstance.next(swiper),
-          navigation: {
-            enabled: true,
-          },
         }}
       />
       <ArrowSlideInfo
@@ -42,7 +39,7 @@ const InTheNews = () => {
         SwiperInstance={$swiperInstance}
         isNavigation
         NavigationWrapperProps={{
-          alignSelf: "flex-end",
+          alignSelf: { xs: "center", md: "flex-end" },
         }}
         height={"fit-content"}
         width={{
