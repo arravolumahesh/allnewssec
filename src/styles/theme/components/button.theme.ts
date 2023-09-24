@@ -15,7 +15,7 @@ export const ButtonVariants: Components<
 >["MuiButton"] = {
   styleOverrides: {
     root: ({ ownerState, theme }) => {
-      const { sx: style } = ownerState;
+      const { sx: style, fullWidth } = ownerState;
       return theme.unstable_sx([
         {
           ...helvetica.style,
@@ -28,8 +28,9 @@ export const ButtonVariants: Components<
           height: "inherit",
           fontSmooth: "always",
           minWidth: "fit-content",
+          width: fullWidth ? "100%" : "fit-content",
           paddingInline: 2,
-          paddingBlock: 1,
+          py: 1.5,
           borderRadius: 0,
           overflow: "hidden",
           textTransform: "capitalize",
@@ -62,6 +63,7 @@ export const ButtonVariants: Components<
           ? "transparent"
           : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
+        px: 3,
         border: `1px solid`,
         borderColor,
         background,

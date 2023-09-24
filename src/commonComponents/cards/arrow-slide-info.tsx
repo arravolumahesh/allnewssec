@@ -1,5 +1,5 @@
 "use client";
-import { Stack, StackProps } from "@mui/material";
+import { Stack, StackProps, SxProps, Theme } from "@mui/material";
 import { Swiper } from "swiper/types";
 import React, { useEffect, useMemo, useState } from "react";
 import { MotionTypography, MotionTypographyProps } from "@cc/motion-components";
@@ -12,6 +12,7 @@ import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
 import BorderedIconButton from "@cc/bordered-icon-button";
 import { BehaviorSubject } from "rxjs";
 import { useObservable } from "react-use";
+import { H5_1 } from "@theme/components/typography.fontvariant";
 
 export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
   data: {
@@ -80,6 +81,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
         key={title}
         variant={"h4"}
         fontWeight={"inherit"}
+        fontSize={H5_1}
         animate={{
           opacity: 1,
           y: 0,
@@ -121,6 +123,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           onClick={() => {
             swiper?.slidePrev();
           }}
+          sx={navButtonSx}
         >
           <NavigateBeforeRounded />
         </BorderedIconButton>
@@ -129,6 +132,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           onClick={() => {
             swiper?.slideNext();
           }}
+          sx={navButtonSx}
         >
           <NavigateNextRounded />
         </BorderedIconButton>
@@ -137,3 +141,8 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   );
 };
 export default ArrowSlideInfo;
+
+const navButtonSx: SxProps<Theme> = {
+  width: 48,
+  height: 48,
+};

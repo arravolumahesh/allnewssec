@@ -6,11 +6,7 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
     color: "inherit",
     border: "1px solid",
     borderColor:
-      !color || color === "inherit"
-        ? "inherit"
-        : color === "default"
-        ? "default"
-        : alpha(theme.palette[color].main, 0.3),
+      color === "secondary" ? alpha(theme.palette[color].main, 0.3) : color,
     backdropFilter: "blur(20px)",
     [`& .${svgIconClasses.root}`]: {
       fontSize: "inherit",
@@ -25,7 +21,7 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
         bottom: 3,
         borderRadius: "inherit",
         backgroundColor: "currentcolor",
-        opacity: 0.4,
+        opacity: color === "secondary" ? 0.4 : 0.2,
       },
     },
   }),
