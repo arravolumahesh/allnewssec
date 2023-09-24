@@ -1,4 +1,4 @@
-import {alpha, Components, Theme} from "@mui/material";
+import {alpha, Components, svgIconClasses, Theme} from "@mui/material";
 
 /**
  * @IconButtonVariants
@@ -13,10 +13,12 @@ export const IconButtonVariants: Components<
 >["MuiIconButton"] = {
   styleOverrides: {
     root: ({ ownerState, theme }) => {
-      const { sx, color } = ownerState;
+      const { sx } = ownerState;
       return theme.unstable_sx([
         {
           borderRadius: 0,
+          width: 32,
+          height: 32,
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]);
@@ -30,10 +32,26 @@ export const IconButtonVariants: Components<
       props: { className: "border" },
       style: ({ theme }) => {
         return theme.unstable_sx({
+          position: "relative",
           color: "inherit",
           border: "1px solid",
           borderColor: alpha(theme.palette.primary.contrastText, 0.3),
-          p: 0.375,
+          [`& .${svgIconClasses.root}`]: {
+            fontSize: 18,
+          },
+          "&:hover": {
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              left: 3,
+              top: 3,
+              right: 3,
+              bottom: 3,
+              borderRadius: "inherit",
+              backgroundColor: "currentcolor",
+              opacity: 0.4,
+            },
+          },
         });
       },
     },
