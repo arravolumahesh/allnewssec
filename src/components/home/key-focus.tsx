@@ -122,7 +122,7 @@ export default KeyFocus;
 
 const imageTransition: MotionBoxProps = {
   initial: {
-    x: "-130%",
+    x: "-121%",
     opacity: 0,
   },
   whileInView: {

@@ -1,9 +1,13 @@
 "use client";
 import SocialCard from "@/commonComponents/cards/social";
 import {
+  MotionBoxProps,
   MotionCardProps,
   MotionImage,
+  MotionSvgProps,
   MotionTypography,
+  MotionTypographyProps,
+  MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
@@ -23,6 +27,7 @@ import insta from "./images/insta.svg";
 import linkd from "./images/linkd.svg";
 import ArrowGradient from "@cc/arrow-gradient";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
+import { motion } from "framer-motion";
 
 const Social = () => {
   const theme = useTheme();
@@ -41,13 +46,22 @@ const Social = () => {
           mb={"38px"}
           position={"relative"}
         >
-          <MotionTypography variant='h1' component={"p"} width={"min-content"}>
+          <MotionTypography
+            variant='h1'
+            component={"p"}
+            width={"min-content"}
+            {...textTransition}
+          >
             JOIN THE CONVERSATION
           </MotionTypography>
           <ArrowGradient
-            width={62}
-            height={172}
-            style={{ position: "absolute", right: 0, bottom: "-70px" }}
+            sx={{
+              position: "absolute",
+              height: 172,
+              right: "-80px",
+              bottom: "-68px",
+            }}
+            {...arrowTransition}
           />
         </Stack>
       )}
@@ -83,19 +97,19 @@ const Social = () => {
               variant='h1'
               component={"p"}
               width={"min-content"}
+              {...textTransition}
             >
               JOIN THE CONVERSATION
             </MotionTypography>
-            <Box
-              width={{ xs: "10vw", lg: 164 }}
+            <ArrowGradient
               sx={{
                 position: "absolute",
-                right: { xs: 0, lg: "-11.5vw" },
-                bottom: { xs: 0, lg: "-120px" },
+                height: { xs: 300, lg: 480 },
+                right: { xs: "-10vw", lg: "-14vw" },
+                bottom: { xs: "-50px", lg: "-140px" },
               }}
-            >
-              <ArrowGradient width={"100%"} height={"100%"} />
-            </Box>
+              {...arrowTransition}
+            />
           </Grid2>
         )}
         {!matches && (
@@ -135,17 +149,45 @@ const Social = () => {
             sm_md={8}
             //display={{ xs: "none", sm_md: "block" }}
           >
-            <Stack maxWidth={450} height={1} justifyContent={"center"}>
-              <MotionTypography fontSize={H6_2} mb={4}>
-                Stay informed about our initiatives that are geared towards
-                making a lasting impact.
-              </MotionTypography>
-              <MotionTypography fontSize={H6_2} fontWeight={700}>
-                @bajajbeyond
-              </MotionTypography>
-              <Stack direction={"row"} gap={4} mt={2}>
+            <Stack
+              maxWidth={450}
+              height={1}
+              justifyContent={"center"}
+              component={motion.div}
+              variants={bottomTextStagger}
+              initial={"initial"}
+              whileInView={"animate"}
+              viewport={{ once: true }}
+            >
+              <Stack
+                rowGap={3}
+                component={motion.div}
+                variants={textStaggerChildren}
+              >
+                <MotionTypography fontSize={H6_2}>
+                  Stay informed about our initiatives that are geared towards
+                  making a lasting impact.
+                </MotionTypography>
+                <MotionTypography fontSize={H6_2} fontWeight={700}>
+                  @bajajbeyond
+                </MotionTypography>
+              </Stack>
+              <Stack
+                direction={"row"}
+                gap={4}
+                mt={2}
+                component={motion.div}
+                variants={iconStagger}
+              >
                 {[fb, twitter, yt, insta, linkd].map((item, idx) => (
-                  <Box key={idx} position={"relative"} width={48} height={48}>
+                  <Box
+                    key={idx}
+                    position={"relative"}
+                    width={48}
+                    height={48}
+                    component={motion.div}
+                    variants={iconStaggerChildren}
+                  >
                     <MotionImage src={item} alt='' fill />
                   </Box>
                 ))}
@@ -164,17 +206,45 @@ const Social = () => {
         </Grid2>
       </Grid2>
       {matches && (
-        <Stack height={1} justifyContent={"center"} mt={3}>
-          <MotionTypography fontSize={H6_2} mb={3}>
-            Stay informed about our initiatives that are geared towards making a
-            lasting impact.
-          </MotionTypography>
-          <MotionTypography fontSize={H6_2} fontWeight={700}>
-            @bajajbeyond
-          </MotionTypography>
-          <Stack direction={"row"} gap={2} mt={2}>
+        <Stack
+          height={1}
+          justifyContent={"center"}
+          mt={3}
+          component={motion.div}
+          variants={bottomTextStagger}
+          initial={"initial"}
+          whileInView={"animate"}
+          viewport={{ once: true }}
+        >
+          <Stack
+            rowGap={3}
+            component={motion.div}
+            variants={textStaggerChildren}
+          >
+            <MotionTypography fontSize={H6_2}>
+              Stay informed about our initiatives that are geared towards making
+              a lasting impact.
+            </MotionTypography>
+            <MotionTypography fontSize={H6_2} fontWeight={700}>
+              @bajajbeyond
+            </MotionTypography>
+          </Stack>
+          <Stack
+            direction={"row"}
+            gap={2}
+            mt={2}
+            component={motion.div}
+            variants={iconStagger}
+          >
             {[fb, twitter, yt, insta, linkd].map((item, idx) => (
-              <Box key={idx} position={"relative"} width={32} height={32}>
+              <Box
+                key={idx}
+                position={"relative"}
+                width={32}
+                height={32}
+                component={motion.div}
+                variants={iconStaggerChildren}
+              >
                 <MotionImage src={item} alt='' fill />
               </Box>
             ))}
@@ -232,4 +302,84 @@ const cardTransitionRight = (delay: number): MotionCardProps => {
       once: true,
     },
   };
+};
+
+const textTransition: MotionTypographyProps = {
+  initial: {
+    y: 145,
+    opacity: 0,
+  },
+  whileInView: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.4,
+      duration: 0.4,
+    },
+  },
+  viewport: {
+    once: true,
+  },
+};
+
+const arrowTransition: MotionBoxProps = {
+  initial: {
+    x: "-100%",
+    opacity: 0,
+  },
+  whileInView: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.4,
+      duration: 0.4,
+    },
+  },
+  viewport: {
+    once: true,
+  },
+};
+
+const bottomTextStagger: MotionVariantProps = {
+  initial: {},
+  animate: {
+    transition: {
+      delayChildren: 2.4,
+      staggerChildren: 0.4,
+      duration: 0.4,
+    },
+  },
+};
+const textStaggerChildren: MotionVariantProps = {
+  initial: {
+    y: 120,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
+const iconStagger: MotionVariantProps = {
+  initial: {},
+  animate: {
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.15,
+    },
+  },
+};
+const iconStaggerChildren: MotionVariantProps = {
+  initial: {
+    transform: "scale(0)",
+  },
+  animate: {
+    transform: ["scale(0)", "scale(1.2)", "scale(0.9)", "scale(1)"],
+    transition: {
+      duration: 0.6,
+    },
+  },
 };
