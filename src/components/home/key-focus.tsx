@@ -1,10 +1,9 @@
 "use client";
 import {
-  MotionImageProps,
-  MotionSvgProps,
+  MotionBoxProps,
   MotionTypography,
   MotionVariantProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
@@ -16,7 +15,7 @@ import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import Arrow from "@cc/arrow";
+import ArrowGradient from "@cc/arrow-gradient";
 
 const KeyFocus = () => {
   const theme = useTheme();
@@ -26,6 +25,7 @@ const KeyFocus = () => {
       pt={{ xs: 7, md: 6 }}
       pb={{ xs: 7, md: 12 }}
       rowGap={{ xs: 6, md: 2 }}
+      overflow={"hidden"}
       SectionProps={{
         bgcolor: "#e6e6e6",
         overflow: "hidden",
@@ -37,7 +37,13 @@ const KeyFocus = () => {
         columnGap={4}
         pl={{ xs: 0, md: "5.5%" }}
       >
-        {matches && <Arrow width={126} height={381} {...imageTransition} />}
+        {matches && (
+          <ArrowGradient
+            width={"126px"}
+            height={"381px"}
+            {...imageTransition}
+          />
+        )}
         <Stack
           component={motion.div}
           variants={staggerDiv}
@@ -49,7 +55,7 @@ const KeyFocus = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant='h1'
+              variant="h1"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -57,7 +63,7 @@ const KeyFocus = () => {
               OUR KEY FOCUS AREAS
             </MotionTypography>
             <MotionTypography
-              variant='h5'
+              variant="h5"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -80,14 +86,14 @@ const KeyFocus = () => {
       >
         <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
-          subtitle='Providing skill-based education through various programs to strengthen
-          the foundation of a progressive nation.'
-          textColor='primary.dark'
+          subtitle="Providing skill-based education through various programs to strengthen
+          the foundation of a progressive nation."
+          textColor="primary.dark"
         >
-          <Image src={skillImage} alt='Skill Banner' fill />
+          <Image src={skillImage} alt="Skill Banner" fill />
         </SlideAnimationWrapper>
       </Stack>
-      <Stack direction='row' alignItems={"center"} width={"107%"}>
+      <Stack direction="row" alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
@@ -135,7 +141,7 @@ const KeyFocus = () => {
 
 export default KeyFocus;
 
-const imageTransition: MotionSvgProps = {
+const imageTransition: MotionBoxProps = {
   initial: {
     x: "-180%",
     opacity: 0,

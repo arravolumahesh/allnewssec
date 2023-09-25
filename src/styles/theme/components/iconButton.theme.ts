@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @IconButtonVariants
@@ -9,20 +9,22 @@ import {Components, Theme} from '@mui/material';
  * @see https://mui.com/material-ui/react-button/#icon-button
  */
 export const IconButtonVariants: Components<
-    Omit<Theme, 'components'>
->['MuiIconButton'] = {
-    styleOverrides: {
-        root: ({ownerState, theme}) => {
-            const {sx} = ownerState;
-            return theme.unstable_sx([
-              {
-                borderRadius: 0,
-              },
-              ...(Array.isArray(sx) ? sx : [sx]),
-            ]);
+  Omit<Theme, "components">
+>["MuiIconButton"] = {
+  styleOverrides: {
+    root: ({ ownerState, theme }) => {
+      const { sx } = ownerState;
+      return theme.unstable_sx([
+        {
+          borderRadius: 0,
+          width: 32,
+          height: 32,
         },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]);
     },
-    defaultProps: {
-        centerRipple: false,
-    },
+  },
+  defaultProps: {
+    centerRipple: false,
+  },
 };

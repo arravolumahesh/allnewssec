@@ -8,8 +8,6 @@ import {Components, Theme} from "@mui/material";
  *
  * @see https://mui.com/material-ui/react-backdrop/#main-content
  */
-export const BackdropVariants: Components<
-    Omit<Theme, "components">
->["MuiBackdrop"] = {
+export const BackdropVariants: Components<Omit<Theme, "components">>["MuiBackdrop"] = {
   styleOverrides: {},
 };

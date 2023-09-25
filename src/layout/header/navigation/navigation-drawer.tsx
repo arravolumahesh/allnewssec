@@ -13,16 +13,16 @@ import {
   accordionSummaryClasses,
   Divider,
   Drawer,
-  IconButton,
   IconButtonProps,
   List,
   ListItem,
   Typography,
 } from "@mui/material";
-import { Fragment, useState } from "react";
-import { appbarHeight, HeaderProps } from "@/layout/header";
+import { Fragment, useEffect, useState } from "react";
+import { HeaderProps } from "@/layout/header";
 import MLink, { MLinkProps } from "@cc/m-link";
-import { ColorPartial } from "@mui/material/styles/createPalette";
+import { appbarHeight } from "@/layout/header/reactive-appbar";
+import BorderedIconButton from "@cc/bordered-icon-button";
 
 export interface NavigationDrawerProps
   extends Omit<IconButtonProps, "children"> {
@@ -31,25 +31,24 @@ export interface NavigationDrawerProps
 }
 
 const NavigationDrawer = (props: NavigationDrawerProps) => {
-  const { sx, routes, onToggle, ...restIconButtonProps } = props;
+  const { routes, onToggle, ...restIconButtonProps } = props;
   const [isDrawer, setIsDrawer] = useState(false);
+
+  useEffect(() => {
+    onToggle && onToggle(isDrawer);
+  }, [isDrawer, onToggle]);
   return (
     <>
-      <IconButton
-        sx={[...sxArrayUtil(sx)]}
+      <BorderedIconButton
         onClick={() => {
-          if (isDrawer) {
-            setIsDrawer(false);
-            onToggle && onToggle(false);
-          } else {
-            setIsDrawer(true);
-            onToggle && onToggle(true);
-          }
+          setIsDrawer((prev) => !prev);
         }}
+        color={"secondary"}
+        size={"small"}
         {...restIconButtonProps}
       >
         {isDrawer ? <CloseRounded /> : <MenuRounded />}
-      </IconButton>
+      </BorderedIconButton>
       <Drawer
         open={isDrawer}
         variant={"temporary"}
@@ -63,9 +62,7 @@ const NavigationDrawer = (props: NavigationDrawerProps) => {
             mt: appbarHeight,
             minWidth: 280,
             width: { xs: "100%", sm: 390 },
-            backgroundImage: `linear-gradient(0deg, ${
-              (theme.palette.secondary as ColorPartial)["A700"]
-            } 35.16%, ${(theme.palette.primary as ColorPartial)["900"]} 100%)`,
+            background: theme.palette.gradient.lightToDark,
           }),
         }}
       >
@@ -144,6 +141,7 @@ export const NavigationDrawerItem = (props: NavigationDrawerItemProps) => {
         sx={{
           py: 0,
           px: 3,
+          mb: isAccordionOpen ? 1 : 0,
         }}
       >
         <List disablePadding>

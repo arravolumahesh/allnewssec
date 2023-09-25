@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @LinkVariants
@@ -8,19 +8,19 @@ import {Components, Theme} from '@mui/material';
  *
  * @see https://mui.com/material-ui/react-link
  */
-export const LinkVariants: Components<Omit<Theme, 'components'>>['MuiLink'] = {
+export const LinkVariants: Components<Omit<Theme, "components">>["MuiLink"] = {
     styleOverrides: {
         root: ({theme}) => {
             return theme.unstable_sx({
-                bgcolor: 'transparent',
-                filter: 'none',
-                '&:hover': {
-                    background: '#fff',
+                bgcolor: "transparent",
+                filter: "none",
+                "&:hover": {
+                    background: "#fff",
                 },
             });
         },
     },
     defaultProps: {
-        underline: 'none',
+        underline: "none",
     },
 };

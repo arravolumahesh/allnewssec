@@ -8,7 +8,9 @@ import {alpha, Components, Theme} from "@mui/material";
  *
  * @see https://mui.com/material-ui/react-drawer/#customization
  */
-export const DialogVariants: Components<Omit<Theme, "components">>["MuiDrawer"] = {
+export const DialogVariants: Components<
+  Omit<Theme, "components">
+>["MuiDrawer"] = {
   defaultProps: {
     slotProps: {
       backdrop: {

@@ -8,11 +8,85 @@ import {
   MotionBoxProps,
   MotionTypography,
   MotionTypographyProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import { PlayCircle } from "@mui/icons-material";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 
 const AboveProfits = () => {
+  const [textTransition, setTextTransition] = useState(false);
+
+  const headerTransition: MotionTypographyProps = {
+    initial: {
+      y: "30%",
+      opacity: 0,
+    },
+    whileInView: {
+      y: 0,
+      opacity: 1,
+    },
+    transition: {
+      duration: 0.8,
+    },
+    viewport: {
+      once: true,
+    },
+  };
+
+  const videoBannerTransition: MotionBoxProps = {
+    initial: {
+      x: "-118%",
+      opacity: 0,
+    },
+    whileInView: {
+      x: 0,
+      opacity: 1,
+    },
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+    viewport: {
+      once: true,
+    },
+    // onTransitionEnd: () => setTextTransition(true),
+  };
+  const descTransition: MotionTypographyProps = {
+    initial: {
+      y: "-130%",
+      opacity: 0,
+    },
+    whileInView: {
+      y: 0,
+      opacity: 1,
+    },
+    transition: {
+      duration: 0.5,
+      delay: 0.8,
+    },
+    viewport: {
+      once: true,
+    },
+  };
+  {
+    /* <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: "-100%",
+          animation: "slideIn 5s infinite linear",
+          "@keyframes slideIn": {
+            "0%": {
+              left: "-100%",
+            },
+            "100%": {
+              left: "100%",
+            },
+          },
+        }}
+      >
+        <Image src={dcd} alt='' />
+      </Box> */
+  }
   return (
     <SectionWrapper
       SectionProps={{
@@ -46,8 +120,8 @@ const AboveProfits = () => {
     >
       <Stack textAlign={"center"} maxWidth={1051} m={"auto"}>
         <MotionTypography
-          variant='h3'
-          color='white'
+          variant="h3"
+          color="white"
           fontWeight={400}
           {...headerTransition}
         >
@@ -61,7 +135,7 @@ const AboveProfits = () => {
           zIndex={1}
           {...videoBannerTransition}
         >
-          <Image src={videoImage} alt='Video Thumbnail' fill />
+          <Image src={videoImage} alt="Video Thumbnail" fill />
           <IconButton
             sx={{
               position: "absolute",
@@ -81,8 +155,8 @@ const AboveProfits = () => {
           </IconButton>
         </MotionBox>
         <MotionTypography
-          variant='h6'
-          color='white'
+          variant="h6"
+          color="white"
           fontWeight={400}
           {...descTransition}
         >

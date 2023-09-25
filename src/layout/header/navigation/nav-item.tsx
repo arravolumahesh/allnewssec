@@ -11,24 +11,20 @@ import {
 } from "@mui/material";
 import MLink, { MLinkProps } from "@cc/m-link";
 import { MouseEvent, useCallback, useMemo, useState } from "react";
-import {
-  ArrowRightRounded,
-  ExpandMoreRounded,
-  NavigateNextRounded,
-} from "@mui/icons-material";
+import { ExpandMoreRounded, NavigateNextRounded } from "@mui/icons-material";
 import { sxArrayUtil } from "@util/sx-helpers";
 
-export interface NavItemProps extends Omit<ButtonProps, "children"> {
+export interface NavItemProps
+  extends Omit<ButtonProps & MLinkProps, "href" | "children"> {
   data: {
     title: string;
     href?: MLinkProps["href"];
     children?: NavItemProps["data"][];
   };
-  MLinkProps?: Omit<MLinkProps, "href" | "children">;
 }
 
 const NavItem = (props: NavItemProps) => {
-  const { data, MLinkProps, sx, ...restButtonProps } = props;
+  const { data, sx, ...restButtonProps } = props;
   const { title, href, children } = data;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -46,12 +42,13 @@ const NavItem = (props: NavItemProps) => {
       children: title,
       sx: [
         (theme: Theme) => ({
-          color: alpha(theme.palette.primary.contrastText, 0.8),
-          borderRadius: 0,
-          borderColor: alpha(theme.palette.primary.contrastText, 0.3),
-          background: anchorEl ? theme.palette.background.paper : "transparent",
+          color: alpha(theme.palette.common.white, 0.8),
+          borderColor: alpha(theme.palette.common.white, 0.3),
+          background: anchorEl
+            ? alpha(theme.palette.background.paper, 0.2)
+            : "transparent",
           "&:hover": {
-            background: alpha(theme.palette.background.paper, 0.5),
+            background: alpha(theme.palette.background.paper, 0.2),
           },
         }),
         ...sxArrayUtil(sx),
@@ -62,7 +59,7 @@ const NavItem = (props: NavItemProps) => {
   return (
     <>
       {href && !children ? (
-        <MLink href={href} {...itemProps} {...MLinkProps} />
+        <MLink href={href} {...itemProps} {...restButtonProps} />
       ) : (
         <Button
           {...itemProps}
@@ -86,31 +83,41 @@ const NavItem = (props: NavItemProps) => {
           }}
         >
           {children.map((child, index) => {
-            const { title } = child;
+            const { title, children } = child;
             return (
               <MenuItem
                 key={`${title}-${index}`}
                 onClick={handleClose}
                 sx={{
-                  px: 4,
+                  px: 3,
                   py: 1.5,
+                  "&:hover": {
+                    background: (theme: Theme) => theme.palette.grey["600"],
+                  },
                 }}
               >
                 <NavItem
                   data={child}
-                  endIcon={<ArrowRightRounded />}
-                  MLinkProps={{
-                    disableRipple: true,
-                    variant: "text",
+                  disableRipple
+                  variant={"text"}
+                  endIcon={
+                    children && children.length > 0 && <NavigateNextRounded />
+                  }
+                  sx={{
+                    "&:hover": {
+                      background: "transparent",
+                    },
                   }}
                 />
-                <ListItemSecondaryAction>
-                  <NavigateNextRounded
-                    sx={{
-                      color: "primary.contrastText",
-                    }}
-                  />
-                </ListItemSecondaryAction>
+                {children && children.length > 0 && (
+                  <ListItemSecondaryAction>
+                    <NavigateNextRounded
+                      sx={{
+                        color: "primary.contrastText",
+                      }}
+                    />
+                  </ListItemSecondaryAction>
+                )}
               </MenuItem>
             );
           })}
@@ -124,9 +131,9 @@ export default NavItem;
 const menuPaperProps: Required<MenuProps>["slotProps"]["paper"] = {
   elevation: 0,
   sx: {
-    width: "260px",
     borderRadius: 0,
     overflow: "visible",
+    background: (theme: Theme) => theme.palette.grey["500"],
     mt: 2,
     "&:before": {
       content: '""',
@@ -136,7 +143,7 @@ const menuPaperProps: Required<MenuProps>["slotProps"]["paper"] = {
       left: 14,
       width: 10,
       height: 10,
-      bgcolor: "background.paper",
+      bgcolor: "inherit",
       transform: "translateY(-50%) rotate(45deg)",
       zIndex: 0,
     },

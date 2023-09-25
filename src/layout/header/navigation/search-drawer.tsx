@@ -14,7 +14,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import SectionWrapper from "@cc/section-wrapper";
-import { appbarHeight } from "@/layout/header";
+import { appbarHeight } from "@/layout/header/reactive-appbar";
+import BorderedIconButton from "@cc/bordered-icon-button";
 
 export interface SearchDrawerTogglerProps
   extends Omit<IconButtonProps, "children"> {}
@@ -25,15 +26,17 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   return (
     <>
-      <IconButton
+      <BorderedIconButton
         sx={[...sxArrayUtil(sx)]}
         onClick={() => {
           setIsDrawer((prev) => !prev);
         }}
+        color={"secondary"}
+        size={"small"}
         {...restIconButtonProps}
       >
         {isDrawer ? <CloseRounded /> : <SearchRounded />}
-      </IconButton>
+      </BorderedIconButton>
       <Drawer
         open={isDrawer}
         variant={"temporary"}
@@ -48,7 +51,12 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
           }),
         }}
       >
-        <SectionWrapper bgcolor={"common.white"} py={0}>
+        <SectionWrapper
+          SectionProps={{
+            bgcolor: "background.paper",
+          }}
+          py={0}
+        >
           <TextField
             variant={"standard"}
             fullWidth

@@ -3,15 +3,13 @@ import React from "react";
 import {
   MotionBox,
   MotionBoxProps,
-  MotionImage,
-  MotionImageProps,
   MotionSvgProps,
   MotionTypography,
   MotionTypographyProps,
-} from "../motion-elements";
+} from "../motion-components";
 import AnimatedButton from "../animated-button";
-import { MotionProps, motion } from "framer-motion";
-import Arrow from "../arrow";
+import { motion, MotionProps } from "framer-motion";
+import ArrowGradient from "../arrow-gradient";
 
 type SlideAnimationWrapper = {
   prefix?: string;
@@ -38,7 +36,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
   return (
     <>
       <Stack
-        direction='row'
+        direction="row"
         alignItems={"center"}
         //   justifyContent={"center"}
         width={{ xs: 1, md: "auto" }}
@@ -64,7 +62,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
             aspectRatio: 0.32,
           }}
         >
-          <Arrow width={"100%"} height={"100%"} {...imageTransition} />
+          <ArrowGradient width={"100%"} height={"100%"} {...imageTransition} />
         </Box>
       </Stack>
       <Stack
@@ -78,7 +76,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
       >
         {prefix && (
           <MotionTypography
-            variant='body1'
+            variant="body1"
             color={textColor}
             variants={staggerChildren}
           >
@@ -86,7 +84,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           </MotionTypography>
         )}
         <MotionTypography
-          variant='h3'
+          variant="h3"
           fontWeight={400}
           color={textColor}
           variants={staggerChildren}
@@ -95,16 +93,16 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           {title}
         </MotionTypography>
         <MotionTypography
-          variant='body1'
+          variant="body1"
           color={textColor}
           variants={staggerChildren}
         >
           {subtitle}
         </MotionTypography>
         <AnimatedButton
-          variant='outlined'
+          variant="outlined"
           href={"/"}
-          color='primary'
+          color="primary"
           sx={{
             width: { xs: "100%", md: "171px" },
             fontSize: { xs: "18px", md: "24px !important" },
