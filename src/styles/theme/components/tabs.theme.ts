@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @TabsVariants
@@ -8,4 +8,5 @@ import {Components, Theme} from '@mui/material';
  *
  * @see https://mui.com/material-ui/react-tabs/#customization
  */
-export const TabsVariants: Components<Omit<Theme, 'components'>>['MuiTabs'] = {};
+export const TabsVariants: Components<Omit<Theme, "components">>["MuiTabs"] =
+    {};

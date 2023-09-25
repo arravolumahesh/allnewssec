@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @AvatarGroupVariants
@@ -9,5 +9,5 @@ import {Components, Theme} from '@mui/material';
  * @see https://mui.com/material-ui/react-avatar/#grouped
  */
 export const AvatarGroupVariants: Components<
-    Omit<Theme, 'components'>
->['MuiAvatarGroup'] = {};
+  Omit<Theme, "components">
+>["MuiAvatarGroup"] = {};

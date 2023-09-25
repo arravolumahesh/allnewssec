@@ -1,5 +1,5 @@
 import { SvgIconComponent } from "@mui/icons-material";
-import { MotionCard, MotionCardProps } from "../motion-elements";
+import { MotionCard, MotionCardProps } from "../motion-components";
 import { CardContent } from "@mui/material";
 import Link from "next/link";
 
@@ -8,6 +8,7 @@ interface SocialCardProps extends Omit<MotionCardProps, "children"> {
   href: string;
   Icon: SvgIconComponent;
 }
+
 const SocialCard = (props: SocialCardProps) => {
   const { img, href, Icon, sx, ...restProps } = props;
   return (

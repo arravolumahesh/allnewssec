@@ -3,8 +3,6 @@ import Logo from "@cc/logo";
 import SectionWrapper from "@cc/section-wrapper";
 import Navigation from "@/layout/header/navigation";
 import { MLinkProps } from "@cc/m-link";
-import { Property } from "csstype";
-import { ResponsiveStyleValue } from "@mui/system";
 import ReactiveAppBar from "@/layout/header/reactive-appbar";
 
 export interface HeaderProps {
@@ -30,8 +28,8 @@ const Header = (props: HeaderProps) => {
       <Logo
         SvgIconProps={{
           sx: {
-            width: { xs: 71, md: 91, xl: 107 },
-            height: { xs: 40, md: 52, xl: 64 },
+            width: { xs: 71, md: 91, xxl: 107 },
+            height: { xs: 40, md: 52, xxl: 64 },
           },
         }}
       />
@@ -46,11 +44,3 @@ const Header = (props: HeaderProps) => {
 };
 
 export default Header;
-
-export const appbarHeight: ResponsiveStyleValue<
-  Property.Height<string | number>
-> = {
-  xs: "64px",
-  md: "92px",
-  xl: "120px",
-};

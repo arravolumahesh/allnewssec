@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @BreadcrumbsVariants
@@ -9,5 +9,5 @@ import {Components, Theme} from '@mui/material';
  * @see https://mui.com/material-ui/react-breadcrumbs
  */
 export const BreadcrumbsVariants: Components<
-    Omit<Theme, 'components'>
->['MuiBreadcrumbs'] = {};
+  Omit<Theme, "components">
+>["MuiBreadcrumbs"] = {};

@@ -1,6 +1,7 @@
 import { ButtonGroup } from "@mui/material";
 import NavItem from "@/layout/header/navigation/nav-item";
 import { HeaderProps } from "@/layout/header";
+import { Caption } from "@theme/components/typography.fontvariant";
 
 interface DesktopNavigationProps {
   routes: HeaderProps["routes"];
@@ -12,11 +13,12 @@ const DesktopNavigation = (props: DesktopNavigationProps) => {
   return (
     <ButtonGroup
       variant={"outlined"}
+      color={"secondary"}
       sx={{
         height: "inherit",
         display: {
           xs: "none",
-          xl: "flex",
+          lg_xl: "flex",
         },
       }}
     >
@@ -28,10 +30,8 @@ const DesktopNavigation = (props: DesktopNavigationProps) => {
             data={route}
             disableRipple={false}
             sx={{
-              fontSize: () => ({
-                xs: 18,
-                lg: 14,
-              }),
+              fontSize: Caption,
+              height: "inherit",
             }}
           />
         );

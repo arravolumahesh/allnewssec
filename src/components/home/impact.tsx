@@ -3,11 +3,10 @@ import {
   MotionImage,
   MotionTypography,
   MotionVariantProps,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
-import Image from "next/image";
-import React from "react";
+import React, { Fragment } from "react";
 import line from "./images/Line 1322.svg";
 import { motion } from "framer-motion";
 
@@ -23,7 +22,7 @@ const Impact = () => {
     >
       <Stack
         maxWidth={{ xs: 1, md: 867 }}
-        textAlign='center'
+        textAlign="center"
         rowGap={{ xs: 2, md: 4 }}
         mx={"auto"}
         component={motion.div}
@@ -34,7 +33,7 @@ const Impact = () => {
       >
         <MotionTypography
           variants={staggerChildren}
-          variant='h1'
+          variant="h1"
           color={"white"}
           fontWeight={400}
         >
@@ -42,7 +41,7 @@ const Impact = () => {
         </MotionTypography>
         <MotionTypography
           variants={staggerChildren}
-          variant='h6'
+          variant="h6"
           color={"white"}
           fontWeight={400}
         >
@@ -70,7 +69,7 @@ const Impact = () => {
       >
         {data.map((item, idx) => {
           return (
-            <>
+            <Fragment key={idx}>
               <Stack
                 key={idx}
                 alignItems={"center"}
@@ -82,7 +81,7 @@ const Impact = () => {
               >
                 <MotionTypography
                   variants={staggerTextChildren}
-                  variant='h2'
+                  variant="h2"
                   fontWeight={700}
                   color={"white"}
                 >
@@ -99,11 +98,11 @@ const Impact = () => {
                 <MotionImage
                   variants={staggerArrowChildren}
                   src={line}
-                  alt=''
+                  alt=""
                   hidden={matches}
                 />
               )}
-            </>
+            </Fragment>
           );
         })}
       </Stack>

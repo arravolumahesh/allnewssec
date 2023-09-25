@@ -1,4 +1,4 @@
-import {Components, Theme} from '@mui/material';
+import {Components, Theme} from "@mui/material";
 
 /**
  * @CardVariants
@@ -9,19 +9,19 @@ import {Components, Theme} from '@mui/material';
  * @see https://mui.com/material-ui/react-card
  */
 export const CardHeaderVariants: Components<
-    Omit<Theme, 'components'>
->['MuiCardHeader'] = {
-    styleOverrides: {
-        root: ({theme}) => {
-            return theme.unstable_sx({});
-        },
+  Omit<Theme, "components">
+>["MuiCardHeader"] = {
+  styleOverrides: {
+    root: ({ theme }) => {
+      return theme.unstable_sx({});
     },
-    defaultProps: {
-        titleTypographyProps: {
-            variant: 'h6',
-        },
-        subheaderTypographyProps: {
-            variant: 'body2',
-        }
-    }
+  },
+  defaultProps: {
+    titleTypographyProps: {
+      variant: "h6",
+    },
+    subheaderTypographyProps: {
+      variant: "body2",
+    },
+  },
 };

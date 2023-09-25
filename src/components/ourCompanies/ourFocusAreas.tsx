@@ -6,14 +6,14 @@ import AnimatedButton from "@/commonComponents/animated-button";
 import { motion } from "framer-motion";
 
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
+  Button,
+  Divider,
   Stack,
   Typography,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Divider,
 } from "@mui/material";
 
 import {
@@ -215,7 +215,7 @@ const Areas = () => {
               </Typography>
               <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
                 {eachArea.intitiatives.map((eachIntiative,index) => (
-                  <Box display={"flex"} key={index} flexDirection={"column"} gap={2}>
+                  <Box key={idx} idx display={"flex"} key={index} flexDirection={"column"} gap={2}>
                     <Image
                       src={eachIntiative.imageUrl}
                       alt={eachIntiative.title}
