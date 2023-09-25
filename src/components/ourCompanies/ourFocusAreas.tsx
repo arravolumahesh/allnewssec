@@ -142,8 +142,7 @@ const Areas = () => {
                 xs: "24px 0",
                 lg: "48px 0",
               },
-            }}
-            key={index}
+            }}            
             component={motion.div}
             variants={StagAccordion}
             initial={{
