@@ -3,7 +3,6 @@ import React from "react";
 import {
   MotionBox,
   MotionBoxProps,
-  MotionSvgProps,
   MotionTypography,
   MotionTypographyProps,
 } from "../motion-components";
@@ -138,7 +137,7 @@ const boxTransition: MotionBoxProps = {
   },
   // onTransitionEnd: () => setTextTransition(true),
 };
-const imageTransition: MotionSvgProps = {
+const imageTransition: MotionBoxProps = {
   initial: {
     x: "-440%",
     opacity: 0,
