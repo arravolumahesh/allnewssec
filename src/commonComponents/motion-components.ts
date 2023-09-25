@@ -1,6 +1,7 @@
 "use client";
 import {
   Box,
+  BoxProps,
   Card,
   Stack,
   SvgIcon,
@@ -13,16 +14,18 @@ import { ComponentProps } from "react";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { MaterialImage, MaterialImageProps } from "@cc/material-components";
 import { SvgIconProps } from "@mui/material/SvgIcon";
+import EnhancedSwiper from "@cc/enhanced-swiper";
 
 export const MotionImage = motion<MaterialImageProps>(MaterialImage);
 export const MotionTypography = motion<TypographyProps>(Typography);
 export const MotionButton = motion<MLinkProps>(MLink);
-export const MotionBox = motion(Box);
+export const MotionBox = motion<BoxProps>(Box);
 export const MotionCard = motion(Card);
 export const MotionGrid = motion(Grid2);
 export const MotionStack = motion(Stack);
 export const MotionSvg = motion.svg;
 export const MotionSvgIcon = motion<SvgIconProps>(SvgIcon);
+export const MotionEnhancedSwiper = motion(EnhancedSwiper);
 
 export type MotionImageProps = ComponentProps<typeof MotionImage>;
 export type MotionTypographyProps = ComponentProps<typeof MotionTypography>;

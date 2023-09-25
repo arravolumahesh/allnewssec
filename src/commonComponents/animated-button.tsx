@@ -4,6 +4,13 @@ import { useMemo, useState } from "react";
 import { MotionButton, MotionButtonProps } from "./motion-components";
 
 export interface AnimatedButtonProps extends MotionButtonProps {
+  /*
+   * Animation delay in milliseconds
+   *
+   * Default: 0
+   *
+   * Example: 1000 is 1 second
+   * */
   animationDelay?: number;
   rotation?: "clockwise" | "anticlockwise";
 }

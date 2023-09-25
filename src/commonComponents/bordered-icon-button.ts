@@ -6,6 +6,7 @@ import {
   SxProps,
   Theme,
 } from "@mui/material";
+import { ComponentProps } from "react";
 
 const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
   theme.unstable_sx({
@@ -35,6 +36,8 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
 );
 
 export default BorderedIconButton;
+
+export type BorderedIconButtonProps = ComponentProps<typeof BorderedIconButton>;
 
 export const iconButtonLargeSx: SxProps<Theme> = {
   width: { xs: 32, md: 40, xl: 48 },

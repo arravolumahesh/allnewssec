@@ -1,5 +1,5 @@
 import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
-import { Box, Stack, StackProps, SxProps, Theme } from "@mui/material";
+import { SxProps, Theme } from "@mui/material";
 import React, { ComponentProps, ComponentType, useCallback } from "react";
 import { Navigation } from "swiper/modules";
 import { SetOptional } from "type-fest";
@@ -9,11 +9,17 @@ import { MaterialSwiperSlideProps } from "@cc/material-components";
 import ArrowGradient from "@cc/arrow-gradient";
 import ArrowSlideDefaultImage from "@cc/cards/arrow-slide-default-image";
 import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
+import {
+  MotionBox,
+  MotionStack,
+  MotionStackProps,
+} from "@cc/motion-components";
+import { MotionProps } from "framer-motion";
 
-export interface SwiperSectionProps<
+export interface ArrowSwiperProps<
   T extends ComponentType<any>,
   P extends ComponentProps<T> = ComponentProps<T>,
-> extends Omit<StackProps, "children"> {
+> extends Omit<MotionStackProps, "children"> {
   SwiperProps: SetOptional<
     EnhancedSwiperProps<T, P>,
     "data" | "SlideComponent"
@@ -22,7 +28,7 @@ export interface SwiperSectionProps<
 }
 
 const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
-  props: SwiperSectionProps<T, P>,
+  props: ArrowSwiperProps<T, P>,
 ) => {
   const { SwiperProps, data, ...restStackProps } = props;
   const {
@@ -53,45 +59,61 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
   );
 
   return (
-    <Stack
+    <MotionStack
       direction={"row"}
       flexWrap={"nowrap"}
       position={"relative"}
       overflow={"clip"}
+      initial={"initial"}
+      whileInView={"animate"}
+      viewport={{
+        once: true,
+        amount: "all",
+      }}
+      transition={{
+        staggerChildren: 0.4,
+        staggerDirection: -1,
+      }}
       {...restStackProps}
     >
-      <EnhancedSwiper
-        data={data}
-        SlideWrapperProps={slideWrapperProps}
-        modules={[Navigation, ...swiperModules]}
-        loop
-        navigation={{
-          prevEl: ".swiper-prev",
-          nextEl: null,
-          ...(typeof navigation === "boolean"
-            ? {
-                enabled: navigation,
-              }
-            : navigation),
-        }}
-        spaceBetween={40}
-        sx={[enhancedSwiperSx, ...sxArrayUtil(sx)]}
-        SlideComponent={ArrowSlideDefaultImage}
-        {...swiperProps}
-      >
-        {typeof navigation === "boolean"
-          ? navigation
-          : navigation?.enabled && (
-              <SwiperNavigationArrowIcon
-                direction={"next"}
-                className={"swiper-prev"}
-              />
-            )}
-      </EnhancedSwiper>
-      <Box width={"10%"} height={"100%"} ml={"-100px"}>
-        <ArrowGradient height={"100%"} />
-      </Box>
-    </Stack>
+      <MotionBox height={"100%"} width={0.9} variants={childMotionVariants}>
+        <EnhancedSwiper
+          data={data}
+          SlideWrapperProps={slideWrapperProps}
+          modules={[Navigation, ...swiperModules]}
+          loop
+          navigation={{
+            prevEl: ".swiper-prev",
+            nextEl: null,
+            ...(typeof navigation === "boolean"
+              ? {
+                  enabled: navigation,
+                }
+              : navigation),
+          }}
+          allowTouchMove={false}
+          spaceBetween={40}
+          sx={[enhancedSwiperSx, ...sxArrayUtil(sx)]}
+          SlideComponent={ArrowSlideDefaultImage}
+          {...swiperProps}
+        >
+          {typeof navigation === "boolean"
+            ? navigation
+            : navigation?.enabled && (
+                <SwiperNavigationArrowIcon
+                  direction={"next"}
+                  className={"swiper-prev"}
+                />
+              )}
+        </EnhancedSwiper>
+      </MotionBox>
+      <ArrowGradient
+        width={"10%"}
+        height={"100%"}
+        ml={"-116px"}
+        variants={childMotionVariants}
+      />
+    </MotionStack>
   );
 };
 
@@ -99,6 +121,21 @@ export default ArrowSwiper;
 
 const enhancedSwiperSx: SxProps<Theme> = {
   mx: "unset",
-  width: "90%",
+  width: "100%",
+  height: "100%",
   clipPath: clipImagePath,
+};
+
+const childMotionVariants: MotionProps["variants"] = {
+  initial: {
+    opacity: 0,
+    x: "-200%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
 };

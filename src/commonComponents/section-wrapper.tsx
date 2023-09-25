@@ -2,7 +2,7 @@ import { Breakpoint, Stack, StackProps } from "@mui/material";
 import { forwardRef } from "react";
 import SectionHeader, { SectionHeaderProps } from "@cc/section-header";
 
-interface SectionWrapperProps extends StackProps {
+export interface SectionWrapperProps extends StackProps {
   SectionProps?: Omit<StackProps, "children">;
   ContainerProps?: Omit<StackProps, "children">;
   SectionHeaderProps?: Omit<SectionHeaderProps, "children">;
@@ -10,45 +10,45 @@ interface SectionWrapperProps extends StackProps {
 
 const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
   (props, ref) => {
-      const {
-        children,
-        SectionProps,
-        ContainerProps,
-        SectionHeaderProps,
-        ...rest
-      } = props;
+    const {
+      children,
+      SectionProps,
+      ContainerProps,
+      SectionHeaderProps,
+      ...rest
+    } = props;
 
-      return (
+    return (
+      <Stack
+        component={"section"}
+        alignItems={"center"}
+        height={1}
+        ref={ref}
+        {...SectionProps}
+      >
         <Stack
-          component={"section"}
-          alignItems={"center"}
-          height={1}
-          ref={ref}
-          {...SectionProps}
+          px={basePx}
+          py={basePy}
+          width={1}
+          maxWidth={"xxl"}
+          height={"inherit"}
+          color={rest.color || "inherit"}
+          {...ContainerProps}
+          {...(SectionHeaderProps && SectionHeaderProps.title ? {} : rest)}
         >
-          <Stack
-            px={basePx}
-            py={basePy}
-            width={1}
-            maxWidth={"xxl"}
-            height={"inherit"}
-            color={rest.color || "inherit"}
-            {...ContainerProps}
-            {...(SectionHeaderProps && SectionHeaderProps.title ? {} : rest)}
-          >
-            {SectionHeaderProps && SectionHeaderProps.title ? (
-              <>
-                <SectionHeader {...SectionHeaderProps} />
-                <Stack color={"inherit"} width={1} {...rest}>
-                  {children}
-                </Stack>
-              </>
-            ) : (
-              children
-            )}
-          </Stack>
+          {SectionHeaderProps && SectionHeaderProps.title ? (
+            <>
+              <SectionHeader {...SectionHeaderProps} />
+              <Stack color={"inherit"} width={1} {...rest}>
+                {children}
+              </Stack>
+            </>
+          ) : (
+            children
+          )}
         </Stack>
-      );
+      </Stack>
+    );
   },
 );
 
@@ -62,10 +62,12 @@ export type BasePadding = {
 
 export const basePx: BasePadding = {
   xs: 3,
-  md: 5,
+  md: 5.5,
   xxl: 8,
 };
 
 export const basePy: BasePadding = {
-  xs: 3.5,
+  xs: 7,
+  md: 9.5,
+  xxl: 12,
 };

@@ -1,20 +1,20 @@
 "use client";
-import { Stack, StackProps } from "@mui/material";
 import { Swiper } from "swiper/types";
 import React, { useEffect, useMemo, useState } from "react";
-import { MotionTypography, MotionTypographyProps } from "@cc/motion-components";
-import { StaticImageData } from "next/image";
 import {
-  NavigateBeforeRounded,
-  NavigateNextRounded,
-} from "@mui/icons-material";
+  MotionStack,
+  MotionStackProps,
+  MotionTypography,
+  MotionTypographyProps,
+} from "@cc/motion-components";
+import { StaticImageData } from "next/image";
 import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
-import BorderedIconButton, {
-  iconButtonLargeSx,
-} from "@cc/bordered-icon-button";
 import { BehaviorSubject } from "rxjs";
 import { useObservable } from "react-use";
 import { H5_1 } from "@theme/components/typography.fontvariant";
+import { AnimatePresence, MotionProps } from "framer-motion";
+import SwiperNavigationButton from "@cc/swiper-navigation-button";
+import { Stack, StackProps } from "@mui/material";
 
 export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
   data: {
@@ -32,7 +32,8 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
     ButtonProps?: Omit<AnimatedButtonProps, "children">;
   };
   isNavigation?: boolean;
-  NavigationWrapperProps?: Omit<StackProps, "children">;
+  NavigationWrapperProps?: Omit<MotionStackProps, "children">;
+  InfoWrapperProps?: Omit<MotionStackProps, "children">;
   SwiperInstance: BehaviorSubject<Swiper | null>;
 }
 
@@ -41,6 +42,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
     data,
     isNavigation,
     NavigationWrapperProps,
+    InfoWrapperProps,
     SwiperInstance,
     SlotProps = {},
     ...restStackProps
@@ -60,9 +62,8 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
 
   useEffect(() => {
     if (swiper) {
-      swiper.on("slideChange", (swiper) => {
-        swiper.activeIndex !== activeIndex &&
-          setActiveIndex(swiper.activeIndex);
+      swiper.on("slideChange", (s) => {
+        s.activeIndex !== activeIndex && setActiveIndex(s.activeIndex);
       });
     }
     return () => {
@@ -73,91 +74,116 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   }, [swiper, activeIndex]);
 
   return (
-    <Stack color={"primary.main"} my={"auto"} {...restStackProps}>
-      {prefix && (
-        <MotionTypography
-          variant={"subtitle1"}
-          gutterBottom
-          {...PrefixTypographyProps}
+    <Stack color={"primary.main"} alignSelf={"center"} {...restStackProps}>
+      <AnimatePresence presenceAffectsLayout mode={"popLayout"}>
+        <MotionStack
+          key={`prefix-${activeIndex}`}
+          color={"inherit"}
+          width={1}
+          initial={"initial"}
+          whileInView={"animate"}
+          exit={"exit"}
+          viewport={{
+            once: true,
+            amount: "all",
+          }}
+          variants={{
+            animate: {
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.2,
+              },
+            },
+          }}
+          {...InfoWrapperProps}
         >
-          {prefix}
-        </MotionTypography>
-      )}
-      <MotionTypography
-        key={title}
-        variant={"h4"}
-        fontSize={H5_1}
-        gutterBottom
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 2,
-            duration: 0.6,
-          },
-        }}
-        initial={{
-          opacity: 0,
-          y: "150%",
-        }}
-        {...TitleTypographyProps}
-      >
-        {title}
-      </MotionTypography>
-      <MotionTypography
-        variant={"body1"}
-        mb={3}
-        {...DescriptionTypographyProps}
-      >
-        {description}
-      </MotionTypography>
-      <AnimatedButton
-        href={"/"}
-        variant={"outlined"}
-        color={"primary"}
-        {...ButtonProps}
-      >
-        {btnText}
-      </AnimatedButton>
-      {isNavigation && (
-        <Stack
-          direction={"row"}
-          color={"primary.main"}
+          {prefix && (
+            <MotionTypography
+              variant={"subtitle1"}
+              gutterBottom
+              variants={childMotionVariants}
+              {...PrefixTypographyProps}
+            >
+              {prefix}
+            </MotionTypography>
+          )}
+          <MotionTypography
+            variant={"h4"}
+            fontSize={H5_1}
+            gutterBottom
+            variants={childMotionVariants}
+            {...TitleTypographyProps}
+          >
+            {title}
+          </MotionTypography>
+          <MotionTypography
+            variant={"body1"}
+            mb={3}
+            variants={childMotionVariants}
+            {...DescriptionTypographyProps}
+          >
+            {description}
+          </MotionTypography>
+          <AnimatedButton
+            href={"/"}
+            variant={"outlined"}
+            color={"primary"}
+            variants={childMotionVariants}
+            animationDelay={850}
+            {...ButtonProps}
+          >
+            {btnText}
+          </AnimatedButton>
+        </MotionStack>
+      </AnimatePresence>
+      {isNavigation && swiper && (
+        <SwiperNavigationButton
+          swiper={swiper}
           alignSelf={{
             xs: "center",
-            md: "flex-start",
-          }}
-          spacing={{
-            xs: 3,
-            sm: 2,
+            md: "flex-end",
           }}
           mt={{
             xs: 5,
             md: 4,
           }}
-          {...NavigationWrapperProps}
-        >
-          <BorderedIconButton
-            color={"primary"}
-            onClick={() => {
-              swiper?.slidePrev();
-            }}
-            sx={iconButtonLargeSx}
-          >
-            <NavigateBeforeRounded />
-          </BorderedIconButton>
-          <BorderedIconButton
-            color={"primary"}
-            onClick={() => {
-              swiper?.slideNext();
-            }}
-            sx={iconButtonLargeSx}
-          >
-            <NavigateNextRounded />
-          </BorderedIconButton>
-        </Stack>
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+            transition: {
+              duration: 0.4,
+              delay: 1,
+            },
+          }}
+          viewport={{
+            once: true,
+            amount: "all",
+          }}
+        />
       )}
     </Stack>
   );
 };
 export default ArrowSlideInfo;
+
+const childMotionVariants: MotionProps["variants"] = {
+  initial: {
+    opacity: 0,
+    x: "20%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
