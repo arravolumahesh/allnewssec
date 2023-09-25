@@ -129,6 +129,7 @@ const Areas = () => {
       >
         {data.map((eachArea, index) => (
           <Accordion
+            key={index}
             expanded={expanded === `Area${index}`}
             onChange={handleChange(`Area${index}`)}
             sx={{
@@ -141,8 +142,7 @@ const Areas = () => {
                 xs: "24px 0",
                 lg: "48px 0",
               },
-            }}
-            key={index}
+            }}            
             component={motion.div}
             variants={StagAccordion}
             initial={{
@@ -214,8 +214,8 @@ const Areas = () => {
                 {eachArea.discrption}
               </Typography>
               <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
-                {eachArea.intitiatives.map((eachIntiative,idx) => (
-                  <Box key={idx} display={"flex"} flexDirection={"column"} gap={2}>
+                {eachArea.intitiatives.map((eachIntiative,index) => (
+                  <Box key={idx} idx display={"flex"} key={index} flexDirection={"column"} gap={2}>
                     <Image
                       src={eachIntiative.imageUrl}
                       alt={eachIntiative.title}
