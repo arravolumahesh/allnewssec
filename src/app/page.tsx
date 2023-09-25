@@ -4,16 +4,23 @@ import KeyFocus from "@/components/home/key-focus";
 import Impact from "@/components/home/impact";
 import Social from "@/components/home/social";
 import Partners from "@/components/home/partners";
-
+import OurFocusAreas from "@/components/ourCompanies/ourFocusAreas";
+import BuildFuture from "@/components/ourCompanies/build-future";
+import Section from "@/components/ourCompanies/section";
+import OurCaseStudies from "@/components/ourCompanies/our-studies";
 const HomePage = () => {
   return (
     <>
-      <Hero />
+      {/* <Hero />
       <AboveProfits />
       <KeyFocus />
       <Impact />
       <Partners />
-      <Social />
+      <Social /> */}
+      <BuildFuture />
+      <Section />
+      <OurCaseStudies />
+      <OurFocusAreas />
     </>
   );
 };

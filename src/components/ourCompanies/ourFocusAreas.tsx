@@ -111,6 +111,7 @@ const Areas = () => {
       <Box>
         {data.map((eachArea, index) => (
           <Accordion
+            key={index}
             expanded={expanded === `Area${index}`}
             onChange={handleChange(`Area${index}`)}
             sx={{
@@ -189,7 +190,12 @@ const Areas = () => {
               </Typography>
               <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
                 {eachArea.intitiatives.map((eachIntiative) => (
-                  <Box display={"flex"} flexDirection={"column"} gap={2}>
+                  <Box
+                    display={"flex"}
+                    flexDirection={"column"}
+                    gap={2}
+                    key={index}
+                  >
                     <Image
                       src={eachIntiative.imageUrl}
                       alt={eachIntiative.title}
