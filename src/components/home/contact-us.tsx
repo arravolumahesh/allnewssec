@@ -86,7 +86,12 @@ const ContactUs = () => {
               />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Email ID' fullWidth sx={fieldSx} />
+              <TextField
+                placeholder='Email ID'
+                type='email'
+                fullWidth
+                sx={fieldSx}
+              />
             </Grid2>
             <Grid2 xs={12} md={6}>
               <TextField placeholder='Phone Number' fullWidth sx={fieldSx} />
