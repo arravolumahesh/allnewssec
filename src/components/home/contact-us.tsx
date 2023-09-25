@@ -1,5 +1,10 @@
 "use client";
-import { MotionImage } from "@/commonComponents/motion-components";
+import {
+  MotionBox,
+  MotionBoxProps,
+  MotionImage,
+  MotionVariantProps,
+} from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
   Box,
@@ -15,6 +20,7 @@ import AnimatedButton from "@/commonComponents/animated-button";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
   const [company, setCompany] = useState("Select Company");
@@ -36,22 +42,41 @@ const ContactUs = () => {
         alignItems={"center"}
         justifyContent={"space-between"}
       >
-        <Box
+        <MotionBox
           position={"relative"}
           width={{ xs: 342, xl: 470 }}
           minWidth={{ xs: 342, xl: 470 }}
           sx={{ aspectRatio: 0.86 }}
+          {...boxTransition}
         >
           <MotionImage src={contact} alt='' fill />
-        </Box>
-        <Stack rowGap={5} maxWidth={{ xs: 1, md_lg: 712 }}>
-          <Stack gap={1}>
+        </MotionBox>
+        <Stack
+          rowGap={5}
+          maxWidth={{ xs: 1, md_lg: 712 }}
+          component={motion.div}
+          variants={staggerDiv}
+          initial='initial'
+          whileInView={"animate"}
+          viewport={{ once: true }}
+        >
+          <Stack
+            gap={1}
+            component={motion.div}
+            variants={staggerDivChildrenRight}
+          >
             <Typography variant='h3'>REACH OUT TO US</Typography>
             <Typography fontSize={"18px"}>
               We are always looking forward to support you.
             </Typography>
           </Stack>
-          <Grid2 container rowGap={3} columnSpacing={5}>
+          <Grid2
+            container
+            rowGap={3}
+            columnSpacing={5}
+            component={motion.div}
+            variants={staggerDivChildrenUp}
+          >
             <Grid2 xs={12} md={6}>
               <TextField
                 placeholder='Name'
@@ -165,6 +190,8 @@ const ContactUs = () => {
             sx={{
               width: { xs: "100%", md: "313px" },
             }}
+            variants={staggerDivChildrenRight}
+            animationDelay={1000}
           >
             Submit
           </AnimatedButton>
@@ -182,5 +209,58 @@ const fieldSx = {
   ".MuiOutlinedInput-notchedOutline": {
     borderRadius: 0,
     borderColor: "white",
+  },
+};
+
+const boxTransition: MotionBoxProps = {
+  initial: {
+    x: "-107%",
+    opacity: 0,
+  },
+  whileInView: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  viewport: {
+    once: true,
+  },
+};
+
+const staggerDiv: MotionVariantProps = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.6,
+      delayChildren: 0.5,
+    },
+  },
+};
+const staggerDivChildrenRight: MotionVariantProps = {
+  initial: {
+    x: 100,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
+const staggerDivChildrenUp: MotionVariantProps = {
+  initial: {
+    y: 100,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
   },
 };
