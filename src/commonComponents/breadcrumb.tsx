@@ -35,7 +35,7 @@ export default function CommonBreadcrumb(prop: props) {
         </Typography>
         {pathNames &&
           pathNames.map((item, index) => (
-            <Typography color="white" key={index}>
+            <Typography color="white" textTransform="capitalize" key={index}>
               {item.replace("-", " ")}
             </Typography>
           ))}
