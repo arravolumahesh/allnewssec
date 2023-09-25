@@ -18,9 +18,6 @@ const KeyHighlights = () => {
         SectionHeaderProps: {
           title: "Key Highlights",
         },
-        SectionProps: {
-          bgcolor: "primary.main",
-        },
       }}
       SwiperProps={{
         navigation: true,

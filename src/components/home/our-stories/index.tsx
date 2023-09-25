@@ -5,6 +5,7 @@ import StorySlide, {
 import EnhancedSwiper from "@cc/enhanced-swiper";
 import StoryImage from "./images/story-of-bajaj-auto.jpg";
 import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
+import { Navigation } from "swiper/modules";
 
 const OurStories = () => {
   return (
@@ -21,15 +22,16 @@ const OurStories = () => {
       <EnhancedSwiper
         data={data}
         SlideComponent={StorySlide}
+        modules={[Navigation]}
         navigation={{
           enabled: true,
-          nextEl: null,
-          prevEl: ".swiper-prev",
+          nextEl: ".swiper-next",
+          prevEl: null,
         }}
       >
         <SwiperNavigationArrowIcon
           direction={"next"}
-          className={"swiper-prev"}
+          className={"swiper-next"}
           sx={{
             right: {
               xs: 16,
