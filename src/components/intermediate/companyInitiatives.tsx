@@ -45,11 +45,12 @@ const CompanyInitiatives = (props: props) => {
         <Swiper
           // install Swiper modules
           slidesPerView={matches ? "auto" : 3}
-          spaceBetween={matches ? theme.spacing(2) : theme.spacing(3)}
-          freeMode={true}
+          spaceBetween={matches ? theme.spacing(3) : theme.spacing(3)}
+          // freeMode={true}
           pagination={false}
           navigation={false}
-          modules={[Pagination, Navigation, FreeMode]}
+          modules={[Pagination, Navigation]} 
+          // modules={[Pagination, Navigation, FreeMode]}
           onSlideChange={(swiper) => {
             setDisabledPrev(swiper.isBeginning);
             setDisabledNext(swiper.isEnd);
@@ -79,7 +80,7 @@ const CompanyInitiatives = (props: props) => {
               pb: { xs: 2, md: 7 },
             }}
           >
-            <Box>
+            <Box sx={{maxWidth:'100%'}}>
               <MLink
                 href={""}
                 variant="companylink"
