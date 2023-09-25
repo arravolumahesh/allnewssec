@@ -6,6 +6,7 @@ import Social from "@/components/home/social";
 import Partners from "@/components/home/partners";
 import KeyHighlights from "@/components/home/key-highlights";
 import InTheNews from "@/components/home/in-the-news";
+import OurStories from "@/components/home/our-stories";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
       <AboveProfits />
       <KeyFocus />
       <Impact />
+      <OurStories />
       <KeyHighlights />
       <InTheNews />
       <Partners />
