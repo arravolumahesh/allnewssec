@@ -5,7 +5,7 @@ import React from "react";
 
 export interface ArrowSlideDefaultImageProps {
   image: string | StaticImageData;
-  title: string;
+  title?: string;
 }
 
 const ArrowSlideDefaultImage: EnhancedSwiperSlideComponent<

@@ -8,11 +8,12 @@ import ArrowSlideInfo, {
 } from "@cc/cards/arrow-slide-info";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { deepmerge } from "@mui/utils";
+import { SetOptional } from "type-fest";
 
 export interface ArrowSwiperWithInfoProps<
   T extends ComponentType<any>,
   P extends ComponentProps<T> = ComponentProps<T>,
-> extends ArrowSwiperProps<T, P> {
+> extends SetOptional<ArrowSwiperProps<T, P>, "SwiperProps"> {
   ArrowSlideInfoProps?: ArrowSlideInfoProps;
   SectionWrapperProps?: Omit<SectionWrapperProps, "children">;
 }
@@ -73,9 +74,6 @@ export const ArrowSwiperWithInfoSectionWrapperDefaultProps: SectionWrapperProps 
     justifyContent: "space-between",
     color: "primary.main",
     rowGap: { xs: 4, md_lg: 0 },
-    SectionHeaderProps: {
-      title: "In The News",
-    },
   };
 
 export const constArrowSlideInfoDefaultProps: Omit<
