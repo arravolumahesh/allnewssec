@@ -1,22 +1,17 @@
 "use client";
 
-import { Button, Stack, Box } from "@mui/material";
-import Image from "next/image";
+import {Box, Button, Stack} from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useTheme } from "@mui/material/styles";
-import { motion } from "framer-motion";
+import {useTheme} from "@mui/material/styles";
+import {motion} from "framer-motion";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import {
-  MotionTypography,
-  MotionVariantProps,
-  MotionButton,
-} from "@/commonComponents/motion-elements";
+import {MotionButton, MotionTypography, MotionVariantProps,} from "@/commonComponents/motion-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
+import {FreeMode, Navigation, Pagination} from "swiper/modules";
+import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 import "swiper/swiper-bundle.css";
 
 // Curosel Part

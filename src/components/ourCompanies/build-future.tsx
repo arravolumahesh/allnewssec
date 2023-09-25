@@ -2,7 +2,6 @@ import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Box, Stack, Typography } from "@mui/material";
 import { helvetica } from "@/app/font";
 import React from "react";
-import { MotionTypography } from "@/commonComponents/motion-elements";
 
 const BuildFuture = () => {
   return (
