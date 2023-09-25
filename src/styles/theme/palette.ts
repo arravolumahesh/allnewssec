@@ -9,7 +9,6 @@ import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/mat
 export const PaletteTheme = (
   mode: PaletteOptions["mode"],
 ): ThemeOptions["palette"] => {
-  const isLight = mode !== "dark";
   return {
     mode: mode,
     primary: {
