@@ -9,6 +9,7 @@ import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import React, { Fragment } from "react";
 import line from "./images/Line 1322.svg";
 import { motion } from "framer-motion";
+import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 const Impact = () => {
   const theme = useTheme();
@@ -18,45 +19,22 @@ const Impact = () => {
       SectionProps={{
         bgcolor: "primary.main",
       }}
-      py={{ xs: 7, md: 12 }}
+      SectionHeaderProps={{
+        title: "DRIVING A LASTING IMPACT",
+        description:
+          "These are not mere numbers. They’re a testament to our relentless dedication towards making a tangible impact in communities across the nation.",
+        DescriptionTypographyProps: {
+          fontSize: H6_2,
+        },
+        maxWidth: { xs: 1, md: 867 },
+      }}
+      color={"common.white"}
     >
-      <Stack
-        maxWidth={{ xs: 1, md: 867 }}
-        textAlign="center"
-        rowGap={{ xs: 2, md: 4 }}
-        mx={"auto"}
-        component={motion.div}
-        variants={staggerDiv}
-        initial={"initial"}
-        whileInView={"animate"}
-        viewport={{ once: true }}
-      >
-        <MotionTypography
-          variants={staggerChildren}
-          variant="h1"
-          color={"white"}
-          fontWeight={400}
-        >
-          DRIVING A LASTING IMPACT
-        </MotionTypography>
-        <MotionTypography
-          variants={staggerChildren}
-          variant="h6"
-          color={"white"}
-          fontWeight={400}
-        >
-          These are not mere numbers. They’re a testament to our relentless
-          dedication towards making a tangible impact in communities across the
-          nation.
-        </MotionTypography>
-      </Stack>
       <Stack
         direction={"row"}
         width={1}
         maxWidth={1232}
         mx={"auto"}
-        mt={{ xs: 5, md: 11 }}
-        mb={{ xs: 0, md: 4 }}
         alignItems={"center"}
         justifyContent={"space-between"}
         flexWrap={"wrap"}
@@ -81,16 +59,13 @@ const Impact = () => {
               >
                 <MotionTypography
                   variants={staggerTextChildren}
-                  variant="h2"
+                  variant='h2'
+                  component={"h3"}
                   fontWeight={700}
-                  color={"white"}
                 >
                   {item.title}
                 </MotionTypography>
-                <MotionTypography
-                  variants={staggerTextChildren}
-                  color={"white"}
-                >
+                <MotionTypography variants={staggerTextChildren}>
                   {item.subtitle}
                 </MotionTypography>
               </Stack>
@@ -98,7 +73,7 @@ const Impact = () => {
                 <MotionImage
                   variants={staggerArrowChildren}
                   src={line}
-                  alt=""
+                  alt=''
                   hidden={matches}
                 />
               )}

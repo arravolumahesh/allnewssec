@@ -24,11 +24,14 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         alignItems={"center"}
         height={1}
         ref={ref}
+        overflow={"hidden"}
         {...SectionProps}
       >
         <Stack
-          px={basePx}
-          py={basePy}
+          pl={basePx}
+          pr={basePx}
+          pt={basePy}
+          pb={basePy}
           width={1}
           maxWidth={"xxl"}
           height={"inherit"}
@@ -49,7 +52,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         </Stack>
       </Stack>
     );
-  },
+  }
 );
 
 export default SectionWrapper;

@@ -43,6 +43,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
       <MotionTypography
         variant={"h1"}
         component={"h2"}
+        textAlign={"center"}
         variants={childMotionVariant}
         {...TitleTypographyProps}
       >
@@ -52,6 +53,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
         <MotionTypography
           component={"p"}
           fontSize={H6_4}
+          textAlign={"center"}
           variants={childMotionVariant}
           {...DescriptionTypographyProps}
         >
