@@ -16,7 +16,7 @@ const IntermediateMenu = () => {
             zIndex: 9999,
           },
         }}
-        sx={{ py: 0 }}
+        sx={{ py: {xxl:0} }}
       >
         <Box
           sx={{

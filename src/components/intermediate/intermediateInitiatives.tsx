@@ -16,7 +16,7 @@ const IntermediateInitiatives = () => {
                 },
               }}
               sx={{
-                py: 0,
+                py: {xxl:0},
                 backgroundColor: `${index % 2 === 0 ? "white" : "#E6E6E6"}`,
               }}
             >
