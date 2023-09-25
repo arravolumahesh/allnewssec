@@ -157,7 +157,7 @@ const staggerDiv: MotionVariantProps = {
   animate: {
     transition: {
       staggerChildren: 0.4,
-      delayChildren: 0.2,
+      delayChildren: 1,
     },
   },
 };
@@ -170,7 +170,7 @@ const staggerChildren: MotionVariantProps = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.4,
+      duration: 0.6,
     },
   },
 };
