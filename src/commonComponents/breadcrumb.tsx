@@ -22,14 +22,14 @@ export default function CommonBreadcrumb(prop: props) {
   return (
     <Stack spacing={2}>
       <Breadcrumbs
-        separator={<NavigateNextIcon fontSize="small" />}
+        separator={<NavigateNextIcon color="secondary" fontSize="small" />}
         aria-label="breadcrumb"
       >
         <Typography
           component={Link}
           href="/"
           underline="hover"
-          color="text.grey"
+          color="secondary.dark"
         >
           Home
         </Typography>
