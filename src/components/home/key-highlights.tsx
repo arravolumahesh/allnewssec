@@ -7,6 +7,7 @@ import ArrowSlideInfo from "@cc/cards/arrow-slide-info";
 import { ArrowSlideDefaultImageProps } from "@cc/cards/arrow-slide-default-image";
 import keyHighlights from "@/components/home/images/key-highlights.jpg";
 import inTheNews from "@/components/home/images/in-the-news.jpg";
+import { H3_1 } from "@theme/components/typography.fontvariant";
 
 const KeyHighlights = () => {
   return (
@@ -17,9 +18,19 @@ const KeyHighlights = () => {
         SectionHeaderProps: {
           title: "Key Highlights",
         },
+        SectionProps: {
+          bgcolor: "primary.main",
+        },
       }}
       SwiperProps={{
         navigation: true,
+      }}
+      ArrowSlideInfoProps={{
+        SlotProps: {
+          TitleTypographyProps: {
+            fontSize: H3_1,
+          },
+        },
       }}
     />
   );
