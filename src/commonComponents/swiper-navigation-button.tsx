@@ -28,7 +28,7 @@ const SwiperNavigationButton = (props: SwiperNavigationButtonProps) => {
   return (
     <MotionStack
       direction={"row"}
-      color={"primary.main"}
+      color={"inherit"}
       spacing={{
         xs: 3,
         sm: 2,

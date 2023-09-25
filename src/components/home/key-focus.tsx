@@ -1,6 +1,6 @@
 "use client";
 import {
-  MotionSvgProps,
+  MotionBoxProps,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
@@ -38,7 +38,11 @@ const KeyFocus = () => {
         pl={{ xs: 0, md: "5.5%" }}
       >
         {matches && (
-          <ArrowGradient width={126} height={381} {...imageTransition} />
+          <ArrowGradient
+            width={"126px"}
+            height={"381px"}
+            {...imageTransition}
+          />
         )}
         <Stack
           component={motion.div}
@@ -137,7 +141,7 @@ const KeyFocus = () => {
 
 export default KeyFocus;
 
-const imageTransition: MotionSvgProps = {
+const imageTransition: MotionBoxProps = {
   initial: {
     x: "-180%",
     opacity: 0,

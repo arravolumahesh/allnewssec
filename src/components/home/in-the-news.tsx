@@ -1,4 +1,3 @@
-"use client";
 import ArrowSlideInfo from "@cc/cards/arrow-slide-info";
 import keyHighlights from "@/components/home/images/key-highlights.jpg";
 import inTheNews from "@/components/home/images/in-the-news.jpg";
@@ -16,6 +15,9 @@ const InTheNews = () => {
         SectionHeaderProps: {
           title: "In the News",
         },
+      }}
+      ArrowSlideInfoProps={{
+        isNavigation: true,
       }}
     />
   );

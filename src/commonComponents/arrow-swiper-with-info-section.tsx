@@ -1,3 +1,4 @@
+"use client";
 import React, { ComponentProps, ComponentType, useRef } from "react";
 import { BehaviorSubject } from "rxjs";
 import { Swiper } from "swiper/types";
@@ -59,7 +60,7 @@ const ArrowSwiperWithInfoSection = <
       <ArrowSlideInfo
         data={data}
         SwiperInstance={$swiperInstance}
-        {...deepmerge(constArrowSlideInfoDefaultProps, ArrowSlideInfoProps)}
+        {...deepmerge(arrowSlideInfoDefaultProps, ArrowSlideInfoProps)}
       />
     </SectionWrapper>
   );
@@ -76,11 +77,10 @@ export const ArrowSwiperWithInfoSectionWrapperDefaultProps: SectionWrapperProps 
     rowGap: { xs: 4, md_lg: 0 },
   };
 
-export const constArrowSlideInfoDefaultProps: Omit<
+export const arrowSlideInfoDefaultProps: Omit<
   ArrowSlideInfoProps,
   "data" | "SwiperInstance"
 > = {
-  isNavigation: true,
   NavigationWrapperProps: {
     alignSelf: { xs: "center", md: "flex-end" },
   },

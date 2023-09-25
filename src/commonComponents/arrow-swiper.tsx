@@ -91,20 +91,20 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
                 }
               : navigation),
           }}
-          allowTouchMove={false}
+          allowTouchMove
           spaceBetween={40}
           sx={[enhancedSwiperSx, ...sxArrayUtil(sx)]}
           SlideComponent={ArrowSlideDefaultImage}
           {...swiperProps}
         >
-          {typeof navigation === "boolean"
+          {(typeof navigation === "boolean"
             ? navigation
-            : navigation?.enabled && (
-                <SwiperNavigationArrowIcon
-                  direction={"next"}
-                  className={"swiper-prev"}
-                />
-              )}
+            : navigation?.enabled) && (
+            <SwiperNavigationArrowIcon
+              direction={"next"}
+              className={"swiper-prev"}
+            />
+          )}
         </EnhancedSwiper>
       </MotionBox>
       <ArrowGradient

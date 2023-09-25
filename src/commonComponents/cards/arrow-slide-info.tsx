@@ -74,7 +74,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   }, [swiper, activeIndex]);
 
   return (
-    <Stack color={"primary.main"} alignSelf={"center"} {...restStackProps}>
+    <Stack color={"inherit"} alignSelf={"center"} {...restStackProps}>
       <AnimatePresence presenceAffectsLayout mode={"popLayout"}>
         <MotionStack
           key={`prefix-${activeIndex}`}
@@ -127,7 +127,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           <AnimatedButton
             href={"/"}
             variant={"outlined"}
-            color={"primary"}
+            color={"inherit"}
             variants={childMotionVariants}
             animationDelay={850}
             {...ButtonProps}

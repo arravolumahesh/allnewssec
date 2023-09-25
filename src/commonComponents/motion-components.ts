@@ -1,7 +1,6 @@
 "use client";
 import {
   Box,
-  BoxProps,
   Card,
   Stack,
   SvgIcon,
@@ -19,7 +18,7 @@ import EnhancedSwiper from "@cc/enhanced-swiper";
 export const MotionImage = motion<MaterialImageProps>(MaterialImage);
 export const MotionTypography = motion<TypographyProps>(Typography);
 export const MotionButton = motion<MLinkProps>(MLink);
-export const MotionBox = motion<BoxProps>(Box);
+export const MotionBox = motion(Box);
 export const MotionCard = motion(Card);
 export const MotionGrid = motion(Grid2);
 export const MotionStack = motion(Stack);
