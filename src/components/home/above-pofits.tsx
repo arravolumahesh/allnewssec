@@ -12,30 +12,14 @@ import {
 import { PlayCircle } from "@mui/icons-material";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import theme from "@/styles/theme";
+import { H3_2, H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 const AboveProfits = () => {
   const [textTransition, setTextTransition] = useState(false);
 
-  const headerTransition: MotionTypographyProps = {
-    initial: {
-      y: "30%",
-      opacity: 0,
-    },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-    },
-    transition: {
-      duration: 0.8,
-    },
-    viewport: {
-      once: true,
-    },
-  };
-
   const videoBannerTransition: MotionBoxProps = {
     initial: {
-      x: "-118%",
+      x: "-107%",
       opacity: 0,
     },
     whileInView: {
@@ -68,26 +52,6 @@ const AboveProfits = () => {
       once: true,
     },
   };
-  {
-    /* <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: "-100%",
-          animation: "slideIn 5s infinite linear",
-          "@keyframes slideIn": {
-            "0%": {
-              left: "-100%",
-            },
-            "100%": {
-              left: "100%",
-            },
-          },
-        }}
-      >
-        <Image src={dcd} alt='' />
-      </Box> */
-  }
   return (
     <SectionWrapper
       SectionProps={{
@@ -116,18 +80,13 @@ const AboveProfits = () => {
       }}
       SectionHeaderProps={{
         title: "ABOVE PROFITS. BEYOND BOTTOM LINES.",
+        TitleTypographyProps: {
+          fontSize: H3_2,
+        },
+        mb: 0,
       }}
-      py={{ xs: 7, md: 12 }}
     >
       <Stack textAlign={"center"} maxWidth={1051} m={"auto"}>
-        <MotionTypography
-          variant='h3'
-          color='white'
-          fontWeight={400}
-          {...headerTransition}
-        >
-          ABOVE PROFITS. BEYOND BOTTOM LINES.
-        </MotionTypography>
         <MotionBox
           position={"relative"}
           height={{ xs: 264, md: 513 }}
@@ -155,12 +114,7 @@ const AboveProfits = () => {
             />
           </IconButton>
         </MotionBox>
-        <MotionTypography
-          variant='h6'
-          color='white'
-          fontWeight={400}
-          {...descTransition}
-        >
+        <MotionTypography variant='body1' fontSize={H6_2} {...descTransition}>
           Welcome to Bajaj Beyond, a holistic and integrated platform that
           combines the myriad of Bajaj Inc’s CSR initiatives to create a single
           force of good that goes beyond profits and bottom lines. We’re certain
@@ -174,56 +128,3 @@ const AboveProfits = () => {
 };
 
 export default AboveProfits;
-
-const headerTransition: MotionTypographyProps = {
-  initial: {
-    y: "30%",
-    opacity: 0,
-  },
-  whileInView: {
-    y: 0,
-    opacity: 1,
-  },
-  transition: {
-    duration: 0.8,
-  },
-  viewport: {
-    once: true,
-  },
-};
-
-const videoBannerTransition: MotionBoxProps = {
-  initial: {
-    x: "-107%",
-    opacity: 0,
-  },
-  whileInView: {
-    x: 0,
-    opacity: 1,
-  },
-  transition: {
-    duration: 0.8,
-    ease: "easeOut",
-  },
-  viewport: {
-    once: true,
-  },
-};
-
-const descTransition: MotionTypographyProps = {
-  initial: {
-    y: "-130%",
-    opacity: 0,
-  },
-  whileInView: {
-    y: 0,
-    opacity: 1,
-  },
-  transition: {
-    duration: 0.5,
-    delay: 0.8,
-  },
-  viewport: {
-    once: true,
-  },
-};
