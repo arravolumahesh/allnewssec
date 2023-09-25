@@ -142,9 +142,15 @@ export const ButtonVariants: Components<
           },
           [theme.breakpoints.down("md")]: {
             fontSize: "24px",
-            display: "inline",
+            maxWidth:'100%',
+            '& span:first-child':{
+              float: 'left',
+              width: 'auto',
+              maxWidth: 250,
+            }
             // paddingRight:theme.spacing(6),
           },
+          overflow:'visible',
           whiteSpace: "break-spaces",
           display: "inline-block",
           width: "max-content",
@@ -170,6 +176,10 @@ export const ButtonVariants: Components<
             [theme.breakpoints.down("md")]: {
               top: 0,
               alignItems: "flex-start",
+              position: 'static',
+              margin: 0,
+              left: 0,
+              float: 'left',
             },
             "& svg": {
               width: 36,

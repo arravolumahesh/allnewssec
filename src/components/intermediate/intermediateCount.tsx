@@ -40,7 +40,7 @@ const IntermediateCount = () => {
         }}
         sx={{
           pt: 5,
-          pb: 0,
+          pb: {xxl:0,xl:0,lg:0,md:0},
           backgroundColor: "white",
         }}
       >

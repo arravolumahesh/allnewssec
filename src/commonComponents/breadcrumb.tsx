@@ -29,13 +29,13 @@ export default function CommonBreadcrumb(prop: props) {
           component={Link}
           href="/"
           underline="hover"
-          color="text.disabled"
+          color="text.grey"
         >
           Home
         </Typography>
         {pathNames &&
           pathNames.map((item, index) => (
-            <Typography color="text.secondary" key={index}>
+            <Typography color="white" key={index}>
               {item.replace("-", " ")}
             </Typography>
           ))}

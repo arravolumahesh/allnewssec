@@ -14,18 +14,18 @@ import InTheNews from "@/components/home/in-the-news";
 const HomePage = () => {
   return (
     <>
-      {/* <Hero />
+      <Hero />
       <AboveProfits />
       <KeyFocus />
       <Impact />
       <KeyHighlights />
       <InTheNews />
       <Partners />
-      <Social /> */}
-      <BuildFuture />
+      <Social />
+      {/* <BuildFuture />
       <Section />
       <OurCaseStudies />
-      <OurFocusAreas />
+      <OurFocusAreas /> */}
     </>
   );
 };
