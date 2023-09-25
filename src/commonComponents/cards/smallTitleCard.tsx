@@ -3,6 +3,7 @@ import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import Link from "next/link";
 import { MotionCard, MotionCardProps } from "@cc/motion-components";
+import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 interface SmallTitleCardProps extends Omit<MotionCardProps, "children"> {
   img: string;
@@ -52,7 +53,7 @@ export const SmallTitleCard: EnhancedSwiperSlideComponent<SmallTitleCardProps> =
               pb: "16px !important",
             }}
           >
-            <Typography variant='h5' fontWeight={400} color={"white"}>
+            <Typography variant='body1' fontSize={H6_2}>
               {title}
             </Typography>
           </CardContent>

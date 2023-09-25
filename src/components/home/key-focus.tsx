@@ -16,6 +16,7 @@ import EnhancedSwiper, {
 } from "@/commonComponents/enhanced-swiper";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import ArrowGradient from "@cc/arrow-gradient";
+import { H6_3 } from "@/styles/theme/components/typography.fontvariant";
 
 const KeyFocus = () => {
   const theme = useTheme();
@@ -25,25 +26,10 @@ const KeyFocus = () => {
       pt={{ xs: 7, md: 6 }}
       pb={{ xs: 7, md: 12 }}
       rowGap={{ xs: 6, md: 2 }}
-      overflow={"hidden"}
-      SectionProps={{
-        bgcolor: "#e6e6e6",
-        overflow: "hidden",
-      }}
+      color={"primary.main"}
     >
-      <Stack
-        direction={"row"}
-        alignItems={"center"}
-        columnGap={4}
-        pl={{ xs: 0, md: "5.5%" }}
-      >
-        {matches && (
-          <ArrowGradient
-            width={"126px"}
-            height={"381px"}
-            {...imageTransition}
-          />
-        )}
+      <Stack direction={"row"} alignItems={"center"}>
+        {matches && <ArrowGradient height={"301px"} {...imageTransition} />}
         <Stack
           component={motion.div}
           variants={staggerDiv}
@@ -55,19 +41,13 @@ const KeyFocus = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant="h1"
-              fontWeight={400}
-              color={"primary.dark"}
+              variant='h1'
+              component={"h3"}
               variants={staggerChildren}
             >
               OUR KEY FOCUS AREAS
             </MotionTypography>
-            <MotionTypography
-              variant="h5"
-              fontWeight={400}
-              color={"primary.dark"}
-              variants={staggerChildren}
-            >
+            <MotionTypography fontSize={H6_3} variants={staggerChildren}>
               Our CSR initiatives encompass a diverse range of focus areas, with
               a strong emphasis on skill development. We aim to address social,
               environmental, and community needs to create a positive and
@@ -86,14 +66,13 @@ const KeyFocus = () => {
       >
         <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
-          subtitle="Providing skill-based education through various programs to strengthen
-          the foundation of a progressive nation."
-          textColor="primary.dark"
+          subtitle='Providing skill-based education through various programs to strengthen
+          the foundation of a progressive nation.'
         >
-          <Image src={skillImage} alt="Skill Banner" fill />
+          <Image src={skillImage} alt='Skill Banner' fill />
         </SlideAnimationWrapper>
       </Stack>
-      <Stack direction="row" alignItems={"center"} width={"107%"}>
+      <Stack direction='row' alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
@@ -143,7 +122,7 @@ export default KeyFocus;
 
 const imageTransition: MotionBoxProps = {
   initial: {
-    x: "-180%",
+    x: "-130%",
     opacity: 0,
   },
   whileInView: {
