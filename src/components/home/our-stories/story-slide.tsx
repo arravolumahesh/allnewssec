@@ -1,5 +1,5 @@
 "use client";
-import { alpha, Typography } from "@mui/material";
+import { alpha, Stack, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import { MotionImage } from "@cc/motion-components";
@@ -28,7 +28,6 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
         sx={[
           {
             position: "relative",
-            aspectRatio: "16/9",
             alignItems: "flex-start",
           },
           ...sxArrayUtil(sx),
@@ -46,46 +45,62 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             left: 0,
           }}
         />
-        <Typography
-          variant={"body2"}
-          gutterBottom
+        <Stack
           sx={{
-            width: "fit-content",
-            textTransform: "capitalize",
-            px: 16,
-            py: {
+            width: {
               xs: 1,
-              md: 1.25,
-              xxl: 1.5,
+              md: 0.7,
+              lg: 0.45,
             },
-            background: (theme) => alpha(theme.palette.secondary.main, 0.2),
           }}
         >
-          {company}
-        </Typography>
-        <Typography fontSize={H5_1} mb={3} textTransform={"capitalize"}>
-          {title}
-        </Typography>
-        <Typography variant={"body2"} mb={3} textTransform={"capitalize"}>
-          {location}
-        </Typography>
-        <Typography
-          variant={"body1"}
-          mb={{
-            xs: 4,
-            md: 4.5,
-            xxl: 5,
-          }}
-        >
-          {description}
-        </Typography>
-        <AnimatedButton
-          href={"/bajaj-auto-initiatives"}
-          variant={"outlined"}
-          color={"secondary"}
-        >
-          View More Initiatives
-        </AnimatedButton>
+          <Typography
+            variant={"body2"}
+            gutterBottom
+            sx={{
+              width: "fit-content",
+              textTransform: "capitalize",
+              px: 2,
+              py: {
+                xs: 1,
+                md: 1.25,
+                xxl: 1.5,
+              },
+              background: (theme) => alpha(theme.palette.secondary.main, 0.2),
+            }}
+          >
+            {company}
+          </Typography>
+          <Typography
+            fontSize={H5_1}
+            fontWeight={"bold"}
+            mb={3}
+            textTransform={"capitalize"}
+          >
+            {title}
+          </Typography>
+          <Typography variant={"body2"} mb={3} textTransform={"capitalize"}>
+            {location}
+          </Typography>
+          <Typography
+            variant={"body1"}
+            mb={{
+              xs: 4,
+              md: 4.5,
+              xxl: 5,
+            }}
+            whiteSpace={"pre-wrap"}
+          >
+            {description}
+          </Typography>
+          <AnimatedButton
+            href={"/bajaj-auto-initiatives"}
+            variant={"outlined"}
+            color={"secondary"}
+          >
+            View More Initiatives
+          </AnimatedButton>
+        </Stack>
       </SectionWrapper>
     );
   },
