@@ -15,7 +15,10 @@ export interface ArrowSwiperWithInfoProps<
   T extends ComponentType<any>,
   P extends ComponentProps<T> = ComponentProps<T>,
 > extends SetOptional<ArrowSwiperProps<T, P>, "SwiperProps"> {
-  ArrowSlideInfoProps?: ArrowSlideInfoProps;
+  ArrowSlideInfoProps?: SetOptional<
+    ArrowSlideInfoProps,
+    "data" | "SwiperInstance"
+  >;
   SectionWrapperProps?: Omit<SectionWrapperProps, "children">;
 }
 

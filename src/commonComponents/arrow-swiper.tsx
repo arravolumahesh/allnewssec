@@ -76,7 +76,12 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
       }}
       {...restStackProps}
     >
-      <MotionBox height={"100%"} width={0.9} variants={childMotionVariants}>
+      <MotionBox
+        height={"100%"}
+        width={0.9}
+        zIndex={2}
+        variants={childMotionVariants}
+      >
         <EnhancedSwiper
           data={data}
           SlideWrapperProps={slideWrapperProps}
@@ -91,7 +96,6 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
                 }
               : navigation),
           }}
-          allowTouchMove
           spaceBetween={40}
           sx={[enhancedSwiperSx, ...sxArrayUtil(sx)]}
           SlideComponent={ArrowSlideDefaultImage}
@@ -111,6 +115,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
         width={"10%"}
         height={"100%"}
         ml={"-116px"}
+        zIndex={1}
         variants={childMotionVariants}
       />
     </MotionStack>
