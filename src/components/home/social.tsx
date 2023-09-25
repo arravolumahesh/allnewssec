@@ -33,6 +33,7 @@ const Social = () => {
       SectionProps={{
         bgcolor: "primary.main",
       }}
+      color={"common.white"}
     >
       {matches && (
         <Stack
