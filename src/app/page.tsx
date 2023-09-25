@@ -7,6 +7,7 @@ import Partners from "@/components/home/partners";
 import KeyHighlights from "@/components/home/key-highlights";
 import InTheNews from "@/components/home/in-the-news";
 import OurStories from "@/components/home/our-stories";
+import { Box } from "@mui/material";
 
 const HomePage = () => {
   return (
@@ -15,8 +16,15 @@ const HomePage = () => {
       <AboveProfits />
       <KeyFocus />
       <Impact />
-      <OurStories />
-      <KeyHighlights />
+      <Box
+        width={"100%"}
+        sx={{
+          background: "gradient.darkToLight",
+        }}
+      >
+        <OurStories />
+        <KeyHighlights />
+      </Box>
       <InTheNews />
       <Partners />
       <Social />
