@@ -150,9 +150,9 @@ export const PaletteTheme = (
     },
     get text(): PaletteOptions["text"] {
       return {
-        primary: (this?.primary as SimplePaletteColorOptions).contrastText,
-        secondary: (this?.secondary as SimplePaletteColorOptions).contrastText,
-        disabled: isLight ? this?.grey?.["500"] : "#ffffff50",
+        primary: (this?.primary as SimplePaletteColorOptions).main,
+        secondary: (this?.secondary as SimplePaletteColorOptions).main,
+        disabled: this?.grey?.["500"],
       };
     },
     background: {
