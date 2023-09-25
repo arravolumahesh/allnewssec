@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
+import AnimatedButton from "@/commonComponents/animated-button";
+import { motion } from "framer-motion";
+
 import {
   Box,
   Stack,
@@ -12,9 +15,13 @@ import {
   AccordionDetails,
   Divider,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { SwipeCard } from "@/commonComponents/cards/swipeCard";
+import {
+  MotionImage,
+  MotionTypography,
+  MotionVariantProps,
+} from "@/commonComponents/motion-elements";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import Image from "next/image";
 import { helvetica } from "@/app/font";
@@ -107,8 +114,19 @@ const Areas = () => {
         sx={{
           backgroundColor: "blue",
         }}
+        component={motion.div}
+        variants={staggerChildren}
+        initial={"initial"}
+        whileInView={"animate"}
+        viewport={{ once: true }}
       />
-      <Box>
+      <Stack
+        component={motion.div}
+        variants={StagAccordion}
+        initial={"intial"}
+        whileInView={"animate"}
+        viewport={{ once: true }}
+      >
         {data.map((eachArea, index) => (
           <Accordion
             key={index}
@@ -124,8 +142,16 @@ const Areas = () => {
                 xs: "24px 0",
                 lg: "48px 0",
               },
-              opacity: 0.7,
             }}
+            key={index}
+            component={motion.div}
+            variants={StagAccordion}
+            initial={{
+              opacity: 0,
+              y: `${index % 2 === 0 ? "-30%" : "30%"}`,
+            }}
+            whileInView={"animate"}
+            viewport={{ once: true }}
           >
             <AccordionSummary
               expandIcon={
@@ -224,39 +250,23 @@ const Areas = () => {
                 ))}
               </Box>
               <Stack display={"flex"} alignItems={"center"}>
-                <Button
-                  variant="outlined"
+                <AnimatedButton
                   sx={{
-                    display: "flex",
-                    height: "56px",
-                    padding: "12px 24px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    border: "1px solid rgba(255, 255, 255, 0.30)",
-                    background: "transparent",
-                    color: "#FFF",
+                    mt: 4,
+                    width: { xs: "100%", md: "207px" },
+                    bgcolor: "rgba(255, 255, 255, 0.10)",
+                    fontSize: { xs: "18px", md: "24px !important" },
                   }}
-                  disableRipple
-                  disableTouchRipple
+                  href={"./"}
+                  variants={staggerBtn}
                 >
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontFamily: "Helvetica",
-                      fontSize: "24px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "128%",
-                    }}
-                  ></Typography>{" "}
-                  View All Initiatives
-                </Button>
+                  View Initiatives
+                </AnimatedButton>
               </Stack>
             </AccordionDetails>
           </Accordion>
         ))}
-      </Box>
+      </Stack>
     </>
   );
 };
@@ -285,6 +295,7 @@ const OurFocusAreas = () => {
             lg: "96px 52px 176px 64px",
           },
         }}
+        component={motion.div}
       >
         <Box
           sx={{
@@ -301,12 +312,14 @@ const OurFocusAreas = () => {
               WebkitLineClamp: 1,
               alignSelf: "stretch",
             }}
+            component={motion.div}
+            variants={staggerDiv}
           >
-            <Typography
+            <MotionTypography
               sx={{
                 fontFamily: helvetica,
                 fontSize: {
-                  sm: "32px",
+                  xs: "32px",
                   md: "32px",
                   xl: "64px",
                 },
@@ -319,10 +332,14 @@ const OurFocusAreas = () => {
                 textAlign: "center",
                 textOverflow: "ellipsis",
               }}
+              variants={staggerHeading}
+              initial={"initial"}
+              whileInView={"animate"}
+              viewport={{ once: true }}
             >
               {" "}
               Our Focus Areas
-            </Typography>
+            </MotionTypography>
           </Stack>
           <Box
             sx={{
@@ -344,7 +361,7 @@ const OurFocusAreas = () => {
                 display: "flex",
               }}
             >
-              <Image
+              <MotionImage
                 src={OFA1}
                 alt="OFA1"
                 width={0}
@@ -353,6 +370,10 @@ const OurFocusAreas = () => {
                   width: "50%",
                   height: "100%",
                 }}
+                variants={StagImage1}
+                initial={"initial"}
+                whileInView={"animate"}
+                viewport={{ once: true }}
               />
               <Stack
                 sx={{
@@ -360,7 +381,7 @@ const OurFocusAreas = () => {
                   gap: "8px",
                 }}
               >
-                <Image
+                <MotionImage
                   src={OFA2}
                   alt=""
                   width={0}
@@ -369,8 +390,12 @@ const OurFocusAreas = () => {
                     width: "100%",
                     height: "50%",
                   }}
+                  variants={StagImage2}
+                  initial={"initial"}
+                  whileInView={"animate"}
+                  viewport={{ once: true }}
                 />
-                <Image
+                <MotionImage
                   src={OFA3}
                   alt=""
                   width={0}
@@ -379,10 +404,14 @@ const OurFocusAreas = () => {
                     width: "100%",
                     height: "50%",
                   }}
+                  variants={StagImage3}
+                  initial={"initial"}
+                  whileInView={"animate"}
+                  viewport={{ once: true }}
                 />
               </Stack>
             </Box>
-            <Box
+            <Stack
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -394,13 +423,15 @@ const OurFocusAreas = () => {
                   lg: "50%",
                 },
               }}
+              component={motion.div}
+              variants={staggerDiv}
             >
-              <Typography
+              <MotionTypography
                 sx={{
                   fontFamily: helvetica,
                   fontSize: {
                     xs: "18px",
-                    md: "10px",
+                    md: "21px",
                     xl: "24px",
                   },
                   fontStyle: "normal",
@@ -414,42 +445,33 @@ const OurFocusAreas = () => {
                   color: "var(--White, #FFF)",
                 }}
                 variant="body1"
+                variants={staggerChildren}
+                initial={"initial"}
+                whileInView={"animate"}
+                viewport={{ once: true }}
               >
                 We are deeply committed to improving livelihoods, particularly
                 for the marginalized youth of our country by skilling and
                 empowering them. We also contribute to education, health,
                 environment, animal welfare projects, and other relevant areas
                 for the sustainable development of the community and the nation.
-              </Typography>
-              <Button
-                variant="outlined"
+              </MotionTypography>
+              <AnimatedButton
                 sx={{
-                  display: "flex",
-                  height: "56px",
-                  padding: "12px 24px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "8px",
-                  border: "1px solid rgba(255, 255, 255, 0.30)",
-                  background: "rgba(255, 255, 255, 0.10)",
-                  color: "#FFF",
+                  mt: 4,
+                  width: "150px",
+                  bgcolor: "rgba(255, 255, 255, 0.10)",
+                  fontSize: { xs: "16px", md: "22px !important" },
                 }}
-                disableRipple
-                disableTouchRipple
+                href={"./"}
+                variants={staggerBtn}
+                initial={"initial"}
+                whileInView={"animate"}
+                viewport={{ once: true }}
               >
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontFamily: "Helvetica",
-                    fontSize: "24px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "128%",
-                  }}
-                ></Typography>{" "}
-                View All Initiatives
-              </Button>
-            </Box>
+                View Initiatives
+              </AnimatedButton>
+            </Stack>
           </Box>
         </Box>
       </Box>
@@ -459,3 +481,110 @@ const OurFocusAreas = () => {
 };
 
 export default OurFocusAreas;
+
+const staggerChildren: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "100%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const staggerHeading: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "-50%",
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const staggerDiv: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.4,
+      delayChildren: 1,
+    },
+  },
+};
+
+const staggerBtn: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "30%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const StagImage1: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    x: "-100%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+const StagImage2: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "-100%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+const StagImage3: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "100%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+const StagAccordion: MotionVariantProps = {
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
