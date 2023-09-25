@@ -157,6 +157,7 @@ const IntermediateBanner = () => {
           variant="h3"
           color="white"
           mb={2}
+          sx={{textTransform:'uppercase'}}
           {...headerTransition}
         >
           Empowering Lives
