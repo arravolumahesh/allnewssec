@@ -1,4 +1,8 @@
-import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/material";
+import {
+  PaletteOptions,
+  SimplePaletteColorOptions,
+  ThemeOptions,
+} from "@mui/material";
 
 /**
  * @ThemeOptions['palette']
@@ -7,8 +11,9 @@ import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/mat
  * @see https://material-ui.com/customization/palette/#palette
  */
 export const PaletteTheme = (
-  mode: PaletteOptions["mode"],
+  mode: PaletteOptions["mode"]
 ): ThemeOptions["palette"] => {
+  const isLight = mode !== "dark";
   return {
     mode: mode,
     primary: {
@@ -149,9 +154,9 @@ export const PaletteTheme = (
     },
     get text(): PaletteOptions["text"] {
       return {
-        primary: (this?.primary as SimplePaletteColorOptions).main,
-        secondary: (this?.secondary as SimplePaletteColorOptions).main,
-        disabled: this?.grey?.["500"],
+        primary: (this?.primary as SimplePaletteColorOptions).contrastText,
+        secondary: (this?.secondary as SimplePaletteColorOptions).contrastText,
+        disabled: isLight ? this?.grey?.["500"] : "#ffffff50",
       };
     },
     background: {
