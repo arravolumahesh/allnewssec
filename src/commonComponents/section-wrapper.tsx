@@ -28,8 +28,10 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         {...SectionProps}
       >
         <Stack
-          px={basePx}
-          py={basePy}
+          pl={basePx}
+          pr={basePx}
+          pt={basePy}
+          pb={basePy}
           width={1}
           maxWidth={"xxl"}
           height={"inherit"}

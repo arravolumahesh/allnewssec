@@ -11,6 +11,7 @@ import {
 } from "@/commonComponents/motion-components";
 import { PlayCircle } from "@mui/icons-material";
 import SectionWrapper from "@/commonComponents/section-wrapper";
+import theme from "@/styles/theme";
 
 const AboveProfits = () => {
   const [textTransition, setTextTransition] = useState(false);
@@ -91,10 +92,8 @@ const AboveProfits = () => {
     <SectionWrapper
       SectionProps={{
         sx: {
-          background:
-            "linear-gradient(180deg, #0C1425 0%, #162B52 17.68%, #1F3F78 35.36%, #254F98 53.05%, #2B5CB0 70.73%, #2F65C1 89.77%, #316ACB 110.17%, #326CCF 136.02%)",
+          background: (theme) => theme.palette.gradient.darkToLight,
           position: "relative",
-          overflow: "hidden",
           "&:before": {
             content: '""',
             position: "absolute",
@@ -103,8 +102,7 @@ const AboveProfits = () => {
             aspectRatio: 4.54,
             top: 0,
             right: 0,
-            background:
-              "url(http://localhost:3000/Group%20427321804.svg) repeat-x", //space
+            background: "url(/beyond.svg) repeat-x", //space
             backgroundSize: "contain",
             transform: "translate3d(0, 0, 0)",
             animation: "scroll 15s infinite linear",
@@ -116,12 +114,15 @@ const AboveProfits = () => {
           },
         },
       }}
+      SectionHeaderProps={{
+        title: "ABOVE PROFITS. BEYOND BOTTOM LINES.",
+      }}
       py={{ xs: 7, md: 12 }}
     >
       <Stack textAlign={"center"} maxWidth={1051} m={"auto"}>
         <MotionTypography
-          variant="h3"
-          color="white"
+          variant='h3'
+          color='white'
           fontWeight={400}
           {...headerTransition}
         >
@@ -135,7 +136,7 @@ const AboveProfits = () => {
           zIndex={1}
           {...videoBannerTransition}
         >
-          <Image src={videoImage} alt="Video Thumbnail" fill />
+          <Image src={videoImage} alt='Video Thumbnail' fill />
           <IconButton
             sx={{
               position: "absolute",
@@ -155,8 +156,8 @@ const AboveProfits = () => {
           </IconButton>
         </MotionBox>
         <MotionTypography
-          variant="h6"
-          color="white"
+          variant='h6'
+          color='white'
           fontWeight={400}
           {...descTransition}
         >
