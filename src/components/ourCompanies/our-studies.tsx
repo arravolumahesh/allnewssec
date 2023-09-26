@@ -12,7 +12,6 @@ import womens from "@/components/ourCompanies/images/womens.png";
 import childrens from "@/components/ourCompanies/images/childrens.png";
 import { MotionTypography } from "@/commonComponents/motion-components";
 import { MaterialImage } from "@/commonComponents/material-components";
-import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
 import SlideButtons from "../intermediate/swiper/swiperButton";
 
 const useStyles = {
