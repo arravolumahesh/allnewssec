@@ -1,6 +1,10 @@
 import { Stack, Typography } from "@mui/material";
 import Logo from "@cc/logo";
-import { MotionStack, MotionTypography } from "@cc/motion-components";
+import {
+  MotionStack,
+  MotionTypography,
+  MotionVariantProps,
+} from "@cc/motion-components";
 import {
   MailRounded,
   PhoneRounded,
@@ -31,6 +35,7 @@ const SocialLinks = () => {
             height: { xs: 64, md: 81, xxl: 99 },
           },
         }}
+        variants={footerChildrenMotionVariants}
       />
       <MotionStack
         direction={{
@@ -41,6 +46,7 @@ const SocialLinks = () => {
         rowGap={2}
         justifyContent={"space-between"}
         width={{ sm: "fit-content", md: 0.4 }}
+        variants={footerChildrenMotionVariants}
       >
         {contactInfo.map((item, index) => {
           const { icon: Icon, text } = item;
@@ -59,6 +65,7 @@ const SocialLinks = () => {
         })}
       </MotionStack>
       <MotionStack
+        variants={footerChildrenMotionVariants}
         sx={{
           width: { xs: 1, lg: "fit-content" },
           rowGap: 2,
@@ -98,6 +105,20 @@ const SocialLinks = () => {
 };
 
 export default SocialLinks;
+
+export const footerChildrenMotionVariants: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    x: "80%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
 
 const contactInfo: {
   icon: SvgIconComponent;

@@ -1,5 +1,7 @@
 "use client";
 import {
+  Accordion,
+  AccordionProps,
   Box,
   BoxProps,
   Button,
@@ -19,6 +21,9 @@ import { ComponentProps } from "react";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { MaterialImage, MaterialImageProps } from "@cc/material-components";
 import { SvgIconProps } from "@mui/material/SvgIcon";
+import BorderedIconButton, {
+  BorderedIconButtonProps,
+} from "@cc/bordered-icon-button";
 
 export const MotionImage = motion<MaterialImageProps>(MaterialImage);
 export const MotionTypography = motion<TypographyProps>(Typography);
@@ -30,6 +35,9 @@ export const MotionStack = motion<StackProps>(Stack);
 export const MotionSvg = motion.svg;
 export const MotionSvgIcon = motion<SvgIconProps>(SvgIcon);
 export const MotionButton = motion<ButtonProps>(Button);
+export const MotionAccordion = motion<AccordionProps>(Accordion);
+export const MotionBorderedIconButton =
+  motion<BorderedIconButtonProps>(BorderedIconButton);
 
 export type MotionImageProps = ComponentProps<typeof MotionImage>;
 export type MotionTypographyProps = ComponentProps<typeof MotionTypography>;
@@ -42,3 +50,7 @@ export type MotionStackProps = ComponentProps<typeof MotionStack>;
 export type MotionSvgProps = ComponentProps<typeof MotionSvg>;
 export type MotionSvgIconProps = ComponentProps<typeof MotionSvgIcon>;
 export type MotionButtonProps = ComponentProps<typeof MotionButton>;
+export type MotionAccordionProps = ComponentProps<typeof MotionAccordion>;
+export type MotionBorderedIconButtonProps = ComponentProps<
+  typeof MotionBorderedIconButton
+>;
