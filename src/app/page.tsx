@@ -7,7 +7,7 @@ import Partners from "@/components/home/partners";
 import OurFocusAreas from "@/components/ourCompanies/ourFocusAreas";
 import BuildFuture from "@/components/ourCompanies/build-future";
 import Section from "@/components/ourCompanies/section";
-import OurCaseStudies from "@/components/ourCompanies/our-studies";
+import CaseStudies from "@/components/ourCompanies/our-studies";
 import KeyHighlights from "@/components/home/key-highlights";
 import InTheNews from "@/components/home/in-the-news";
 
@@ -24,7 +24,7 @@ const HomePage = () => {
       <Social /> */}
       <BuildFuture />
       <Section />
-      <OurCaseStudies />
+      <CaseStudies />
       <OurFocusAreas />
     </>
   );

@@ -1,49 +1,112 @@
 "use client";
 
-import React, { useState } from "react";
+import { Navigation, Pagination, FreeMode } from "swiper/modules";
+import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import { MotionVariantProps } from "@/commonComponents/motion-components";
+import React from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import {
-  Box,
-  Typography,
-  useMediaQuery,
-  Button,
-  Card,
-  makeStyles,
-  Container,
-  Grid,
-} from "@mui/material";
-
+import { useMediaQuery, Stack, Button } from "@mui/material";
 import { helvetica } from "@/app/font";
-import Image from "next/image";
-//import LeftArrow from "@/components/ourcompany/images/LeftArrow.png";
-//import RightArrow from "@/components/ourcompany/images/RightArrow.png";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import childrensphone from "@/components/ourcompany/images/childrensphone.png";
 import womens from "@/components/ourCompanies/images/womens.png";
 import childrens from "@/components/ourCompanies/images/childrens.png";
+import { MotionTypography } from "@/commonComponents/motion-components";
+import { MaterialImage } from "@/commonComponents/material-components";
+import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
 
-const OurCaseStudies = () => {
+const useStyles = {
+  imageContainer: {
+    position: "relative",
+    overflow: "hidden",
+  },
+  hoverableImage: {
+    width: "100%",
+    height: "auto",
+    transition: "transform 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.1)",
+      filter: "brightness(0.5)",
+    },
+  },
+  buttonOverlay: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    padding: "10px 20px",
+    border: "none",
+    color: "white",
+    cursor: "pointer",
+    transition: "opacity 0.3s ease",
+    opacity: 0,
+    "&:hover": {
+      opacity: 1,
+    },
+  },
+};
+
+const CaseStudies = () => {
+  interface DetailsOfLargerDevices {
+    imageUrl: string;
+    tag: string;
+    heading: string;
+    subheading: string;
+  }
+  const DetailsOfLargerDevices = [
+    {
+      imageUrl: childrens,
+      tag: "IPH-Triveni Program",
+      heading: "Digital Skilling for Youth",
+      subheading:
+        "Helping students learn digitally in order to keep them future and employment ready. ",
+    },
+    {
+      imageUrl: womens,
+      tag: "IPH-Triveni Program",
+      heading: "Providing Vocational Training for Women in Maharashtra",
+      subheading:
+        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+    },
+    {
+      imageUrl: childrens,
+      tag: "IPH-Triveni Program",
+      heading: "Digital Skilling for Youth",
+      subheading:
+        "Helping students learn digitally in order to keep them future and employment ready. ",
+    },
+    {
+      imageUrl: womens,
+      tag: "IPH-Triveni Program",
+      heading: "Providing Vocational Training for Women in Maharashtra",
+      subheading:
+        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+    },
+  ];
   const isTabletOrLarger = useMediaQuery((theme: any) =>
     theme.breakpoints.up("md")
   );
 
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
 
-  const handleNext = () => {};
-  const handlePrev = () => {};
+  const slidesPerView = isMobile ? 1 : 2;
   return (
     <SectionWrapper
       sx={{
-        backgroundColor: "rgba(218, 218, 218, 1)",
+        backgroundColor: "rgba(234, 234, 234, 1)",
         padding: "96px 64px",
         textAlign: "center",
       }}
     >
-      <Box
-        sx={{ display: "flex", justifyContent: "space-between", gap: "auto" }}
+      <Stack
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          gap: "auto",
+        }}
       >
-        <Typography
+        <MotionTypography
           variant="h3"
           sx={{
             color: "var(--primary-blue, #005DAC)",
@@ -51,177 +114,178 @@ const OurCaseStudies = () => {
             fontSize: "48px",
             fontStyle: "normal",
             lineHeight: "128%",
-            textTransform: "uppercase",
           }}
+          variants={staggerChildren}
+          initial={"initial"}
+          whileInView={"animate"}
+          viewport={{ once: true }}
         >
           OUR CASE STUDIES
-        </Typography>
+        </MotionTypography>
 
-        {/* Latop and Table view Button Arrow */}
         {isTabletOrLarger && (
-          <Box sx={{ display: "flex", gap: "16px" }}>
-            <Button
-              style={{
-                background: "rgba(0, 93, 172, 0.20)",
-                padding: "4px",
-                width: "48px",
-                height: "48px",
-                border: "none",
-                borderRadius: "1px solid blue",
-              }}
-              onClick={handleNext}
-            >
-              <KeyboardArrowLeftIcon />
-            </Button>
-            <Button
-              style={{
-                background: "rgba(0, 93, 172, 0.20)",
-                padding: "4px",
-                width: "48px",
-                height: "48px",
-                border: "none",
-                borderRadius: "1px solid blue",
-              }}
-              onClick={handlePrev}
-            >
-              <KeyboardArrowRightIcon />
-            </Button>
-          </Box>
+          <SwiperNavigationButton
+            style={{
+              color: "rgba(0, 93, 172, 1)",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
+            }}
+          />
         )}
-      </Box>
+      </Stack>
       {/* Adding the image container */}
 
-      <Box
+      <Stack
         sx={{
           display: "flex",
-          gap: "20px",
+          flexDirection: "row",
           alignItems: "flex-start",
-          padding: "40px",
+          paddingTop: "30px",
           justifyContent: "flex-start",
         }}
       >
-        {DetailsOfLargerDevices.map((element, index) => (
-          <Grid key={index}>
-            <Box>
-              <Image
-                src={element.imageUrl}
-                alt="childerns"
-                width={643}
-                height={310}
-              />
-
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: "16px",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                }}
-              >
-                <Typography
-                  variant="h6"
+        {/*  */}
+        <Swiper
+          freeMode={true}
+          pagination={false}
+          navigation={!isMobile}
+          slidesPerView={slidesPerView}
+          spaceBetween={24}
+          modules={[Pagination, Navigation, FreeMode]}
+        >
+          {DetailsOfLargerDevices.map((element, index) => (
+            <SwiperSlide key={index}>
+              <Stack key={index}>
+                <MaterialImage
+                  src={element.imageUrl}
+                  alt="childerns"
                   sx={{
-                    color: "#fff",
-                    fontFamily: helvetica,
-                    fontSize: "8px",
-                    fontStyle: "normal",
-                    fontWeight: "200",
-                    background: "var(--primary-light-grey, #DADADA);",
-                    padding: "5px",
+                    width: { xs: "310px", md: "643px" },
+                    height: { xs: "240px", md: "310px" },
                   }}
-                >
-                  {element.tag}
-                </Typography>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    color: "var(--primary-blue, #005DAC)",
-                    fontFamily: helvetica,
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "24px",
-                    lineHeight: "128%",
-                  }}
-                >
-                  {element.heading}
-                </Typography>
-                <Box
+                />
+                <Stack
                   sx={{
                     display: "flex",
+                    gap: "16px",
                     flexDirection: "column",
                     justifyContent: "flex-start",
                     alignItems: "flex-start",
                   }}
                 >
-                  <Typography
-                    variant="h5"
+                  <MotionTypography
+                    variant="body1"
+                    sx={{
+                      color: "#fff",
+                      fontFamily: helvetica,
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: "200",
+                      background: "var(--primary-light-grey, #DADADA);",
+                      padding: "5px",
+                    }}
+                    variants={staggerChildren}
+                    initial={"initial"}
+                    whileInView={"animate"}
+                    viewport={{ once: true }}
+                  >
+                    {element.tag}
+                  </MotionTypography>
+                  <MotionTypography
+                    variant="body1"
                     sx={{
                       color: "var(--primary-blue, #005DAC)",
                       fontFamily: helvetica,
                       fontStyle: "normal",
                       fontWeight: "400",
-                      fontSize: "16px",
+                      fontSize: { xs: "20px", md: "24px" },
                       lineHeight: "128%",
+                      textAlign: "start",
+                    }}
+                    variants={staggerChildren}
+                    initial={"initial"}
+                    whileInView={"animate"}
+                    viewport={{ once: true }}
+                  >
+                    {element.heading}
+                  </MotionTypography>
+                  <Stack
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-start",
+                      alignItems: "flex-start",
                     }}
                   >
-                    {element.subheading}
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          </Grid>
-        ))}
-      </Box>
+                    <MotionTypography
+                      variant="body1"
+                      sx={{
+                        color: "var(--primary-blue, #005DAC)",
+                        fontStyle: "normal",
+                        fontWeight: "400",
+                        fontSize: { xs: "16px", md: "18px" },
+                        lineHeight: "128%",
+                        width: { xs: "310px", md: "643px" },
+                        textAlign: "start",
+                      }}
+                    >
+                      {element.subheading}
+                    </MotionTypography>
+                  </Stack>
+                </Stack>
+                {isMobile && (
+                  <Button
+                    href="/"
+                    sx={{
+                      color: "rgba(0, 93, 172, 1)",
+                      alignItems: "center",
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    View Case Study {">"}
+                  </Button>
+                )}
+              </Stack>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Stack>
+      {/* </Swiper> */}
 
       {/* Mobile view button Arrow  */}
       {isMobile && (
-        <Box sx={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-          <Button
-            style={{
-              background: "rgba(0, 93, 172, 0.20)",
-              padding: "4px",
-              width: "48px",
-              height: "48px",
-              border: "none",
-              borderRadius: "1px solid blue",
-            }}
-          >
-            <KeyboardArrowLeftIcon />
-          </Button>
-          <Button
-            style={{
-              background: "rgba(0, 93, 172, 0.20)",
-              padding: "4px",
-              width: "48px",
-              height: "48px",
-              border: "none",
-              borderRadius: "1px solid blue",
-            }}
-          >
-            <KeyboardArrowRightIcon />
-          </Button>
-        </Box>
+        <SwiperNavigationButton
+          style={{
+            color: "rgba(0, 93, 172, 1)",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        />
       )}
+      {/* </SwiperNavigationButton> */}
     </SectionWrapper>
   );
 };
 
-export default OurCaseStudies;
+export default CaseStudies;
 
-const DetailsOfLargerDevices = [
-  {
-    imageUrl: childrens,
-    tag: "IPH-Triveni Program",
-    heading: "Digital Skilling for Youth",
-    subheading:
-      "Helping students learn digitally in order to keep them future and employment ready. ",
+const staggerChildren: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "150%",
   },
-  {
-    imageUrl: womens,
-    tag: "IPH-Triveni Program",
-    heading: "Providing Vocational Training for Women in Maharashtra",
-    subheading:
-      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
   },
-];
+};

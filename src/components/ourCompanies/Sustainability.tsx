@@ -10,9 +10,9 @@ import { motion } from "framer-motion";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
   MotionTypography,
-  MotionVariantProps,
+  MotionVariantProps,elements
   MotionButton,
-} from "@/commonComponents/motion-elements";
+} from "@/commonComponents/motion-";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
