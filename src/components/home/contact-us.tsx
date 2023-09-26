@@ -18,6 +18,8 @@ import {
   Stack,
   TextField,
   Typography,
+  alpha,
+  selectClasses,
 } from "@mui/material";
 import React from "react";
 import contact from "./images/Group 427321804 (1).png";
@@ -115,11 +117,15 @@ const ContactUs = () => {
                 fullWidth
                 sx={[
                   fieldSx,
-                  {
-                    ".MuiSelect-icon": {
+                  (theme) => ({
+                    [`& .${selectClasses.icon}`]: {
                       color: "white",
                     },
-                  },
+                    color: alpha(
+                      theme.palette.secondary.main,
+                      !!company ? 1 : 0.4
+                    ),
+                  }),
                 ]}
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
@@ -150,11 +156,15 @@ const ContactUs = () => {
                 fullWidth
                 sx={[
                   fieldSx,
-                  {
-                    ".MuiSelect-icon": {
+                  (theme) => ({
+                    [`& .${selectClasses.icon}`]: {
                       color: "white",
                     },
-                  },
+                    color: alpha(
+                      theme.palette.secondary.main,
+                      !!category ? 1 : 0.4
+                    ),
+                  }),
                 ]}
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
