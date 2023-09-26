@@ -12,6 +12,8 @@ import KeyHighlights from "@/components/home/key-highlights";
 import InTheNews from "@/components/home/in-the-news";
 import OurStoriesAndKeyHighlights from "@/components/home/our-stories-and-key-highlights";
 import ContactUs from "@/components/home/contact-us";
+import Sustainability from "@/components/ourCompanies/Sustainability";
+import CsrReport from "@/components/ourCompanies/csrRepots";
 
 const HomePage = () => {
   return (
@@ -26,8 +28,10 @@ const HomePage = () => {
       <Social />
       <BuildFuture />
       <Section />
-      <OurCaseStudies />
       <OurFocusAreas />
+      <Sustainability />
+      <OurCaseStudies />
+      <CsrReport />
     </>
   );
 };

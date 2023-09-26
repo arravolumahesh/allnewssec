@@ -13,6 +13,7 @@ import childrens from "@/components/ourCompanies/images/childrens.png";
 import { MotionTypography } from "@/commonComponents/motion-components";
 import { MaterialImage } from "@/commonComponents/material-components";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
+import SlideButtons from "../intermediate/swiper/swiperButton";
 
 const useStyles = {
   imageContainer: {
@@ -122,19 +123,6 @@ const CaseStudies = () => {
         >
           OUR CASE STUDIES
         </MotionTypography>
-
-        {isTabletOrLarger && (
-          <SwiperNavigationButton
-            style={{
-              color: "rgba(0, 93, 172, 1)",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignContent: "center",
-              alignItems: "center",
-            }}
-          />
-        )}
       </Stack>
       {/* Adding the image container */}
 
@@ -156,6 +144,9 @@ const CaseStudies = () => {
           spaceBetween={24}
           modules={[Pagination, Navigation, FreeMode]}
         >
+          <Stack>
+            <SlideButtons />
+          </Stack>
           {DetailsOfLargerDevices.map((element, index) => (
             <SwiperSlide key={index}>
               <Stack key={index}>
@@ -254,22 +245,6 @@ const CaseStudies = () => {
           ))}
         </Swiper>
       </Stack>
-      {/* </Swiper> */}
-
-      {/* Mobile view button Arrow  */}
-      {isMobile && (
-        <SwiperNavigationButton
-          style={{
-            color: "rgba(0, 93, 172, 1)",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignContent: "center",
-            alignItems: "center",
-          }}
-        />
-      )}
-      {/* </SwiperNavigationButton> */}
     </SectionWrapper>
   );
 };
