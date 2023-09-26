@@ -27,7 +27,8 @@ const Copyright = () => {
     >
       <MotionTypography
         fontSize={H6_4}
-        width={{ xs: 0.5, md: "fit-content" }}
+        width={{ xs: 0.7, md: "fit-content" }}
+        flex={"1 1 auto"}
         order={{
           xs: 2,
           md: 1,
@@ -42,10 +43,6 @@ const Copyright = () => {
           lg: 5,
         }}
         rowGap={1}
-        justifyContent={{
-          xs: "space-between",
-          sm: "unset",
-        }}
         flexWrap={"wrap"}
         direction={"row"}
         order={{
