@@ -32,7 +32,7 @@ const SocialLinks = () => {
           sm: "row",
         }}
         justifyContent={"space-between"}
-        width={0.5}
+        width={0.4}
       >
         {contactInfo.map((item, index) => {
           const { icon, text } = item;
@@ -57,7 +57,16 @@ const SocialLinks = () => {
           InstagramIcon,
           LinkedInIcon,
         ].map((SocialIcon, index) => {
-          return <SocialIcon key={index} variant={"outlined"} />;
+          return (
+            <SocialIcon
+              key={index}
+              variant={"outlined"}
+              SvgIconProps={{
+                width: { xs: 32, md: 36, xxl: 40 },
+                height: { xs: 32, md: 36, xxl: 40 },
+              }}
+            />
+          );
         })}
       </MotionStack>
     </Stack>

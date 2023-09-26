@@ -58,6 +58,8 @@ const CommonLinks = () => {
             }}
             sx={(theme) => ({
               width: { xs: 1, sm: 0.3, md: 0.3, lg: "fit-content" },
+              minWidth: { xs: "unset", sm: 200, md: 250, lg: 200, xxl: 240 },
+              maxWidth: { xs: "unset", sm: 200, md: 250, lg: 220, xxl: 250 },
               background: "transparent",
               flexGrow: { xs: 1, lg: 0 },
               flexShrink: { xs: 1, lg: 0 },
@@ -165,7 +167,7 @@ const footerLinks: FooterLinksProps["data"] = [
     title: "Charitable Trusts",
     links: [
       {
-        name: "Jamnalal Bajaj Limited",
+        name: "Jamnalal Bajaj Foundation",
         url: "/jamnalal-bajaj-trust",
       },
       {
