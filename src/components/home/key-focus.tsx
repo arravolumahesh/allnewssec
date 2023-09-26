@@ -16,7 +16,12 @@ import EnhancedSwiper, {
 } from "@/commonComponents/enhanced-swiper";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import ArrowGradient from "@cc/arrow-gradient";
-import { H6_3 } from "@/styles/theme/components/typography.fontvariant";
+import { H3_1, H6_3 } from "@/styles/theme/components/typography.fontvariant";
+import ArrowSwiperWithInfoSection, {
+  ArrowSwiperWithInfoProps,
+} from "@/commonComponents/arrow-swiper-with-info-section";
+import ArrowSlideInfo from "@/commonComponents/cards/arrow-slide-info";
+import { ArrowSlideDefaultImageProps } from "@/commonComponents/cards/arrow-slide-default-image";
 
 const KeyFocus = () => {
   const theme = useTheme();
@@ -64,13 +69,29 @@ const KeyFocus = () => {
         alignItems={"center"}
         mb={{ xs: 0, md: 6 }}
       >
-        <SlideAnimationWrapper
+        <ArrowSwiperWithInfoSection
+          data={arrowData}
+          SwiperProps={{
+            navigation: false,
+          }}
+          ArrowSlideInfoProps={{
+            SlotProps: {
+              TitleTypographyProps: {
+                fontSize: H3_1,
+              },
+            },
+          }}
+          SectionWrapperProps={{
+            p: "0 !important",
+          }}
+        />
+        {/* <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
           subtitle='Providing skill-based education through various programs to strengthen
           the foundation of a progressive nation.'
         >
           <Image src={skillImage} alt='Skill Banner' fill />
-        </SlideAnimationWrapper>
+        </SlideAnimationWrapper> */}
       </Stack>
       <Stack direction='row' alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
@@ -160,6 +181,20 @@ const staggerChildren: MotionVariantProps = {
     },
   },
 };
+
+const arrowData: (ArrowSwiperWithInfoProps<
+  typeof ArrowSlideInfo
+>["data"][number]["data"][number] &
+  ArrowSlideDefaultImageProps)[] = [
+  {
+    title: "SKILL DEVELOPEMENT",
+    description:
+      "Providing skill-based education through various programs to strengthen the foundation of a progressive nation.",
+    image: skillImage,
+    btnText: "Learn More",
+    btnLink: "/",
+  },
+];
 
 const data: EnhancedSwiperProps<typeof SmallTitleCard>["data"] = [
   {
