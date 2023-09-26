@@ -154,15 +154,15 @@ export const ButtonVariants: Components<
           whiteSpace: "break-spaces",
           display: "inline-block",
           width: "max-content",
-          color: theme.palette.primary.dark,
+          color: theme.palette.primary.main,
           padding: 0,
           borderBottom: "2px solid",
           borderColor: "transparent",
           textTransform: "uppercase",
           position: "relative",
           "&.MuiButton-menulinkSecondary, &:hover ": {
-            color: theme.palette.primary.dark,
-            borderColor: theme.palette.primary.dark,
+            color: theme.palette.primary.main,
+            borderColor: theme.palette.primary.main,
             background: "none",
           },
           "& .MuiButton-endIcon": {

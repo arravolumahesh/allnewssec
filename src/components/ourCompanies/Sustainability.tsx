@@ -15,7 +15,6 @@ import {
   MotionVariantProps,
   MotionButton,
 } from "@/commonComponents/motion-components";
-
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { Navigation, Pagination, FreeMode } from "swiper/modules";

@@ -19,7 +19,7 @@ export default function SlideButtons(prop: props) {
           display: "flex",
           gap: 2,
           "& .MuiIconButton-root": {
-            border: `2px solid ${theme.palette.primary.dark}`,
+            border: `2px solid ${theme.palette.primary.main}`,
             width: theme.spacing(6),
             height: theme.spacing(6),
             p: 0,
@@ -30,7 +30,7 @@ export default function SlideButtons(prop: props) {
               left: "4px",
               right: "4px",
               bottom: "4px",
-              background: alpha(theme.palette.primary.dark, 0.25),
+              background: alpha(theme.palette.primary.main, 0.25),
               zIndex: -1,
             },
             "&.Mui-disabled": {
