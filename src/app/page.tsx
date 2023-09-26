@@ -23,7 +23,7 @@ const HomePage = () => {
       <OurStoriesAndKeyHighlights />
       <InTheNews />
       <Partners />
-      <Social /> */}
+      <Social />
       <BuildFuture />
       <Section />
       <OurCaseStudies />
