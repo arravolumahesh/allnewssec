@@ -219,8 +219,8 @@ const Areas = () => {
                 {eachArea.discrption}
               </Typography>
               <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
-                {eachArea.intitiatives.map((eachIntiative) => (
-                  <Box display={"flex"} flexDirection={"column"} gap={2}>
+                {eachArea.intitiatives.map((eachIntiative,index) => (
+                  <Box display={"flex"} flexDirection={"column"} key={index} gap={2}>
                     <Image
                       src={eachIntiative.imageUrl}
                       alt={eachIntiative.title}
