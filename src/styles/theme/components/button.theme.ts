@@ -116,17 +116,22 @@ export const ButtonVariants: Components<
       },
       style: ({ theme }) => {
         return {
-          color: theme.palette.grey[500],
-          padding: theme.spacing(2),
-          paddingLeft: 0,
-          paddingRight: 0,
-          borderBottom: "2px solid",
-          borderColor: "transparent",
-          "&.MuiButton-menulinkSecondary, &:hover ": {
-            color: theme.palette.primary.main,
-            borderColor: theme.palette.primary.main,
-            background: "none",
-          },
+          [theme.breakpoints.up('xs')]:{
+            color: theme.palette.grey[500],
+            padding: theme.spacing(2),
+            paddingLeft: 0,
+            paddingRight: 0,
+            borderBottom: "2px solid",
+            borderColor: "transparent",
+            "&.MuiButton-menulinkPrimary":{
+              color: theme.palette.grey[500],
+            },
+            "&.MuiButton-menulinkSecondary, &:hover ": {
+              color: theme.palette.primary.main,
+              borderColor: theme.palette.primary.main,
+              background: "none",
+            },
+          }
         };
       },
     },
