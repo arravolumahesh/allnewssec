@@ -1,6 +1,7 @@
 "use client";
 import SocialCard from "@/commonComponents/cards/social";
 import {
+  MotionBox,
   MotionBoxProps,
   MotionCardProps,
   MotionImage,
@@ -16,7 +17,7 @@ import {
   Twitter,
   YouTube,
 } from "@mui/icons-material";
-import { Box, Stack, SxProps, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Stack, SxProps, Theme, useMediaQuery } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import React from "react";
 import fb from "./images/fb.svg";
@@ -29,13 +30,14 @@ import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import { motion } from "framer-motion";
 
 const Social = () => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm_md"));
+  const matches = useMediaQuery<Theme>((theme) =>
+    theme.breakpoints.down("sm_md"),
+  );
   return (
     <SectionWrapper
       py={{ xs: 7, md: 12 }}
       SectionProps={{
-        bgcolor: "primary.main",
+        bgcolor: "primary.500",
       }}
       color={"common.white"}
     >
@@ -236,16 +238,15 @@ const Social = () => {
             variants={iconStagger}
           >
             {[fb, twitter, yt, insta, linkd].map((item, idx) => (
-              <Box
+              <MotionBox
                 key={idx}
                 position={"relative"}
                 width={32}
                 height={32}
-                component={motion.div}
                 variants={iconStaggerChildren}
               >
                 <MotionImage src={item} alt="" fill />
-              </Box>
+              </MotionBox>
             ))}
           </Stack>
         </Stack>
@@ -366,19 +367,18 @@ const iconStagger: MotionVariantProps = {
   initial: {},
   animate: {
     transition: {
-      duration: 0.6,
       staggerChildren: 0.15,
     },
   },
 };
 const iconStaggerChildren: MotionVariantProps = {
   initial: {
-    transform: "scale(0)",
+    scale: 0,
   },
   animate: {
-    transform: ["scale(0)", "scale(1.2)", "scale(0.9)", "scale(1)"],
+    scale: 1,
     transition: {
-      duration: 0.6,
+      type: "spring",
     },
   },
 };
