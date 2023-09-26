@@ -38,7 +38,12 @@ const OurStories = () => {
               md: 40,
               lg: 64,
             },
-            fontSize: 70,
+            fontSize: { xs: 45, md: 70 },
+            top: {
+              xs: "15%",
+              sm: "22%",
+              md: "50%",
+            },
           }}
         />
       </EnhancedSwiper>
@@ -61,7 +66,7 @@ const data: StorySlideProps[] = [
     title: "Announcing Jamnalal Bajaj Awards 2024",
     description:
       "Felicitating the efforts of women and men who have dedicated their life to constructive work.",
-    company: "Bajaj Auto",
-    location: "Wardha, Maharashtra",
+    company: "Bajaj Finserv",
+    location: "Pune, Maharashtra",
   },
 ];
