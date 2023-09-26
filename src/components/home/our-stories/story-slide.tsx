@@ -1,8 +1,8 @@
 "use client";
-import { alpha, Stack, Typography } from "@mui/material";
+import { alpha, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionImage } from "@cc/motion-components";
+import { MotionStack } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
@@ -13,6 +13,7 @@ import SectionWrapper, {
   SectionWrapperProps,
 } from "@cc/section-wrapper";
 import { LocationOnRounded } from "@mui/icons-material";
+import { MaterialImage } from "@cc/material-components";
 
 export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
   bgImage: string | StaticImageData;
@@ -60,7 +61,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
         }}
         {...rest}
       >
-        <MotionImage
+        <MaterialImage
           src={bgImage}
           alt={company}
           sx={{
@@ -74,7 +75,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             zIndex: -1,
           }}
         />
-        <Stack
+        <MotionStack
           sx={{
             width: {
               xs: 1,
@@ -89,6 +90,21 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               xs: "50%",
               md: 0,
             },
+          }}
+          initial={{
+            opacity: 0,
+            x: "20%",
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 0.8,
+            },
+          }}
+          viewport={{
+            once: true,
+            amount: "some",
           }}
         >
           <Typography
@@ -148,7 +164,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
           >
             View More Initiatives
           </AnimatedButton>
-        </Stack>
+        </MotionStack>
       </SectionWrapper>
     );
   },

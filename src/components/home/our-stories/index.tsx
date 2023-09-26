@@ -17,6 +17,11 @@ const OurStories = () => {
       ContainerProps={{
         pl: 0,
         pr: 0,
+        pb: {
+          xs: 0,
+          md: 1.5,
+          xxl: 3,
+        },
       }}
     >
       <EnhancedSwiper
