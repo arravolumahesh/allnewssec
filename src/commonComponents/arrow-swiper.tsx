@@ -95,6 +95,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
           SlideWrapperProps={slideWrapperProps}
           modules={[Navigation, ...swiperModules]}
           loop
+          simulateTouch={false}
           navigation={{
             prevEl: `.${swiperKey}-swiper-prev`,
             nextEl: null,
@@ -114,7 +115,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
             : navigation?.enabled) && (
             <SwiperNavigationArrowIcon
               direction={"next"}
-              className={`.${swiperKey}-swiper-prev`}
+              className={`${swiperKey}-swiper-prev`}
             />
           )}
         </EnhancedSwiper>
