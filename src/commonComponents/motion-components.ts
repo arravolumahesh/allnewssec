@@ -21,7 +21,7 @@ import EnhancedSwiper from "@cc/enhanced-swiper";
 
 export const MotionImage = motion<MaterialImageProps>(MaterialImage);
 export const MotionTypography = motion<TypographyProps>(Typography);
-export const MotionButton = motion<MLinkProps>(MLink);
+export const MotionLink = motion<MLinkProps>(MLink);
 export const MotionBox = motion<BoxProps>(Box);
 export const MotionCard = motion<CardProps>(Card);
 export const MotionGrid = motion<Grid2Props>(Grid2);
@@ -32,7 +32,7 @@ export const MotionEnhancedSwiper = motion(EnhancedSwiper);
 
 export type MotionImageProps = ComponentProps<typeof MotionImage>;
 export type MotionTypographyProps = ComponentProps<typeof MotionTypography>;
-export type MotionButtonProps = ComponentProps<typeof MotionButton>;
+export type MotionLinkProps = ComponentProps<typeof MotionLink>;
 export type MotionBoxProps = ComponentProps<typeof MotionBox>;
 export type MotionVariantProps = MotionProps["variants"];
 export type MotionCardProps = ComponentProps<typeof MotionCard>;

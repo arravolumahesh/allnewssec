@@ -8,7 +8,12 @@ import {
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
   Box,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
   MenuItem,
+  MenuProps,
   Select,
   Stack,
   TextField,
@@ -21,12 +26,14 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Body1, H6 } from "@/styles/theme/components/typography.fontvariant";
+import dialogbanner from "./images/Group 427321833.svg";
+import Image from "next/image";
 
 const ContactUs = () => {
-  const [company, setCompany] = useState("Select Company");
-  const [category, setCategory] = useState(
-    "Select Initiative Category (optional)"
-  );
+  const [company, setCompany] = useState("");
+  const [category, setCategory] = useState("");
+  const [open, setOpen] = useState(false);
   return (
     <SectionWrapper
       SectionProps={{
@@ -53,7 +60,7 @@ const ContactUs = () => {
         </MotionBox>
         <Stack
           rowGap={5}
-          maxWidth={{ xs: 1, md_lg: 712 }}
+          maxWidth={{ xs: 1, md_lg: 670 }}
           component={motion.div}
           variants={staggerDiv}
           initial='initial'
@@ -110,33 +117,32 @@ const ContactUs = () => {
                   fieldSx,
                   {
                     ".MuiSelect-icon": {
-                      display: "none",
+                      color: "white",
                     },
                   },
                 ]}
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                MenuProps={{
-                  sx: {
-                    ".MuiPaper-root": {
-                      bgcolor: "primary.main",
-                    },
-                  },
+                displayEmpty
+                renderValue={(value) => {
+                  return value === "" ? "Select Company" : value;
                 }}
-                endAdornment={<KeyboardArrowDown />}
+                MenuProps={{
+                  sx: MenuStyle,
+                }}
+                IconComponent={KeyboardArrowDown}
               >
-                {["Select Company", "Company 1", "Company 2"].map(
-                  (item, idx) => (
-                    <MenuItem
-                      key={idx}
-                      value={item}
-                      disabled={item === "Select Company"}
-                      sx={{ py: 2 }}
-                    >
-                      {item}
-                    </MenuItem>
-                  )
-                )}
+                {[
+                  "Bajaj Auto Limited",
+                  "Bajaj Electricals Limited",
+                  "Bajaj Finserv Limited",
+                  "Mukand Limited",
+                  "Jamnalal Bajaj Foundation",
+                ].map((item, idx) => (
+                  <MenuItem key={idx} value={item} sx={{ py: 2 }}>
+                    {item}
+                  </MenuItem>
+                ))}
               </Select>
             </Grid2>
             <Grid2 xs={12} md={6}>
@@ -146,32 +152,25 @@ const ContactUs = () => {
                   fieldSx,
                   {
                     ".MuiSelect-icon": {
-                      display: "none",
+                      color: "white",
                     },
                   },
                 ]}
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                MenuProps={{
-                  sx: {
-                    ".MuiPaper-root": {
-                      bgcolor: "primary.main",
-                    },
-                  },
+                displayEmpty
+                renderValue={(value) => {
+                  return value === ""
+                    ? "Select Initiative Category (optional)"
+                    : value;
                 }}
-                endAdornment={<KeyboardArrowDown />}
+                MenuProps={{
+                  sx: MenuStyle,
+                }}
+                IconComponent={KeyboardArrowDown}
               >
-                {[
-                  "Select Initiative Category (optional)",
-                  "Category 1",
-                  "Category 2",
-                ].map((item, idx) => (
-                  <MenuItem
-                    key={idx}
-                    value={item}
-                    disabled={item === "Select Initiative Category (optional)"}
-                    sx={{ py: 2 }}
-                  >
+                {["Category 1", "Category 2"].map((item, idx) => (
+                  <MenuItem key={idx} value={item} sx={{ py: 2 }}>
                     {item}
                   </MenuItem>
                 ))}
@@ -188,7 +187,7 @@ const ContactUs = () => {
             </Grid2>
           </Grid2>
           <AnimatedButton
-            href={"#"}
+            href={""}
             rotation='anticlockwise'
             variant={"contained"}
             color={"secondary"}
@@ -197,9 +196,59 @@ const ContactUs = () => {
             }}
             variants={staggerDivChildrenRight}
             animationDelay={1000}
+            onClick={() => setOpen(true)}
           >
             Submit
           </AnimatedButton>
+          <Dialog
+            onClose={() => setOpen(false)}
+            open={open}
+            fullWidth
+            maxWidth={"sm"}
+            sx={{
+              ".MuiPaper-root": {
+                borderRadius: 0,
+              },
+            }}
+          >
+            <DialogContent sx={{ width: 1, p: 1 }}>
+              <Box
+                width={1}
+                sx={{ aspectRatio: 459 / 155 }}
+                position={"relative"}
+              >
+                <Image src={dialogbanner} alt='' fill />
+              </Box>
+              <Stack
+                maxWidth={357}
+                textAlign={"center"}
+                alignItems={"center"}
+                rowGap={2}
+                mx={"auto"}
+                my={{ xs: 3, md: 4 }}
+              >
+                <Typography
+                  variant='body1'
+                  color='primary.main'
+                  fontSize={H6}
+                  fontWeight={700}
+                >
+                  Details Submitted Successfully
+                </Typography>
+                <Typography fontSize={Body1} color={"black"}>
+                  Thank you for submitting your details! We will get back to you
+                  shortly.
+                </Typography>
+                <Button
+                  variant='outlined'
+                  sx={{ width: { xs: 1, md: 213 } }}
+                  onClick={() => setOpen(false)}
+                >
+                  Done
+                </Button>
+              </Stack>
+            </DialogContent>
+          </Dialog>
         </Stack>
       </Stack>
     </SectionWrapper>
@@ -210,16 +259,43 @@ export default ContactUs;
 
 const fieldSx = {
   "*": { borderRadius: 0 },
-  ".MuiInputBase-root": { height: "auto", overflow: "unset" },
+  ".MuiInputBase-root": {
+    height: "auto",
+    overflow: "unset",
+    // "&:hover": {
+    //   ".MuiOutlinedInput-notchedOutline": {
+    //     borderColor: "white !important",
+    //   },
+    // },
+  },
   ".MuiOutlinedInput-notchedOutline": {
     borderRadius: 0,
     borderColor: "white",
   },
 };
 
+const MenuStyle = {
+  ".MuiPaper-root": {
+    // bgcolor: "primary.main",
+    borderRadius: 0,
+    maxHeight: 280,
+    overflowY: "scroll",
+    ".MuiMenuItem-root": {
+      color: "#575756",
+      borderBottom: "1px solid rgba(0, 0, 0, 0.10)",
+    },
+    "&::-webkit-scrollbar": {
+      width: "4px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#DADADA",
+    },
+  },
+};
+
 const boxTransition: MotionBoxProps = {
   initial: {
-    x: "-107%",
+    x: "-102%",
     opacity: 0,
   },
   whileInView: {

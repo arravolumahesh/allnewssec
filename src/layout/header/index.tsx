@@ -25,6 +25,7 @@ const Header = (props: HeaderProps) => {
       SectionProps={{
         component: ReactiveAppBar,
       }}
+      color={"secondary.main"}
     >
       <Logo
         SvgIconProps={{

@@ -4,7 +4,6 @@ import {
   MotionBoxProps,
   MotionCardProps,
   MotionImage,
-  MotionSvgProps,
   MotionTypography,
   MotionTypographyProps,
   MotionVariantProps,
@@ -47,7 +46,7 @@ const Social = () => {
           position={"relative"}
         >
           <MotionTypography
-            variant='h1'
+            variant="h1"
             component={"p"}
             width={"min-content"}
             {...textTransition}
@@ -94,7 +93,7 @@ const Social = () => {
             position={"relative"}
           >
             <MotionTypography
-              variant='h1'
+              variant="h1"
               component={"p"}
               width={"min-content"}
               {...textTransition}
@@ -113,7 +112,7 @@ const Social = () => {
           </Grid2>
         )}
         {!matches && (
-          <Grid2 xs={4} sx={gridHover} overflow='hidden'>
+          <Grid2 xs={4} sx={gridHover} overflow="hidden">
             <SocialCard
               img={
                 "https://s3-alpha-sig.figma.com/img/91a1/a459/2d9ef5167cdce4c6779f48b8cd85fde4?Expires=1696204800&Signature=eH9Gawh3waJ5Yl5NdZ1~twC6UgNXBolGR482h1d1uidvc7j~bJk6TBTK8wPJW5bcVQn4iC1rtgl7pgZAyC~v4NuIY1H5SgYsTxsXuMqPUSHUYf5IBmvmL3W-2qmjzqMzcj9IXINOXQuN~KW7JfBHhrdv3Ou2EUVw6KwzC9daO6QfLE9qdpboSQWmwsDQ23Li9vt6XYtLsKuMG8YwkLeCbd3-vaiExEf2CgQYLeCvfEsVZLdRjumVfGo5S-1ZkMeOm7ngVy7MdAw9HHUOxOT~CiBYcFtCUGo1-nvO6G2vu9a1YsqqPQA157kE1vEz4gjUBZniLRV1sdnVDkmt4MUZbg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -123,7 +122,7 @@ const Social = () => {
             />
           </Grid2>
         )}
-        <Grid2 xs={6} sm_md={4} sx={gridHover} overflow='hidden'>
+        <Grid2 xs={6} sm_md={4} sx={gridHover} overflow="hidden">
           <SocialCard
             img={
               "https://s3-alpha-sig.figma.com/img/7775/10fe/6f54cc5ebb1bb1075ce3fe6b9245e704?Expires=1696204800&Signature=f2ZClAxBwyxAgJIBu2dP6w~mfzAH3U46Xb6moEIlQKfl4F~GH3ONAg3TdzBFha~i99VqIUMkYfPiezLERLGj24f14vIGQ3UDFWrsDOBcsRk0tRpr7ZL4Syk~ZbH6ND94OazhwkrlyTyW8vilRyx-qBxkZVqjGzt0UDdsl9F~CbS5mGzu05FMN-bPPROeupaD66fdtSb2eQkTAFLmAnESNNbbMgTj2HS3RXTCmJQWT8fl5CZ10fIFM-QbzDdtUxb~tMypfEqKOvUoLW9p0Koupa70zKM~DHNY3mql8aBmAuEb158j1yVcwZa3Fc8j1CnZZ2o~YmEDjyXAHqVlQppcyg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -132,7 +131,7 @@ const Social = () => {
             {...cardTransitionRight(1)}
           />
         </Grid2>
-        <Grid2 xs={6} sm_md={4} sx={gridHover} overflow='hidden'>
+        <Grid2 xs={6} sm_md={4} sx={gridHover} overflow="hidden">
           <SocialCard
             img={
               "https://s3-alpha-sig.figma.com/img/02cb/58c2/aeaa50aeb369b72d106951eb60aa2799?Expires=1696204800&Signature=fYyAz3RkrMFQJWyM5NHVRSKaJoJCfOUNgJiOrunEqwrN23LtPtK5ls4xY14mcGiV49wDoLpL3FjN8jDpf7plNlZfvTIexj0HMR5wuT4irkkC4PNWTewLriw~nTh56AbgzOa2CbKmkSj6eWo51rvA~YhpFWzAHGVlvkCFb9c6rAM5kvhh9yr8skfPF-q5EPSJl-a8FJa7pq1T1VMAogZkXNtDyfrSgQtO5ANudbSUKRRcX-0xg7vbyStrM86GCOk17gUeYSDCQbS3YSGwH6f-r4L9Fe77cMc4WyUF1j~UaXroB55WJURTDVnLwbJY8QQhIt4vHuuf0omFu-77cQR5qg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -188,14 +187,14 @@ const Social = () => {
                     component={motion.div}
                     variants={iconStaggerChildren}
                   >
-                    <MotionImage src={item} alt='' fill />
+                    <MotionImage src={item} alt="" fill />
                   </Box>
                 ))}
               </Stack>
             </Stack>
           </Grid2>
         )}
-        <Grid2 xs={6} sm_md={4} sx={gridHover} overflow='hidden'>
+        <Grid2 xs={6} sm_md={4} sx={gridHover} overflow="hidden">
           <SocialCard
             img={
               "https://s3-alpha-sig.figma.com/img/2f89/8169/64d012ae3609a395c2a555f5595cea8c?Expires=1696204800&Signature=cvCmCrcx17~2RocD7bj7uPPstibXX3SzmaZj5ffcYAao1N3EXl9ozxqxhOxCJ-vaWaq5zpD~W7OwfOL57max71ZLgGPcZdhw3Z8CKNxmttkbWuSRrEyEezIbhZbYKN2Sgq5BQSwCWeIe~I1t8vOJ5GBNBHZRlmG-DSDZvIWM-7FwQVb9mbPAUC-gyaAD4FhwVSWT~e6zoajoBeLCz1ibGqClN2KZQR-2KpTOTDTki7b-qoQpFZden1OF7b0HyulL-do9PU5XKtqONxAZF9wNBFDlcVDy~Y~3AiGLwYwdCX0W-mMjlGvZNBL9ocfJria9ThyqEdf8AdUC0kNztfbTYg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -245,7 +244,7 @@ const Social = () => {
                 component={motion.div}
                 variants={iconStaggerChildren}
               >
-                <MotionImage src={item} alt='' fill />
+                <MotionImage src={item} alt="" fill />
               </Box>
             ))}
           </Stack>

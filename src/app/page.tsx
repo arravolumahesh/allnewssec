@@ -30,7 +30,7 @@ const HomePage = () => {
       <Partners />
       <Social />
       <ContactUs />
-      <BuildFuture />
+      {/* <BuildFuture /> //DONT ADD THESE SECTIONS IN THE MAIN PAGE, MAKE A SEPERATE PAGE
       <Section />
       <OurFocusAreas />
       <Sustainability />
@@ -38,7 +38,7 @@ const HomePage = () => {
       <HerosSection />
       <Enquire />
       <Bajaj />
-      <CsrReport />
+      <CsrReport /> */}
     </>
   );
 };
