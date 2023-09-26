@@ -2,7 +2,6 @@
 import {
   Accordion,
   AccordionDetails,
-  accordionDetailsClasses,
   AccordionSummary,
   accordionSummaryClasses,
   Divider,
@@ -28,7 +27,9 @@ interface FooterLinksProps {
 }
 
 const CommonLinks = () => {
-  const isSm = useMediaQuery<Theme>((theme) => theme.breakpoints.up("sm"));
+  const isSm = useMediaQuery<Theme>((theme) => theme.breakpoints.up("sm"), {
+    defaultMatches: true,
+  });
   const [expanded, setExpanded] = useState<string | false>(false);
 
   return (
@@ -58,12 +59,9 @@ const CommonLinks = () => {
             sx={(theme) => ({
               width: { xs: 1, sm: 0.3, md: 0.3, lg: "fit-content" },
               background: "transparent",
-              flexGrow: 1,
+              flexGrow: { xs: 1, lg: 0 },
+              flexShrink: { xs: 1, lg: 0 },
               [theme.breakpoints.down("sm")]: {
-                [`& .${accordionSummaryClasses.root}, .${accordionDetailsClasses.root}`]:
-                  {
-                    px: 0,
-                  },
                 "&:before": {
                   content: "none",
                 },
@@ -74,6 +72,7 @@ const CommonLinks = () => {
               sx={{
                 fontSize: Overline,
                 fontWeight: 700,
+                px: 0,
                 [`& .${accordionSummaryClasses.expandIconWrapper}`]: {
                   color: "inherit",
                 },
@@ -89,7 +88,6 @@ const CommonLinks = () => {
               {title}
             </AccordionSummary>
             <Divider
-              variant={"middle"}
               sx={{
                 display: { xs: "none", sm: "block" },
                 mb: 0.5,
@@ -98,6 +96,7 @@ const CommonLinks = () => {
             />
             <AccordionDetails
               sx={{
+                px: 0,
                 pt: {
                   xs: 0,
                   sm: 1,

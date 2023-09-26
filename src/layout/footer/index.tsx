@@ -8,13 +8,13 @@ import { alpha, Divider, SxProps, Theme } from "@mui/material";
 const Footer = () => {
   return (
     <SectionWrapper
-      spacing={{ xs: 0, lg: 10 }}
       color={"secondary.main"}
       SectionProps={{
         sx: {
           background: (theme) => theme.palette.gradient.lightToDark,
         },
       }}
+      rowGap={{ xs: 0, sm: 7, lg: 9 }}
       divider={<Divider sx={dividerSx} />}
     >
       <SocialLinks />
@@ -28,6 +28,7 @@ export default Footer;
 
 const dividerSx: SxProps<Theme> = (theme) => {
   return {
+    display: { xs: "block", sm: "none" },
     borderColor: alpha(theme.palette.common.white, 0.2),
     mt: "32px !important",
     mb: "20px !important",

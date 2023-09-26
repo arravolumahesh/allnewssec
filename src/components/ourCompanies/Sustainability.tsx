@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Button, Stack, Box, Grid } from "@mui/material";
+import { Button, Grid, Stack } from "@mui/material";
 import Image from "next/image";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -11,15 +11,15 @@ import { motion } from "framer-motion";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
+  MotionLink,
   MotionTypography,
   MotionVariantProps,
-  MotionButton,
 } from "@/commonComponents/motion-components";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
+import { FreeMode, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
 import Emission from "./images/Emission.png";
@@ -212,7 +212,7 @@ const Carousel = () => {
                   whileInView={"animate"}
                   viewport={{ once: true }}
                 >
-                  <MotionButton
+                  <MotionLink
                     sx={{
                       display: "flex",
                       padding: "6px 16px",
@@ -230,7 +230,7 @@ const Carousel = () => {
                     href="#"
                   >
                     {eachMearsure.title}
-                  </MotionButton>
+                  </MotionLink>
                   <MotionTypography
                     sx={{
                       color: "#FFF",

@@ -1,7 +1,7 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Box } from "@mui/material";
-import { MotionButton } from "@cc/motion-components";
+import { MotionLink } from "@cc/motion-components";
 
 const IntermediateMenu = () => {
   return (
@@ -16,7 +16,7 @@ const IntermediateMenu = () => {
             zIndex: 9999,
           },
         }}
-        sx={{ py: {xxl:0,xs:0,md:0} }}
+        sx={{ py: { xxl: 0, xs: 0, md: 0 } }}
       >
         <Box
           sx={{
@@ -28,14 +28,14 @@ const IntermediateMenu = () => {
         >
           {skillMenu.map((item, index) => {
             return (
-              <MotionButton
+              <MotionLink
                 variant="menulink"
                 color={index === 1 ? "secondary" : "primary"}
                 href={item.url}
                 key={index}
               >
                 {item.title}
-              </MotionButton>
+              </MotionLink>
             );
           })}
         </Box>

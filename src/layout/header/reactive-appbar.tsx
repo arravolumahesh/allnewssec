@@ -22,7 +22,6 @@ const ReactiveAppBar = styled((props: AppBarProps) => {
       elevation={0}
       component={motion.header}
       variants={appbarVariant}
-      initial={"hidden"}
       animate={trigger ? "hidden" : "visible"}
       {...props}
     />
