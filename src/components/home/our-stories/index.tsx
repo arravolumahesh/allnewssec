@@ -7,7 +7,6 @@ import StoryImage from "./images/story-of-bajaj-auto.jpg";
 import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
 import { Navigation } from "swiper/modules";
 import { MotionVariantProps } from "@/commonComponents/motion-components";
-import { motion } from "framer-motion";
 
 const OurStories = () => {
   return (
@@ -25,7 +24,6 @@ const OurStories = () => {
           xxl: 3,
         },
       }}
-      component={motion.div}
       variants={clipTransition}
       initial={"initial"}
       whileInView={"animate"}
