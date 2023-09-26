@@ -172,13 +172,15 @@ export const ButtonVariants: Components<
             margin: "auto",
             right: "-40px",
             display: "flex",
-            alignItems: "center",
+            alignItems: "center",            
             [theme.breakpoints.down("md")]: {
               top: 0,
               alignItems: "flex-start",
               position: 'static',
               margin: 0,
               left: 0,
+              marginLeft:10,
+              marginTop:'-2px',
               float: 'left',
             },
             "& svg": {

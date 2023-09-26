@@ -10,7 +10,6 @@ const BuildFuture = () => {
         sx={{
           background:
             "linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%)",
-          height: "364px",
         }}
       >
         <Box>

@@ -72,13 +72,30 @@ const CompanyInitiatives = (props: props) => {
           <Stack
             component={"div"}
             slot="container-start"
-            sx={{
+            sx={(theme) => ({
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
               pb: { xs: 2, md: 7 },
-            }}
+              [theme.breakpoints.down("md")]:{
+                '& .BajajElectricalsLimited':{
+                  '& .MuiButton-endIcon':{
+                    marginLeft:'0px',
+                  }
+                },
+                '& .BajajFINSERVlimited':{
+                  '& .MuiButton-endIcon':{
+                    marginLeft:'-60px',
+                  }
+                },
+                '& .JAMNALALBAJAJFOUNDATION':{
+                  '& .MuiButton-endIcon':{
+                    marginLeft:'-40px',
+                  }
+                }
+              }
+            })}
           >
             <Box sx={{maxWidth:'100%'}}>
               <MLink
@@ -86,6 +103,7 @@ const CompanyInitiatives = (props: props) => {
                 variant="companylink"
                 disableRipple
                 endIcon={<SvgIconArrow />}
+                className={initiativedata.companyName.replace(/\s/g, "")}
               >
                 <span>{initiativedata.companyName}</span>
               </MLink>

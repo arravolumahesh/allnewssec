@@ -147,8 +147,8 @@ const IntermediateBanner = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          pb:{xxl:9},
-          pt:{xxl:4}
+          pb:{xxl:9,xs:1},
+          pt:{xxl:4,xs:2}
         }}
       >
         <CommonBreadcrumb
