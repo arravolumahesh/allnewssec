@@ -2,6 +2,8 @@
 import {
   Box,
   BoxProps,
+  Button,
+  ButtonProps,
   Card,
   CardProps,
   Grid2Props,
@@ -28,6 +30,7 @@ export const MotionGrid = motion<Grid2Props>(Grid2);
 export const MotionStack = motion<StackProps>(Stack);
 export const MotionSvg = motion.svg;
 export const MotionSvgIcon = motion<SvgIconProps>(SvgIcon);
+export const MotionButton = motion<ButtonProps>(Button);
 export const MotionEnhancedSwiper = motion(EnhancedSwiper);
 
 export type MotionImageProps = ComponentProps<typeof MotionImage>;
@@ -40,3 +43,4 @@ export type MotionGridProps = ComponentProps<typeof MotionGrid>;
 export type MotionStackProps = ComponentProps<typeof MotionStack>;
 export type MotionSvgProps = ComponentProps<typeof MotionSvg>;
 export type MotionSvgIconProps = ComponentProps<typeof MotionSvgIcon>;
+export type MotionButtonProps = ComponentProps<typeof MotionButton>;
