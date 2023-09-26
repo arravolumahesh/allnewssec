@@ -36,6 +36,12 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             width: "100%",
             position: "relative",
             alignItems: "flex-start",
+            // clipPath:
+            //   "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)",
+            // clipPath:
+            //   "polygon(49% 0%, 60% 50%, 50% 100%, 46% 100%, 56% 50%, 45% 0%)",
+            // clipPath:
+            //   "polygon(48% 25%, 55% 50%, 49% 75%, 46% 75%, 52% 50%, 45% 25%)",
           },
           ...sxArrayUtil(sx),
         ]}
@@ -167,7 +173,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
         </MotionStack>
       </SectionWrapper>
     );
-  },
+  }
 );
 
 export default StorySlide;

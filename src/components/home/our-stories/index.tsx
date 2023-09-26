@@ -6,6 +6,8 @@ import EnhancedSwiper from "@cc/enhanced-swiper";
 import StoryImage from "./images/story-of-bajaj-auto.jpg";
 import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
 import { Navigation } from "swiper/modules";
+import { MotionVariantProps } from "@/commonComponents/motion-components";
+import { motion } from "framer-motion";
 
 const OurStories = () => {
   return (
@@ -23,6 +25,11 @@ const OurStories = () => {
           xxl: 3,
         },
       }}
+      component={motion.div}
+      variants={clipTransition}
+      initial={"initial"}
+      whileInView={"animate"}
+      viewport={{ once: true }}
     >
       <EnhancedSwiper
         data={data}
@@ -75,3 +82,20 @@ const data: StorySlideProps[] = [
     location: "Pune, Maharashtra",
   },
 ];
+
+const clipTransition: MotionVariantProps = {
+  initial: {
+    clipPath: "polygon(48% 25%, 55% 50%, 49% 75%, 46% 75%, 52% 50%, 45% 25%)",
+  },
+  animate: {
+    clipPath: [
+      "polygon(48% 25%, 55% 50%, 49% 75%, 46% 75%, 52% 50%, 45% 25%)",
+      "polygon(49% 0%, 60% 50%, 50% 100%, 46% 100%, 56% 50%, 45% 0%)",
+      "polygon(100% 0%, 111% 50%, 101% 100%, -10% 100%, 0% 50%, -11% 0%)",
+    ],
+    transition: {
+      delay: 0.4,
+      duration: 1.5,
+    },
+  },
+};
