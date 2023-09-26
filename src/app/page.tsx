@@ -14,6 +14,9 @@ import OurStoriesAndKeyHighlights from "@/components/home/our-stories-and-key-hi
 import ContactUs from "@/components/home/contact-us";
 import Sustainability from "@/components/ourCompanies/Sustainability";
 import CsrReport from "@/components/ourCompanies/csrRepots";
+import Bajaj from "@/components/ourCompanies/bajaj";
+import HerosSection from "@/components/ourCompanies/herosSection";
+import Enquire from "@/components/ourCompanies/enquire";
 
 const HomePage = () => {
   return (
@@ -31,6 +34,9 @@ const HomePage = () => {
       <OurFocusAreas />
       <Sustainability />
       <OurCaseStudies />
+      {/* <HerosSection /> */}
+      <Enquire />
+      <Bajaj />
       <CsrReport />
     </>
   );
