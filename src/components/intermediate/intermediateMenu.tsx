@@ -1,18 +1,25 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box } from "@mui/material";
+import { Box, useScrollTrigger } from "@mui/material";
 import { MotionButton } from "@cc/motion-components";
+import { appbarHeight } from "@/layout/header/reactive-appbar";
+import { useEffect, useState } from "react";
 
 const IntermediateMenu = () => {
+
+const trigger = useScrollTrigger();
+
+
   return (
     <>
+    {/* wrapper menu section */}
       <SectionWrapper
         SectionProps={{
           sx: {
             borderBottom: "1px solid var(--Stroke, #EAEAEA)",
             background: "#F8F8F8",
-            position: "sticky",
-            top: 0,
+            position: !trigger ? "sticky" : "static",
+            top: appbarHeight,
             zIndex: 9999,
           },
         }}
@@ -25,7 +32,7 @@ const IntermediateMenu = () => {
             overflow: "auto",
             gap: { xs: 5, lg: 0 },
           }}
-        >
+        >         
           {skillMenu.map((item, index) => {
             return (
               <MotionButton

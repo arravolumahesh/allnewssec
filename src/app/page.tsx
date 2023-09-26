@@ -29,7 +29,8 @@ const HomePage = () => {
       <InTheNews />
       <Partners />
       <Social />
-      <BuildFuture />
+      <ContactUs />
+      {/* <BuildFuture /> Make seperate page for Our companies don't add these sections in the main page
       <Section />
       <OurFocusAreas />
       <Sustainability />
@@ -37,6 +38,7 @@ const HomePage = () => {
       {/* <HerosSection /> */}
       <Enquire />
       <Bajaj />
+      <CsrReport />
       <CsrReport />
     </>
   );
