@@ -53,7 +53,7 @@ export const SmallTitleCard: EnhancedSwiperSlideComponent<SmallTitleCardProps> =
               pb: "16px !important",
             }}
           >
-            <Typography variant='body1' fontSize={H6_2}>
+            <Typography variant='body1' fontSize={H6_2} color={"common.white"}>
               {title}
             </Typography>
           </CardContent>

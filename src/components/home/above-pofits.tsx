@@ -78,6 +78,7 @@ const AboveProfits = () => {
           },
         },
       }}
+      color={"common.white"}
       SectionHeaderProps={{
         title: "ABOVE PROFITS. BEYOND BOTTOM LINES.",
         TitleTypographyProps: {

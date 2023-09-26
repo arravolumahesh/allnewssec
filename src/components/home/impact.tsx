@@ -28,6 +28,7 @@ const Impact = () => {
         },
         maxWidth: { xs: 1, md: 867 },
       }}
+      color={"common.white"}
     >
       <Stack
         direction={"row"}
