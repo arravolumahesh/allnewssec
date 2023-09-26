@@ -61,38 +61,30 @@ const KeyFocus = () => {
           </Stack>
         </Stack>
       </Stack>
-      <Stack
-        direction={{ xs: "column", md: "row" }}
-        rowGap={3}
-        columnGap={5}
-        // justifyContent={"space-between"}
-        alignItems={"center"}
-        mb={{ xs: 0, md: 6 }}
-      >
-        <ArrowSwiperWithInfoSection
-          data={arrowData}
-          SwiperProps={{
-            navigation: false,
-          }}
-          ArrowSlideInfoProps={{
-            SlotProps: {
-              TitleTypographyProps: {
-                fontSize: H3_1,
-              },
+      <ArrowSwiperWithInfoSection
+        data={arrowData}
+        SwiperProps={{
+          navigation: false,
+        }}
+        ArrowSlideInfoProps={{
+          SlotProps: {
+            TitleTypographyProps: {
+              fontSize: H3_1,
             },
-          }}
-          SectionWrapperProps={{
-            p: "0 !important",
-          }}
-        />
-        {/* <SlideAnimationWrapper
+          },
+        }}
+        SectionWrapperProps={{
+          p: "0 !important",
+          mb: { xs: 0, md: 6 },
+        }}
+      />
+      {/* <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
           subtitle='Providing skill-based education through various programs to strengthen
           the foundation of a progressive nation.'
         >
           <Image src={skillImage} alt='Skill Banner' fill />
         </SlideAnimationWrapper> */}
-      </Stack>
       <Stack direction='row' alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
           slidesPerView={"auto"}
