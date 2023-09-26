@@ -25,12 +25,18 @@ export interface ArrowSwiperProps<
     "data" | "SlideComponent"
   >;
   data: EnhancedSwiperProps<T>["data"];
+  /**
+   * Must be unique for each instance of ArrowSwiper
+   *
+   * Example: "ArrowSwiper-1"
+   * */
+  SwiperKey: string;
 }
 
 const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
-  props: ArrowSwiperProps<T, P>
+  props: ArrowSwiperProps<T, P>,
 ) => {
-  const { SwiperProps, data, ...restStackProps } = props;
+  const { SwiperProps, data, SwiperKey, ...restStackProps } = props;
   const {
     modules: swiperModules = [],
     SlideWrapperProps,
@@ -38,6 +44,8 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
     navigation,
     ...swiperProps
   } = SwiperProps;
+
+  const swiperKey = SwiperKey.toLowerCase().split(" ").join("-");
 
   const slideWrapperProps = useCallback(
     (index: number): MaterialSwiperSlideProps => {
@@ -55,7 +63,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
         ],
       };
     },
-    [SlideWrapperProps]
+    [SlideWrapperProps],
   );
 
   return (
@@ -88,7 +96,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
           modules={[Navigation, ...swiperModules]}
           loop
           navigation={{
-            prevEl: ".swiper-prev",
+            prevEl: `.${swiperKey}-swiper-prev`,
             nextEl: null,
             ...(typeof navigation === "boolean"
               ? {
@@ -106,7 +114,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
             : navigation?.enabled) && (
             <SwiperNavigationArrowIcon
               direction={"next"}
-              className={"swiper-prev"}
+              className={`.${swiperKey}-swiper-prev`}
             />
           )}
         </EnhancedSwiper>

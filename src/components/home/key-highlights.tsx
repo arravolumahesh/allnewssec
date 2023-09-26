@@ -13,6 +13,7 @@ const KeyHighlights = () => {
   return (
     <ArrowSwiperWithInfoSection
       data={data}
+      SwiperKey={KeyHighlights.name}
       SectionWrapperProps={{
         color: "secondary.main",
         SectionHeaderProps: {

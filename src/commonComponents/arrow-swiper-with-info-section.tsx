@@ -20,6 +20,12 @@ export interface ArrowSwiperWithInfoProps<
     "data" | "SwiperInstance"
   >;
   SectionWrapperProps?: Omit<SectionWrapperProps, "children">;
+  /**
+   * Must be unique for each instance of ArrowSwiperWithInfoSection
+   *
+   * Example: "ArrowSwiperWithInfoSection-1"
+   * */
+  SwiperKey: string;
 }
 
 const ArrowSwiperWithInfoSection = <
@@ -30,6 +36,7 @@ const ArrowSwiperWithInfoSection = <
 ) => {
   const {
     data,
+    SwiperKey,
     SwiperProps,
     ArrowSlideInfoProps,
     SectionWrapperProps,
@@ -47,6 +54,7 @@ const ArrowSwiperWithInfoSection = <
     >
       <ArrowSwiper
         data={data}
+        SwiperKey={SwiperKey}
         SwiperProps={{
           onSwiper: (swiper) => $swiperInstance.next(swiper),
           ...SwiperProps,
