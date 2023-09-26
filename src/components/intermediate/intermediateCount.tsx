@@ -47,7 +47,7 @@ const IntermediateCount = () => {
         <Box
           ref={invref}
           sx={{
-            backgroundColor: "primary.dark",
+            backgroundColor: "primary.main",
             px: {
               xs: 1,
               md: 5,

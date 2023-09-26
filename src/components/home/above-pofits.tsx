@@ -61,18 +61,18 @@ const AboveProfits = () => {
           "&:before": {
             content: '""',
             position: "absolute",
-            width: "200%",
+            width: "204%",
             height: "auto",
-            aspectRatio: 4.54,
+            aspectRatio: 4.6,
             top: 0,
             right: 0,
-            background: "url(/beyond.svg) repeat-x", //space
+            background: "url(/beyond.svg) space", //space
             backgroundSize: "contain",
             transform: "translate3d(0, 0, 0)",
             animation: "scroll 15s infinite linear",
             "@keyframes scroll": {
               "100%": {
-                WebkitTransform: "translateX(50%)",
+                WebkitTransform: "translateX(50.5%)",
               },
             },
           },
@@ -90,7 +90,9 @@ const AboveProfits = () => {
       <Stack textAlign={"center"} maxWidth={1051} m={"auto"}>
         <MotionBox
           position={"relative"}
-          height={{ xs: 264, md: 513 }}
+          width={1}
+          sx={{ aspectRatio: 2.04 }}
+          // height={{ xs: 264, md: 513 }}
           mt={{ xs: 4, md: 6 }}
           mb={{ xs: 3, md: 4 }}
           zIndex={1}
@@ -104,13 +106,17 @@ const AboveProfits = () => {
               left: "50%",
               transform: "translate(-50%,-50%)",
               p: 0,
+              bgcolor: "white",
+              "&:hover": {
+                bgcolor: "white",
+              },
             }}
           >
             <PlayCircle
               sx={{
-                width: { xs: 77, md: 100 },
-                height: { xs: 77, md: 100 },
-                fill: "#005DAC",
+                width: { xs: 60, md: 100 },
+                height: { xs: 60, md: 100 },
+                fill: "#005dac",
               }}
             />
           </IconButton>
