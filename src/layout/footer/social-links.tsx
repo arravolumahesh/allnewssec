@@ -1,8 +1,11 @@
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Logo from "@cc/logo";
 import { MotionStack, MotionTypography } from "@cc/motion-components";
-import { ReactNode } from "react";
-import { MailRounded, PhoneRounded } from "@mui/icons-material";
+import {
+  MailRounded,
+  PhoneRounded,
+  SvgIconComponent,
+} from "@mui/icons-material";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -17,6 +20,9 @@ const SocialLinks = () => {
       direction={"row"}
       alignItems={"center"}
       justifyContent={"space-between"}
+      flexWrap={"wrap"}
+      rowGap={3}
+      columnGap={3}
     >
       <Logo
         SvgIconProps={{
@@ -31,11 +37,13 @@ const SocialLinks = () => {
           xs: "column",
           sm: "row",
         }}
+        columnGap={3}
+        rowGap={2}
         justifyContent={"space-between"}
-        width={0.4}
+        width={{ sm: "fit-content", md: 0.4 }}
       >
         {contactInfo.map((item, index) => {
-          const { icon, text } = item;
+          const { icon: Icon, text } = item;
           return (
             <MotionTypography
               key={index}
@@ -43,31 +51,47 @@ const SocialLinks = () => {
               alignItems={"center"}
               variant={"subtitle1"}
               columnGap={1}
+              whiteSpace={"nowrap"}
             >
-              {icon} {text}
+              <Icon fontSize={"small"} /> {text}
             </MotionTypography>
           );
         })}
       </MotionStack>
-      <MotionStack direction={"row"} spacing={3}>
-        {[
-          FacebookIcon,
-          TwitterIcon,
-          YouTubeIcon,
-          InstagramIcon,
-          LinkedInIcon,
-        ].map((SocialIcon, index) => {
-          return (
-            <SocialIcon
-              key={index}
-              variant={"outlined"}
-              SvgIconProps={{
-                width: { xs: 32, md: 36, xxl: 40 },
-                height: { xs: 32, md: 36, xxl: 40 },
-              }}
-            />
-          );
-        })}
+      <MotionStack
+        sx={{
+          width: { xs: 1, lg: "fit-content" },
+          rowGap: 2,
+        }}
+      >
+        <Typography
+          display={{
+            xs: "block",
+            lg: "none",
+          }}
+        >
+          Follow us on
+        </Typography>
+        <Stack direction={"row"} spacing={3}>
+          {[
+            FacebookIcon,
+            TwitterIcon,
+            YouTubeIcon,
+            InstagramIcon,
+            LinkedInIcon,
+          ].map((SocialIcon, index) => {
+            return (
+              <SocialIcon
+                key={index}
+                variant={"outlined"}
+                SvgIconProps={{
+                  width: { xs: 32, md: 37, xxl: 40 },
+                  height: { xs: 32, md: 37, xxl: 40 },
+                }}
+              />
+            );
+          })}
+        </Stack>
       </MotionStack>
     </Stack>
   );
@@ -76,15 +100,15 @@ const SocialLinks = () => {
 export default SocialLinks;
 
 const contactInfo: {
-  icon: ReactNode;
+  icon: SvgIconComponent;
   text: string;
 }[] = [
   {
-    icon: <MailRounded />,
+    icon: MailRounded,
     text: "info@bajajbeyond.com",
   },
   {
-    icon: <PhoneRounded />,
+    icon: PhoneRounded,
     text: "1800 00 1234",
   },
 ];

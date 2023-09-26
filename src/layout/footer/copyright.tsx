@@ -10,12 +10,10 @@ const Copyright = () => {
   const handleClick = useCallback(() => {
     window && window.scrollTo(0, 0);
   }, []);
+
   return (
     <Stack
-      direction={{
-        xs: "row-reverse",
-        md: "row",
-      }}
+      direction={"row"}
       justifyContent={"space-between"}
       flexWrap={"wrap"}
       rowGap={{
@@ -23,15 +21,32 @@ const Copyright = () => {
         md: 8,
       }}
     >
-      <Typography fontSize={H6_4}>Copyright © Bajaj Beyond 2023</Typography>
+      <Typography
+        fontSize={H6_4}
+        width={{ xs: 0.5, md: "fit-content" }}
+        order={{
+          xs: 2,
+          md: 1,
+        }}
+      >
+        Copyright © Bajaj Beyond 2023
+      </Typography>
       <Stack
-        spacing={5}
+        columnGap={{
+          xs: 3.5,
+          lg: 5,
+        }}
+        rowGap={1}
         justifyContent={{
           xs: "space-between",
           sm: "unset",
         }}
         flexWrap={"wrap"}
         direction={"row"}
+        order={{
+          xs: 1,
+          md: 2,
+        }}
       >
         {copyrightLinks.map((item, index) => {
           return (
@@ -50,7 +65,13 @@ const Copyright = () => {
           );
         })}
       </Stack>
-      <Stack width={1}>
+      <Stack
+        width={{
+          xs: "fit-content",
+          md: 1,
+        }}
+        order={3}
+      >
         <BorderedIconButton
           onClick={handleClick}
           color={"secondary"}

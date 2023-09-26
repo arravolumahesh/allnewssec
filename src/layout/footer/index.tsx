@@ -28,7 +28,7 @@ export default Footer;
 
 const dividerSx: SxProps<Theme> = (theme) => {
   return {
-    display: { xs: "block", sm: "none" },
+    display: { xs: "block", lg: "none" },
     borderColor: alpha(theme.palette.common.white, 0.2),
     mt: "32px !important",
     mb: "20px !important",
