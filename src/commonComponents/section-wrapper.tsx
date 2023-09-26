@@ -3,10 +3,11 @@ import { forwardRef } from "react";
 import SectionHeader, { SectionHeaderProps } from "@cc/section-header";
 import { SetRequired } from "type-fest";
 import { sxArrayUtil } from "@util/sx-helpers";
+import { MotionStack, MotionStackProps } from "@cc/motion-components";
 
-export interface SectionWrapperProps extends StackProps {
+export interface SectionWrapperProps extends MotionStackProps {
   SectionProps?: Omit<StackProps, "children">;
-  ContainerProps?: Omit<StackProps, "children">;
+  ContainerProps?: Omit<MotionStackProps, "children">;
   SectionHeaderProps?: Omit<SectionHeaderProps, "children">;
 }
 
@@ -44,7 +45,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
           ]}
           {...restProps}
         >
-          <Stack
+          <MotionStack
             pl={basePx}
             pr={basePx}
             pt={basePy}
@@ -59,14 +60,14 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
             {title ? (
               <>
                 <SectionHeader {...SectionHeaderProps} />
-                <Stack width={1} {...rest}>
+                <MotionStack width={1} {...rest}>
                   {children}
-                </Stack>
+                </MotionStack>
               </>
             ) : (
               children
             )}
-          </Stack>
+          </MotionStack>
         </Stack>
       );
   },

@@ -133,11 +133,12 @@ const animatedButtonInitialSx: SxProps<Theme> = () => {
     overflow: "hidden",
     position: "relative",
     width: { xs: "100%", md: "fit-content" },
-    [`&.${buttonClasses.outlined}`]: {
-      border: "none",
-      "&:hover": {
+    [`&.${buttonClasses.outlined}, &.${buttonClasses.contained},  &.${buttonClasses.text}`]:
+      {
         border: "none",
+        "&:hover": {
+          border: "none",
+        },
       },
-    },
   };
 };

@@ -71,14 +71,16 @@ const ArrowSwiperWithInfoSection = <
 
 export default ArrowSwiperWithInfoSection;
 
-export const ArrowSwiperWithInfoSectionWrapperDefaultProps: SectionWrapperProps =
-  {
-    direction: { md_lg: "row" },
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    color: "primary.main",
-    rowGap: { xs: 4, md_lg: 0 },
-  };
+export const ArrowSwiperWithInfoSectionWrapperDefaultProps: Omit<
+  SectionWrapperProps,
+  "children" | "ref"
+> = {
+  direction: { md_lg: "row" },
+  alignItems: "flex-start",
+  justifyContent: "space-between",
+  color: "primary.main",
+  rowGap: { xs: 4, md_lg: 0 },
+};
 
 export const arrowSlideInfoDefaultProps: Omit<
   ArrowSlideInfoProps,

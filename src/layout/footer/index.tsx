@@ -4,6 +4,8 @@ import SocialLinks from "@/layout/footer/social-links";
 import CommonLinks from "@/layout/footer/common-links";
 import Copyright from "@/layout/footer/copyright";
 import { alpha, Divider, SxProps, Theme } from "@mui/material";
+import { MotionVariantProps } from "@cc/motion-components";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
@@ -33,8 +35,11 @@ const Footer = () => {
           },
         },
       }}
-      rowGap={{ xs: 0, sm: 7, lg: 9 }}
+      rowGap={{ xs: 0, sm: 2, lg: 9 }}
       divider={<Divider sx={dividerSx} />}
+      component={motion.div}
+      initial={"initial"}
+      whileInView={"animate"}
     >
       <SocialLinks />
       <CommonLinks />
@@ -52,4 +57,18 @@ const dividerSx: SxProps<Theme> = (theme) => {
     mt: "32px !important",
     mb: "20px !important",
   };
+};
+
+const footerChildrenMotionVariants: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    x: "40%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
 };
