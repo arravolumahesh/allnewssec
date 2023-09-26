@@ -14,6 +14,25 @@ const Footer = () => {
       SectionProps={{
         sx: {
           background: (theme) => theme.palette.gradient.lightToDark,
+          position: "relative",
+          "&:before": {
+            content: '""',
+            position: "absolute",
+            width: "204%",
+            height: "auto",
+            aspectRatio: 4.6,
+            bottom: 0,
+            right: 0,
+            background: "url(/beyond.svg) space", //space
+            backgroundSize: "contain",
+            transform: "translate3d(0, 0, 0)",
+            animation: "scroll 15s infinite linear",
+            "@keyframes scroll": {
+              "100%": {
+                WebkitTransform: "translateX(50.5%)",
+              },
+            },
+          },
         },
       }}
       rowGap={{ xs: 0, sm: 2, lg: 9 }}
