@@ -19,7 +19,8 @@ const Header = (props: HeaderProps) => {
     <SectionWrapper
       direction={"row"}
       alignItems={"center"}
-      py={0}
+      pt={0}
+      pb={0}
       height={"inherit"}
       SectionProps={{
         component: ReactiveAppBar,

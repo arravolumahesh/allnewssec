@@ -6,14 +6,14 @@ import AnimatedButton from "@/commonComponents/animated-button";
 import { motion } from "framer-motion";
 
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   Box,
-  Button,
-  Divider,
   Stack,
   Typography,
+  Button,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Divider,
 } from "@mui/material";
 
 import {
@@ -28,6 +28,11 @@ import { helvetica } from "@/app/font";
 import OFA1 from "./images/OFA1.png";
 import OFA2 from "./images/OFA2.png";
 import OFA3 from "./images/OFA3.png";
+import WorkForce from "./images/WorkForce.png";
+import classRoom from "./images/classRoom.png";
+import IPH1 from "./images/IPH1.png";
+import IPH2 from "./images/IPH2.png";
+import theme from "@/styles/theme";
 
 const data = [
   {
@@ -36,19 +41,19 @@ const data = [
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
     intitiatives: [
       {
-        imageUrl: "/images/workForce.png",
+        imageUrl: WorkForce,
         title: "Building a Skilled-Workforce",
       },
       {
-        imageUrl: "/images/classRoom.png",
+        imageUrl: classRoom,
         title: "Implementing Skill-Based Education in Schools",
       },
       {
-        imageUrl: "/images/IPH1.png",
+        imageUrl: IPH1,
         title: "IPH-Triveni Program",
       },
       {
-        imageUrl: "/images/IPH2.png",
+        imageUrl: IPH2,
         title: "IPH-Triveni Program",
       },
     ],
@@ -59,19 +64,19 @@ const data = [
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
     intitiatives: [
       {
-        imageUrl: "/workForce.png",
+        imageUrl: WorkForce,
         title: "Building a Skilled-Workforce",
       },
       {
-        imageUrl: "/classRoom.png",
+        imageUrl: classRoom,
         title: "Implementing Skill-Based Education in Schools",
       },
       {
-        imageUrl: "/IPH1.png",
+        imageUrl: IPH1,
         title: "IPH-Triveni Program",
       },
       {
-        imageUrl: "/IPH2.png",
+        imageUrl: IPH2,
         title: "IPH-Triveni Program",
       },
     ],
@@ -82,19 +87,19 @@ const data = [
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
     intitiatives: [
       {
-        imageUrl: "/images/workForce.png",
+        imageUrl: WorkForce,
         title: "Building a Skilled-Workforce",
       },
       {
-        imageUrl: "/images/classRoom.png",
+        imageUrl: classRoom,
         title: "Implementing Skill-Based Education in Schools",
       },
       {
-        imageUrl: "/images/IPH1.png",
+        imageUrl: IPH1,
         title: "IPH-Triveni Program",
       },
       {
-        imageUrl: "/images/IPH2.png",
+        imageUrl: IPH2,
         title: "IPH-Triveni Program",
       },
     ],
@@ -129,7 +134,6 @@ const Areas = () => {
       >
         {data.map((eachArea, index) => (
           <Accordion
-            key={index}
             expanded={expanded === `Area${index}`}
             onChange={handleChange(`Area${index}`)}
             sx={{
@@ -143,6 +147,7 @@ const Areas = () => {
                 lg: "48px 0",
               },
             }}
+            key={index}
             component={motion.div}
             variants={StagAccordion}
             initial={{
@@ -214,13 +219,8 @@ const Areas = () => {
                 {eachArea.discrption}
               </Typography>
               <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
-                {eachArea.intitiatives.map((eachIntiative, index) => (
-                  <Box
-                    display={"flex"}
-                    key={index}
-                    flexDirection={"column"}
-                    gap={2}
-                  >
+                {eachArea.intitiatives.map((eachIntiative,index) => (
+                  <Box display={"flex"} flexDirection={"column"} key={index} gap={2}>
                     <Image
                       src={eachIntiative.imageUrl}
                       alt={eachIntiative.title}
@@ -257,9 +257,11 @@ const Areas = () => {
                 <AnimatedButton
                   sx={{
                     mt: 4,
+                    color: "#FFF",
                     width: { xs: "100%", md: "207px" },
                     bgcolor: "rgba(255, 255, 255, 0.10)",
                     fontSize: { xs: "18px", md: "24px !important" },
+                    opacity: 0.8,
                   }}
                   href={"./"}
                   variants={staggerBtn}
@@ -278,10 +280,10 @@ const Areas = () => {
 const OurFocusAreas = () => {
   return (
     <SectionWrapper
-      sx={{
-        background:
-          "var(--gradient-dark-light, linear-gradient(180deg, #0C1425 0%, #162B52 17.68%, #1F3F78 35.36%, #254F98 53.05%, #2B5CB0 70.73%, #2F65C1 89.77%, #316ACB 110.17%, #326CCF 136.02%))",
-        margin: 0,
+      SectionProps={{
+        sx: {
+          background: (theme) => theme.palette.gradient.lightToDark,
+        },
       }}
     >
       <Box
@@ -463,6 +465,7 @@ const OurFocusAreas = () => {
               <AnimatedButton
                 sx={{
                   mt: 4,
+                  color: "#FFF",
                   width: "150px",
                   bgcolor: "rgba(255, 255, 255, 0.10)",
                   fontSize: { xs: "16px", md: "22px !important" },

@@ -11,6 +11,7 @@ import {
   H4,
   H5,
   H6,
+  Overline,
   Subtitle1,
   Subtitle2,
 } from "@theme/components/typography.fontvariant";
@@ -54,7 +55,7 @@ export const TypographyVariants: Components<
       return theme.unstable_sx({
         color: "inherit",
         fontWeight: "inherit",
-        lineHeight: "128%",
+        lineHeight: "125%",
       });
     },
     h1: ({ theme }) => {
@@ -116,6 +117,11 @@ export const TypographyVariants: Components<
     caption: ({ theme }) => {
       return theme.unstable_sx({
         fontSize: Caption,
+      });
+    },
+    overline: ({ theme }) => {
+      return theme.unstable_sx({
+        fontSize: Overline,
       });
     },
     gutterBottom: ({ theme }) => {

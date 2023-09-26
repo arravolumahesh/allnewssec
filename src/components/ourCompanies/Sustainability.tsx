@@ -1,6 +1,8 @@
 "use client";
 
-import { Button, Stack, Box } from "@mui/material";
+import { useState } from "react";
+
+import { Button, Stack, Box, Grid } from "@mui/material";
 import Image from "next/image";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -12,15 +14,99 @@ import {
   MotionTypography,
   MotionVariantProps,elements
   MotionButton,
-} from "@/commonComponents/motion-";
+} from "@/commonComponents/motion-elements";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
+import Emission from "./images/Emission.png";
+import supplyChain from "./images/supplyChain.png";
+import solar from "./images/solar.png";
+
+interface ButtonsProps {
+  disablePrev: boolean;
+  disableNext: boolean;
+}
+
+const CuroselBttn = (prop: ButtonsProps) => {
+  const { disableNext, disablePrev, ...rest } = prop;
+  const swiper = useSwiper();
+  return (
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: "16px",
+      }}
+      component={motion.div}
+      variants={constrolButton}
+      initial={"initial"}
+      whileInView={"animate"}
+      viewport={{ once: true }}
+    >
+      <Button
+        sx={{
+          display: "flex",
+          width: "48px",
+          height: "48px",
+          padding: "4px",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "8px",
+          background: "rgba(255, 255, 255, 0.20)",
+          border: "1px solid var(--White, #FFF)",
+          opacity: disablePrev ? 0.5 : 0.9,
+        }}
+        onClick={() => swiper.slidePrev()}
+        disabled={disablePrev}
+        disableRipple
+        disableTouchRipple
+      >
+        <NavigateBeforeIcon
+          sx={{
+            width: "30px",
+            height: "30px",
+            color: "#FFF",
+          }}
+        />
+      </Button>
+      <Button
+        sx={{
+          display: "flex",
+          width: "48px",
+          height: "48px",
+          padding: "4px",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "8px",
+          border: "1px solid var(--White, #FFF)",
+          background: "rgba(255, 255, 255, 0.20)",
+          opacity: disableNext ? 0.5 : 0.9,
+        }}
+        onClick={() => swiper.slideNext()}
+        disabled={disableNext}
+        disableRipple
+        disableTouchRipple
+      >
+        <NavigateNextIcon
+          sx={{
+            width: "30px",
+            height: "30px",
+            color: "#FFF",
+          }}
+        />
+      </Button>
+    </Stack>
+  );
+};
+
 // Curosel Part
 const Carousel = () => {
+  const [disablePrev, setDisabledPrev] = useState<boolean>(true);
+  const [disableNext, setDisabledNext] = useState<boolean>(false);
   const theme = useTheme();
   const swiper = useSwiper();
 
@@ -32,89 +118,6 @@ const Carousel = () => {
   return (
     <Stack>
       <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          alignSelf: "stretch",
-          justifyContent: "space-between",
-        }}
-        component={motion.div}
-        variants={staggerDiv}
-        initial={"initial"}
-        whileInView={"animate"}
-        viewport={{ once: true }}
-      >
-        <MotionTypography
-          sx={useStyles.subHeading}
-          variants={staggerSubHeading}
-        >
-          Our Measures
-        </MotionTypography>
-
-        <Stack
-          sx={{
-            display: {
-              xs: "none",
-              sm: "flex",
-            },
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "16px",
-          }}
-          component={motion.div}
-          variants={constrolButton}
-          initial={"initial"}
-          whileInView={"animate"}
-          viewport={{ once: true }}
-        >
-          <Button
-            sx={{
-              display: "flex",
-              width: "48px",
-              height: "48px",
-              padding: "4px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-              border: "1px solid var(--White, #FFF)",
-            }}
-            onClick={() => swiper?.slidePrev()}
-            disabled={swiper?.isBeginning}
-          >
-            <NavigateBeforeIcon
-              sx={{
-                width: "30px",
-                height: "30px",
-                color: "#FFF",
-              }}
-            />
-          </Button>
-          <Button
-            sx={{
-              display: "flex",
-              width: "48px",
-              height: "48px",
-              padding: "4px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-              border: "1px solid var(--White, #FFF)",
-            }}
-            onClick={() => swiper?.slideNext()}
-            disabled={swiper?.isEnd}
-          >
-            <NavigateNextIcon
-              sx={{
-                width: "30px",
-                height: "30px",
-                color: "#FFF",
-              }}
-            />
-          </Button>
-        </Stack>
-      </Stack>
-      <Stack
         component={"div"}
         sx={{
           py: { xs: 5, lg: 12 },
@@ -123,6 +126,31 @@ const Carousel = () => {
           },
         }}
       >
+        <Stack
+          sx={{
+            display: {
+              xs: "flex",
+              sm: "none",
+            },
+            flexDirection: "row",
+            alignItems: "center",
+            alignSelf: "stretch",
+            justifyContent: "space-between",
+            marginBottom: "40px",
+          }}
+          component={motion.div}
+          variants={staggerDiv}
+          initial={"initial"}
+          whileInView={"animate"}
+          viewport={{ once: true }}
+        >
+          <MotionTypography
+            sx={useStyles.subHeading}
+            variants={staggerSubHeading}
+          >
+            Our Measures
+          </MotionTypography>
+        </Stack>
         <Swiper
           slidesPerView={isDesktop ? 3 : isTablet ? 2 : 1}
           spaceBetween={matches ? theme.spacing(2) : theme.spacing(3)}
@@ -130,7 +158,29 @@ const Carousel = () => {
           pagination={false}
           navigation={true}
           modules={[Pagination, Navigation, FreeMode]}
+          onSlideChange={(swiper) => {
+            setDisabledPrev(swiper.isBeginning);
+            setDisabledNext(swiper.isEnd);
+          }}
+          style={{
+            display: "flex",
+            flexDirection: matches ? "column" : "column-reverse",
+            gap: "30px",
+          }}
         >
+          <Stack
+            sx={{
+              display: {
+                xs: "flex",
+                sm: "none",
+              },
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CuroselBttn disablePrev={disablePrev} disableNext={disableNext} />
+          </Stack>
           {ourMeasuresdata.map((eachMearsure, index) => (
             <SwiperSlide key={index}>
               <Stack
@@ -139,20 +189,18 @@ const Carousel = () => {
                 component={motion.div}
                 viewport={{ once: true }}
                 flexShrink={0}
-                width={"410px"}
               >
-                <Box
-                  sx={{
-                    background: `url('l${eachMearsure.imageurl}'),red 50% / cover no-repeat`,
-                    width: {
-                      xs: "120px",
-                      sm: "102px",
-                    },
+                <Image
+                  src={eachMearsure.imageurl}
+                  alt={eachMearsure.title}
+                  width={120}
+                  height={150}
+                  style={{
                     height: "100%",
-                    flexShrink: 0,
+                    width: "120px",
+                    marginRight: "16px",
                   }}
-                  marginRight={2}
-                ></Box>
+                />
                 <Stack
                   spacing={2}
                   display={"flex"}
@@ -184,10 +232,12 @@ const Carousel = () => {
                   </MotionButton>
                   <MotionTypography
                     sx={{
-                      ...useStyles.body2,
-                      opacity: 1,
-                      textAlign: "left",
-                      fontSize: "2px",
+                      color: "#FFF",
+                      fontFamily: "Helvetica",
+                      fontSize: "18px",
+                      fontStyle: "normal",
+                      fontWeight: "400",
+                      lineHeight: "128%",
                     }}
                     variants={staggerChildren}
                   >
@@ -197,72 +247,33 @@ const Carousel = () => {
               </Stack>
             </SwiperSlide>
           ))}
+
+          <Stack
+            sx={{
+              display: {
+                xs: "none",
+                sm: "flex",
+              },
+              flexDirection: "row",
+              alignItems: "center",
+              alignSelf: "stretch",
+              justifyContent: "space-between",
+            }}
+            component={motion.div}
+            variants={staggerDiv}
+            initial={"initial"}
+            whileInView={"animate"}
+            viewport={{ once: true }}
+          >
+            <MotionTypography
+              sx={useStyles.subHeading}
+              variants={staggerSubHeading}
+            >
+              Our Measures
+            </MotionTypography>
+            <CuroselBttn disablePrev={disablePrev} disableNext={disableNext} />
+          </Stack>
         </Swiper>
-      </Stack>
-      <Stack
-        sx={{
-          display: {
-            xs: "flex",
-            sm: "none",
-          },
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Stack
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "16px",
-          }}
-        >
-          <Button
-            sx={{
-              display: "flex",
-              width: "24px",
-              height: "24px",
-              padding: "4px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-              border: "1px solid var(--White, #FFF)",
-            }}
-            onClick={() => swiper?.slidePrev()}
-            disabled={swiper?.isBeginning}
-          >
-            <NavigateBeforeIcon
-              sx={{
-                width: "16px",
-                height: "16px",
-                color: "#FFF",
-              }}
-            />
-          </Button>
-          <Button
-            sx={{
-              display: "flex",
-              width: "24px",
-              height: "24px",
-              padding: "4px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-              border: "1px solid var(--White, #FFF)",
-            }}
-            onClick={() => swiper?.slideNext()}
-            disabled={swiper?.isEnd}
-          >
-            <NavigateNextIcon
-              sx={{
-                width: "16px",
-                height: "16px",
-                color: "#FFF",
-              }}
-            />
-          </Button>
-        </Stack>
       </Stack>
     </Stack>
   );
@@ -273,8 +284,10 @@ const Carousel = () => {
 const Sustainability = () => {
   return (
     <SectionWrapper
-      sx={{
-        backgroundColor: "#000000",
+      SectionProps={{
+        sx: {
+          background: (theme) => theme.palette.gradient.darkToLight,
+        },
       }}
     >
       <Stack
@@ -340,144 +353,136 @@ const Sustainability = () => {
               business and environmental goals.
             </MotionTypography>
           </Stack>
-          <Stack
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              gap: "70px",
-              alignSelf: "stretch",
-            }}
-          >
-            <Stack
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "8px",
-                borderRight: {
-                  xs: "none",
-                  md: "1px solid var(--Stroke, #EAEAEA)",
-                },
 
-                width: {
-                  xs: "33%",
-                  sm: "40%",
-                  md: "310px",
-                },
-                maxWidth: "319px",
-              }}
-            >
-              <MotionTypography
-                variant="body2"
-                sx={{ ...useStyles.body2, textAlign: "left" }}
-                variants={staggerTextChildren}
+          <Grid container sx={{ alignSelf: "stretch" }}>
+            <Grid item xs={6} lg={3}>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "8px",
+                  borderRight: {
+                    xs: "none",
+                    md: "1px solid var(--Stroke, #EAEAEA)",
+                  },
+                  marginBottom: "40px",
+                }}
               >
-                Gold Standard in Governance
-              </MotionTypography>
-              <MotionTypography
-                variant="body2"
-                variants={staggerTextChildren}
-                sx={useStyles.bodySmall}
+                <MotionTypography
+                  variant="body2"
+                  sx={{ ...useStyles.body2, textAlign: "left" }}
+                  variants={staggerTextChildren}
+                >
+                  Gold Standard in Governance
+                </MotionTypography>
+                <MotionTypography
+                  variant="body2"
+                  variants={staggerTextChildren}
+                  sx={useStyles.bodySmall}
+                >
+                  by 2024
+                </MotionTypography>
+              </Stack>
+            </Grid>
+            <Grid item xs={6} lg={3}>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: {
+                    xs: "flex-start",
+                    sm: "center",
+                  },
+                  gap: "8px",
+                  borderRight: {
+                    xs: "none",
+                    lg: "1px solid var(--Stroke, #EAEAEA)",
+                  },
+                  marginBottom: "40px",
+                }}
+                flexGrow={1}
               >
-                by 2024
-              </MotionTypography>
-            </Stack>
-            <Stack
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "8px",
-                borderRight: {
-                  xs: "none",
-                  md: "1px solid var(--Stroke, #EAEAEA)",
-                },
-                width: {
-                  xs: "33%",
-                  sm: "40%",
-                  md: "196px",
-                },
-              }}
-              flexGrow={1}
-            >
-              <MotionTypography
-                variant="body2"
-                sx={{ ...useStyles.body2, textAlign: "left" }}
-                variants={staggerTextChildren}
+                <MotionTypography
+                  variant="body2"
+                  sx={{ ...useStyles.body2, textAlign: "left" }}
+                  variants={staggerTextChildren}
+                >
+                  Water Positive
+                </MotionTypography>
+                <MotionTypography
+                  variant="body2"
+                  sx={useStyles.bodySmall}
+                  variants={staggerTextChildren}
+                >
+                  by 2027
+                </MotionTypography>
+              </Stack>
+            </Grid>
+            <Grid item xs={6} lg={3}>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: {
+                    xs: "flex-start",
+                    lg: "center",
+                  },
+                  gap: "8px",
+                  borderRight: {
+                    xs: "none",
+                    md: "1px solid var(--Stroke, #EAEAEA)",
+                  },
+                  marginBottom: "40px",
+                }}
               >
-                Water Positive
-              </MotionTypography>
-              <MotionTypography
-                variant="body2"
-                sx={useStyles.bodySmall}
-                variants={staggerTextChildren}
-              >
-                by 2027
-              </MotionTypography>
-            </Stack>
-            <Stack
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "8px",
-                borderRight: {
-                  xs: "none",
-                  md: "1px solid var(--Stroke, #EAEAEA)",
-                },
-                width: {
-                  xs: "40%",
-                  sm: "40%",
+                <MotionTypography
+                  variant="body2"
+                  sx={{ ...useStyles.body2, textAlign: "left" }}
+                  variants={staggerTextChildren}
+                >
+                  Carbon Neutral
+                </MotionTypography>
 
-                  md: "196px",
-                },
-              }}
-              flexGrow={1}
-            >
-              <MotionTypography
-                variant="body2"
-                sx={{ ...useStyles.body2, textAlign: "left" }}
-                variants={staggerTextChildren}
+                <MotionTypography
+                  variant="body2"
+                  sx={useStyles.bodySmall}
+                  variants={staggerTextChildren}
+                >
+                  by 2040
+                </MotionTypography>
+              </Stack>
+            </Grid>
+            <Grid item xs={6} lg={3}>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: {
+                    xs: "flex-start",
+                    sm: "center",
+                  },
+                  gap: "8px",
+                  marginBottom: "40px",
+                }}
               >
-                Carbon Neutral
-              </MotionTypography>
-
-              <MotionTypography
-                variant="body2"
-                sx={useStyles.bodySmall}
-                variants={staggerTextChildren}
-              >
-                by 2040
-              </MotionTypography>
-            </Stack>
-            <Stack
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "8px",
-                width: {
-                  xs: "30%",
-                  sm: "40%",
-
-                  md: "196px",
-                },
-              }}
-              flexGrow={1}
-            >
-              <MotionTypography
-                variant="body2"
-                sx={{ ...useStyles.body2, textAlign: "left" }}
-                variants={staggerTextChildren}
-              >
-                100% Renewable Energy
-              </MotionTypography>
-              <MotionTypography
-                variant="body2"
-                sx={useStyles.bodySmall}
-                variants={staggerTextChildren}
-              >
-                by 2050
-              </MotionTypography>
-            </Stack>
-          </Stack>
+                <MotionTypography
+                  variant="body2"
+                  sx={{ ...useStyles.body2, textAlign: "left" }}
+                  variants={staggerTextChildren}
+                >
+                  100% Renewable Energy
+                </MotionTypography>
+                <MotionTypography
+                  variant="body2"
+                  sx={useStyles.bodySmall}
+                  variants={staggerTextChildren}
+                >
+                  by 2050
+                </MotionTypography>
+              </Stack>
+            </Grid>
+          </Grid>
         </Stack>
       </Stack>
       <Carousel />
@@ -490,19 +495,19 @@ export default Sustainability;
 //  Carousel Data
 const ourMeasuresdata = [
   {
-    imageurl: "/images/Emission.png",
+    imageurl: Emission,
     title: "Emissions",
     description:
       "Emissions produced by our automobiles has reduced by 55% compared to 2009.",
   },
   {
-    imageurl: "/images/supplyChain.png",
+    imageurl: supplyChain,
     title: "Supply Chain",
     description:
       "Nearly 600 suppliers, dealers and distributors trained in & assessed on sustainability.",
   },
   {
-    imageurl: "/images/solar.png",
+    imageurl: solar,
     title: "Renewable Energy",
     description:
       "We adopted a 2 MWp Rooftop Solar Plant to achieve 50% renewable electricity by 2025.",
@@ -534,9 +539,7 @@ const useStyles = {
     textAlign: "center",
     textOverflow: "ellipsis",
     fontFamily: "Helvetica",
-    fontSize: {
-      xs: "18px",
-    },
+    fontSize: "18px",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "128%",

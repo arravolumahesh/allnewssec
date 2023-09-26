@@ -1,9 +1,12 @@
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { helvetica } from "@/app/font";
 import React from "react";
-import { MotionTypography } from "@/commonComponents/motion-components";
-import { MotionVariantProps } from "@/commonComponents/motion-components";
+import {
+  MotionTypography,
+  MotionVariantProps,
+} from "@/commonComponents/motion-components";
+
 const BuildFuture = () => {
   return (
     <>

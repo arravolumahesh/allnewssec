@@ -1,23 +1,17 @@
 import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logoCard";
 import { MotionTypography } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
+import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
 import { Stack } from "@mui/material";
 import React from "react";
 
 const Partners = () => {
   return (
-    <SectionWrapper
-      py={{ xs: 7, md: 12 }}
-      px={0}
-      SectionProps={{
-        bgcolor: "#e6e6e6",
-      }}
-      overflow={"hidden"}
-    >
+    <SectionWrapper py={{ xs: 7, md: 12 }} px={0}>
       <MotionTypography
-        variant="h3"
-        fontWeight={400}
-        color={"primary.dark"}
+        variant='h3'
+        fontSize={H3_2}
+        color={"primary.main"}
         textAlign={"center"}
         maxWidth={951}
         m={"auto"}
@@ -53,7 +47,7 @@ const Partners = () => {
             },
           },
         }}
-        direction="row"
+        direction='row'
         justifyContent={"flex-end"}
         columnGap={{ xs: 2, md: 3 }}
         mt={{ xs: 5, md: 6 }}

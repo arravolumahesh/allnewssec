@@ -1,3 +1,4 @@
+"use client";
 import React, { forwardRef, useMemo } from "react";
 import {
   IconButton,
@@ -22,11 +23,11 @@ const SwiperNavigationArrowIcon = forwardRef<
     return direction === "prev"
       ? {
           left: 20,
-          transform: "translate(-50%, -50%) rotate(180deg)",
+          transform: "translateY(-50%) rotate(180deg)",
         }
       : {
           right: 20,
-          transform: "translate(50%, -50%)",
+          transform: "translateY(-50%)",
         };
   }, [direction]);
   return (

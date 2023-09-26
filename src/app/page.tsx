@@ -7,24 +7,26 @@ import Partners from "@/components/home/partners";
 import OurFocusAreas from "@/components/ourCompanies/ourFocusAreas";
 import BuildFuture from "@/components/ourCompanies/build-future";
 import Section from "@/components/ourCompanies/section";
-import CaseStudies from "@/components/ourCompanies/our-studies";
+import OurCaseStudies from "@/components/ourCompanies/our-studies";
 import KeyHighlights from "@/components/home/key-highlights";
 import InTheNews from "@/components/home/in-the-news";
+import OurStoriesAndKeyHighlights from "@/components/home/our-stories-and-key-highlights";
+import ContactUs from "@/components/home/contact-us";
 
 const HomePage = () => {
   return (
     <>
-      {/* <Hero />
+      <Hero />
       <AboveProfits />
       <KeyFocus />
       <Impact />
-      <KeyHighlights />
+      <OurStoriesAndKeyHighlights />
       <InTheNews />
       <Partners />
       <Social /> */}
       <BuildFuture />
       <Section />
-      <CaseStudies />
+      <OurCaseStudies />
       <OurFocusAreas />
     </>
   );

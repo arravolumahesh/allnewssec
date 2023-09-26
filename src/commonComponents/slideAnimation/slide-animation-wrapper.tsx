@@ -3,7 +3,6 @@ import React from "react";
 import {
   MotionBox,
   MotionBoxProps,
-  MotionSvgProps,
   MotionTypography,
   MotionTypographyProps,
 } from "../motion-components";
@@ -16,7 +15,7 @@ type SlideAnimationWrapper = {
   title: string;
   subtitle: string;
   btnText?: string;
-  textColor: string;
+  textColor?: string;
   titleTypographyprops?: MotionTypographyProps;
   btnProps?: SxProps;
   children: any;
@@ -36,7 +35,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
   return (
     <>
       <Stack
-        direction="row"
+        direction='row'
         alignItems={"center"}
         //   justifyContent={"center"}
         width={{ xs: 1, md: "auto" }}
@@ -53,17 +52,15 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         >
           {children}
         </MotionBox>
-        <Box
+        <ArrowGradient
           sx={{
-            position: "relative",
-            ml: { xs: "-11%", md: "-45px", lg: "-65px", xl: "-95px" },
+            ml: { xs: "-11%", md: "-45px", lg: "-65px", xl: "-113px" },
             width: { xs: "20%", md: 83, lg: 120, xl: 171 /* large: 171 */ },
             height: { xs: "auto", md: 254, lg: 315, xl: 443 /* large: 443 */ },
             aspectRatio: 0.32,
           }}
-        >
-          <ArrowGradient width={"100%"} height={"100%"} {...imageTransition} />
-        </Box>
+          {...imageTransition}
+        />
       </Stack>
       <Stack
         component={motion.div}
@@ -71,12 +68,12 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
-        maxWidth={{ xs: 1, md: 350, lg: 536 }}
+        maxWidth={{ xs: 1, md: 350, lg: 448 }}
         rowGap={{ xs: 2, md: 3 }}
       >
         {prefix && (
           <MotionTypography
-            variant="body1"
+            variant='body1'
             color={textColor}
             variants={staggerChildren}
           >
@@ -84,7 +81,7 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           </MotionTypography>
         )}
         <MotionTypography
-          variant="h3"
+          variant='h3'
           fontWeight={400}
           color={textColor}
           variants={staggerChildren}
@@ -93,16 +90,16 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
           {title}
         </MotionTypography>
         <MotionTypography
-          variant="body1"
+          variant='body1'
           color={textColor}
           variants={staggerChildren}
         >
           {subtitle}
         </MotionTypography>
         <AnimatedButton
-          variant="outlined"
+          variant='outlined'
           href={"/"}
-          color="primary"
+          color='primary'
           sx={{
             width: { xs: "100%", md: "171px" },
             fontSize: { xs: "18px", md: "24px !important" },
@@ -138,7 +135,7 @@ const boxTransition: MotionBoxProps = {
   },
   // onTransitionEnd: () => setTextTransition(true),
 };
-const imageTransition: MotionSvgProps = {
+const imageTransition: MotionBoxProps = {
   initial: {
     x: "-440%",
     opacity: 0,

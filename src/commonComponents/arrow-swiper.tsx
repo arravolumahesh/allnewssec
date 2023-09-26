@@ -126,8 +126,6 @@ export default ArrowSwiper;
 
 const enhancedSwiperSx: SxProps<Theme> = {
   mx: "unset",
-  width: "100%",
-  height: "100%",
   clipPath: clipImagePath,
 };
 

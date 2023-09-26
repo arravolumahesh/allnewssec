@@ -1,6 +1,8 @@
 import { Breakpoint, Stack, StackProps } from "@mui/material";
 import { forwardRef } from "react";
 import SectionHeader, { SectionHeaderProps } from "@cc/section-header";
+import { SetRequired } from "type-fest";
+import { sxArrayUtil } from "@util/sx-helpers";
 
 export interface SectionWrapperProps extends StackProps {
   SectionProps?: Omit<StackProps, "children">;
@@ -12,43 +14,61 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
   (props, ref) => {
     const {
       children,
-      SectionProps,
-      ContainerProps,
-      SectionHeaderProps,
+      SectionProps = {},
+      ContainerProps = {},
+      SectionHeaderProps = {} as SetRequired<
+        SectionWrapperProps,
+        "SectionHeaderProps"
+      >["SectionHeaderProps"],
+      color,
       ...rest
     } = props;
+      const { title } = SectionHeaderProps;
+      const { sx, ...restProps } = SectionProps;
 
-    return (
-      <Stack
-        component={"section"}
-        alignItems={"center"}
-        height={1}
-        ref={ref}
-        {...SectionProps}
-      >
+      return (
         <Stack
-          px={basePx}
-          py={basePy}
-          width={1}
-          maxWidth={"xxl"}
-          height={"inherit"}
-          color={rest.color || "inherit"}
-          {...ContainerProps}
-          {...(SectionHeaderProps && SectionHeaderProps.title ? {} : rest)}
+          component={"section"}
+          alignItems={"center"}
+          height={1}
+          ref={ref}
+          overflow={"hidden"}
+          color={color}
+          sx={[
+            {
+              "*": {
+                color: "inherit",
+              },
+            },
+            ...sxArrayUtil(sx),
+          ]}
+          {...restProps}
         >
-          {SectionHeaderProps && SectionHeaderProps.title ? (
-            <>
-              <SectionHeader {...SectionHeaderProps} />
-              <Stack color={"inherit"} width={1} {...rest}>
-                {children}
-              </Stack>
-            </>
-          ) : (
-            children
-          )}
+          <Stack
+            pl={basePx}
+            pr={basePx}
+            pt={basePy}
+            pb={basePy}
+            width={1}
+            maxWidth={"xxl"}
+            height={"inherit"}
+            color={color}
+            {...ContainerProps}
+            {...(!title && rest)}
+          >
+            {title ? (
+              <>
+                <SectionHeader {...SectionHeaderProps} />
+                <Stack width={1} {...rest}>
+                  {children}
+                </Stack>
+              </>
+            ) : (
+              children
+            )}
+          </Stack>
         </Stack>
-      </Stack>
-    );
+      );
   },
 );
 

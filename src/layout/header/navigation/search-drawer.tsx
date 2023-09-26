@@ -55,7 +55,8 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
           SectionProps={{
             bgcolor: "background.paper",
           }}
-          py={0}
+          pt={0}
+          pb={0}
         >
           <TextField
             variant={"standard"}
@@ -119,7 +120,8 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
         <SectionWrapper
           direction={{ md: "row" }}
           sx={{
-            py: 3,
+            pt: 3,
+            pb: 3,
             alignItems: { md: "center" },
             justifyContent: "flex-start",
             color: "grey.600",

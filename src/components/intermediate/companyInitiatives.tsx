@@ -45,11 +45,12 @@ const CompanyInitiatives = (props: props) => {
         <Swiper
           // install Swiper modules
           slidesPerView={matches ? "auto" : 3}
-          spaceBetween={matches ? theme.spacing(2) : theme.spacing(3)}
-          freeMode={true}
+          spaceBetween={matches ? theme.spacing(3) : theme.spacing(3)}
+          // freeMode={true}
           pagination={false}
           navigation={false}
-          modules={[Pagination, Navigation, FreeMode]}
+          modules={[Pagination, Navigation]} 
+          // modules={[Pagination, Navigation, FreeMode]}
           onSlideChange={(swiper) => {
             setDisabledPrev(swiper.isBeginning);
             setDisabledNext(swiper.isEnd);
@@ -71,20 +72,38 @@ const CompanyInitiatives = (props: props) => {
           <Stack
             component={"div"}
             slot="container-start"
-            sx={{
+            sx={(theme) => ({
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
               pb: { xs: 2, md: 7 },
-            }}
+              [theme.breakpoints.down("md")]:{
+                '& .BajajElectricalsLimited':{
+                  '& .MuiButton-endIcon':{
+                    marginLeft:'0px',
+                  }
+                },
+                '& .BajajFINSERVlimited':{
+                  '& .MuiButton-endIcon':{
+                    marginLeft:'-60px',
+                  }
+                },
+                '& .JAMNALALBAJAJFOUNDATION':{
+                  '& .MuiButton-endIcon':{
+                    marginLeft:'-40px',
+                  }
+                }
+              }
+            })}
           >
-            <Box>
+            <Box sx={{maxWidth:'100%'}}>
               <MLink
                 href={""}
                 variant="companylink"
                 disableRipple
                 endIcon={<SvgIconArrow />}
+                className={initiativedata.companyName.replace(/\s/g, "")}
               >
                 <span>{initiativedata.companyName}</span>
               </MLink>

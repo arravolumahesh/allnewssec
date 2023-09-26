@@ -1,4 +1,8 @@
-import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/material";
+import {
+  PaletteOptions,
+  SimplePaletteColorOptions,
+  ThemeOptions,
+} from "@mui/material";
 
 /**
  * @ThemeOptions['palette']
@@ -7,7 +11,7 @@ import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/mat
  * @see https://material-ui.com/customization/palette/#palette
  */
 export const PaletteTheme = (
-  mode: PaletteOptions["mode"],
+  mode: PaletteOptions["mode"]
 ): ThemeOptions["palette"] => {
   const isLight = mode !== "dark";
   return {
@@ -177,7 +181,7 @@ export const PaletteTheme = (
           "linear-gradient(180deg, #0C1425 0%, #162B52 17.68%, #1F3F78 35.36%, #254F98 53.05%, #2B5CB0 70.73%, #2F65C1 89.77%, #316ACB 110.17%, #326CCF 136.02%)",
         lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
         transparentToDark:
-          "linear-gradient(90deg, #0A0A0A 64.71%, rgba(10, 10, 10, 0.00) 84.55%)",
+          "linear-gradient(to top,#0A0A0A 50.71%, rgba(10, 10, 10, 0.00) 84.55%)",
       };
     },
   };

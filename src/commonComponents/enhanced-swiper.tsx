@@ -1,3 +1,4 @@
+"use client";
 import { ComponentProps, ComponentType, ReactNode } from "react";
 import "../../node_modules/swiper/swiper-bundle.min.css";
 import { Stack, StackProps } from "@mui/material";
@@ -7,6 +8,7 @@ import {
   MaterialSwiperSlide,
   MaterialSwiperSlideProps,
 } from "@cc/material-components";
+import { sxArrayUtil } from "@util/sx-helpers";
 
 export type SlideData = {
   isActive?: boolean;
@@ -63,6 +65,7 @@ const EnhancedSwiper = <
     SlideWrapperProps,
     Slots = {},
     children,
+    sx,
     ...swiperProps
   } = props;
   const {
@@ -76,7 +79,16 @@ const EnhancedSwiper = <
     WrapperEndProps,
   } = Slots;
   return (
-    <MaterialSwiper {...swiperProps}>
+    <MaterialSwiper
+      sx={[
+        {
+          width: "100%",
+          height: "100%",
+        },
+        ...sxArrayUtil(sx),
+      ]}
+      {...swiperProps}
+    >
       {data.map((item, idx) => {
         return (
           <MaterialSwiperSlide
