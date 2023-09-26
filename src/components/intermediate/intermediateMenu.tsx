@@ -12,6 +12,7 @@ const trigger = useScrollTrigger();
 
   return (
     <>
+    {/* wrapper menu section */}
       <SectionWrapper
         SectionProps={{
           sx: {
