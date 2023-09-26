@@ -2,7 +2,7 @@
 import { alpha, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionStack } from "@cc/motion-components";
+import { MotionStack, MotionVariantProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
@@ -72,7 +72,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             zIndex: -1,
           }}
         >
-          <MaterialImage src={bgImage} alt={company} fill objectFit='cover' />
+          <MaterialImage src={bgImage} alt={company} fill objectFit="cover" />
         </Box>
         <MotionStack
           sx={{
@@ -90,20 +90,11 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               md: 0,
             },
           }}
-          initial={{
-            opacity: 0,
-            x: "20%",
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: {
-              duration: 0.8,
-            },
-          }}
+          variants={storySlideMotionVariant}
+          initial={"initial"}
+          whileInView={"animate"}
           viewport={{
             once: true,
-            amount: "some",
           }}
         >
           <Typography
@@ -166,9 +157,24 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
         </MotionStack>
       </SectionWrapper>
     );
-  }
+  },
 );
 
 export default StorySlide;
 
 StorySlide.displayName = StorySlide.name;
+
+const storySlideMotionVariant: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    x: "20%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 2.2,
+      duration: 0.8,
+    },
+  },
+};
