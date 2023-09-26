@@ -24,7 +24,7 @@ const Hero = () => {
   return (
     <SectionWrapper
       pt={{ ...basePy, xxl: 3 }}
-      pb={{ xxl: 8.25 }}
+      pb={{ ...basePy, xxl: 8.25 }}
       px={{ ...basePx, xxl: 22 }}
       direction={{ xs: "column-reverse", md: "row" }}
       alignItems={"center"}
