@@ -123,8 +123,8 @@ export const ButtonVariants: Components<
           borderBottom: "2px solid",
           borderColor: "transparent",
           "&.MuiButton-menulinkSecondary, &:hover ": {
-            color: theme.palette.primary.dark,
-            borderColor: theme.palette.primary.dark,
+            color: theme.palette.primary.main,
+            borderColor: theme.palette.primary.main,
             background: "none",
           },
         };
