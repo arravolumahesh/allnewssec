@@ -1,15 +1,31 @@
 "use client";
 import { styled } from "@mui/material/styles";
-import { AppBar, AppBarProps, Slide, useScrollTrigger } from "@mui/material";
+import { AppBar, AppBarProps, useScrollTrigger } from "@mui/material";
 import { ResponsiveStyleValue } from "@mui/system";
 import { Property } from "csstype";
+import { motion } from "framer-motion";
+import { MotionVariantProps } from "@cc/motion-components";
+
+const appbarVariant: MotionVariantProps = {
+  hidden: {
+    y: "-100%",
+  },
+  visible: { y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
+};
 
 const ReactiveAppBar = styled((props: AppBarProps) => {
-  const trigger = useScrollTrigger();
+  const trigger = useScrollTrigger({
+    threshold: 200,
+  });
   return (
-    <Slide appear={false} direction={"down"} in={!trigger}>
-      <AppBar elevation={0} {...props} />
-    </Slide>
+    <AppBar
+      elevation={0}
+      component={motion.header}
+      variants={appbarVariant}
+      initial={"hidden"}
+      animate={trigger ? "hidden" : "visible"}
+      {...props}
+    />
   );
 })(({ theme }) => {
   return theme.unstable_sx({
