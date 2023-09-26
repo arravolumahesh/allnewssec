@@ -173,6 +173,8 @@ export const ButtonVariants: Components<
             right: "-40px",
             display: "flex",
             alignItems: "center",
+            marginLeft:1.25,
+            marginTop:'-4px',
             [theme.breakpoints.down("md")]: {
               top: 0,
               alignItems: "flex-start",

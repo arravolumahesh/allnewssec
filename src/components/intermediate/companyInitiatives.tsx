@@ -81,17 +81,17 @@ const CompanyInitiatives = (props: props) => {
               [theme.breakpoints.down("md")]:{
                 '& .BajajElectricalsLimited':{
                   '& .MuiButton-endIcon':{
-                    marginLeft:'-5px',
+                    marginLeft:'0px',
                   }
                 },
                 '& .BajajFINSERVlimited':{
                   '& .MuiButton-endIcon':{
-                    marginLeft:'-65px',
+                    marginLeft:'-60px',
                   }
                 },
                 '& .JAMNALALBAJAJFOUNDATION':{
                   '& .MuiButton-endIcon':{
-                    marginLeft:'-50px',
+                    marginLeft:'-45px',
                   }
                 }
               }
