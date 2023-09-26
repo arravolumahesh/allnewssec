@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useSwiperSlide } from "swiper/react";
 import RoomIcon from "@mui/icons-material/Room";
 import { Box } from "@mui/material";
+import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 interface props {
   data: {
@@ -105,7 +106,7 @@ const InitiativeCard = (prop: props) => {
           <RoomIcon sx={{ width: { xs: "18px", md: "18px" } }} />{" "}
           {prop.data.location}
         </MotionTypography>
-        <MotionTypography variant="h6" fontWeight={400} color={"primary"}>
+        <MotionTypography variant="h6" fontSize={H6_2} fontWeight={400} color={"primary"}>
           {prop.data.title}
         </MotionTypography>
       </MotionBox>
