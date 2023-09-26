@@ -144,7 +144,7 @@ const CaseStudies = () => {
           modules={[Pagination, Navigation, FreeMode]}
         >
           <Stack>
-            <SlideButtons />
+            {/* <SlideButtons /> */}
           </Stack>
           {DetailsOfLargerDevices.map((element, index) => (
             <SwiperSlide key={index}>
