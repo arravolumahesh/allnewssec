@@ -30,12 +30,12 @@ const HomePage = () => {
       <Partners />
       <Social />
       <ContactUs />
-      {/* <BuildFuture /> Make seperate page for Our companies don't add these sections in the main page
+      <BuildFuture />
       <Section />
       <OurFocusAreas />
       <Sustainability />
       <OurCaseStudies />
-      {/* <HerosSection /> */}
+      <HerosSection />
       <Enquire />
       <Bajaj />
       <CsrReport />
