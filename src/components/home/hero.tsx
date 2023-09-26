@@ -62,7 +62,7 @@ const Hero = () => {
             width: { xs: "100%", md: "207px" },
             fontSize: { xs: "18px", md: "24px !important" },
           }}
-          href={"./"}
+          href={"./all-initiatives"}
           variant={"contained"}
           color={"secondary"}
           animationDelay={1000}

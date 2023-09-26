@@ -27,6 +27,11 @@ export default function CommonBreadcrumb(prop: props) {
       >
         <Typography
           component={Link}
+          sx={{
+            '&:hover':{
+              background:'none'
+            }
+          }}
           href="/"
           underline="hover"
           color="secondary.dark"
