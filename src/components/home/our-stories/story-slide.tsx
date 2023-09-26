@@ -67,7 +67,6 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             width: "100%",
             height: "auto",
             minHeight: { xs: 366, md: "100%" },
-            // aspectRatio: { xs: 1312 / 657, md: "auto" },
             top: 0,
             left: 0,
             zIndex: -1,
