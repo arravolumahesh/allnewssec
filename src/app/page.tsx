@@ -39,7 +39,6 @@ const HomePage = () => {
       <Enquire />
       <Bajaj />
       <CsrReport />
-      {/* <CsrReport /> */}
     </>
   );
 };
