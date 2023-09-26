@@ -91,7 +91,7 @@ const CompanyInitiatives = (props: props) => {
                 },
                 '& .JAMNALALBAJAJFOUNDATION':{
                   '& .MuiButton-endIcon':{
-                    marginLeft:'-45px',
+                    marginLeft:'-40px',
                   }
                 }
               }
