@@ -1,13 +1,19 @@
+"use client";
 import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logoCard";
+import {
+  MaterialSwiper,
+  MaterialSwiperSlide,
+} from "@/commonComponents/material-components";
 import { MotionTypography } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
 import { Stack } from "@mui/material";
 import React from "react";
+import { Autoplay } from "swiper/modules";
 
 const Partners = () => {
   return (
-    <SectionWrapper py={{ xs: 7, md: 12 }} px={0}>
+    <SectionWrapper py={{ xs: 7, md: 12 }} px={0} overflow={"hidden"}>
       <MotionTypography
         variant='h3'
         fontSize={H3_2}
@@ -36,6 +42,29 @@ const Partners = () => {
       >
         ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY
       </MotionTypography>
+      {/* <MaterialSwiper
+        slidesPerView={"auto"}
+        // slidesPerGroupAuto={true}
+        // slidesPerGroup={6}
+        spaceBetween={24}
+        loopedSlides={6}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        width={100}
+        modules={[Autoplay]}
+      >
+        {data.map((item, idx) => (
+          <MaterialSwiperSlide
+            key={idx}
+            sx={{ width: { xs: "128px !important", md: "199px !important" } }}
+          >
+            <LogoCard data={item} />
+          </MaterialSwiperSlide>
+        ))}
+      </MaterialSwiper> */}
       <Stack
         sx={{
           width: "min-content",
