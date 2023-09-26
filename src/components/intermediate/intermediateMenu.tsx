@@ -1,6 +1,6 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box, useScrollTrigger } from "@mui/material";
+import { Box, Button, useScrollTrigger } from "@mui/material";
 import { MotionButton } from "@cc/motion-components";
 import { appbarHeight } from "@/layout/header/reactive-appbar";
 import { useEffect, useState } from "react";
@@ -35,14 +35,14 @@ const trigger = useScrollTrigger();
         >         
           {skillMenu.map((item, index) => {
             return (
-              <MotionButton
+              <Button
                 variant="menulink"
                 color={index === 1 ? "secondary" : "primary"}
                 href={item.url}
                 key={index}
               >
                 {item.title}
-              </MotionButton>
+              </Button>
             );
           })}
         </Box>
