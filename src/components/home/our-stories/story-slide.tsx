@@ -1,5 +1,5 @@
 "use client";
-import { alpha, Typography } from "@mui/material";
+import { alpha, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import { MotionStack } from "@cc/motion-components";
@@ -36,12 +36,6 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             width: "100%",
             position: "relative",
             alignItems: "flex-start",
-            // clipPath:
-            //   "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)",
-            // clipPath:
-            //   "polygon(49% 0%, 60% 50%, 50% 100%, 46% 100%, 56% 50%, 45% 0%)",
-            // clipPath:
-            //   "polygon(48% 25%, 55% 50%, 49% 75%, 46% 75%, 52% 50%, 45% 25%)",
           },
           ...sxArrayUtil(sx),
         ]}
@@ -67,20 +61,20 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
         }}
         {...rest}
       >
-        <MaterialImage
-          src={bgImage}
-          alt={company}
+        <Box
           sx={{
             position: "absolute",
-            width: "auto",
-            minWidth: "100%",
+            width: "100%",
             height: "auto",
-            minHeight: "100%",
+            minHeight: { xs: 366, md: "100%" },
+            // aspectRatio: { xs: 1312 / 657, md: "auto" },
             top: 0,
             left: 0,
             zIndex: -1,
           }}
-        />
+        >
+          <MaterialImage src={bgImage} alt={company} fill objectFit='cover' />
+        </Box>
         <MotionStack
           sx={{
             width: {

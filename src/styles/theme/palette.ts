@@ -182,6 +182,7 @@ export const PaletteTheme = (
         lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
         transparentToDark:
           "linear-gradient(to top,#0A0A0A 50.71%, rgba(10, 10, 10, 0.00) 84.55%)",
+        // "linear-gradient(to top,#0A0A0A 71.71%, rgba(10, 10, 10, 0.00) 79.55%)",
       };
     },
   };
