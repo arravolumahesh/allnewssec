@@ -28,7 +28,7 @@ export interface ArrowSwiperProps<
 }
 
 const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
-  props: ArrowSwiperProps<T, P>,
+  props: ArrowSwiperProps<T, P>
 ) => {
   const { SwiperProps, data, ...restStackProps } = props;
   const {
@@ -55,7 +55,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
         ],
       };
     },
-    [SlideWrapperProps],
+    [SlideWrapperProps]
   );
 
   return (
@@ -71,7 +71,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
         amount: "all",
       }}
       transition={{
-        staggerChildren: 0.4,
+        staggerChildren: 0.2,
         staggerDirection: -1,
       }}
       {...restStackProps}
@@ -116,7 +116,13 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
         height={"100%"}
         ml={"-116px"}
         zIndex={1}
-        variants={childMotionVariants}
+        variants={{
+          ...childMotionVariants,
+          initial: {
+            opacity: 0,
+            x: "-900%",
+          },
+        }}
       />
     </MotionStack>
   );
