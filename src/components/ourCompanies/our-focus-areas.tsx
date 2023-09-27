@@ -33,6 +33,8 @@ import classRoom from "./images/classRoom.png";
 import IPH1 from "./images/IPH1.png";
 import IPH2 from "./images/IPH2.png";
 import theme from "@/styles/theme";
+import { StackedLineChart } from "@mui/icons-material";
+import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 const data = [
   {
@@ -177,7 +179,7 @@ const Areas = () => {
               }
             >
               <Typography
-                variant="h3"
+                variant='h3'
                 sx={{
                   fontFamily: helvetica,
                   fontSize: {
@@ -200,7 +202,7 @@ const Areas = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography
-                variant="body1"
+                variant='body1'
                 sx={{
                   fontFamily: helvetica,
                   fontSize: {
@@ -219,8 +221,13 @@ const Areas = () => {
                 {eachArea.discrption}
               </Typography>
               <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
-                {eachArea.intitiatives.map((eachIntiative,index) => (
-                  <Box display={"flex"} flexDirection={"column"} key={index} gap={2}>
+                {eachArea.intitiatives.map((eachIntiative, index) => (
+                  <Box
+                    display={"flex"}
+                    flexDirection={"column"}
+                    key={index}
+                    gap={2}
+                  >
                     <Image
                       src={eachIntiative.imageUrl}
                       alt={eachIntiative.title}
@@ -232,7 +239,7 @@ const Areas = () => {
                       height={50}
                     />
                     <Typography
-                      variant="body1"
+                      variant='body1'
                       sx={{
                         fontFamily: helvetica,
                         fontSize: {
@@ -282,206 +289,98 @@ const OurFocusAreas = () => {
     <SectionWrapper
       SectionProps={{
         sx: {
-          background: (theme) => theme.palette.gradient.lightToDark,
+          background: (theme) => theme.palette.gradient.darkToLight,
         },
       }}
+      SectionHeaderProps={{
+        title: "OUR FOCUS AREAS",
+      }}
+      color={"common.white"}
     >
-      <Box
-        sx={{
-          display: {
-            xs: "flex",
-            gl: "inline-flex",
-          },
-          flexDirection: "column",
-          alignItems: "flex-start",
-          padding: {
-            sm: "56px 24px",
-            xs_sm: "56px 24px",
-            sm_md: "56px 24px",
-            lg: "96px 52px 176px 64px",
-          },
-        }}
-        component={motion.div}
+      <Stack
+        direction='row'
+        alignItems={{ md: "stretch", lg: "center" }}
+        justifyContent={"space-between"}
+        mb={12}
+        columnGap={2}
       >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "48px",
-          }}
-        >
-          <Stack
-            sx={{
-              display: "-webkit-box",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 1,
-              alignSelf: "stretch",
+        <Stack direction={"row"} columnGap={1} width={"50%"}>
+          <MotionImage
+            src={OFA1}
+            alt='OFA1'
+            width={0}
+            height={0}
+            style={{
+              width: "50%",
+              height: "100%",
             }}
-            component={motion.div}
-            variants={staggerDiv}
-          >
-            <MotionTypography
-              sx={{
-                fontFamily: helvetica,
-                fontSize: {
-                  xs: "32px",
-                  md: "32px",
-                  xl: "64px",
-                },
-                fontStyle: "normal",
-                fontWeight: 400,
-                lineHeight: "128%",
-                textTransform: "uppercase",
-                opacity: 0.9,
-                color: "var(--White, #FFF)",
-                textAlign: "center",
-                textOverflow: "ellipsis",
+            variants={StagImage1}
+            initial={"initial"}
+            whileInView={"animate"}
+            viewport={{ once: true }}
+          />
+          <Stack rowGap={1}>
+            <MotionImage
+              src={OFA2}
+              alt=''
+              width={0}
+              height={0}
+              style={{
+                width: "100%",
+                height: "50%",
               }}
-              variants={staggerHeading}
+              variants={StagImage2}
               initial={"initial"}
               whileInView={"animate"}
               viewport={{ once: true }}
-            >
-              {" "}
-              Our Focus Areas
-            </MotionTypography>
+            />
+            <MotionImage
+              src={OFA3}
+              alt=''
+              width={0}
+              height={0}
+              style={{
+                width: "100%",
+                height: "50%",
+              }}
+              variants={StagImage3}
+              initial={"initial"}
+              whileInView={"animate"}
+              viewport={{ once: true }}
+            />
           </Stack>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: {
-                xs: "column",
-
-                lg: "row",
-              },
-              gap: "20px",
-            }}
+        </Stack>
+        <Stack
+          width={"50%"}
+          maxWidth={612}
+          rowGap={5}
+          component={motion.div}
+          variants={staggerDiv}
+          initial={"initial"}
+          whileInView={"animate"}
+          viewport={{ once: true }}
+        >
+          <MotionTypography
+            variant='body1'
+            fontSize={H6_2}
+            variants={staggerChildren}
           >
-            <Box
-              sx={{
-                width: {
-                  xs: "100%",
-                  lg: "50%",
-                },
-                display: "flex",
-              }}
-            >
-              <MotionImage
-                src={OFA1}
-                alt="OFA1"
-                width={0}
-                height={0}
-                style={{
-                  width: "50%",
-                  height: "100%",
-                }}
-                variants={StagImage1}
-                initial={"initial"}
-                whileInView={"animate"}
-                viewport={{ once: true }}
-              />
-              <Stack
-                sx={{
-                  width: "50%",
-                  gap: "8px",
-                }}
-              >
-                <MotionImage
-                  src={OFA2}
-                  alt=""
-                  width={0}
-                  height={0}
-                  style={{
-                    width: "100%",
-                    height: "50%",
-                  }}
-                  variants={StagImage2}
-                  initial={"initial"}
-                  whileInView={"animate"}
-                  viewport={{ once: true }}
-                />
-                <MotionImage
-                  src={OFA3}
-                  alt=""
-                  width={0}
-                  height={0}
-                  style={{
-                    width: "100%",
-                    height: "50%",
-                  }}
-                  variants={StagImage3}
-                  initial={"initial"}
-                  whileInView={"animate"}
-                  viewport={{ once: true }}
-                />
-              </Stack>
-            </Box>
-            <Stack
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "flex-start",
-                gap: "40px",
-                width: {
-                  xs: "100%",
-                  lg: "50%",
-                },
-              }}
-              component={motion.div}
-              variants={staggerDiv}
-            >
-              <MotionTypography
-                sx={{
-                  fontFamily: helvetica,
-                  fontSize: {
-                    xs: "18px",
-                    md: "21px",
-                    xl: "24px",
-                  },
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: {
-                    xs: "128%",
-                    md: "128%",
-                    xl: "140%",
-                  },
-
-                  color: "var(--White, #FFF)",
-                }}
-                variant="body1"
-                variants={staggerChildren}
-                initial={"initial"}
-                whileInView={"animate"}
-                viewport={{ once: true }}
-              >
-                We are deeply committed to improving livelihoods, particularly
-                for the marginalized youth of our country by skilling and
-                empowering them. We also contribute to education, health,
-                environment, animal welfare projects, and other relevant areas
-                for the sustainable development of the community and the nation.
-              </MotionTypography>
-              <AnimatedButton
-                sx={{
-                  mt: 4,
-                  color: "#FFF",
-                  width: "150px",
-                  bgcolor: "rgba(255, 255, 255, 0.10)",
-                  fontSize: { xs: "16px", md: "22px !important" },
-                }}
-                href={"./"}
-                variants={staggerBtn}
-                initial={"initial"}
-                whileInView={"animate"}
-                viewport={{ once: true }}
-              >
-                View Initiatives
-              </AnimatedButton>
-            </Stack>
-          </Box>
-        </Box>
-      </Box>
+            We are deeply committed to improving livelihoods, particularly for
+            the marginalized youth of our country by skilling and empowering
+            them. We also contribute to education, health, environment, animal
+            welfare projects, and other relevant areas for the sustainable
+            development of the community and the nation.
+          </MotionTypography>
+          <AnimatedButton
+            href={"./"}
+            variant='contained'
+            color='secondary'
+            variants={staggerBtn}
+          >
+            View Initiatives
+          </AnimatedButton>
+        </Stack>
+      </Stack>
       {Areas()}
     </SectionWrapper>
   );
