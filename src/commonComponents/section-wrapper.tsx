@@ -34,7 +34,6 @@ const SectionWrapper = forwardRef<
       component={"section"}
       alignItems={"center"}
       height={1}
-      ref={ref}
       overflow={"hidden"}
       color={color}
       sx={[
@@ -57,12 +56,12 @@ const SectionWrapper = forwardRef<
         height={"inherit"}
         color={color}
         {...ContainerProps}
-        {...(!title && rest)}
+        {...(!title && { ref, ...rest })}
       >
         {title ? (
           <>
             <SectionHeader {...SectionHeaderProps} />
-            <MotionStack width={1} {...rest}>
+            <MotionStack width={1} ref={ref} {...rest}>
               {children}
             </MotionStack>
           </>

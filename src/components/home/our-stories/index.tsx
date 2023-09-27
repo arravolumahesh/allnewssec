@@ -1,3 +1,4 @@
+"use client";
 import SectionWrapper from "@cc/section-wrapper";
 import StorySlide, {
   StorySlideProps,
@@ -8,9 +9,57 @@ import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
 import { Navigation } from "swiper/modules";
 import { MotionVariantProps } from "@/commonComponents/motion-components";
 
+const GSAP_DEFAULT_OPTIONS = {
+  end: "+=100%",
+  pin: true,
+  scrub: true,
+  start: "top top",
+};
+
 const OurStories = () => {
+  // const sectionRef = useRef<HTMLDivElement>(null);
+  // const refTimeline = useRef<GSAPTimeline>();
+  // const progress = useMotionValue(0);
+  // console.log("-> progress", progress);
+  //
+  // const bg = useTransform(progress, [0, 1], ["#333399", '#663399']);
+  // console.log("-> bg", bg);
+  //
+  // useLayoutEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   const section = sectionRef.current;
+  //   if (section) {
+  //     const { offsetHeight } = section;
+  //     const timeline = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         start: "top top",
+  //         end: `+=${offsetHeight}`,
+  //         scrub: true,
+  //         pin: true,
+  //         onUpdate: (self) => {
+  //           progress.set(clamp(self.progress, 0, 1));
+  //         },
+  //       },
+  //     });
+  //     timeline.to(progress, {
+  //       value: 1,
+  //       duration: 1,
+  //     });
+  //     refTimeline.current = timeline;
+  //   }
+  //   return () => {
+  //     if (refTimeline.current) {
+  //       refTimeline.current?.scrollTrigger?.kill();
+  //       refTimeline.current?.kill();
+  //       refTimeline.current?.clear();
+  //     }
+  //   };
+  // }, [progress]);
+
   return (
     <SectionWrapper
+      // ref={sectionRef}
       color={"secondary.main"}
       SectionHeaderProps={{
         title: "Our Stories",

@@ -11,6 +11,7 @@ const InTheNews = () => {
   return (
     <ArrowSwiperWithInfoSection
       data={data}
+      SwiperKey={InTheNews.name}
       SectionWrapperProps={{
         SectionHeaderProps: {
           title: "In the News",

@@ -85,7 +85,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           exit={"exit"}
           viewport={{
             once: true,
-            amount: "all",
+            amount: "some",
           }}
           variants={{
             animate: {
@@ -159,7 +159,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           }}
           viewport={{
             once: true,
-            amount: "all",
+            amount: "some",
           }}
         />
       )}

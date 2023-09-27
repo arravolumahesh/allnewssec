@@ -5,12 +5,10 @@ import {
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
-import Image from "next/image";
 import React from "react";
 import skillImage from "./images/Rectangle 24993.png";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
 import { motion } from "framer-motion";
-import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
 import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
@@ -46,7 +44,7 @@ const KeyFocus = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant='h1'
+              variant="h1"
               component={"h3"}
               variants={staggerChildren}
             >
@@ -63,6 +61,7 @@ const KeyFocus = () => {
       </Stack>
       <ArrowSwiperWithInfoSection
         data={arrowData}
+        SwiperKey={KeyFocus.name}
         SwiperProps={{
           navigation: false,
         }}
@@ -85,7 +84,7 @@ const KeyFocus = () => {
         >
           <Image src={skillImage} alt='Skill Banner' fill />
         </SlideAnimationWrapper> */}
-      <Stack direction='row' alignItems={"center"} width={"107%"}>
+      <Stack direction="row" alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{

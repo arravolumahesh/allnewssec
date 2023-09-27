@@ -36,7 +36,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
       whileInView={"animate"}
       viewport={{
         once: true,
-        amount: "all",
+        amount: 0.5,
       }}
       {...restStackProps}
     >

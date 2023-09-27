@@ -1,13 +1,11 @@
 "use client";
 import {
-  Accordion,
   AccordionDetails,
   AccordionSummary,
   accordionSummaryClasses,
   Divider,
   List,
   ListItem,
-  Stack,
   Theme,
   useMediaQuery,
 } from "@mui/material";
@@ -15,6 +13,11 @@ import MLink, { MLinkProps } from "@cc/m-link";
 import { Overline, Subtitle1 } from "@theme/components/typography.fontvariant";
 import { useState } from "react";
 import { AddRounded, RemoveRounded } from "@mui/icons-material";
+import {
+  MotionAccordion,
+  MotionStack,
+  MotionVariantProps,
+} from "@cc/motion-components";
 
 interface FooterLinksProps {
   data: {
@@ -33,7 +36,7 @@ const CommonLinks = () => {
   const [expanded, setExpanded] = useState<string | false>(false);
 
   return (
-    <Stack
+    <MotionStack
       direction={{ xs: "column", sm: "row" }}
       justifyContent={{ sx: "flex-start", lg: "space-between" }}
       alignItems={"flex-start"}
@@ -47,7 +50,7 @@ const CommonLinks = () => {
       {footerLinks.map((item, index) => {
         const { title, links } = item;
         return (
-          <Accordion
+          <MotionAccordion
             key={`${title}-${index}`}
             expanded={isSm || expanded === title}
             disableGutters
@@ -69,6 +72,7 @@ const CommonLinks = () => {
                 },
               },
             })}
+            variants={footerChildrenMotionVariants}
           >
             <AccordionSummary
               sx={{
@@ -132,14 +136,28 @@ const CommonLinks = () => {
                 })}
               </List>
             </AccordionDetails>
-          </Accordion>
+          </MotionAccordion>
         );
       })}
-    </Stack>
+    </MotionStack>
   );
 };
 
 export default CommonLinks;
+
+export const footerChildrenMotionVariants: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "80%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
 
 const footerLinks: FooterLinksProps["data"] = [
   {

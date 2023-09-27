@@ -1,8 +1,4 @@
-import {
-  PaletteOptions,
-  SimplePaletteColorOptions,
-  ThemeOptions,
-} from "@mui/material";
+import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/material";
 
 /**
  * @ThemeOptions['palette']
@@ -25,7 +21,7 @@ export const PaletteTheme = (
       200: "#a2c0e9",
       300: "#79a7e1",
       400: "#588fda",
-      500: "#3682ca",
+      500: "#326ccf",
       600: "#005dac",
       700: "#0053a3",
       800: "#004899",
