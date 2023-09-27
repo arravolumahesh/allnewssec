@@ -14,6 +14,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Divider,
+  alpha,
 } from "@mui/material";
 
 import {
@@ -34,7 +35,12 @@ import IPH1 from "./images/IPH1.png";
 import IPH2 from "./images/IPH2.png";
 import theme from "@/styles/theme";
 import { StackedLineChart } from "@mui/icons-material";
-import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
+import {
+  H3_2,
+  H6_2,
+  H6_3,
+} from "@/styles/theme/components/typography.fontvariant";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 const data = [
   {
@@ -109,30 +115,21 @@ const data = [
 ];
 
 const Areas = () => {
-  const [expanded, setExpanded] = useState<string | false>(`question1`);
+  const [expanded, setExpanded] = useState<string>("");
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
+      setExpanded(isExpanded ? panel : "");
     };
   return (
     <>
-      <Divider
-        sx={{
-          backgroundColor: "blue",
-        }}
-        component={motion.div}
-        variants={staggerChildren}
-        initial={"initial"}
-        whileInView={"animate"}
-        viewport={{ once: true }}
-      />
+      <Divider />
       <Stack
-        component={motion.div}
-        variants={StagAccordion}
-        initial={"intial"}
-        whileInView={"animate"}
-        viewport={{ once: true }}
+      // component={motion.div}
+      // variants={StagAccordion}
+      // initial={"intial"}
+      // whileInView={"animate"}
+      // viewport={{ once: true }}
       >
         {data.map((eachArea, index) => (
           <Accordion
@@ -141,137 +138,83 @@ const Areas = () => {
             sx={{
               backgroundColor: "transparent",
               boxShadow: "none",
-              borderBottom: `${
-                expanded === `Area${index}` ? " " : "1px solid #EAEAEA"
+              borderTop: `${
+                expanded === `Area${index}` ? "1px solid #EAEAEA" : "none"
               }`,
-              padding: {
+              p: {
                 xs: "24px 0",
                 lg: "48px 0",
               },
             }}
             key={index}
-            component={motion.div}
-            variants={StagAccordion}
-            initial={{
-              opacity: 0,
-              y: `${index % 2 === 0 ? "-30%" : "30%"}`,
-            }}
-            whileInView={"animate"}
-            viewport={{ once: true }}
+            // component={motion.div}
+            // variants={StagAccordion}
+            // initial={{
+            //   opacity: 0,
+            //   y: `${index % 2 === 0 ? "-30%" : "30%"}`,
+            // }}
+            // whileInView={"animate"}
+            // viewport={{ once: true }}
           >
             <AccordionSummary
+              sx={{
+                px: 0,
+                color: alpha("#fff", expanded === `Area${index}` ? 1 : 0.9),
+              }}
               expandIcon={
                 <ExpandMoreIcon
                   sx={{
                     color: "#FFF",
                     width: {
-                      sm: "24px",
-                      md: "28px",
-                      xl: "48px",
+                      xs: "40px",
+                      xl: "56px",
                     },
                     height: {
-                      sm: "24px",
-                      md: "28px",
-                      xl: "48px",
+                      xs: "40px",
+                      xl: "56px",
                     },
                   }}
                 />
               }
             >
-              <Typography
-                variant='h3'
-                sx={{
-                  fontFamily: helvetica,
-                  fontSize: {
-                    sm: "24px",
-                    md: "28px",
-                    xl: "48px",
-                  },
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "128%",
-                  textTransform: "uppercase",
-                  opacity: `${expanded === `Area${index}` ? 1 : 0.8}`,
-                  color: "var(--White, #FFF)",
-
-                  textOverflow: "ellipsis",
-                }}
-              >
+              <Typography variant='h3' fontSize={H3_2}>
                 {eachArea.title}
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
-              <Typography
-                variant='body1'
-                sx={{
-                  fontFamily: helvetica,
-                  fontSize: {
-                    sm: "16px",
-                    md: "18px",
-                    xl: "24px",
-                  },
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "128%",
-                  textTransform: "uppercase",
-                  opacity: 0.9,
-                  color: "var(--White, #FFF)",
-                }}
-              >
+            <AccordionDetails sx={{ p: 0 }}>
+              <Typography variant='body1' fontSize={H6_3} maxWidth={867}>
                 {eachArea.discrption}
               </Typography>
-              <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
+              <Grid2
+                container
+                mt={{ xs: 4, md: 7 }}
+                justifyContent={"space-between"}
+              >
                 {eachArea.intitiatives.map((eachIntiative, index) => (
-                  <Box
-                    display={"flex"}
-                    flexDirection={"column"}
-                    key={index}
-                    gap={2}
-                  >
-                    <Image
-                      src={eachIntiative.imageUrl}
-                      alt={eachIntiative.title}
-                      style={{
-                        width: "301px",
-                        height: "301px",
-                      }}
-                      width={50}
-                      height={50}
-                    />
-                    <Typography
-                      variant='body1'
-                      sx={{
-                        fontFamily: helvetica,
-                        fontSize: {
-                          sm: "16px",
-                          md: "18px",
-                          xl: "24px",
-                        },
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "128%",
-                        textTransform: "uppercase",
-                        opacity: 0.9,
-                        color: "var(--White, #FFF)",
-                      }}
-                    >
+                  <Grid2 xs={3} key={index} maxWidth={310}>
+                    <Box position={"relative"} width={1} height={310}>
+                      <Image
+                        src={eachIntiative.imageUrl}
+                        alt={eachIntiative.title}
+                        fill
+                      />
+                    </Box>
+                    <Typography variant='body1' fontSize={H6_3} mt={2}>
                       {eachIntiative.title}
                     </Typography>
-                  </Box>
+                  </Grid2>
                 ))}
-              </Box>
-              <Stack display={"flex"} alignItems={"center"}>
+              </Grid2>
+              <Stack
+                display={"flex"}
+                alignItems={"center"}
+                mt={{ xs: 3, md: 6 }}
+              >
                 <AnimatedButton
-                  sx={{
-                    mt: 4,
-                    color: "#FFF",
-                    width: { xs: "100%", md: "207px" },
-                    bgcolor: "rgba(255, 255, 255, 0.10)",
-                    fontSize: { xs: "18px", md: "24px !important" },
-                    opacity: 0.8,
-                  }}
                   href={"./"}
-                  variants={staggerBtn}
+                  variant='contained'
+                  color='secondary'
+                  // variants={staggerBtn}
                 >
                   View Initiatives
                 </AnimatedButton>
@@ -280,6 +223,7 @@ const Areas = () => {
           </Accordion>
         ))}
       </Stack>
+      <Divider />
     </>
   );
 };
@@ -298,72 +242,80 @@ const OurFocusAreas = () => {
       color={"common.white"}
     >
       <Stack
-        direction='row'
-        alignItems={{ md: "stretch", lg: "center" }}
+        direction={{ xs: "column", md: "row" }}
+        alignItems={{ xs: "center", md: "stretch", lg: "center" }}
         justifyContent={"space-between"}
         mb={12}
         columnGap={2}
+        rowGap={3}
       >
-        <Stack direction={"row"} columnGap={1} width={"50%"}>
-          <MotionImage
-            src={OFA1}
-            alt='OFA1'
-            width={0}
-            height={0}
-            style={{
-              width: "50%",
-              height: "100%",
-            }}
-            variants={StagImage1}
-            initial={"initial"}
-            whileInView={"animate"}
-            viewport={{ once: true }}
-          />
-          <Stack rowGap={1}>
+        <Stack
+          direction={"row"}
+          columnGap={{ xs: 0.5, md: 1 }}
+          width={{ xs: 1, md: 0.5 }}
+        >
+          <Box
+            position='relative'
+            width={0.5}
+            maxWidth={{ xs: "none", md: 318 }}
+            height={{ xs: 223, md: "auto", lg: 368 }}
+          >
             <MotionImage
-              src={OFA2}
-              alt=''
-              width={0}
-              height={0}
-              style={{
-                width: "100%",
-                height: "50%",
-              }}
-              variants={StagImage2}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
+              src={OFA1}
+              alt='OFA1'
+              fill
+              objectFit='cover'
+              // variants={StagImage1}
+              // initial={"initial"}
+              // whileInView={"animate"}
+              // viewport={{ once: true }}
             />
-            <MotionImage
-              src={OFA3}
-              alt=''
-              width={0}
-              height={0}
-              style={{
-                width: "100%",
-                height: "50%",
-              }}
-              variants={StagImage3}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
-            />
+          </Box>
+          <Stack
+            width={0.5}
+            rowGap={{ xs: 0.5, md: 1 }}
+            maxWidth={{ xs: "none", md: 318 }}
+          >
+            <Box position={"relative"} width={1} height={{ xs: 0.5, lg: 180 }}>
+              <MotionImage
+                src={OFA2}
+                alt=''
+                fill
+                objectFit='cover'
+                // variants={StagImage2}
+                // initial={"initial"}
+                // whileInView={"animate"}
+                // viewport={{ once: true }}
+              />
+            </Box>
+            <Box position={"relative"} width={1} height={{ xs: 0.5, lg: 180 }}>
+              <MotionImage
+                src={OFA3}
+                alt=''
+                fill
+                objectFit='cover'
+                // variants={StagImage3}
+                // initial={"initial"}
+                // whileInView={"animate"}
+                // viewport={{ once: true }}
+              />
+            </Box>
           </Stack>
         </Stack>
         <Stack
-          width={"50%"}
-          maxWidth={612}
-          rowGap={5}
-          component={motion.div}
-          variants={staggerDiv}
-          initial={"initial"}
-          whileInView={"animate"}
-          viewport={{ once: true }}
+          width={{ xs: 1, md: 0.5 }}
+          maxWidth={{ xs: 1, md: 612 }}
+          rowGap={{ xs: 3, md: 5 }}
+          // component={motion.div}
+          // variants={staggerDiv}
+          // initial={"initial"}
+          // whileInView={"animate"}
+          // viewport={{ once: true }}
         >
           <MotionTypography
             variant='body1'
             fontSize={H6_2}
-            variants={staggerChildren}
+            // variants={staggerChildren}
           >
             We are deeply committed to improving livelihoods, particularly for
             the marginalized youth of our country by skilling and empowering
@@ -375,7 +327,7 @@ const OurFocusAreas = () => {
             href={"./"}
             variant='contained'
             color='secondary'
-            variants={staggerBtn}
+            // variants={staggerBtn}
           >
             View Initiatives
           </AnimatedButton>
