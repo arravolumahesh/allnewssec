@@ -115,7 +115,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
           }}
           viewport={{
             once: true,
-              
+            amount: 0.5,
           }}
         >
           <Typography
