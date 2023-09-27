@@ -26,7 +26,7 @@ const OurStories = () => {
           trigger: section,
           toggleActions: "play none none none",
           start: "top 15%",
-          end: `+=${offsetHeight / 2}`,
+          end: `+=${offsetHeight}`,
           scrub: true,
           pin: true,
           pinSpacing: true,
