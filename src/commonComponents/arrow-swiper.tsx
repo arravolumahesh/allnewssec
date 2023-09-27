@@ -76,7 +76,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
       whileInView={"animate"}
       viewport={{
         once: true,
-        amount: "all",
+        amount: "some",
       }}
       transition={{
         staggerChildren: 0.2,
