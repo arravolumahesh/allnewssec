@@ -3,7 +3,7 @@ import { NextPage } from "next";
 
 const IntermediatePage: NextPage = () => {
   return (
-    <>
+    <>     
       <CompanyIntermediateBanner />
     </>
   );
