@@ -11,7 +11,7 @@ const Footer = () => {
       color={"secondary.main"}
       SectionProps={{
         sx: {
-          background: (theme) => theme.palette.gradient.lightToDark,
+          bgcolor: "primary.900",
           position: "relative",
           "&:before": {
             content: '""',

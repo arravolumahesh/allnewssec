@@ -7,7 +7,7 @@ import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/mat
  * @see https://material-ui.com/customization/palette/#palette
  */
 export const PaletteTheme = (
-  mode: PaletteOptions["mode"]
+  mode: PaletteOptions["mode"],
 ): ThemeOptions["palette"] => {
   const isLight = mode !== "dark";
   return {
@@ -25,7 +25,7 @@ export const PaletteTheme = (
       600: "#005dac",
       700: "#0053a3",
       800: "#004899",
-      900: "#003b8e",
+      900: "#0f182a",
       A100: "#82b1ff",
       A200: "#448aff",
       A400: "#2979ff",
@@ -178,7 +178,6 @@ export const PaletteTheme = (
         lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
         transparentToDark:
           "linear-gradient(to top,#0A0A0A 50.71%, rgba(10, 10, 10, 0.00) 84.55%)",
-        // "linear-gradient(to top,#0A0A0A 71.71%, rgba(10, 10, 10, 0.00) 79.55%)",
       };
     },
   };
