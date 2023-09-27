@@ -1,10 +1,8 @@
 "use client";
-
 import { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import AnimatedButton from "@/commonComponents/animated-button";
 import { motion } from "framer-motion";
-
 import {
   Box,
   Stack,
@@ -23,24 +21,20 @@ import {
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-import Image from "next/image";
-import { helvetica } from "@/app/font";
 import OFA1 from "./images/OFA1.png";
 import OFA2 from "./images/OFA2.png";
 import OFA3 from "./images/OFA3.png";
-import WorkForce from "./images/WorkForce.png";
+import WorkForce from "./images/workForce.png";
 import classRoom from "./images/classRoom.png";
 import IPH1 from "./images/IPH1.png";
 import IPH2 from "./images/IPH2.png";
-import theme from "@/styles/theme";
-import { StackedLineChart } from "@mui/icons-material";
 import {
   H3_2,
   H6_2,
   H6_3,
 } from "@/styles/theme/components/typography.fontvariant";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import { CompanyCard } from "@/commonComponents/cards/company";
 
 const data = [
   {
@@ -49,19 +43,19 @@ const data = [
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
     intitiatives: [
       {
-        imageUrl: WorkForce,
+        img: WorkForce,
         title: "Building a Skilled-Workforce",
       },
       {
-        imageUrl: classRoom,
+        img: classRoom,
         title: "Implementing Skill-Based Education in Schools",
       },
       {
-        imageUrl: IPH1,
+        img: IPH1,
         title: "IPH-Triveni Program",
       },
       {
-        imageUrl: IPH2,
+        img: IPH2,
         title: "IPH-Triveni Program",
       },
     ],
@@ -72,19 +66,19 @@ const data = [
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
     intitiatives: [
       {
-        imageUrl: WorkForce,
+        img: WorkForce,
         title: "Building a Skilled-Workforce",
       },
       {
-        imageUrl: classRoom,
+        img: classRoom,
         title: "Implementing Skill-Based Education in Schools",
       },
       {
-        imageUrl: IPH1,
+        img: IPH1,
         title: "IPH-Triveni Program",
       },
       {
-        imageUrl: IPH2,
+        img: IPH2,
         title: "IPH-Triveni Program",
       },
     ],
@@ -95,19 +89,19 @@ const data = [
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
     intitiatives: [
       {
-        imageUrl: WorkForce,
+        img: WorkForce,
         title: "Building a Skilled-Workforce",
       },
       {
-        imageUrl: classRoom,
+        img: classRoom,
         title: "Implementing Skill-Based Education in Schools",
       },
       {
-        imageUrl: IPH1,
+        img: IPH1,
         title: "IPH-Triveni Program",
       },
       {
-        imageUrl: IPH2,
+        img: IPH2,
         title: "IPH-Triveni Program",
       },
     ],
@@ -185,26 +179,19 @@ const Areas = () => {
               <Typography variant='body1' fontSize={H6_3} maxWidth={867}>
                 {eachArea.discrption}
               </Typography>
-              <Grid2
-                container
-                mt={{ xs: 4, md: 7 }}
-                justifyContent={"space-between"}
-              >
-                {eachArea.intitiatives.map((eachIntiative, index) => (
-                  <Grid2 xs={3} key={index} maxWidth={310}>
-                    <Box position={"relative"} width={1} height={310}>
-                      <Image
-                        src={eachIntiative.imageUrl}
-                        alt={eachIntiative.title}
-                        fill
-                      />
-                    </Box>
-                    <Typography variant='body1' fontSize={H6_3} mt={2}>
-                      {eachIntiative.title}
-                    </Typography>
-                  </Grid2>
-                ))}
-              </Grid2>
+              <Stack direction='row' mt={{ xs: 4, md: 7 }} width={1}>
+                <EnhancedSwiper
+                  slidesPerView={"auto"}
+                  SlideWrapperProps={{
+                    sx: {
+                      width: { xs: 301, lg: 310 },
+                      mr: 3,
+                    },
+                  }}
+                  SlideComponent={CompanyCard}
+                  data={eachArea.intitiatives}
+                />
+              </Stack>
               <Stack
                 display={"flex"}
                 alignItems={"center"}
