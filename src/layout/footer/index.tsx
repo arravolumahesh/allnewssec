@@ -39,6 +39,7 @@ const Footer = () => {
       whileInView={"animate"}
       viewport={{
         once: true,
+        amount: 0.5,
       }}
       transition={{
         staggerChildren: 0.2,

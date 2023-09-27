@@ -9,6 +9,12 @@ import {
   MotionTypography,
 } from "@cc/motion-components";
 import { footerChildrenMotionVariants } from "@/layout/footer/common-links";
+import { motion } from "framer-motion";
+import { SvgIconProps } from "@mui/material/SvgIcon";
+
+const MotionKeyboardArrowUpRounded = motion<SvgIconProps>(
+  KeyboardArrowUpRounded,
+);
 
 const Copyright = () => {
   const handleClick = useCallback(() => {
@@ -92,7 +98,32 @@ const Copyright = () => {
           }}
           variants={footerChildrenMotionVariants}
         >
-          <KeyboardArrowUpRounded fontSize={"inherit"} />
+          <MotionKeyboardArrowUpRounded
+            fontSize={"inherit"}
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 1,
+                ease: "easeInOut",
+                delay: 4,
+              },
+            }}
+            whileInView={{
+              y: [0, -4, 0, -4],
+              transition: {
+                duration: 1.5,
+                delay: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "linear",
+              },
+            }}
+          />
         </MotionBorderedIconButton>
       </Stack>
     </Stack>
