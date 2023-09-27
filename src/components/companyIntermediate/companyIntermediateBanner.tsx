@@ -10,6 +10,7 @@ import {
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import Image from "next/image";
 import CommonBreadcrumb from "@/commonComponents/breadcrumb";
+import cbanner from './image/cbanner.png'
 
 const CompanyIntermediateBanner = () => {
   const [textTransition, setTextTransition] = useState(false);
@@ -74,47 +75,6 @@ const CompanyIntermediateBanner = () => {
       >
         <MotionBox
           sx={{
-            clipPath:
-              "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0 48%, 0% 0%)",
-            background: "#333",
-            height: "464px",
-            flex: 1,
-            marginRight: "-9%",
-            overflow: "hidden",
-          }}
-          {...bannerBoxTransition}
-          transition={{
-            delay: 0.3,
-            duration: 1,
-          }}
-        >
-          {/* <Image src={banner1} alt="banner1" /> */}
-        </MotionBox>
-
-        <MotionBox
-          sx={{
-            clipPath:
-              "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)",
-            background: "#ccc",
-            height: "464px",
-            flex: 1,
-            marginRight: "-9%",
-            overflow: "hidden",
-          }}
-          {...bannerBoxTransition}
-          transition={{
-            delay: 0.2,
-            duration: 1,
-          }}
-        >
-          {/* <Image src={banner2} alt="banner2" /> */}
-        </MotionBox>
-
-        <MotionBox
-          sx={{
-            clipPath:
-              "polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%)",
-            background: "#333",
             height: "464px",
             flex: 1,
             overflow: "hidden",
@@ -125,7 +85,7 @@ const CompanyIntermediateBanner = () => {
             duration: 1,
           }}
         >
-          {/* <Image src={banner} alt="banner3" /> */}
+          <Image src={cbanner} alt="banner3" />
         </MotionBox>
       </Box>
 
@@ -160,10 +120,10 @@ const CompanyIntermediateBanner = () => {
           variant="h3"
           color="white"
           mb={2}
-          sx={{textTransform:'uppercase'}}
+          sx={{textTransform:'uppercase',maxWidth:550}}
           {...headerTransition}
         >
-          Empowering Lives
+          Building futures, one skill at a time.
         </MotionTypography>
       </SectionWrapper>
     </Stack>
