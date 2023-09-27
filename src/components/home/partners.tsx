@@ -1,60 +1,45 @@
 "use client";
 import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logo";
-import {
-  MaterialSwiper,
-  MaterialSwiperSlide,
-} from "@/commonComponents/material-components";
-import { MotionTypography } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
-import { Stack } from "@mui/material";
 import React from "react";
+import { MaterialSwiper, MaterialSwiperSlide } from "@cc/material-components";
 import { Autoplay } from "swiper/modules";
+import "../../../node_modules/swiper/modules/autoplay.min.css";
+import "../../../node_modules/swiper/modules/free-mode.css";
 
 const Partners = () => {
   return (
-    <SectionWrapper py={{ xs: 7, md: 12 }} px={0} overflow={"hidden"}>
-      <MotionTypography
-        variant='h3'
-        fontSize={H3_2}
-        color={"primary.main"}
-        textAlign={"center"}
-        maxWidth={951}
-        m={"auto"}
-        px={{
-          xs: 3,
-          md: 0,
-        }}
-        initial={{
-          y: "30%",
-          opacity: 0,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-          transition: {
-            duration: 0.4,
-          },
-        }}
-        viewport={{
-          once: true,
-        }}
-      >
-        ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY
-      </MotionTypography>
-      {/* <MaterialSwiper
+    <SectionWrapper
+      color={"primary.main"}
+      SectionHeaderProps={{
+        title: "ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY",
+        TitleTypographyProps: {
+          variant: "h3",
+          fontSize: H3_2,
+          textAlign: "center",
+          maxWidth: 951,
+          mx: "auto",
+        },
+      }}
+    >
+      <MaterialSwiper
         slidesPerView={"auto"}
-        // slidesPerGroupAuto={true}
-        // slidesPerGroup={6}
         spaceBetween={24}
-        loopedSlides={6}
         autoplay={{
-          delay: 1000,
+          delay: 0,
+          pauseOnMouseEnter: true,
           disableOnInteraction: false,
         }}
-        loop={true}
-        width={100}
+        speed={800}
+        loop
         modules={[Autoplay]}
+        sx={{
+          width: "100%",
+          "& .swiper-wrapper": {
+            transitionTimingFunction: "linear !important",
+          },
+        }}
       >
         {data.map((item, idx) => (
           <MaterialSwiperSlide
@@ -64,27 +49,28 @@ const Partners = () => {
             <LogoCard data={item} />
           </MaterialSwiperSlide>
         ))}
-      </MaterialSwiper> */}
-      <Stack
-        sx={{
-          width: "min-content",
-          transform: "translate3d(-50%, 0, 0)",
-          animation: "logoScroll 10s infinite linear",
-          "@keyframes logoScroll": {
-            "100%": {
-              WebkitTransform: "translateX(-3.5%)",
-            },
-          },
-        }}
-        direction='row'
-        justifyContent={"flex-end"}
-        columnGap={{ xs: 2, md: 3 }}
-        mt={{ xs: 5, md: 6 }}
-      >
-        {data.map((item, idx) => (
-          <LogoCard key={idx} data={item} />
-        ))}
-      </Stack>
+      </MaterialSwiper>
+
+      {/*<Stack*/}
+      {/*  sx={{*/}
+      {/*    width: "min-content",*/}
+      {/*    transform: "translate3d(-50%, 0, 0)",*/}
+      {/*    animation: "logoScroll 10s infinite linear",*/}
+      {/*    "@keyframes logoScroll": {*/}
+      {/*      "100%": {*/}
+      {/*        WebkitTransform: "translateX(-3.5%)",*/}
+      {/*      },*/}
+      {/*    },*/}
+      {/*  }}*/}
+      {/*  direction="row"*/}
+      {/*  justifyContent={"flex-end"}*/}
+      {/*  columnGap={{ xs: 2, md: 3 }}*/}
+      {/*  mt={{ xs: 5, md: 6 }}*/}
+      {/*>*/}
+      {/*  {data.map((item, idx) => (*/}
+      {/*    <LogoCard key={idx} data={item} />*/}
+      {/*  ))}*/}
+      {/*</Stack>*/}
     </SectionWrapper>
   );
 };
