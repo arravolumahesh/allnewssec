@@ -1,8 +1,4 @@
-import {
-  PaletteOptions,
-  SimplePaletteColorOptions,
-  ThemeOptions,
-} from "@mui/material";
+import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/material";
 
 /**
  * @ThemeOptions['palette']
@@ -11,7 +7,7 @@ import {
  * @see https://material-ui.com/customization/palette/#palette
  */
 export const PaletteTheme = (
-  mode: PaletteOptions["mode"]
+  mode: PaletteOptions["mode"],
 ): ThemeOptions["palette"] => {
   const isLight = mode !== "dark";
   return {
@@ -25,11 +21,11 @@ export const PaletteTheme = (
       200: "#a2c0e9",
       300: "#79a7e1",
       400: "#588fda",
-      500: "#3682ca",
+      500: "#326ccf",
       600: "#005dac",
       700: "#0053a3",
       800: "#004899",
-      900: "#003b8e",
+      900: "#0f182a",
       A100: "#82b1ff",
       A200: "#448aff",
       A400: "#2979ff",
@@ -143,7 +139,7 @@ export const PaletteTheme = (
       300: "#819EAB",
       400: "#5E8494",
       500: "#405A76",
-      600: "#334860",
+      600: "#575756",
       700: "#24445B",
       800: "#163850",
       900: "#263447",
@@ -182,7 +178,6 @@ export const PaletteTheme = (
         lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
         transparentToDark:
           "linear-gradient(to top,#0A0A0A 50.71%, rgba(10, 10, 10, 0.00) 84.55%)",
-        // "linear-gradient(to top,#0A0A0A 71.71%, rgba(10, 10, 10, 0.00) 79.55%)",
       };
     },
   };

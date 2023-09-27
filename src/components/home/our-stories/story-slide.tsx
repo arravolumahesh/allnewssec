@@ -2,7 +2,7 @@
 import { alpha, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionStack } from "@cc/motion-components";
+import { MotionStack, MotionVariantProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
@@ -67,13 +67,12 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             width: "100%",
             height: "auto",
             minHeight: { xs: 366, md: "100%" },
-            // aspectRatio: { xs: 1312 / 657, md: "auto" },
             top: 0,
             left: 0,
             zIndex: -1,
           }}
         >
-          <MaterialImage src={bgImage} alt={company} fill objectFit='cover' />
+          <MaterialImage src={bgImage} alt={company} fill objectFit="cover" />
         </Box>
         <MotionStack
           sx={{
@@ -91,20 +90,11 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               md: 0,
             },
           }}
-          initial={{
-            opacity: 0,
-            x: "20%",
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: {
-              duration: 0.8,
-            },
-          }}
+          variants={storySlideMotionVariant}
+          initial={"initial"}
+          whileInView={"animate"}
           viewport={{
             once: true,
-            amount: "some",
           }}
         >
           <Typography
@@ -151,6 +141,9 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               xxl: 5,
             }}
             whiteSpace={"pre-wrap"}
+            sx={{
+              color: (theme) => alpha(theme.palette.secondary.main, 0.6),
+            }}
           >
             {description}
           </Typography>
@@ -167,9 +160,24 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
         </MotionStack>
       </SectionWrapper>
     );
-  }
+  },
 );
 
 export default StorySlide;
 
 StorySlide.displayName = StorySlide.name;
+
+const storySlideMotionVariant: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    x: "20%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 2.2,
+      duration: 0.8,
+    },
+  },
+};

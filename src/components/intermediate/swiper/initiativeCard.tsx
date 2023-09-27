@@ -106,7 +106,7 @@ const InitiativeCard = (prop: props) => {
           <RoomIcon sx={{ width: { xs: "18px", md: "18px" } }} />{" "}
           {prop.data.location}
         </MotionTypography>
-        <MotionTypography variant="h6" fontSize={H6_2} fontWeight={400} color={"primary"}>
+        <MotionTypography variant="h6" textTransform={'capitalize'} fontSize={H6_2} fontWeight={400} color={"primary"}>
           {prop.data.title}
         </MotionTypography>
       </MotionBox>

@@ -1,23 +1,22 @@
 "use client";
 import {
   MotionImage,
+  MotionStack,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Stack, useMediaQuery, useTheme } from "@mui/material";
-import React, { Fragment } from "react";
+import { Stack } from "@mui/material";
+import React from "react";
 import line from "./images/Line 1322.svg";
 import { motion } from "framer-motion";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 const Impact = () => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <SectionWrapper
       SectionProps={{
-        bgcolor: "primary.main",
+        bgcolor: "primary.500",
       }}
       SectionHeaderProps={{
         title: "DRIVING A LASTING IMPACT",
@@ -26,11 +25,11 @@ const Impact = () => {
         DescriptionTypographyProps: {
           fontSize: H6_2,
         },
-        maxWidth: { xs: 1, md: 867 },
+        maxWidth: { xs: 1, md: 874 },
       }}
       color={"common.white"}
     >
-      <Stack
+      <MotionStack
         direction={"row"}
         width={1}
         maxWidth={1232}
@@ -39,48 +38,47 @@ const Impact = () => {
         justifyContent={"space-between"}
         flexWrap={"wrap"}
         rowGap={4}
-        component={motion.div}
         variants={staggerDivArrow}
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
+        divider={
+          <MotionImage
+            variants={staggerArrowChildren}
+            src={line}
+            alt=""
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+          />
+        }
       >
         {data.map((item, idx) => {
           return (
-            <Fragment key={idx}>
-              <Stack
-                key={idx}
-                alignItems={"center"}
-                width={{ xs: "50%", md: "auto" }}
-                rowGap={1}
-                component={motion.div}
-                variants={staggerStackChildren}
-                viewport={{ once: true }}
+            <Stack
+              key={idx}
+              alignItems={"center"}
+              width={{ xs: "50%", md: "auto" }}
+              rowGap={1}
+              component={motion.div}
+              variants={staggerStackChildren}
+              viewport={{ once: true }}
+            >
+              <MotionTypography
+                variants={staggerTextChildren}
+                variant="h2"
+                component={"h3"}
+                fontWeight={700}
               >
-                <MotionTypography
-                  variants={staggerTextChildren}
-                  variant='h2'
-                  component={"h3"}
-                  fontWeight={700}
-                >
-                  {item.title}
-                </MotionTypography>
-                <MotionTypography variants={staggerTextChildren}>
-                  {item.subtitle}
-                </MotionTypography>
-              </Stack>
-              {idx !== data.length - 1 && (
-                <MotionImage
-                  variants={staggerArrowChildren}
-                  src={line}
-                  alt=''
-                  hidden={matches}
-                />
-              )}
-            </Fragment>
+                {item.title}
+              </MotionTypography>
+              <MotionTypography variants={staggerTextChildren}>
+                {item.subtitle}
+              </MotionTypography>
+            </Stack>
           );
         })}
-      </Stack>
+      </MotionStack>
     </SectionWrapper>
   );
 };

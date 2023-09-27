@@ -1,10 +1,20 @@
 "use client";
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { H1, H6_4 } from "@theme/components/typography.fontvariant";
-import MLink from "@cc/m-link";
 import { useCallback } from "react";
 import { KeyboardArrowUpRounded } from "@mui/icons-material";
-import BorderedIconButton from "@cc/bordered-icon-button";
+import {
+  MotionBorderedIconButton,
+  MotionLink,
+  MotionTypography,
+} from "@cc/motion-components";
+import { footerChildrenMotionVariants } from "@/layout/footer/common-links";
+import { motion } from "framer-motion";
+import { SvgIconProps } from "@mui/material/SvgIcon";
+
+const MotionKeyboardArrowUpRounded = motion<SvgIconProps>(
+  KeyboardArrowUpRounded,
+);
 
 const Copyright = () => {
   const handleClick = useCallback(() => {
@@ -21,26 +31,24 @@ const Copyright = () => {
         md: 8,
       }}
     >
-      <Typography
+      <MotionTypography
         fontSize={H6_4}
-        width={{ xs: 0.5, md: "fit-content" }}
+        width={{ xs: 0.7, md: "fit-content" }}
+        flex={"1 1 auto"}
         order={{
           xs: 2,
           md: 1,
         }}
+        variants={footerChildrenMotionVariants}
       >
         Copyright © Bajaj Beyond 2023
-      </Typography>
+      </MotionTypography>
       <Stack
         columnGap={{
           xs: 3.5,
           lg: 5,
         }}
         rowGap={1}
-        justifyContent={{
-          xs: "space-between",
-          sm: "unset",
-        }}
         flexWrap={"wrap"}
         direction={"row"}
         order={{
@@ -50,18 +58,19 @@ const Copyright = () => {
       >
         {copyrightLinks.map((item, index) => {
           return (
-            <MLink
+            <MotionLink
               key={index}
               href={item.split(" ").join("-").toLowerCase()}
               variant={"text"}
               disableRipple
               color={"secondary"}
+              variants={footerChildrenMotionVariants}
               sx={{
                 fontSize: H6_4,
               }}
             >
               {item}
-            </MLink>
+            </MotionLink>
           );
         })}
       </Stack>
@@ -72,7 +81,7 @@ const Copyright = () => {
         }}
         order={3}
       >
-        <BorderedIconButton
+        <MotionBorderedIconButton
           onClick={handleClick}
           color={"secondary"}
           sx={{
@@ -87,9 +96,35 @@ const Copyright = () => {
             mx: "auto",
             fontSize: H1,
           }}
+          variants={footerChildrenMotionVariants}
         >
-          <KeyboardArrowUpRounded fontSize={"inherit"} />
-        </BorderedIconButton>
+          <MotionKeyboardArrowUpRounded
+            fontSize={"inherit"}
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 1,
+                ease: "easeInOut",
+                delay: 4,
+              },
+            }}
+            whileInView={{
+              y: [0, -4, 0, -4],
+              transition: {
+                duration: 1.5,
+                delay: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "linear",
+              },
+            }}
+          />
+        </MotionBorderedIconButton>
       </Stack>
     </Stack>
   );
