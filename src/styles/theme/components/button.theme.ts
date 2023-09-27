@@ -21,7 +21,7 @@ export const ButtonVariants: Components<
           ...helvetica.style,
           whiteSpace: "nowrap",
           lineHeight: "128%",
-          fontWeight: 500,
+          fontWeight: 400,
           fontSize: Button,
           textRendering: "optimizeSpeed",
           letterSpacing: "normal",

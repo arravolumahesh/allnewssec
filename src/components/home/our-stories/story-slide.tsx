@@ -141,6 +141,9 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               xxl: 5,
             }}
             whiteSpace={"pre-wrap"}
+            sx={{
+              color: (theme) => alpha(theme.palette.secondary.main, 0.6),
+            }}
           >
             {description}
           </Typography>
