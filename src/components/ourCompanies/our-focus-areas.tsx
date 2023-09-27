@@ -179,6 +179,48 @@ const Areas = () => {
               <Typography variant='body1' fontSize={H6_3} maxWidth={867}>
                 {eachArea.discrption}
               </Typography>
+              <Stack
+                direction='row'
+                alignItems={"center"}
+                justifyContent={"space-around"}
+                py={1.5}
+                mt={3}
+                borderTop={"1px solid rgba(234, 234, 234, 0.20)"}
+                borderBottom={"1px solid rgba(234, 234, 234, 0.20)"}
+              >
+                <Stack textAlign={"center"} rowGap={{ xs: 1, md: 0.5 }}>
+                  <Typography variant='h4' fontWeight={700}>
+                    93K
+                  </Typography>
+                  <Typography variant='body2'>Students Educated</Typography>
+                </Stack>
+                <Divider
+                  orientation='vertical'
+                  sx={{
+                    height: 75,
+                    borderColor: "rgba(234, 234, 234, 0.20)",
+                  }}
+                />
+                <Stack textAlign={"center"} rowGap={{ xs: 1, md: 0.5 }}>
+                  <Typography variant='h4' fontWeight={700}>
+                    100+
+                  </Typography>
+                  <Typography variant='body2'>Training Institutions</Typography>
+                </Stack>
+                <Divider
+                  orientation='vertical'
+                  sx={{
+                    height: 75,
+                    borderColor: "rgba(234, 234, 234, 0.20)",
+                  }}
+                />
+                <Stack textAlign={"center"} rowGap={{ xs: 1, md: 0.5 }}>
+                  <Typography variant='h4' fontWeight={700}>
+                    300+
+                  </Typography>
+                  <Typography variant='body2'>Programs Conducted</Typography>
+                </Stack>
+              </Stack>
               <Stack direction='row' mt={{ xs: 4, md: 7 }} width={1}>
                 <EnhancedSwiper
                   slidesPerView={"auto"}
@@ -199,11 +241,11 @@ const Areas = () => {
               >
                 <AnimatedButton
                   href={"./"}
-                  variant='contained'
+                  variant='outlined'
                   color='secondary'
                   // variants={staggerBtn}
                 >
-                  View Initiatives
+                  View More Initiatives
                 </AnimatedButton>
               </Stack>
             </AccordionDetails>
