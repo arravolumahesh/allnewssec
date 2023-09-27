@@ -116,15 +116,15 @@ export const ButtonVariants: Components<
       },
       style: ({ theme }) => {
         return {
-          [theme.breakpoints.up("xs")]: {
-            color: theme.palette.grey[500],
+          [theme.breakpoints.up('xs')]:{
+            color: theme.palette.grey.A400,
             padding: theme.spacing(2),
             paddingLeft: 0,
             paddingRight: 0,
             borderBottom: "2px solid",
             borderColor: "transparent",
-            "&.MuiButton-menulinkPrimary": {
-              color: theme.palette.grey[500],
+            "&.MuiButton-menulinkPrimary":{
+              color: theme.palette.grey.A400,
             },
             "&.MuiButton-menulinkSecondary, &:hover ": {
               color: theme.palette.primary.main,
