@@ -2,7 +2,7 @@
 import { alpha, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionStack } from "@cc/motion-components";
+import { MotionStack, MotionVariantProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
@@ -101,22 +101,16 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               md: 0,
             },
           }}
-          initial={{
-            opacity: 0,
-            x: "20%",
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: {
-              delay: index === 0 ? 2.2 : 0.8,
-              duration: 0.8,
-            },
-          }}
-          viewport={{
-            once: true,
-            amount: 0.5,
-          }}
+          variants={clipTransition}
+          {...(index &&
+            index > 0 && {
+              initial: "initial",
+              whileInView: "animate",
+              viewport: {
+                once: true,
+                amount: 0.5,
+              },
+            })}
         >
           <Typography
             variant={"body2"}
@@ -187,3 +181,17 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
 export default StorySlide;
 
 StorySlide.displayName = StorySlide.name;
+
+const clipTransition: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    x: "20%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
