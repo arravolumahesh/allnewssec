@@ -28,6 +28,10 @@ const KeyHighlights = () => {
           TitleTypographyProps: {
             fontSize: H3_1,
           },
+          ButtonProps: {
+            href: "#",
+            color: "secondary",
+          },
         },
       }}
     />
