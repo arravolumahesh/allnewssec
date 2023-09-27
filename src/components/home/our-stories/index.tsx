@@ -8,6 +8,9 @@ import StoryImage from "./images/story-of-bajaj-auto.jpg";
 import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
 import { Navigation } from "swiper/modules";
 import { MotionVariantProps } from "@/commonComponents/motion-components";
+import { useLayoutEffect, useRef } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 const GSAP_DEFAULT_OPTIONS = {
   end: "+=100%",
@@ -17,49 +20,52 @@ const GSAP_DEFAULT_OPTIONS = {
 };
 
 const OurStories = () => {
-  // const sectionRef = useRef<HTMLDivElement>(null);
-  // const refTimeline = useRef<GSAPTimeline>();
-  // const progress = useMotionValue(0);
-  // console.log("-> progress", progress);
-  //
-  // const bg = useTransform(progress, [0, 1], ["#333399", '#663399']);
-  // console.log("-> bg", bg);
-  //
-  // useLayoutEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   const section = sectionRef.current;
-  //   if (section) {
-  //     const { offsetHeight } = section;
-  //     const timeline = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: section,
-  //         start: "top top",
-  //         end: `+=${offsetHeight}`,
-  //         scrub: true,
-  //         pin: true,
-  //         onUpdate: (self) => {
-  //           progress.set(clamp(self.progress, 0, 1));
-  //         },
-  //       },
-  //     });
-  //     timeline.to(progress, {
-  //       value: 1,
-  //       duration: 1,
-  //     });
-  //     refTimeline.current = timeline;
-  //   }
-  //   return () => {
-  //     if (refTimeline.current) {
-  //       refTimeline.current?.scrollTrigger?.kill();
-  //       refTimeline.current?.kill();
-  //       refTimeline.current?.clear();
-  //     }
-  //   };
-  // }, [progress]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const refTimeline = useRef<GSAPTimeline>();
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const section = sectionRef.current;
+    if (section) {
+      const { offsetHeight } = section;
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          toggleActions: "play none none none",
+          start: "top 15%",
+          end: `+=${offsetHeight / 2}`,
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+        },
+      });
+      timeline
+        .to(section, {
+          clipPath:
+            "polygon(49% 0%, 60% 50%, 50% 100%, 46% 100%, 56% 50%, 45% 0%)",
+        })
+        .to(section, {
+          clipPath:
+            "polygon(100% 0%, 111% 50%, 101% 100%, -10% 100%, 0% 50%, -11% 0%)",
+          minWidth: "auto",
+          minHeight: "auto",
+          height: "auto",
+          width: "auto",
+        });
+      refTimeline.current = timeline;
+    }
+    return () => {
+      if (refTimeline.current) {
+        refTimeline.current?.scrollTrigger?.kill();
+        refTimeline.current?.kill();
+        refTimeline.current?.clear();
+      }
+    };
+  }, []);
 
   return (
     <SectionWrapper
-      // ref={sectionRef}
+      ref={sectionRef}
       color={"secondary.main"}
       SectionHeaderProps={{
         title: "Our Stories",
@@ -73,10 +79,10 @@ const OurStories = () => {
           xxl: 3,
         },
       }}
-      variants={clipTransition}
-      initial={"initial"}
-      whileInView={"animate"}
-      viewport={{ once: true, amount: 0.5 }}
+      sx={{
+        clipPath:
+          "polygon(48% 25%, 55% 50%, 49% 75%, 46% 75%, 52% 50%, 45% 25%)",
+      }}
     >
       <EnhancedSwiper
         data={data}

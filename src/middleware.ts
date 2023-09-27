@@ -9,6 +9,10 @@ const users = [
     username: "thumbstack",
     password: "C33PKW6BLrBoQi50",
   },
+  {
+    username: "onething",
+    password: "ukEUamJc6pWW0HY8",
+  },
 ];
 
 export function middleware(req: NextRequest) {
