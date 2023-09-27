@@ -2,7 +2,7 @@
 import { alpha, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionStack, MotionVariantProps } from "@cc/motion-components";
+import { MotionStack } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
@@ -25,8 +25,19 @@ export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
 
 const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
   (props, ref) => {
-    const { bgImage, company, title, location, description, ...restCardProps } =
-      props;
+    const {
+      bgImage,
+      company,
+      title,
+      location,
+      description,
+      isNext,
+      isActive,
+      isPrev,
+      isVisible,
+      index,
+      ...restCardProps
+    } = props;
     const { sx, ...rest } = restCardProps;
     return (
       <SectionWrapper
@@ -90,11 +101,21 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               md: 0,
             },
           }}
-          variants={storySlideMotionVariant}
-          initial={"initial"}
-          whileInView={"animate"}
+          initial={{
+            opacity: 0,
+            x: "20%",
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              delay: index === 0 ? 2.2 : 0.8,
+              duration: 0.8,
+            },
+          }}
           viewport={{
             once: true,
+              
           }}
         >
           <Typography
@@ -166,18 +187,3 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
 export default StorySlide;
 
 StorySlide.displayName = StorySlide.name;
-
-const storySlideMotionVariant: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    x: "20%",
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: 2.2,
-      duration: 0.8,
-    },
-  },
-};

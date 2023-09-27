@@ -76,12 +76,13 @@ const OurStories = () => {
       variants={clipTransition}
       initial={"initial"}
       whileInView={"animate"}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.5 }}
     >
       <EnhancedSwiper
         data={data}
         SlideComponent={StorySlide}
         modules={[Navigation]}
+        passSlideState
         navigation={{
           enabled: true,
           nextEl: ".swiper-next",
