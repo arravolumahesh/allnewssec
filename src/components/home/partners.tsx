@@ -1,5 +1,5 @@
 "use client";
-import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logoCard";
+import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logo";
 import {
   MaterialSwiper,
   MaterialSwiperSlide,
