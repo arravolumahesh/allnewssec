@@ -165,6 +165,9 @@ export const ButtonVariants: Components<
           borderColor: "transparent",
           textTransform: "uppercase",
           position: "relative",
+          "&.MuiButton-companylinkPrimary":{
+            color: theme.palette.primary.main,
+          },
           "&.MuiButton-menulinkSecondary, &:hover ": {
             color: theme.palette.primary.main,
             borderColor: theme.palette.primary.main,
