@@ -29,7 +29,7 @@ const Partners = () => {
         autoplay={{
           delay: 0,
           pauseOnMouseEnter: true,
-          disableOnInteraction: false,
+          reverseDirection: true,
         }}
         speed={800}
         loop
