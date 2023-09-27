@@ -7,26 +7,23 @@ import {
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
+  alpha,
   Box,
   Button,
   Dialog,
   DialogContent,
-  DialogTitle,
   MenuItem,
-  MenuProps,
   Select,
+  selectClasses,
   Stack,
   TextField,
   Typography,
-  alpha,
-  selectClasses,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import contact from "./images/Group 427321804 (1).png";
 import AnimatedButton from "@/commonComponents/animated-button";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { KeyboardArrowDown } from "@mui/icons-material";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Body1, H6 } from "@/styles/theme/components/typography.fontvariant";
 import dialogbanner from "./images/Group 427321833.svg";
@@ -58,14 +55,14 @@ const ContactUs = () => {
           sx={{ aspectRatio: 0.86 }}
           {...boxTransition}
         >
-          <MotionImage src={contact} alt='' fill />
+          <MotionImage src={contact} alt="" fill />
         </MotionBox>
         <Stack
           rowGap={5}
           maxWidth={{ xs: 1, md_lg: 670 }}
           component={motion.div}
           variants={staggerDiv}
-          initial='initial'
+          initial="initial"
           whileInView={"animate"}
           viewport={{ once: true }}
         >
@@ -74,7 +71,7 @@ const ContactUs = () => {
             component={motion.div}
             variants={staggerDivChildrenRight}
           >
-            <Typography variant='h3'>REACH OUT TO US</Typography>
+            <Typography variant="h3">REACH OUT TO US</Typography>
             <Typography fontSize={"18px"}>
               We are always looking forward to support you.
             </Typography>
@@ -88,26 +85,26 @@ const ContactUs = () => {
           >
             <Grid2 xs={12} md={6}>
               <TextField
-                placeholder='Name'
+                placeholder="Name"
                 fullWidth
-                variant='outlined'
+                variant="outlined"
                 sx={fieldSx}
               />
             </Grid2>
             <Grid2 xs={12} md={6}>
               <TextField
-                placeholder='Email ID'
-                type='email'
+                placeholder="Email ID"
+                type="email"
                 fullWidth
                 sx={fieldSx}
               />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Phone Number' fullWidth sx={fieldSx} />
+              <TextField placeholder="Phone Number" fullWidth sx={fieldSx} />
             </Grid2>
             <Grid2 xs={12} md={6}>
               <TextField
-                placeholder='Company Name (optional)'
+                placeholder="Company Name (optional)"
                 fullWidth
                 sx={fieldSx}
               />
@@ -123,7 +120,7 @@ const ContactUs = () => {
                     },
                     color: alpha(
                       theme.palette.secondary.main,
-                      !!company ? 1 : 0.4
+                      !!company ? 1 : 0.4,
                     ),
                   }),
                 ]}
@@ -162,7 +159,7 @@ const ContactUs = () => {
                     },
                     color: alpha(
                       theme.palette.secondary.main,
-                      !!category ? 1 : 0.4
+                      !!category ? 1 : 0.4,
                     ),
                   }),
                 ]}
@@ -188,7 +185,7 @@ const ContactUs = () => {
             </Grid2>
             <Grid2 xs={12}>
               <TextField
-                placeholder='Enter A Message'
+                placeholder="Enter A Message"
                 multiline
                 fullWidth
                 rows={4}
@@ -197,8 +194,8 @@ const ContactUs = () => {
             </Grid2>
           </Grid2>
           <AnimatedButton
-            href={""}
-            rotation='anticlockwise'
+            href={"#"}
+            rotation="anticlockwise"
             variant={"contained"}
             color={"secondary"}
             sx={{
@@ -227,7 +224,7 @@ const ContactUs = () => {
                 sx={{ aspectRatio: 459 / 155 }}
                 position={"relative"}
               >
-                <Image src={dialogbanner} alt='' fill />
+                <Image src={dialogbanner} alt="" fill />
               </Box>
               <Stack
                 maxWidth={357}
@@ -238,8 +235,8 @@ const ContactUs = () => {
                 my={{ xs: 3, md: 4 }}
               >
                 <Typography
-                  variant='body1'
-                  color='primary.main'
+                  variant="body1"
+                  color="primary.main"
                   fontSize={H6}
                   fontWeight={700}
                 >
@@ -250,7 +247,7 @@ const ContactUs = () => {
                   shortly.
                 </Typography>
                 <Button
-                  variant='outlined'
+                  variant="outlined"
                   sx={{ width: { xs: 1, md: 213 } }}
                   onClick={() => setOpen(false)}
                 >

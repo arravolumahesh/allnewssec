@@ -46,6 +46,7 @@ const SocialLinks = () => {
         rowGap={2}
         justifyContent={"space-between"}
         width={{ sm: "fit-content", md: 0.4 }}
+        minWidth={"fit-content"}
         variants={footerChildrenMotionVariants}
       >
         {contactInfo.map((item, index) => {
@@ -68,6 +69,7 @@ const SocialLinks = () => {
         variants={footerChildrenMotionVariants}
         sx={{
           width: { xs: 1, lg: "fit-content" },
+          alignItems: "center",
           rowGap: 2,
         }}
       >

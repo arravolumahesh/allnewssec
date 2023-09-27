@@ -31,7 +31,7 @@ const DesktopNavigation = (props: DesktopNavigationProps) => {
             disableRipple={false}
             sx={{
               fontSize: Caption,
-              height: "inherit",
+              height: { xs: "inherit" },
             }}
           />
         );
