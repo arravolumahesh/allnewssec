@@ -1,6 +1,6 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box, SxProps, useScrollTrigger } from "@mui/material";
+import { Box, SxProps, Theme, useScrollTrigger } from "@mui/material";
 import { MotionButton } from "@cc/motion-components";
 import { appbarHeight } from "@/layout/header/reactive-appbar";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import Image from "next/image";
 
 interface props{
   logoImg?: string,
-  styles?: SxProps,
+  styles?: SxProps<Theme>,
   menus?:{
         title:string,
         url: string,

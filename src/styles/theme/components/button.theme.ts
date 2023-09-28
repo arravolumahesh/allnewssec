@@ -125,6 +125,7 @@ export const ButtonVariants: Components<
             borderColor: "transparent",
             "&.MuiButton-menulinkPrimary":{
               color: theme.palette.grey.A400,
+              opacity:0.6
             },
             "&.MuiButton-menulinkSecondary, &:hover ": {
               color: theme.palette.primary.main,

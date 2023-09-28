@@ -54,6 +54,7 @@ export default function CommonBreadcrumb() {
                   href={item}
                   underline="hover"
                   color="secondary.dark"
+                  key={index}
                 >
                   {item.replace("-", " ")}
                 </Typography>
