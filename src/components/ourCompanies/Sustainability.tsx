@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Button, Grid, Stack } from "@mui/material";
+import { Button, Divider, Grid, Stack } from "@mui/material";
 import Image from "next/image";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -21,9 +21,12 @@ import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
+import sustain from "./images/sustain.png";
+
 import Emission from "./images/Emission.png";
 import supplyChain from "./images/supplyChain.png";
 import solar from "./images/solar.png";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 interface ButtonsProps {
   disablePrev: boolean;
@@ -116,7 +119,7 @@ const Carousel = () => {
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Stack>
+    <Stack rowGap={1}>
       <Stack
         component={"div"}
         sx={{
@@ -226,7 +229,7 @@ const Carousel = () => {
                       lineHeight: "128%",
                     }}
                     variants={staggerButton}
-                    href="#"
+                    href='#'
                   >
                     {eachMearsure.title}
                   </MotionLink>
@@ -282,209 +285,76 @@ const Carousel = () => {
 // Main component  Sustainability
 
 const Sustainability = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <SectionWrapper
       SectionProps={{
         sx: {
-          background: (theme) => theme.palette.gradient.darkToLight,
+          background: "black",
+          // background: `url(${sustain.src})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        },
+      }}
+      SectionHeaderProps={{
+        title: "Sustainability",
+        TitleTypographyProps: {
+          variant: "h3",
+        },
+        description:
+          "At Bajaj Auto, our operations are not just revenue-focused. We also dedicate ourselves to achieving a balance between our business and environmental goals.",
+        DescriptionTypographyProps: {
+          fontSize: "18px",
+          maxWidth: 716,
+          mt: "16px !important",
         },
       }}
     >
-      <Stack
-        sx={{
-          padding: {
-            xs: "32px 18px",
-            md: "64px 32px 63px 32px",
-            xl: "96px 64px 93px 64px",
-          },
-          display: "inline-flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        component={motion.div}
-        variants={staggerDiv}
-        initial={"initial"}
-        whileInView={"animate"}
-        viewport={{ once: true }}
+      <Grid2
+        container
+        justifyContent={{ xs: "space-between", md: "space-around" }}
+        rowGap={3}
       >
-        <Stack
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: {
-              xs: "flex-start",
-              md: "center",
-            },
-            gap: {
-              xs: "40px",
-              xl: "56px",
-            },
-          }}
-        >
-          <Stack
-            spacing={2}
-            marginBottom={"30px"}
-            textAlign={"center"}
-            component={motion.div}
-            variants={staggerDiv}
-            initial={"initial"}
-            whileInView={"animate"}
-            viewport={{ once: true }}
-          >
-            <MotionTypography
-              sx={useStyles.haeding}
-              variant="h5"
-              variants={staggerheading}
-            >
-              Sustainability
-            </MotionTypography>
-
-            <MotionTypography
-              sx={{
-                ...useStyles.body2,
-              }}
-              variants={staggerChildren}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
-            >
-              At Bajaj Auto, our operations are not just revenue-focused. We
-              also dedicate ourselves to achieving a balance between our
-              business and environmental goals.
-            </MotionTypography>
-          </Stack>
-
-          <Grid container sx={{ alignSelf: "stretch" }}>
-            <Grid item xs={6} lg={3}>
-              <Stack
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                  borderRight: {
-                    xs: "none",
-                    md: "1px solid var(--Stroke, #EAEAEA)",
-                  },
-                  marginBottom: "40px",
-                }}
-              >
+        {gridData.map((item, idx) => (
+          <>
+            <Grid2 key={idx} width={{ xs: 0.5, md: "max-content" }}>
+              <Stack rowGap={1} width={{ xs: 1, md: "max-content" }}>
                 <MotionTypography
-                  variant="body2"
-                  sx={{ ...useStyles.body2, textAlign: "left" }}
-                  variants={staggerTextChildren}
+                  variant='body2'
+                  fontSize={"18px !important"}
+                  // variants={staggerTextChildren}
                 >
-                  Gold Standard in Governance
+                  {item.title}
                 </MotionTypography>
                 <MotionTypography
-                  variant="body2"
-                  variants={staggerTextChildren}
-                  sx={useStyles.bodySmall}
+                  variant='body2'
+                  sx={{ opacity: 0.68 }}
+                  // variants={staggerTextChildren}
+                  // sx={useStyles.bodySmall}
                 >
-                  by 2024
+                  {item.subtitle}
                 </MotionTypography>
               </Stack>
-            </Grid>
-            <Grid item xs={6} lg={3}>
-              <Stack
+            </Grid2>
+            {idx !== gridData.length - 1 && (
+              <Grid2
                 sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: {
-                    xs: "flex-start",
-                    sm: "center",
-                  },
-                  gap: "8px",
-                  borderRight: {
-                    xs: "none",
-                    lg: "1px solid var(--Stroke, #EAEAEA)",
-                  },
-                  marginBottom: "40px",
-                }}
-                flexGrow={1}
-              >
-                <MotionTypography
-                  variant="body2"
-                  sx={{ ...useStyles.body2, textAlign: "left" }}
-                  variants={staggerTextChildren}
-                >
-                  Water Positive
-                </MotionTypography>
-                <MotionTypography
-                  variant="body2"
-                  sx={useStyles.bodySmall}
-                  variants={staggerTextChildren}
-                >
-                  by 2027
-                </MotionTypography>
-              </Stack>
-            </Grid>
-            <Grid item xs={6} lg={3}>
-              <Stack
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: {
-                    xs: "flex-start",
-                    lg: "center",
-                  },
-                  gap: "8px",
-                  borderRight: {
-                    xs: "none",
-                    md: "1px solid var(--Stroke, #EAEAEA)",
-                  },
-                  marginBottom: "40px",
+                  display: (theme) => (matches ? "none" : "block"),
                 }}
               >
-                <MotionTypography
-                  variant="body2"
-                  sx={{ ...useStyles.body2, textAlign: "left" }}
-                  variants={staggerTextChildren}
-                >
-                  Carbon Neutral
-                </MotionTypography>
-
-                <MotionTypography
-                  variant="body2"
-                  sx={useStyles.bodySmall}
-                  variants={staggerTextChildren}
-                >
-                  by 2040
-                </MotionTypography>
-              </Stack>
-            </Grid>
-            <Grid item xs={6} lg={3}>
-              <Stack
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: {
-                    xs: "flex-start",
-                    sm: "center",
-                  },
-                  gap: "8px",
-                  marginBottom: "40px",
-                }}
-              >
-                <MotionTypography
-                  variant="body2"
-                  sx={{ ...useStyles.body2, textAlign: "left" }}
-                  variants={staggerTextChildren}
-                >
-                  100% Renewable Energy
-                </MotionTypography>
-                <MotionTypography
-                  variant="body2"
-                  sx={useStyles.bodySmall}
-                  variants={staggerTextChildren}
-                >
-                  by 2050
-                </MotionTypography>
-              </Stack>
-            </Grid>
-          </Grid>
-        </Stack>
-      </Stack>
+                <Divider
+                  orientation='vertical'
+                  sx={{
+                    height: "100%",
+                  }}
+                />
+              </Grid2>
+            )}
+          </>
+        ))}
+      </Grid2>
       <Carousel />
     </SectionWrapper>
   );
@@ -511,6 +381,25 @@ const ourMeasuresdata = [
     title: "Renewable Energy",
     description:
       "We adopted a 2 MWp Rooftop Solar Plant to achieve 50% renewable electricity by 2025.",
+  },
+];
+
+const gridData = [
+  {
+    title: "Gold Standard in Governance",
+    subtitle: "by 2024",
+  },
+  {
+    title: "Water Positive",
+    subtitle: "by 2027",
+  },
+  {
+    title: "Carbon Neutral",
+    subtitle: "by 2040",
+  },
+  {
+    title: "100% Renewable Energy",
+    subtitle: "by 2050",
   },
 ];
 

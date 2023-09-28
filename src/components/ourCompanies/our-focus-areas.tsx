@@ -362,7 +362,7 @@ const OurFocusAreas = () => {
           </AnimatedButton>
         </Stack>
       </Stack>
-      {Areas()}
+      <Areas />
     </SectionWrapper>
   );
 };
