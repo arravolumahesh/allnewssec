@@ -1,12 +1,9 @@
 "use client";
-
-import { useState } from "react";
-
-import { Button, Divider, Grid, Stack } from "@mui/material";
-import Image from "next/image";
+import { Box, Button, Divider, Grid, Stack } from "@mui/material";
+import Image, { StaticImageData } from "next/image";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useTheme } from "@mui/material/styles";
+import { Theme, alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
@@ -17,276 +14,19 @@ import {
 } from "@/commonComponents/motion-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { FreeMode, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import "swiper/swiper-bundle.css";
-
 import sustain from "./images/sustain.png";
 
 import Emission from "./images/Emission.png";
 import supplyChain from "./images/supplyChain.png";
 import solar from "./images/solar.png";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
-interface ButtonsProps {
-  disablePrev: boolean;
-  disableNext: boolean;
-}
-
-const CuroselBttn = (prop: ButtonsProps) => {
-  const { disableNext, disablePrev, ...rest } = prop;
-  const swiper = useSwiper();
-  return (
-    <Stack
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "16px",
-      }}
-      component={motion.div}
-      variants={constrolButton}
-      initial={"initial"}
-      whileInView={"animate"}
-      viewport={{ once: true }}
-    >
-      <Button
-        sx={{
-          display: "flex",
-          width: "48px",
-          height: "48px",
-          padding: "4px",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8px",
-          background: "rgba(255, 255, 255, 0.20)",
-          border: "1px solid var(--White, #FFF)",
-          opacity: disablePrev ? 0.5 : 0.9,
-        }}
-        onClick={() => swiper.slidePrev()}
-        disabled={disablePrev}
-        disableRipple
-        disableTouchRipple
-      >
-        <NavigateBeforeIcon
-          sx={{
-            width: "30px",
-            height: "30px",
-            color: "#FFF",
-          }}
-        />
-      </Button>
-      <Button
-        sx={{
-          display: "flex",
-          width: "48px",
-          height: "48px",
-          padding: "4px",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8px",
-          border: "1px solid var(--White, #FFF)",
-          background: "rgba(255, 255, 255, 0.20)",
-          opacity: disableNext ? 0.5 : 0.9,
-        }}
-        onClick={() => swiper.slideNext()}
-        disabled={disableNext}
-        disableRipple
-        disableTouchRipple
-      >
-        <NavigateNextIcon
-          sx={{
-            width: "30px",
-            height: "30px",
-            color: "#FFF",
-          }}
-        />
-      </Button>
-    </Stack>
-  );
-};
-
-// Curosel Part
-const Carousel = () => {
-  const [disablePrev, setDisabledPrev] = useState<boolean>(true);
-  const [disableNext, setDisabledNext] = useState<boolean>(false);
-  const theme = useTheme();
-  const swiper = useSwiper();
-
-  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
-  const isTablet = useMediaQuery(theme.breakpoints.up("md_lg"));
-
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
-
-  return (
-    <Stack rowGap={1}>
-      <Stack
-        component={"div"}
-        sx={{
-          py: { xs: 5, lg: 12 },
-          "& .swiper": {
-            width: "100%",
-          },
-        }}
-      >
-        <Stack
-          sx={{
-            display: {
-              xs: "flex",
-              sm: "none",
-            },
-            flexDirection: "row",
-            alignItems: "center",
-            alignSelf: "stretch",
-            justifyContent: "space-between",
-            marginBottom: "40px",
-          }}
-          component={motion.div}
-          variants={staggerDiv}
-          initial={"initial"}
-          whileInView={"animate"}
-          viewport={{ once: true }}
-        >
-          <MotionTypography
-            sx={useStyles.subHeading}
-            variants={staggerSubHeading}
-          >
-            Our Measures
-          </MotionTypography>
-        </Stack>
-        <Swiper
-          slidesPerView={isDesktop ? 3 : isTablet ? 2 : 1}
-          spaceBetween={matches ? theme.spacing(2) : theme.spacing(3)}
-          freeMode={true}
-          pagination={false}
-          navigation={true}
-          modules={[Pagination, Navigation, FreeMode]}
-          onSlideChange={(swiper) => {
-            setDisabledPrev(swiper.isBeginning);
-            setDisabledNext(swiper.isEnd);
-          }}
-          style={{
-            display: "flex",
-            flexDirection: matches ? "column" : "column-reverse",
-            gap: "30px",
-          }}
-        >
-          <Stack
-            sx={{
-              display: {
-                xs: "flex",
-                sm: "none",
-              },
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <CuroselBttn disablePrev={disablePrev} disableNext={disableNext} />
-          </Stack>
-          {ourMeasuresdata.map((eachMearsure, index) => (
-            <SwiperSlide key={index}>
-              <Stack
-                display={"flex"}
-                flexDirection={"row"}
-                component={motion.div}
-                viewport={{ once: true }}
-                flexShrink={0}
-              >
-                <Image
-                  src={eachMearsure.imageurl}
-                  alt={eachMearsure.title}
-                  width={120}
-                  height={150}
-                  style={{
-                    height: "100%",
-                    width: "120px",
-                    marginRight: "16px",
-                  }}
-                />
-                <Stack
-                  spacing={2}
-                  display={"flex"}
-                  alignItems={"flex-start"}
-                  component={motion.div}
-                  variants={constrolButton}
-                  initial={"initial"}
-                  whileInView={"animate"}
-                  viewport={{ once: true }}
-                >
-                  <MotionLink
-                    sx={{
-                      display: "flex",
-                      padding: "6px 16px",
-                      alignItems: "flex-start",
-                      gap: "8px",
-                      background: "rgba(255, 255, 255, 0.20)",
-                      color: "var(--primary-light-grey, #DADADA)",
-                      fontFamily: "Helvetica",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      lineHeight: "128%",
-                    }}
-                    variants={staggerButton}
-                    href='#'
-                  >
-                    {eachMearsure.title}
-                  </MotionLink>
-                  <MotionTypography
-                    sx={{
-                      color: "#FFF",
-                      fontFamily: "Helvetica",
-                      fontSize: "18px",
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      lineHeight: "128%",
-                    }}
-                    variants={staggerChildren}
-                  >
-                    {eachMearsure.description}
-                  </MotionTypography>
-                </Stack>
-              </Stack>
-            </SwiperSlide>
-          ))}
-
-          <Stack
-            sx={{
-              display: {
-                xs: "none",
-                sm: "flex",
-              },
-              flexDirection: "row",
-              alignItems: "center",
-              alignSelf: "stretch",
-              justifyContent: "space-between",
-            }}
-            component={motion.div}
-            variants={staggerDiv}
-            initial={"initial"}
-            whileInView={"animate"}
-            viewport={{ once: true }}
-          >
-            <MotionTypography
-              sx={useStyles.subHeading}
-              variants={staggerSubHeading}
-            >
-              Our Measures
-            </MotionTypography>
-            <CuroselBttn disablePrev={disablePrev} disableNext={disableNext} />
-          </Stack>
-        </Swiper>
-      </Stack>
-    </Stack>
-  );
-};
+import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import { useSwiper } from "swiper/react";
 
 // Main component  Sustainability
 
 const Sustainability = () => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
   return (
     <SectionWrapper
       SectionProps={{
@@ -341,7 +81,7 @@ const Sustainability = () => {
             {idx !== gridData.length - 1 && (
               <Grid2
                 sx={{
-                  display: (theme) => (matches ? "none" : "block"),
+                  display: matches ? "none" : "block",
                 }}
               >
                 <Divider
@@ -355,29 +95,77 @@ const Sustainability = () => {
           </>
         ))}
       </Grid2>
-      <Carousel />
+      <Stack direction='row' mt={{ xs: 7, md: 12 }} width={1}>
+        <EnhancedSwiper
+          slidesPerView={"auto"}
+          SlideWrapperProps={{
+            sx: {
+              width: { xs: 341, lg: 421 },
+              mr: { xs: 2, md: 3 },
+            },
+          }}
+          SlideComponent={InfoSlides}
+          data={ourMeasuresdata}
+        />
+      </Stack>
     </SectionWrapper>
   );
 };
 
 export default Sustainability;
 
+interface InfoSlidesProps {
+  img: StaticImageData | string;
+  title: string;
+  description: string;
+}
+
+const InfoSlides = (props: InfoSlidesProps) => {
+  const { img, title, description } = props;
+  return (
+    <Stack
+      direction='row'
+      columnGap={2}
+      alignItems={"stretch"}
+      // component={motion.div}
+      // viewport={{ once: true }}
+    >
+      <Image src={img} alt={title} width={120} height={120} />
+      <Stack
+        rowGap={2}
+        alignItems={"flex-start"}
+        justifyContent={"space-between"}
+        // component={motion.div}
+        // variants={constrolButton}
+        // initial={"initial"}
+        // whileInView={"animate"}
+        // viewport={{ once: true }}
+      >
+        <Box bgcolor={alpha("#fff", 0.2)} p={"6px 16px"} fontSize={"14px"}>
+          {title}
+        </Box>
+        <MotionTypography variant='body1'>{description}</MotionTypography>
+      </Stack>
+    </Stack>
+  );
+};
+
 //  Carousel Data
 const ourMeasuresdata = [
   {
-    imageurl: Emission,
+    img: Emission,
     title: "Emissions",
     description:
       "Emissions produced by our automobiles has reduced by 55% compared to 2009.",
   },
   {
-    imageurl: supplyChain,
+    img: supplyChain,
     title: "Supply Chain",
     description:
       "Nearly 600 suppliers, dealers and distributors trained in & assessed on sustainability.",
   },
   {
-    imageurl: solar,
+    img: solar,
     title: "Renewable Energy",
     description:
       "We adopted a 2 MWp Rooftop Solar Plant to achieve 50% renewable electricity by 2025.",
@@ -402,70 +190,6 @@ const gridData = [
     subtitle: "by 2050",
   },
 ];
-
-// Common Typography  Styles
-
-const useStyles = {
-  haeding: {
-    overflow: "hidden",
-    color: "var(--White, #FFF)",
-    textAlign: "center",
-    textOverflow: "ellipsis",
-    fontFamily: "Helvetica",
-    fontSize: {
-      sm: "32px",
-      xl: "48px",
-    },
-    fontStyle: "normal",
-    fontWeight: "400",
-    lineHeight: "128%",
-    textTransform: "uppercase",
-    marginBottom: "16px",
-    opacity: 0.9,
-  },
-  body2: {
-    color: "var(--White, #FFF)",
-    textAlign: "center",
-    textOverflow: "ellipsis",
-    fontFamily: "Helvetica",
-    fontSize: "18px",
-    fontStyle: "normal",
-    fontWeight: "400",
-    lineHeight: "128%",
-    textTransform: "uppercase",
-    marginBottom: "16px",
-    opacity: 0.8,
-  },
-  bodySmall: {
-    color: "rgba(255, 255, 255, 0.60)",
-    fontFamily: "Helvetica",
-    fontSize: "18px",
-    fontStyle: "normal",
-    fontWeight: "400",
-    lineHeight: "128%",
-  },
-  subHeading: {
-    color: "#FFF",
-    fontFamily: "Helvetica",
-    fontSize: {
-      xs: "24px",
-      lg: "28px",
-      xl: "32px",
-    },
-    fontStyle: "normal",
-    fontWeight: "400",
-    lineHeight: "128%",
-    Opacity: 0.9,
-  },
-  buttonText: {
-    color: "var(--primary-light-grey, #DADADA)",
-    fontFamily: "Helvetica",
-    fontSize: "18px",
-    fontStyle: "normal",
-    fontWeight: "400",
-    lineHeight: "128%",
-  },
-};
 
 // Animation Props
 
