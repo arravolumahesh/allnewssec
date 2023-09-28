@@ -8,21 +8,22 @@ import CaseStudies from "@/components/ourCompanies/our-studies";
 import OurFocusAreas from "@/components/ourCompanies/our-focus-areas";
 import Section from "@/components/ourCompanies/section";
 import React from "react";
+import { NextPage } from "next";
 
-const OurCompanies = () => {
+const Company: NextPage = () => {
   return (
     <>
+      <BuildFuture />
       <OurFocusAreas />
       {/* <HerosSection /> */}
-      {/* <Bajaj /> */}
-      <BuildFuture />
+      {/* <Bajaj />
       <Enquire />
       <Sustainability />
       <CaseStudies />
-      {/* <Section /> */}
-      {/* <CsrReport /> */}
+      <Section />
+      <CsrReport /> */}
     </>
   );
 };
 
-export default OurCompanies;
+export default Company;

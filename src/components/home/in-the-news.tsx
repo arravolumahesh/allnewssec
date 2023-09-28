@@ -19,6 +19,12 @@ const InTheNews = () => {
       }}
       ArrowSlideInfoProps={{
         isNavigation: true,
+        SlotProps: {
+          ButtonProps: {
+            href: "#",
+            color: "primary",
+          },
+        },
       }}
     />
   );

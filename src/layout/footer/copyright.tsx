@@ -1,6 +1,6 @@
 "use client";
 import { Stack } from "@mui/material";
-import { H1, H6_4 } from "@theme/components/typography.fontvariant";
+import { Body2, H1 } from "@theme/components/typography.fontvariant";
 import { useCallback } from "react";
 import { KeyboardArrowUpRounded } from "@mui/icons-material";
 import {
@@ -32,7 +32,7 @@ const Copyright = () => {
       }}
     >
       <MotionTypography
-        fontSize={H6_4}
+        fontSize={Body2}
         width={{ xs: 0.7, md: "fit-content" }}
         flex={"1 1 auto"}
         order={{
@@ -66,7 +66,7 @@ const Copyright = () => {
               color={"secondary"}
               variants={footerChildrenMotionVariants}
               sx={{
-                fontSize: H6_4,
+                fontSize: Body2,
               }}
             >
               {item}

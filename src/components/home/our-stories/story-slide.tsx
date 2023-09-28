@@ -25,8 +25,19 @@ export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
 
 const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
   (props, ref) => {
-    const { bgImage, company, title, location, description, ...restCardProps } =
-      props;
+    const {
+      bgImage,
+      company,
+      title,
+      location,
+      description,
+      isNext,
+      isActive,
+      isPrev,
+      isVisible,
+      index,
+      ...restCardProps
+    } = props;
     const { sx, ...rest } = restCardProps;
     return (
       <SectionWrapper
@@ -90,12 +101,16 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               md: 0,
             },
           }}
-          variants={storySlideMotionVariant}
-          initial={"initial"}
-          whileInView={"animate"}
-          viewport={{
-            once: true,
-          }}
+          variants={clipTransition}
+          {...(index &&
+            index > 0 && {
+              initial: "initial",
+              whileInView: "animate",
+              viewport: {
+                once: true,
+                amount: 0.5,
+              },
+            })}
         >
           <Typography
             variant={"body2"}
@@ -167,7 +182,7 @@ export default StorySlide;
 
 StorySlide.displayName = StorySlide.name;
 
-const storySlideMotionVariant: MotionVariantProps = {
+const clipTransition: MotionVariantProps = {
   initial: {
     opacity: 0,
     x: "20%",
@@ -176,7 +191,6 @@ const storySlideMotionVariant: MotionVariantProps = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 2.2,
       duration: 0.8,
     },
   },

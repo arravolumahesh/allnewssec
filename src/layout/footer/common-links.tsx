@@ -231,8 +231,8 @@ const footerLinks: FooterLinksProps["data"] = [
         url: "/blogs-and-articles",
       },
       {
-        name: "Press Releases",
-        url: "/press-releases",
+        name: "Press Release",
+        url: "/press-release",
       },
       {
         name: "Press Kit",

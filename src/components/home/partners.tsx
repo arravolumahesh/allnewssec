@@ -1,97 +1,69 @@
 "use client";
-import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logoCard";
-import {
-  MaterialSwiper,
-  MaterialSwiperSlide,
-} from "@/commonComponents/material-components";
-import { MotionTypography } from "@/commonComponents/motion-components";
-import SectionWrapper from "@/commonComponents/section-wrapper";
+import { LogoCard } from "@/commonComponents/cards/logo";
+import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
 import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
-import { Stack } from "@mui/material";
 import React from "react";
 import { Autoplay } from "swiper/modules";
+import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
+import "../../../node_modules/swiper/modules/autoplay.min.css";
+import "../../../node_modules/swiper/modules/free-mode.css";
 
 const Partners = () => {
   return (
-    <SectionWrapper py={{ xs: 7, md: 12 }} px={0} overflow={"hidden"}>
-      <MotionTypography
-        variant='h3'
-        fontSize={H3_2}
-        color={"primary.main"}
-        textAlign={"center"}
-        maxWidth={951}
-        m={"auto"}
-        px={{
-          xs: 3,
-          md: 0,
-        }}
-        initial={{
-          y: "30%",
-          opacity: 0,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-          transition: {
-            duration: 0.4,
+    <SectionWrapper
+      color={"primary.main"}
+      SectionHeaderProps={{
+        title: "ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY",
+        TitleTypographyProps: {
+          variant: "h3",
+          fontSize: H3_2,
+          textAlign: "center",
+          maxWidth: 951,
+          mx: "auto",
+        },
+      }}
+      ContainerProps={{
+        sx: {
+          px: {
+            ...basePx,
+            xs: 0,
+            md: 0,
           },
-        }}
-        viewport={{
-          once: true,
-        }}
-      >
-        ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY
-      </MotionTypography>
-      {/* <MaterialSwiper
+        },
+      }}
+    >
+      <EnhancedSwiper
+        data={data}
+        SlideComponent={LogoCard}
         slidesPerView={"auto"}
-        // slidesPerGroupAuto={true}
-        // slidesPerGroup={6}
         spaceBetween={24}
-        loopedSlides={6}
         autoplay={{
-          delay: 1000,
+          delay: 0,
           disableOnInteraction: false,
+          reverseDirection: true,
         }}
-        loop={true}
-        width={100}
+        speed={2000}
+        loop
         modules={[Autoplay]}
-      >
-        {data.map((item, idx) => (
-          <MaterialSwiperSlide
-            key={idx}
-            sx={{ width: { xs: "128px !important", md: "199px !important" } }}
-          >
-            <LogoCard data={item} />
-          </MaterialSwiperSlide>
-        ))}
-      </MaterialSwiper> */}
-      <Stack
-        sx={{
-          width: "min-content",
-          transform: "translate3d(-50%, 0, 0)",
-          animation: "logoScroll 10s infinite linear",
-          "@keyframes logoScroll": {
-            "100%": {
-              WebkitTransform: "translateX(-3.5%)",
-            },
+        SlideWrapperProps={{
+          sx: {
+            width: "auto",
           },
         }}
-        direction='row'
-        justifyContent={"flex-end"}
-        columnGap={{ xs: 2, md: 3 }}
-        mt={{ xs: 5, md: 6 }}
-      >
-        {data.map((item, idx) => (
-          <LogoCard key={idx} data={item} />
-        ))}
-      </Stack>
+        sx={{
+          width: "100%",
+          "& .swiper-wrapper": {
+            transitionTimingFunction: "linear !important",
+          },
+        }}
+      />
     </SectionWrapper>
   );
 };
 
 export default Partners;
 
-const data: LogoCardProps["data"][] = [
+const data: EnhancedSwiperProps<typeof LogoCard>["data"] = [
   {
     img: "https://s3-alpha-sig.figma.com/img/94ff/5d47/78dce75bf115837418f0230f36bec744?Expires=1696204800&Signature=mI~f5z4cYUOqf7LI5oqE7qVvZcqOhzB25Fy-EAhQjqcBn0Qx~5P29nVNdT9V1HKuRCbp5Z45dvqPiCKtU2IHUTVbPszHFc2hZHJL5hU~NhIyH05kRg~7lxw6VyshfRbMyRnzmoS7NeN5~Wm-89tFPkhGcTD7qs7-l~wJNMZF3vYfmswRl94JkjYdtfBlTyghdoohF3qmA0754rjXSmSQNiAM~cOBQHtAomPo-brFSk47v5v5dQsEP8V17YW7Bb3GI6YfVwKj0a2wFxn6xuW2VqKyxtvhEGzceFd-KTUqfpDlsZ3mSWkuaD47RfZ7px0aeaR~RlnN6Vq-wgAF~IWUig__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
   },

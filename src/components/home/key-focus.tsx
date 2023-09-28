@@ -7,7 +7,7 @@ import {
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import skillImage from "./images/Rectangle 24993.png";
-import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
+import { SmallTitleCard } from "@/commonComponents/cards/small-title";
 import { motion } from "framer-motion";
 import EnhancedSwiper, {
   EnhancedSwiperProps,
@@ -44,7 +44,7 @@ const KeyFocus = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant="h1"
+              variant='h1'
               component={"h3"}
               variants={staggerChildren}
             >
@@ -82,7 +82,7 @@ const KeyFocus = () => {
           mb: { xs: 0, md: 6 },
         }}
       />
-      <Stack direction="row" alignItems={"center"} width={"107%"}>
+      <Stack direction='row' alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
