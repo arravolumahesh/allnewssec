@@ -1,3 +1,4 @@
+"use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Stack, Typography } from "@mui/material";
 import { helvetica } from "@/app/font";
@@ -12,13 +13,12 @@ const BuildFuture = () => {
     <>
       <SectionWrapper
         sx={{
-          background:
-            "linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%)",
+          background: (theme) => theme.palette.gradient.transparentToDarkRight,
         }}
       >
         <Stack sx={{ display: "flex", flexDirection: "row" }}>
           <MotionTypography
-            variant="h5"
+            variant='h5'
             sx={{
               fontSize: { xs: "14px", md: "16px" },
               fontStyle: "normal",
@@ -36,7 +36,7 @@ const BuildFuture = () => {
             Our Companies {">"}
           </MotionTypography>
           <MotionTypography
-            variant="h5"
+            variant='h5'
             sx={{
               fontSize: { xs: "14px", md: "16px" },
               fontStyle: "normal",
@@ -55,7 +55,7 @@ const BuildFuture = () => {
           </MotionTypography>
         </Stack>
         <MotionTypography
-          variant="h1"
+          variant='h1'
           sx={{
             fontFamily: helvetica,
             fontSize: { xs: "32px", md: "42px", xl: "64px" },
@@ -77,7 +77,7 @@ const BuildFuture = () => {
         </MotionTypography>
 
         <MotionTypography
-          variant="h6"
+          variant='h6'
           sx={{
             color: "#FFF",
             alignItems: "stretch",

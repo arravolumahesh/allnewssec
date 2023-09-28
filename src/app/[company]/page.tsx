@@ -15,10 +15,10 @@ const Company: NextPage = () => {
     <>
       <BuildFuture />
       <OurFocusAreas />
+      <Sustainability />
       {/* <HerosSection /> */}
       {/* <Bajaj />
       <Enquire />
-      <Sustainability />
       <CaseStudies />
       <Section />
       <CsrReport /> */}

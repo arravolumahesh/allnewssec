@@ -65,9 +65,6 @@ export default Partners;
 
 const data: EnhancedSwiperProps<typeof LogoCard>["data"] = [
   {
-    img: "https://s3-alpha-sig.figma.com/img/94ff/5d47/78dce75bf115837418f0230f36bec744?Expires=1696204800&Signature=mI~f5z4cYUOqf7LI5oqE7qVvZcqOhzB25Fy-EAhQjqcBn0Qx~5P29nVNdT9V1HKuRCbp5Z45dvqPiCKtU2IHUTVbPszHFc2hZHJL5hU~NhIyH05kRg~7lxw6VyshfRbMyRnzmoS7NeN5~Wm-89tFPkhGcTD7qs7-l~wJNMZF3vYfmswRl94JkjYdtfBlTyghdoohF3qmA0754rjXSmSQNiAM~cOBQHtAomPo-brFSk47v5v5dQsEP8V17YW7Bb3GI6YfVwKj0a2wFxn6xuW2VqKyxtvhEGzceFd-KTUqfpDlsZ3mSWkuaD47RfZ7px0aeaR~RlnN6Vq-wgAF~IWUig__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-  },
-  {
     img: "https://s3-alpha-sig.figma.com/img/8a2c/4b9b/5a5bf73dc6c45202f91ddb722aadfdd3?Expires=1696204800&Signature=cwV0-DWdyQQeVA6z0h6yTt5JnLc4JaTLel71Pf4ZUDdZamtluHI-vGIp6ozLfwTeLmp3TrtWwG3mDQUBwW~E5t~E0Z7VGkwQN~cCrSC0GudvFRKbsRljWvJrSEkn8a1Bgs5ow9EkhB04e4RLqdpaJiZ4UKJsYpWMMJS7a7ZwJTuFYtwCdBmPSTHJ50QyxpNoRa2klzNjzM9fuuAnH7X-HObBWwdNMYRKbLLg4e-J6QqKjxZ1qwF-XahjsKXh2AWVubg-BLzr3ECGjrmBmD0qgxwedTiq4ecWXHVQp~oQ1Y8IusM2pVaX2RJWCH6yqzQUjCvNCUxUW2JJZ3U~F7EQyw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
   },
   {
