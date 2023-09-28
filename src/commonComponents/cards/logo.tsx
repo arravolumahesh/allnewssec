@@ -1,15 +1,14 @@
 "use client";
 import { Card, CardMedia } from "@mui/material";
 import React from "react";
+import { EnhancedSwiperSlideData } from "@cc/enhanced-swiper";
 
 export type LogoCardProps = {
-  data: {
-    img: string;
-  };
+  img: string;
 };
 
-export const LogoCard = (props: LogoCardProps) => {
-  const { img } = props.data;
+export const LogoCard = (props: EnhancedSwiperSlideData<LogoCardProps>) => {
+  const { img } = props;
   return (
     <Card
       sx={{

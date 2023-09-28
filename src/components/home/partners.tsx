@@ -1,10 +1,10 @@
 "use client";
-import { LogoCard, LogoCardProps } from "@/commonComponents/cards/logo";
+import { LogoCard } from "@/commonComponents/cards/logo";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
 import React from "react";
-import { MaterialSwiper, MaterialSwiperSlide } from "@cc/material-components";
 import { Autoplay } from "swiper/modules";
+import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
 import "../../../node_modules/swiper/modules/autoplay.min.css";
 import "../../../node_modules/swiper/modules/free-mode.css";
 
@@ -23,61 +23,38 @@ const Partners = () => {
         },
       }}
     >
-      <MaterialSwiper
+      <EnhancedSwiper
+        data={data}
+        SlideComponent={LogoCard}
         slidesPerView={"auto"}
         spaceBetween={24}
         autoplay={{
           delay: 0,
-          pauseOnMouseEnter: true,
+          disableOnInteraction: false,
           reverseDirection: true,
         }}
-        speed={800}
+        speed={2000}
         loop
         modules={[Autoplay]}
+        SlideWrapperProps={{
+          sx: {
+            width: "auto",
+          },
+        }}
         sx={{
           width: "100%",
           "& .swiper-wrapper": {
             transitionTimingFunction: "linear !important",
           },
         }}
-      >
-        {data.map((item, idx) => (
-          <MaterialSwiperSlide
-            key={idx}
-            sx={{ width: { xs: "128px !important", md: "199px !important" } }}
-          >
-            <LogoCard data={item} />
-          </MaterialSwiperSlide>
-        ))}
-      </MaterialSwiper>
-
-      {/*<Stack*/}
-      {/*  sx={{*/}
-      {/*    width: "min-content",*/}
-      {/*    transform: "translate3d(-50%, 0, 0)",*/}
-      {/*    animation: "logoScroll 10s infinite linear",*/}
-      {/*    "@keyframes logoScroll": {*/}
-      {/*      "100%": {*/}
-      {/*        WebkitTransform: "translateX(-3.5%)",*/}
-      {/*      },*/}
-      {/*    },*/}
-      {/*  }}*/}
-      {/*  direction="row"*/}
-      {/*  justifyContent={"flex-end"}*/}
-      {/*  columnGap={{ xs: 2, md: 3 }}*/}
-      {/*  mt={{ xs: 5, md: 6 }}*/}
-      {/*>*/}
-      {/*  {data.map((item, idx) => (*/}
-      {/*    <LogoCard key={idx} data={item} />*/}
-      {/*  ))}*/}
-      {/*</Stack>*/}
+      />
     </SectionWrapper>
   );
 };
 
 export default Partners;
 
-const data: LogoCardProps["data"][] = [
+const data: EnhancedSwiperProps<typeof LogoCard>["data"] = [
   {
     img: "https://s3-alpha-sig.figma.com/img/94ff/5d47/78dce75bf115837418f0230f36bec744?Expires=1696204800&Signature=mI~f5z4cYUOqf7LI5oqE7qVvZcqOhzB25Fy-EAhQjqcBn0Qx~5P29nVNdT9V1HKuRCbp5Z45dvqPiCKtU2IHUTVbPszHFc2hZHJL5hU~NhIyH05kRg~7lxw6VyshfRbMyRnzmoS7NeN5~Wm-89tFPkhGcTD7qs7-l~wJNMZF3vYfmswRl94JkjYdtfBlTyghdoohF3qmA0754rjXSmSQNiAM~cOBQHtAomPo-brFSk47v5v5dQsEP8V17YW7Bb3GI6YfVwKj0a2wFxn6xuW2VqKyxtvhEGzceFd-KTUqfpDlsZ3mSWkuaD47RfZ7px0aeaR~RlnN6Vq-wgAF~IWUig__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
   },
