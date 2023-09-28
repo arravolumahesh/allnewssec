@@ -8,7 +8,7 @@ import OurFocusAreas from "@/components/ourCompanies/our-focus-areas";
 import Section from "@/components/ourCompanies/section";
 import React from "react";
 import { NextPage } from "next";
-import Sustainability from "@/components/ourCompanies/Sustainability";
+import Sustainability from "@/components/ourCompanies/sustainability";
 import Happening from "@/components/ourCompanies/happening";
 import Stories from "@/components/ourCompanies/stories";
 

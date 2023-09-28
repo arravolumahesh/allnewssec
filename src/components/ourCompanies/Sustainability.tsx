@@ -1,14 +1,11 @@
 "use client";
-import { Box, Button, Divider, Grid, Stack } from "@mui/material";
+import { Box, Divider, Stack } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Theme, alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
-  MotionLink,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
@@ -21,7 +18,9 @@ import supplyChain from "./images/supplyChain.png";
 import solar from "./images/solar.png";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
-import { useSwiper } from "swiper/react";
+import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
+import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
+import { Navigation } from "swiper/modules";
 
 // Main component  Sustainability
 
@@ -104,8 +103,56 @@ const Sustainability = () => {
               mr: { xs: 2, md: 3 },
             },
           }}
+          navigation={{
+            enabled: true,
+            nextEl: ".swiper-next",
+            prevEl: ".swiper-prev",
+          }}
+          modules={[Navigation]}
           SlideComponent={InfoSlides}
           data={ourMeasuresdata}
+          Slots={{
+            ContainerStartChildren: (
+              <Stack
+                direction='row'
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                mb={{ xs: 3, md: 6 }}
+              >
+                <MotionTypography variant='h3' fontSize={H5_1}>
+                  Our Measures
+                </MotionTypography>
+                <SwiperNavigationButton
+                  display={{
+                    xs: "none",
+                    md: "flex",
+                  }}
+                  PrevButtonProps={{
+                    className: "swiper-prev",
+                  }}
+                  NextButtonProps={{
+                    className: "swiper-next",
+                  }}
+                />
+              </Stack>
+            ),
+            ContainerEndChildren: (
+              <SwiperNavigationButton
+                mt={5}
+                display={{
+                  xs: "flex",
+                  md: "none",
+                }}
+                alignSelf={"center"}
+                PrevButtonProps={{
+                  className: "swiper-prev",
+                }}
+                NextButtonProps={{
+                  className: "swiper-next",
+                }}
+              />
+            ),
+          }}
         />
       </Stack>
     </SectionWrapper>
