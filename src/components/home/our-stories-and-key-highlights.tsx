@@ -17,7 +17,7 @@ const OurStoriesAndKeyHighlights = () => {
           width: "204%",
           height: "auto",
           aspectRatio: 4.6,
-          bottom: { xs: "34.5%", md_lg: "29%" },
+          bottom: { xs: "24.5%", lg: "22%" },
           right: 0,
           background: "url(/beyond.svg) space", //space
           backgroundSize: "contain",
