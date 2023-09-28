@@ -16,6 +16,7 @@ export const LogoCard = (props: EnhancedSwiperSlideData<LogoCardProps>) => {
         width: { xs: 128, md: 199 },
         minWidth: { xs: 128, md: 199 },
         height: { xs: 64, md: 100 },
+        p: { xs: 1.25, md: 2 },
         bgcolor: "common.white",
       }}
     >
@@ -25,7 +26,9 @@ export const LogoCard = (props: EnhancedSwiperSlideData<LogoCardProps>) => {
         src={img}
         alt={""}
         sx={{
-          objectFit: "scale-down",
+          width: "100%",
+          height: "100%",
+          objectFit: "contain",
           m: "auto",
         }}
       />
