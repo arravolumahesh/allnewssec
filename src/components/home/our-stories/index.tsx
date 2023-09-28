@@ -24,7 +24,6 @@ const OurStories = () => {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          toggleActions: "play none none none",
           start: "top 15%",
           end: `+=${offsetHeight}`,
           scrub: true,

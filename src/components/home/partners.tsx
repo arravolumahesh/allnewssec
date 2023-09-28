@@ -1,6 +1,6 @@
 "use client";
 import { LogoCard } from "@/commonComponents/cards/logo";
-import SectionWrapper from "@/commonComponents/section-wrapper";
+import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
 import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
 import React from "react";
 import { Autoplay } from "swiper/modules";
@@ -20,6 +20,15 @@ const Partners = () => {
           textAlign: "center",
           maxWidth: 951,
           mx: "auto",
+        },
+      }}
+      ContainerProps={{
+        sx: {
+          px: {
+            ...basePx,
+            xs: 0,
+            md: 0,
+          },
         },
       }}
     >
