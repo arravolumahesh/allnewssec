@@ -1,5 +1,11 @@
 "use client";
-import { ComponentProps, ComponentType, ReactNode } from "react";
+import {
+  ComponentProps,
+  ComponentType,
+  forwardRef,
+  ReactNode,
+  Ref,
+} from "react";
 import "../../node_modules/swiper/swiper-bundle.min.css";
 import { Stack, StackProps } from "@mui/material";
 import {
@@ -9,6 +15,7 @@ import {
   MaterialSwiperSlideProps,
 } from "@cc/material-components";
 import { sxArrayUtil } from "@util/sx-helpers";
+import { SwiperRef } from "swiper/swiper-react";
 
 export type SlideData = {
   isActive?: boolean;
@@ -56,6 +63,7 @@ const EnhancedSwiper = <
   P extends ComponentProps<T>,
 >(
   props: EnhancedSwiperProps<T, P>,
+  ref: Ref<SwiperRef>,
 ) => {
   const {
     data = [],
@@ -80,6 +88,7 @@ const EnhancedSwiper = <
   } = Slots;
   return (
     <MaterialSwiper
+      ref={ref}
       sx={[
         {
           width: "100%",
@@ -136,4 +145,4 @@ const EnhancedSwiper = <
   );
 };
 
-export default EnhancedSwiper;
+export default forwardRef(EnhancedSwiper);
