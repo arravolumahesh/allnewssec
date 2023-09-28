@@ -1,28 +1,22 @@
 "use client";
-import { Box, Divider, Stack } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
-import { Theme, alpha } from "@mui/material/styles";
-import { motion } from "framer-motion";
+import {Box, Divider, Stack} from "@mui/material";
+import Image, {StaticImageData} from "next/image";
+import {alpha, Theme} from "@mui/material/styles";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import {
-  MotionTypography,
-  MotionVariantProps,
-} from "@/commonComponents/motion-components";
+import {MotionTypography, MotionVariantProps,} from "@/commonComponents/motion-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
-import sustain from "./images/sustain.png";
 
 import Emission from "./images/Emission.png";
 import supplyChain from "./images/supplyChain.png";
 import solar from "./images/solar.png";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
-import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
+import {H5_1} from "@/styles/theme/components/typography.fontvariant";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
-import { Navigation } from "swiper/modules";
+import {Navigation} from "swiper/modules";
 
-// Main component  Sustainability
+// Main component Sustainability
 
 const Sustainability = () => {
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
