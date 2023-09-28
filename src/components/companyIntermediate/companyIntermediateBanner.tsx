@@ -75,7 +75,7 @@ const CompanyIntermediateBanner = () => {
       >
         <MotionBox
           sx={{
-            height: "464px",
+            height: {md:"464px",xs:'265px'},
             flex: 1,
             overflow: "hidden",
           }}
@@ -108,14 +108,7 @@ const CompanyIntermediateBanner = () => {
           pt:{xxl:4,xs:2}
         }}
       >
-        <CommonBreadcrumb
-          data={[
-            {
-              title: "All Initiatives",
-              path: "/",
-            },
-          ]}
-        />
+        <CommonBreadcrumb />
         <MotionTypography
           variant="h3"
           color="white"

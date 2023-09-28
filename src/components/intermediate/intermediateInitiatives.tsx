@@ -92,7 +92,7 @@ export const initiativedata = [
       {
         imageUrl: "",
         location: "India",
-        title: "Equipping Indias Workforce",
+        title: "Equipping India's Workforce",
         slug: "test",
       },
       {

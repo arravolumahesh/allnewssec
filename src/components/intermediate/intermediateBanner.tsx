@@ -151,14 +151,7 @@ const IntermediateBanner = () => {
           pt:{xxl:4,xs:2}
         }}
       >
-        <CommonBreadcrumb
-          data={[
-            {
-              title: "All Initiatives",
-              path: "/",
-            },
-          ]}
-        />
+        <CommonBreadcrumb/>
         <MotionTypography
           variant="h3"
           color="white"

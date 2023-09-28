@@ -20,6 +20,10 @@ module.exports = {
         protocol: "https",
         hostname: "www.industrialempathy.com",
       },
+      {
+        protocol: "https",
+        hostname: "s3-alpha-sig.figma.com",
+      },
     ],
   },
 };
