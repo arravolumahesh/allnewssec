@@ -1,12 +1,24 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box, useScrollTrigger } from "@mui/material";
+import { Box, SxProps, useScrollTrigger } from "@mui/material";
 import { MotionButton } from "@cc/motion-components";
 import { appbarHeight } from "@/layout/header/reactive-appbar";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
-const IntermediateMenu = () => {
+interface props{
+  logoImg?: string,
+  styles?: SxProps,
+  menus?:{
+        title:string,
+        url: string,
+    }[]
+}
 
+
+const IntermediateMenu = (prop: props) => {
+
+const {logoImg,menus:skillMenu,styles,...rest} = prop
 const trigger = useScrollTrigger();
 
 
@@ -31,9 +43,15 @@ const trigger = useScrollTrigger();
             justifyContent: { xs: "flex-start", lg: "space-around" },
             overflow: "auto",
             gap: { xs: 5, lg: 0 },
+            ...(styles && styles)
           }}
-        >         
-          {skillMenu.map((item, index) => {
+        >
+          {logoImg &&
+            <Box sx={{mr:'auto'}}>
+              <Image src={logoImg} width={124} height={32} alt="Company Name" />
+            </Box>
+          }
+          {skillMenu && skillMenu.map((item, index) => {
             return (
               <MotionButton
                 variant="menulink"
@@ -51,35 +69,6 @@ const trigger = useScrollTrigger();
   );
 };
 
-const skillMenu = [
-  {
-    title: "All",
-    url: "",
-  },
-  {
-    title: "Skill Development",
-    url: "",
-  },
-  {
-    title: "Education",
-    url: "",
-  },
-  {
-    title: "Women Empowerment",
-    url: "",
-  },
-  {
-    title: "Community",
-    url: "",
-  },
-  {
-    title: "Animal welfare",
-    url: "",
-  },
-  {
-    title: "Other Initiatives",
-    url: "",
-  },
-];
+
 
 export default IntermediateMenu;
