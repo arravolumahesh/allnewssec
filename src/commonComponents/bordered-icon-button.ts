@@ -19,6 +19,10 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
     [`& .${svgIconClasses.root}`]: {
       fontSize: "inherit",
     },
+    "&[disabled]": {
+      pointerEvents: "none",
+      color: theme.palette.action.disabled,
+    },
     "&:hover": {
       "&::before": {
         content: '""',
