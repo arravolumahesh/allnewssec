@@ -7,7 +7,7 @@ import Happening from "@/components/ourCompanies/happening";
 import Stories from "@/components/ourCompanies/stories";
 import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpportunities";
 import PartnerSwiperSection from "@cc/partner-swiper-section";
-import Bajaj from "@/components/ourCompanies/bajaj";
+import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
 import CsrReport from "@/components/ourCompanies/csrRepots";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 
@@ -23,7 +23,7 @@ const Company = () => {
       <HerosOfInitiatives />
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
-      <Bajaj />
+      <DiscoverBajaj />
       <CsrReport />
       {/* <HerosSection /> */}
       {/*
