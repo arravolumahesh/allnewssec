@@ -12,9 +12,10 @@ export interface InitiativeHeroCardProps {
 const InitiativeHeroCard = (
   props: EnhancedSwiperSlideData<InitiativeHeroCardProps>,
 ) => {
-  const { title, designation, description, image, isActive } = props;
+    const { title, designation, description, image, isActive, index } = props;
   return (
     <Stack
+      key={`${title}-${index}`}
       sx={{
         background: `url(${typeof image === "string" ? image : image.src})`,
         backgroundSize: "cover",

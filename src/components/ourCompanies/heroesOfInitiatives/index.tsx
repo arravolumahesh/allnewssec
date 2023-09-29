@@ -12,6 +12,7 @@ import { H3_1 } from "@theme/components/typography.fontvariant";
 import ArrowGradient from "@cc/arrow-gradient";
 import { MotionTypography } from "@cc/motion-components";
 import { Stack } from "@mui/material";
+import { Navigation } from "swiper/modules";
 
 const HerosOfInitiatives = () => {
   return (
@@ -57,8 +58,13 @@ const HerosOfInitiatives = () => {
           SlideComponent={InitiativeHeroCard}
           slidesPerView={"auto"}
           passSlideState
-          loop
           simulateTouch={false}
+          modules={[Navigation]}
+          navigation={{
+            enabled: true,
+            nextEl: ".heroes-button-next",
+            prevEl: ".heroes-button-prev",
+          }}
           SlideWrapperProps={{
             sx: {
               width: "auto",
@@ -75,11 +81,6 @@ const HerosOfInitiatives = () => {
               xs: "visible",
               lg: "hidden",
             },
-          }}
-          navigation={{
-            enabled: true,
-            nextEl: ".heroes-button-next",
-            prevEl: ".heroes-button-prev",
           }}
           Slots={{
             ContainerEndChildren: (
