@@ -17,6 +17,9 @@ const InTheNews = () => {
         SectionHeaderProps: {
           title: "In the News",
         },
+        ContainerProps: {
+          pb: 0,
+        },
       }}
       ArrowSlideInfoProps={{
         isNavigation: true,
