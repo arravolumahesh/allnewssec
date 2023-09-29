@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { MotionTypography } from "@/commonComponents/motion-components";
-import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Stack } from "@mui/material";
+import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
+import { Box, Stack } from "@mui/material";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
@@ -12,8 +12,15 @@ import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
 import { Autoplay } from "swiper/modules";
-import { MaterialImage } from "@/commonComponents/material-components";
+import {
+  MaterialImage,
+  MaterialLink,
+} from "@/commonComponents/material-components";
 import { StaticImageData } from "next/image";
+import Link from "next/link";
+import { ArrowForwardIos } from "@mui/icons-material";
+import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
+import { motion } from "framer-motion";
 const Bajaj = () => {
   return (
     <SectionWrapper
@@ -25,6 +32,9 @@ const Bajaj = () => {
         TitleTypographyProps: {
           variant: "h3",
         },
+        pl: { ...basePx, xs: 8 },
+        pr: { ...basePx, xs: 8 },
+        mb: { xs: 5, md: 6 },
       }}
       ContainerProps={{
         pl: 0,
@@ -58,21 +68,39 @@ const Bajaj = () => {
           }
         }
       >
-        <Stack display={"flex"} flexDirection={"row"} marginTop={"20px"}>
-          <MotionTypography
+        <Stack direction={"row"} mt={{ xs: 5, md: 7 }} px={basePx}>
+          <MaterialLink
             sx={{
-              color: "var(--White, #FFF)",
-              fontFamily: "Helvetica",
-              fontSize: "32px",
-              fontStyle: "normal",
-              fontWeight: "400px",
-              lineHeight: "108%",
               display: "flex",
-              width: "200px",
+              alignItems: "center",
+              fontSize: H6_2,
+              textDecoration: "none",
             }}
+            href='/'
           >
-            Visit Our Website
-          </MotionTypography>
+            Visit Bajaj Auto Website
+            <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
+          </MaterialLink>
+          {/* <Stack
+                direction={"row"}
+                gap={4}
+                mt={2}
+                component={motion.div}
+                variants={iconStagger}
+              >
+                {[fb, twitter, yt, insta, linkd].map((item, idx) => (
+                  <Box
+                    key={idx}
+                    position={"relative"}
+                    width={48}
+                    height={48}
+                    component={motion.div}
+                    variants={iconStaggerChildren}
+                  >
+                    <MotionImage src={item} alt="" fill />
+                  </Box>
+                ))}
+              </Stack> */}
         </Stack>
       </Stack>
     </SectionWrapper>
@@ -117,7 +145,7 @@ const ImageSlies = (props: ImageSliesProps) => {
 
 const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
   slidesPerView: "auto",
-  speed: 2000,
+  speed: 5000,
   loop: true,
   modules: [Autoplay],
   autoplay: {

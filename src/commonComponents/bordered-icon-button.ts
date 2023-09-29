@@ -21,7 +21,7 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
     },
     "&[disabled]": {
       pointerEvents: "none",
-      color: theme.palette.action.disabled,
+      opacity: 0.5,
     },
     "&:hover": {
       "&::before": {
@@ -36,7 +36,7 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
         opacity: color === "secondary" ? 0.4 : 0.2,
       },
     },
-  }),
+  })
 );
 
 export default BorderedIconButton;
