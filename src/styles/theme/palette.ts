@@ -1,8 +1,4 @@
-import {
-  PaletteOptions,
-  SimplePaletteColorOptions,
-  ThemeOptions,
-} from "@mui/material";
+import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/material";
 
 /**
  * @ThemeOptions['palette']
@@ -144,7 +140,7 @@ export const PaletteTheme = (
       400: "#5E8494",
       500: "#405A76",
       600: "#575756",
-      700: "#24445B",
+      700: "#334860", // used in Navigation-Bar
       800: "#163850",
       900: "#263447",
       A100: "#6C8497",
