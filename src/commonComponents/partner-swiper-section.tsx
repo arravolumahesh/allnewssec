@@ -25,7 +25,7 @@ const PartnerSwiperSection = <
   T extends ComponentType<any>,
   P extends ComponentProps<T>,
 >(
-  props: PartnerSwiperSectionProps<T, P>,
+  props: PartnerSwiperSectionProps<T, P>
 ) => {
   const { data, SlideComponent, SwiperProps, ...rest } = props;
   return (
@@ -66,7 +66,6 @@ const sectionWrapperDefaultProps: Omit<SectionWrapperProps, "children"> = {
 
 const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
   slidesPerView: "auto",
-  spaceBetween: 24,
   speed: 2000,
   loop: true,
   modules: [Autoplay],
@@ -78,6 +77,7 @@ const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
   SlideWrapperProps: {
     sx: {
       width: "auto",
+      mr: { xs: 2, md: 3 },
     },
   },
   sx: {
