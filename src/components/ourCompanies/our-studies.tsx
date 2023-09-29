@@ -23,8 +23,8 @@ const CaseStudies = () => {
           slidesPerView={"auto"}
           navigation={{
             enabled: true,
-            nextEl: ".swiper-next",
-            prevEl: ".swiper-prev",
+            nextEl: ".swiper-case-next",
+            prevEl: ".swiper-case-prev",
           }}
           modules={[Navigation]}
           SlideWrapperProps={{
@@ -52,10 +52,10 @@ const CaseStudies = () => {
                     md: "flex",
                   }}
                   PrevButtonProps={{
-                    className: "swiper-prev",
+                    className: "swiper-case-prev",
                   }}
                   NextButtonProps={{
-                    className: "swiper-next",
+                    className: "swiper-case-next",
                   }}
                 />
               </Stack>
@@ -69,10 +69,10 @@ const CaseStudies = () => {
                 }}
                 alignSelf={"center"}
                 PrevButtonProps={{
-                  className: "swiper-prev",
+                  className: "swiper-case-prev",
                 }}
                 NextButtonProps={{
-                  className: "swiper-next",
+                  className: "swiper-case-next",
                 }}
               />
             ),
