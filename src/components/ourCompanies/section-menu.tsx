@@ -43,7 +43,7 @@ const SectionMenu = (props: SectionMenuProps) => {
       color={"primary.main"}
       sx={{
         position: "sticky",
-        top: !trigger ? 120 : 0,
+        top: !trigger ? { xs: 64, md: 92, xxl: 120 } : 0,
         zIndex: 10,
         transition: "all .4s ease-in-out",
       }}
@@ -65,6 +65,7 @@ const SectionMenu = (props: SectionMenuProps) => {
         value={value}
         onChange={handleChange}
         variant='scrollable'
+        scrollButtons={false}
         sx={{
           width: 1,
           [`.MuiTabs-flexContainer`]: {
@@ -82,7 +83,7 @@ const SectionMenu = (props: SectionMenuProps) => {
               border: "none",
               fontSize: Button,
               px: 0,
-              height: 64,
+              height: { xs: 56, md: 64 },
               color: "#575756",
               opacity: 0.6,
               "&.Mui-selected": {
