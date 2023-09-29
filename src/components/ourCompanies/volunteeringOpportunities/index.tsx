@@ -15,6 +15,9 @@ const VolunteeringOpportunities = () => {
         SectionHeaderProps: {
           title: "Volunteering Opportunities",
         },
+        ContainerProps: {
+          pb: 0,
+        },
       }}
       ArrowSlideInfoProps={{
         isNavigation: true,
