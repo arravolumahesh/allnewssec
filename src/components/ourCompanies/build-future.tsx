@@ -12,8 +12,7 @@ const BuildFuture = () => {
     <>
       <SectionWrapper
         sx={{
-          background:
-            "linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%)",
+          background: `linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695908230/Frame_1171280554_qhbcdb.png),lightgray 50% / cover no-repeat`,
         }}
       >
         <Stack sx={{ display: "flex", flexDirection: "row" }}>
