@@ -36,9 +36,9 @@ import {
 const DiscoverBajaj = () => {
   return (
     <SectionWrapper
-      id='bajaj-auto'
       SectionProps={{
         bgcolor: "primary.500",
+        id: "bajaj-auto",
       }}
       SectionHeaderProps={{
         title: "Discover bajaj Auto",

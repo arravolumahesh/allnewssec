@@ -260,11 +260,11 @@ const Areas = () => {
 const OurFocusAreas = () => {
   return (
     <SectionWrapper
-      id='programs-initiatives'
       SectionProps={{
         sx: {
           background: (theme) => theme.palette.gradient.darkToLight,
         },
+        id: "programs-initiatives",
       }}
       SectionHeaderProps={{
         title: "OUR FOCUS AREAS",

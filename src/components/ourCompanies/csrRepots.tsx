@@ -23,11 +23,11 @@ const CsrReport = () => {
   const [year, setYear] = useState("");
   return (
     <SectionWrapper
-      id='csr-reports'
       SectionProps={{
         sx: {
           background: (theme) => theme.palette.gradient.lightToDark,
         },
+        id: "csr-reports",
       }}
     >
       <Stack

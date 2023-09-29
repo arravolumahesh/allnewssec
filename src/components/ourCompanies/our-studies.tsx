@@ -17,7 +17,10 @@ import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button"
 
 const CaseStudies = () => {
   return (
-    <SectionWrapper id='case-studies' color={"primary.main"}>
+    <SectionWrapper
+      SectionProps={{ id: "case-studies" }}
+      color={"primary.main"}
+    >
       <Stack width={1}>
         <EnhancedSwiper
           slidesPerView={"auto"}

@@ -10,12 +10,14 @@ import React from "react";
 const Happening = () => {
   return (
     <ArrowSwiperWithInfoSection
-      id='whats-new'
       data={data}
       SwiperKey={Happening.name}
       SectionWrapperProps={{
         SectionHeaderProps: {
           title: "HERE’S WHAT’S HAPPENING",
+        },
+        SectionProps: {
+          id: "whats-new",
         },
       }}
       SwiperProps={{

@@ -25,8 +25,8 @@ const Sustainability = () => {
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
   return (
     <SectionWrapper
-      id='sustainability'
       SectionProps={{
+        id: "sustainability",
         sx: {
           background: "black",
           // background: `url(${sustain.src})`,

@@ -10,12 +10,14 @@ import React from "react";
 const Stories = () => {
   return (
     <ArrowSwiperWithInfoSection
-      id='stories'
       data={data}
       SwiperKey={Stories.name}
       SectionWrapperProps={{
         SectionHeaderProps: {
           title: "STORIES OF TRANSFORMATION",
+        },
+        SectionProps: {
+          id: "stories",
         },
       }}
       ArrowSlideInfoProps={{

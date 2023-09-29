@@ -8,13 +8,15 @@ import vo from "@/components/ourCompanies/volunteeringOpportunities/images/volun
 const VolunteeringOpportunities = () => {
   return (
     <ArrowSwiperWithInfoSection
-      id='volunteering-opportunities'
       data={data}
       SwiperKey={VolunteeringOpportunities.name}
       SectionWrapperProps={{
         color: "primary.main",
         SectionHeaderProps: {
           title: "Volunteering Opportunities",
+        },
+        SectionProps: {
+          id: "volunteering-opportunities",
         },
         ContainerProps: {
           pb: 0,
