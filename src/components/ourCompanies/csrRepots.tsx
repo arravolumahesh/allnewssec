@@ -23,7 +23,7 @@ const CsrReport = () => {
     <SectionWrapper
       SectionProps={{
         sx: {
-          background: (theme) => theme.palette.gradient.darkToLight,
+          background: (theme) => theme.palette.gradient.lightToDark,
         },
       }}
     >
@@ -55,7 +55,7 @@ const CsrReport = () => {
             width={120}
             height={250}
             src={csrReport}
-            alt="Reports"
+            alt='Reports'
             style={{
               position: "absolute",
               top: "50%",
@@ -83,22 +83,7 @@ const CsrReport = () => {
           viewport={{ once: true }}
         >
           <MotionTypography
-            variant="h6"
-            sx={{
-              display: "-webkit-box",
-
-              "-webkit-box-orient": "vertical",
-              "-webkit-line-clamp": 1,
-              overflow: "hidden",
-              color: "var(--White, #FFF)",
-              textOverflow: "ellipsis",
-              fontFamily: "Helvetica",
-              fontSize: "48px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "128%",
-              textTransform: "uppercase",
-            }}
+            variant='h3'
             initial={"initial"}
             whileInView={"animate"}
             viewport={{ once: true }}
@@ -107,17 +92,8 @@ const CsrReport = () => {
             Csr Reports
           </MotionTypography>
           <MotionTypography
-            variant="body1"
-            sx={{
-              color: "var(--White, #FFF)",
-              fontFamily: "Helvetica",
-              fontSize: 18,
-              fontStyle: "normal",
-              fontWeight: "400px",
-              lineHeightStep: "128%",
-              paddingTop: "20px",
-              marginBottom: "40px",
-            }}
+            variant='body1'
+            mt={{ xs: 2, md: 1 }}
             variants={staggerChildren}
             initial={"initial"}
             whileInView={"animate"}
@@ -126,6 +102,7 @@ const CsrReport = () => {
             We are always looking forward to support you
           </MotionTypography>
           <Stack
+            mt={5}
             sx={{
               display: "flex",
               flexDirection: {
@@ -179,14 +156,14 @@ const CsrReport = () => {
                     lineHeight: "150%",
                     letterSpacing: "0.16px",
                   }}
-                  value=""
+                  value=''
                 >
                   Select A Year
                 </option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
+                <option value='2020'>2020</option>
+                <option value='2021'>2021</option>
+                <option value='2023'>2023</option>
+                <option value='2024'>2024</option>
               </select>
             </Stack>
 
@@ -234,14 +211,14 @@ const CsrReport = () => {
                     lineHeight: "150%",
                     letterSpacing: "0.16px",
                   }}
-                  value=""
+                  value=''
                 >
                   Select A Report
                 </option>
-                <option value="Bajaj finance">Bajaj finance</option>
-                <option value="IT Company">IT Company</option>
-                <option value="AutoWala">AutoWala</option>
-                <option value="Students">Students</option>
+                <option value='Bajaj finance'>Bajaj finance</option>
+                <option value='IT Company'>IT Company</option>
+                <option value='AutoWala'>AutoWala</option>
+                <option value='Students'>Students</option>
               </select>
             </Stack>
           </Stack>
