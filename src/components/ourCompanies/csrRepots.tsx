@@ -29,8 +29,20 @@ const CsrReport = () => {
         },
       }}
     >
-      <Stack direction='row' justifyContent={"space-evenly"}>
-        <ArrowImage src={csrReport} alt='' width={217} height={262} />
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        alignItems={"center"}
+        justifyContent={"space-evenly"}
+        rowGap={3}
+        columnGap={5}
+      >
+        <ArrowImage
+          src={csrReport}
+          alt=''
+          width={217}
+          height={262}
+          sx={{ minWidth: 217 }}
+        />
         <Stack
           direction={"column"}
           width={1}
@@ -60,7 +72,12 @@ const CsrReport = () => {
           >
             We are always looking forward to support you
           </MotionTypography>
-          <Stack mt={5} mb={4} direction={"row"} gap={5}>
+          <Stack
+            mt={5}
+            mb={4}
+            direction={{ xs: "column", md: "row" }}
+            gap={{ xs: 2, md: 5 }}
+          >
             <Select
               fullWidth
               sx={(theme) => ({

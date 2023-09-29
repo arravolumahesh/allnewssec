@@ -91,11 +91,11 @@ const DiscoverBajaj = () => {
               fontSize: H6_2,
               textDecoration: "none",
             }}
-            href="/"
+            href='/'
             variants={textStaggerChildren}
           >
             Visit Bajaj Auto Website
-            <ArrowForwardIos sx={{ ml: "8px" }} fontSize="small" />
+            <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
           </MaterialLink>
           <MotionStack
             direction={"row"}
@@ -111,7 +111,7 @@ const DiscoverBajaj = () => {
             ].map((Icon, idx) => (
               <Icon
                 key={idx}
-                variant="contained"
+                variant='contained'
                 SvgIconProps={{
                   sx: {
                     bgcolor: "common.white",
@@ -153,7 +153,7 @@ const ImageSlics = (props: ImageSlicsProps) => {
   return (
     <MaterialImage
       src={img}
-      alt=""
+      alt=''
       width={421}
       height={247}
       sx={{
@@ -184,7 +184,7 @@ const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
   sx: {
     overflow: {
       xs: "visible",
-      xxl: "hidden",
+      wide: "hidden",
     },
     width: "100%",
     "& .swiper-wrapper": {
