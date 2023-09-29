@@ -54,13 +54,11 @@ const sectionWrapperDefaultProps: Omit<SectionWrapperProps, "children"> = {
     },
   },
   ContainerProps: {
-    sx: {
       px: {
         ...basePx,
         xs: 0,
         md: 0,
       },
-    },
   },
 };
 

@@ -38,7 +38,14 @@ const HerosOfInitiatives = () => {
         ml={8.375}
       />
       <Stack width={{ xs: 1, xl: 0.83 }}>
-        <MotionTypography variant={"h2"} fontSize={H3_1} mb={5} width={650}>
+        <MotionTypography
+          variant={"h2"}
+          fontSize={H3_1}
+          mb={5}
+          width={650}
+          maxWidth={"100%"}
+          textAlign={"center"}
+        >
           Heroes behind our successful initiatives.
         </MotionTypography>
         <EnhancedSwiper
