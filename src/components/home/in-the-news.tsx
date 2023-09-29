@@ -13,8 +13,12 @@ const InTheNews = () => {
       data={data}
       SwiperKey={InTheNews.name}
       SectionWrapperProps={{
+        color: "primary.main",
         SectionHeaderProps: {
           title: "In the News",
+        },
+        ContainerProps: {
+          pb: 0,
         },
       }}
       ArrowSlideInfoProps={{

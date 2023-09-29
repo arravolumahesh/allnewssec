@@ -1,69 +1,94 @@
 "use client";
-import { LogoCard } from "@/commonComponents/cards/logo";
-import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
-import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
-import React from "react";
-import { Autoplay } from "swiper/modules";
+import { H3_2 } from "@theme/components/typography.fontvariant";
+import SectionWrapper, {
+  basePx,
+  SectionWrapperProps,
+} from "@cc/section-wrapper";
 import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
-import "../../../node_modules/swiper/modules/autoplay.min.css";
-import "../../../node_modules/swiper/modules/free-mode.css";
+import { LogoCard } from "@cc/cards/logo";
+import { Autoplay } from "swiper/modules";
+import React, { ComponentProps, ComponentType } from "react";
+import { deepmerge } from "@mui/utils";
+import "../../node_modules/swiper/modules/autoplay.min.css";
+import "../../node_modules/swiper/modules/free-mode.css";
 
-const Partners = () => {
+export interface PartnerSwiperSectionProps<
+  T extends ComponentType<any> = ComponentType<any>,
+  P extends ComponentProps<T> = ComponentProps<T>,
+> extends Omit<SectionWrapperProps, "children"> {
+  SwiperProps?: Omit<EnhancedSwiperProps<T, P>, "data" | "SlideComponent">;
+  data?: EnhancedSwiperProps<T, P>["data"];
+  SlideComponent?: EnhancedSwiperProps<T, P>["SlideComponent"];
+}
+
+const PartnerSwiperSection = <
+  T extends ComponentType<any>,
+  P extends ComponentProps<T>,
+>(
+  props: PartnerSwiperSectionProps<T, P>
+) => {
+  const { data, SlideComponent, SwiperProps, ...rest } = props;
   return (
-    <SectionWrapper
-      color={"primary.main"}
-      SectionHeaderProps={{
-        title: "ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY",
-        TitleTypographyProps: {
-          variant: "h3",
-          fontSize: H3_2,
-          textAlign: "center",
-          maxWidth: 951,
-          mx: "auto",
-        },
-      }}
-      ContainerProps={{
-        sx: {
-          px: {
-            ...basePx,
-            xs: 0,
-            md: 0,
-          },
-        },
-      }}
-    >
+    <SectionWrapper {...deepmerge(sectionWrapperDefaultProps, rest)}>
       <EnhancedSwiper
-        data={data}
-        SlideComponent={LogoCard}
-        slidesPerView={"auto"}
-        spaceBetween={24}
-        autoplay={{
-          delay: 0,
-          disableOnInteraction: false,
-          reverseDirection: true,
-        }}
-        speed={2000}
-        loop
-        modules={[Autoplay]}
-        SlideWrapperProps={{
-          sx: {
-            width: "auto",
-          },
-        }}
-        sx={{
-          width: "100%",
-          "& .swiper-wrapper": {
-            transitionTimingFunction: "linear !important",
-          },
-        }}
+        data={data || defaultData}
+        SlideComponent={SlideComponent || LogoCard}
+        {...deepmerge(swiperProps, SwiperProps)}
       />
     </SectionWrapper>
   );
 };
 
-export default Partners;
+export default PartnerSwiperSection;
 
-const data: EnhancedSwiperProps<typeof LogoCard>["data"] = [
+const sectionWrapperDefaultProps: Omit<SectionWrapperProps, "children"> = {
+  color: "primary.main",
+  SectionHeaderProps: {
+    title: "ASSOCIATED WITH OVER 100+ PARTNERS ACROSS THE COUNTRY",
+    TitleTypographyProps: {
+      variant: "h3",
+      fontSize: H3_2,
+      textAlign: "center",
+      maxWidth: 951,
+      mx: "auto",
+    },
+  },
+  ContainerProps: {
+      px: {
+        ...basePx,
+        xs: 0,
+        md: 0,
+      },
+  },
+};
+
+const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
+  slidesPerView: "auto",
+  speed: 2000,
+  loop: true,
+  modules: [Autoplay],
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+    reverseDirection: true,
+  },
+  SlideWrapperProps: {
+    sx: {
+      width: "auto",
+      mr: { xs: 2, md: 3 },
+    },
+  },
+  sx: {
+    width: "100%",
+    "& .swiper-wrapper": {
+      transitionTimingFunction: "linear !important",
+    },
+  },
+};
+
+const defaultData: Required<
+  PartnerSwiperSectionProps<typeof LogoCard>
+>["data"] = [
   {
     img: "https://s3-alpha-sig.figma.com/img/8a2c/4b9b/5a5bf73dc6c45202f91ddb722aadfdd3?Expires=1696204800&Signature=cwV0-DWdyQQeVA6z0h6yTt5JnLc4JaTLel71Pf4ZUDdZamtluHI-vGIp6ozLfwTeLmp3TrtWwG3mDQUBwW~E5t~E0Z7VGkwQN~cCrSC0GudvFRKbsRljWvJrSEkn8a1Bgs5ow9EkhB04e4RLqdpaJiZ4UKJsYpWMMJS7a7ZwJTuFYtwCdBmPSTHJ50QyxpNoRa2klzNjzM9fuuAnH7X-HObBWwdNMYRKbLLg4e-J6QqKjxZ1qwF-XahjsKXh2AWVubg-BLzr3ECGjrmBmD0qgxwedTiq4ecWXHVQp~oQ1Y8IusM2pVaX2RJWCH6yqzQUjCvNCUxUW2JJZ3U~F7EQyw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
   },

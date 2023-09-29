@@ -94,7 +94,7 @@ export const arrowSlideInfoDefaultProps: Omit<
   ArrowSlideInfoProps,
   "data" | "SwiperInstance"
 > = {
-  NavigationWrapperProps: {
+  SwiperNavigationButtonProps: {
     alignSelf: { xs: "center", md: "flex-end" },
   },
   height: "fit-content",

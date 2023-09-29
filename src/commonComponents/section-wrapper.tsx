@@ -47,10 +47,8 @@ const SectionWrapper = forwardRef<
       {...restProps}
     >
       <MotionStack
-        pl={basePx}
-        pr={basePx}
-        pt={basePy}
-        pb={basePy}
+        px={basePx}
+        py={basePy}
         width={1}
         maxWidth={"xxl"}
         height={"inherit"}

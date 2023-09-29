@@ -24,6 +24,7 @@ export function middleware(req: NextRequest) {
     const [user, pwd] = atob(authValue).split(":");
 
     if (users.find((u) => u.username === user && u.password === pwd)) {
+      console.log(`${Date.now()}:- ${user} -- ${url.pathname}`);
       return NextResponse.next();
     }
   }

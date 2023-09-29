@@ -24,6 +24,9 @@
       "@/*": [
         "./*"
       ],
+      "@c/*": [
+        "components/*"
+      ],
       "@cc/*": [
         "commonComponents/*"
       ],

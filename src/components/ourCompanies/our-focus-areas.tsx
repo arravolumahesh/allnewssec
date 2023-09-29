@@ -283,52 +283,51 @@ const OurFocusAreas = () => {
           columnGap={{ xs: 0.5, md: 1 }}
           width={{ xs: 1, md: 0.5 }}
         >
-          <Box
-            position='relative'
-            width={0.5}
-            maxWidth={{ xs: "none", md: 318 }}
-            height={{ xs: 223, md: "auto", lg: 368 }}
-          >
-            <MotionImage
-              src={OFA1}
-              alt='OFA1'
-              fill
-              objectFit='cover'
-              // variants={StagImage1}
-              // initial={"initial"}
-              // whileInView={"animate"}
-              // viewport={{ once: true }}
-            />
-          </Box>
+          <MotionImage
+            src={OFA1}
+            alt='OFA1'
+            sx={{
+              width: 0.5,
+              maxWidth: { xs: "none", md: 318 },
+              height: { xs: 1, lg: 368 },
+              objectFit: "cover",
+            }}
+            // variants={StagImage1}
+            // initial={"initial"}
+            // whileInView={"animate"}
+            // viewport={{ once: true }}
+          />
           <Stack
             width={0.5}
             rowGap={{ xs: 0.5, md: 1 }}
             maxWidth={{ xs: "none", md: 318 }}
           >
-            <Box position={"relative"} width={1} height={{ xs: 0.5, lg: 180 }}>
-              <MotionImage
-                src={OFA2}
-                alt=''
-                fill
-                objectFit='cover'
-                // variants={StagImage2}
-                // initial={"initial"}
-                // whileInView={"animate"}
-                // viewport={{ once: true }}
-              />
-            </Box>
-            <Box position={"relative"} width={1} height={{ xs: 0.5, lg: 180 }}>
-              <MotionImage
-                src={OFA3}
-                alt=''
-                fill
-                objectFit='cover'
-                // variants={StagImage3}
-                // initial={"initial"}
-                // whileInView={"animate"}
-                // viewport={{ once: true }}
-              />
-            </Box>
+            <MotionImage
+              src={OFA2}
+              alt=''
+              sx={{
+                width: 1,
+                height: { xs: 0.5, lg: 180 },
+                objectFit: "cover",
+              }}
+              // variants={StagImage2}
+              // initial={"initial"}
+              // whileInView={"animate"}
+              // viewport={{ once: true }}
+            />
+            <MotionImage
+              src={OFA3}
+              alt=''
+              sx={{
+                width: 1,
+                height: { xs: 0.5, lg: 180 },
+                objectFit: "cover",
+              }}
+              // variants={StagImage3}
+              // initial={"initial"}
+              // whileInView={"animate"}
+              // viewport={{ once: true }}
+            />
           </Stack>
         </Stack>
         <Stack
