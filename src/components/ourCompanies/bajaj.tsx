@@ -5,7 +5,7 @@ import {
   MotionTypography,
 } from "@/commonComponents/motion-components";
 import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
@@ -20,10 +20,8 @@ import {
   MaterialLink,
 } from "@/commonComponents/material-components";
 import { StaticImageData } from "next/image";
-import Link from "next/link";
 import { ArrowForwardIos } from "@mui/icons-material";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
-import { motion } from "framer-motion";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -74,16 +72,7 @@ const Bajaj = () => {
           }}
         />
       </Stack>
-      <Stack
-        display={"flex"}
-        flexDirection={"row"}
-        sx={
-          {
-            // flexDirection: screenSize === "mobile" ? "column" : "",
-            // alignItems: screenSize === "mobile" ? "center" : "",
-          }
-        }
-      >
+      <Stack display={"flex"} flexDirection={"row"}>
         <MotionStack
           direction={{ xs: "column-reverse", md: "row" }}
           rowGap={3}
@@ -110,7 +99,11 @@ const Bajaj = () => {
             Visit Bajaj Auto Website
             <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
           </MaterialLink>
-          <MotionStack direction={"row"} gap={2} variants={iconStagger}>
+          <MotionStack
+            direction={"row"}
+            gap={{ xs: 2, md: 4 }}
+            variants={iconStagger}
+          >
             {[
               FacebookIcon,
               TwitterIcon,
