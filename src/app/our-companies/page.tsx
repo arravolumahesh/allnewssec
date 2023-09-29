@@ -10,11 +10,13 @@ import PartnerSwiperSection from "@cc/partner-swiper-section";
 import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
 import CsrReport from "@/components/ourCompanies/csrRepots";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
+import SectionMenu from "@/components/ourCompanies/section-menu";
 
 const Company = () => {
   return (
     <>
       <BuildFuture />
+      <SectionMenu menus={menus} />
       <Happening />
       <OurFocusAreas />
       <Stories />
@@ -37,3 +39,38 @@ const Company = () => {
 };
 
 export default Company;
+
+const menus = [
+  {
+    title: "What’s New",
+    anchorTag: "/",
+  },
+  {
+    title: "Programs & Initiatives",
+    anchorTag: "/",
+  },
+  {
+    title: "Stories",
+    anchorTag: "/",
+  },
+  {
+    title: "Sustainability",
+    anchorTag: "/",
+  },
+  {
+    title: "Case Studies",
+    anchorTag: "/",
+  },
+  {
+    title: "Recognition",
+    anchorTag: "/",
+  },
+  {
+    title: "Volunteering Opportunities",
+    anchorTag: "/",
+  },
+  {
+    title: "CSR Reports",
+    anchorTag: "/",
+  },
+];
