@@ -9,6 +9,7 @@ import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpp
 import PartnerSwiperSection from "@cc/partner-swiper-section";
 import Enquire from "@/components/ourCompanies/enquire";
 import Bajaj from "@/components/ourCompanies/bajaj";
+import HerosOfInitiatives from "@c/ourCompanies/heros-of-initiatives";
 
 const Company = () => {
   return (
@@ -24,6 +25,8 @@ const Company = () => {
       <Bajaj />
       {/* <HerosSection /> */}
       {/* 
+      <HerosOfInitiatives />
+      {/* <Bajaj />
       <Enquire />
       <Section />
       <CsrReport /> */}

@@ -6,7 +6,6 @@ import {
   ReactNode,
   Ref,
 } from "react";
-import "../../node_modules/swiper/swiper-bundle.min.css";
 import { Stack, StackProps } from "@mui/material";
 import {
   MaterialSwiper,
@@ -16,6 +15,7 @@ import {
 } from "@cc/material-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { SwiperRef } from "swiper/swiper-react";
+import "../../node_modules/swiper/swiper-bundle.min.css";
 
 export type SlideData = {
   isActive?: boolean;
