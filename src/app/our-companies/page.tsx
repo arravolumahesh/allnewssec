@@ -5,6 +5,7 @@ import React from "react";
 import Sustainability from "@/components/ourCompanies/sustainability";
 import Happening from "@/components/ourCompanies/happening";
 import Stories from "@/components/ourCompanies/stories";
+import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpportunities";
 
 const Company = () => {
   return (
@@ -15,6 +16,7 @@ const Company = () => {
       <Stories />
       <Sustainability />
       <CaseStudies />
+      <VolunteeringOpportunities />
       {/* <HerosSection /> */}
       {/* <Bajaj />
       <Enquire />

@@ -40,7 +40,6 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
     ButtonProps?: Omit<AnimatedButtonProps, "children">;
   };
   isNavigation?: boolean;
-  NavigationWrapperProps?: Omit<MotionStackProps, "children">;
   InfoWrapperProps?: Omit<MotionStackProps, "children">;
   SwiperInstance: BehaviorSubject<Swiper | null>;
   SwiperNavigationButtonProps?: SwiperNavigationButtonProps;
@@ -50,7 +49,6 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   const {
     data,
     isNavigation,
-    NavigationWrapperProps,
     InfoWrapperProps,
     SwiperInstance,
     SwiperNavigationButtonProps,
@@ -127,11 +125,11 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           >
             {title}
           </MotionTypography>
-          {suffix && (
+          {suffix && (suffix.date || suffix.region) && (
             <MotionStack
               variants={childMotionVariants}
-              direction='row'
-              alignItems='center'
+              direction="row"
+              alignItems="center"
               columnGap={3}
             >
               {suffix.date && (
@@ -143,7 +141,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
                   gutterBottom
                   {...SuffixTypographyProps}
                 >
-                  <CalendarToday fontSize='small' /> {suffix.date}
+                  <CalendarToday fontSize="small" /> {suffix.date}
                 </MotionTypography>
               )}
               {suffix.region && (
@@ -155,7 +153,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
                   gutterBottom
                   {...SuffixTypographyProps}
                 >
-                  <FmdGood fontSize='small' /> {suffix.region}
+                  <FmdGood fontSize="small" /> {suffix.region}
                 </MotionTypography>
               )}
             </MotionStack>

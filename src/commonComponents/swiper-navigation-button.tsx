@@ -36,7 +36,7 @@ const SwiperNavigationButton = (props: SwiperNavigationButtonProps) => {
       {...NavigationWrapperProps}
     >
       <BorderedIconButton
-        color={"primary"}
+        color={"inherit"}
         onClick={() => {
           swiper && swiper.slidePrev();
         }}
@@ -46,7 +46,7 @@ const SwiperNavigationButton = (props: SwiperNavigationButtonProps) => {
         <NavigateBeforeRounded />
       </BorderedIconButton>
       <BorderedIconButton
-        color={"primary"}
+        color={"inherit"}
         onClick={() => {
           swiper && swiper.slideNext();
         }}
