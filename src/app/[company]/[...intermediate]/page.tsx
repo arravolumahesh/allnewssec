@@ -5,6 +5,7 @@ import IntermediateMenu from "@/commonComponents/commonIntermediates/intermediat
 import { NextPage } from "next";
 import CompanyIntermediateInitiatives from "@/components/companyIntermediate/companyInitiatives";
 import DiscoverCompanyIntermidiate from "@/components/companyIntermediate/discover";
+import IntermediateCountAndCards from "@/components/companyIntermediate/companyInitiativecountandcards";
 
 const menus = [
   {
@@ -86,10 +87,7 @@ const IntermediatePage: NextPage = () => {
               }          
           }}
         />
-        <IntermediateCount />
-        <CompanyIntermediateInitiatives
-          initiative={initiative}
-        />
+        <IntermediateCountAndCards initiative={initiative} />
         <DiscoverCompanyIntermidiate />
       
 
