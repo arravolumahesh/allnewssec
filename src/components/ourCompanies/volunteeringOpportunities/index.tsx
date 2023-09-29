@@ -18,7 +18,6 @@ const VolunteeringOpportunities = () => {
       }}
       ArrowSlideInfoProps={{
         isNavigation: true,
-        height: "100%",
         SlotProps: {
           ButtonProps: {
             href: "#",
