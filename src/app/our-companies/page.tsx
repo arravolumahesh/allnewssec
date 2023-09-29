@@ -7,6 +7,7 @@ import Happening from "@/components/ourCompanies/happening";
 import Stories from "@/components/ourCompanies/stories";
 import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpportunities";
 import PartnerSwiperSection from "@cc/partner-swiper-section";
+import HerosOfInitiatives from "@c/ourCompanies/heros-of-initiatives";
 
 const Company = () => {
   return (
@@ -19,7 +20,7 @@ const Company = () => {
       <CaseStudies />
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
-      {/* <HerosSection /> */}
+      <HerosOfInitiatives />
       {/* <Bajaj />
       <Enquire />
       <Section />
