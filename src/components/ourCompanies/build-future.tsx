@@ -1,5 +1,5 @@
 "use client";
-import SectionWrapper from "@/commonComponents/section-wrapper";
+import SectionWrapper, { basePy } from "@/commonComponents/section-wrapper";
 import { Stack, Typography } from "@mui/material";
 import React from "react";
 import {
@@ -15,15 +15,16 @@ const BuildFuture = () => {
       <SectionWrapper
         SectionProps={{
           sx: {
-            background: `linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%) , url(${bg.src}) no-repeat`,
+            background: (theme) =>
+              `${theme.palette.gradient.transparentToDarkRight} , url(${bg.src}) no-repeat`,
             backgroundPosition: "right",
             backgroundSize: "cover",
           },
         }}
-        pt={{ xs: 2, md: 4 }}
-        pb={{ xs: 3, md: 9 }}
+        py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
+        pb={{ /* ...basePy, */ xs: 3, md: 9 }}
       >
-        {CommonBreadcrumb()}
+        <CommonBreadcrumb />
         <Stack mt={{ xs: 7, md: 12 }} maxWidth={863} rowGap={3}>
           <MotionTypography
             variant='h1'

@@ -28,9 +28,9 @@ const Company = () => {
       {/* <HerosSection /> */}
       {/*
       <HerosOfInitiatives />
+      <Section />
       {/* <Bajaj />
       <Enquire />
-      <Section />
       <CsrReport /> */}
     </>
   );
