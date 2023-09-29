@@ -44,7 +44,11 @@ const HerosOfInitiatives = () => {
           mb={5}
           width={650}
           maxWidth={"100%"}
-          textAlign={"center"}
+          textAlign={{ xs: "center", xl: "left" }}
+          alignSelf={{
+            xs: "center",
+            xl: "flex-start",
+          }}
         >
           Heroes behind our successful initiatives.
         </MotionTypography>
@@ -64,6 +68,12 @@ const HerosOfInitiatives = () => {
               "&:last-child": {
                 mr: 0,
               },
+            },
+          }}
+          sx={{
+            overflow: {
+              xs: "visible",
+              xxl: "hidden",
             },
           }}
           navigation={{
