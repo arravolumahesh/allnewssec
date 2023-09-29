@@ -4,7 +4,7 @@ import AnimatedButton from "@/commonComponents/animated-button";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { motion } from "framer-motion";
 
-import { Stack } from "@mui/material";
+import { Stack, TextField } from "@mui/material";
 import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 
@@ -101,6 +101,7 @@ const CsrReport = () => {
           >
             We are always looking forward to support you
           </MotionTypography>
+          <TextField variant='outlined' placeholder='hshsh' />
           <Stack
             mt={5}
             sx={{

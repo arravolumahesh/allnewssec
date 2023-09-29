@@ -41,6 +41,10 @@ export const CssBaselineTheme: Components<
       body: {
         backgroundColor: theme.palette.background.default,
       },
+      img:{
+        maxWidth:'100%',
+        height:'auto'
+      }
     });
   },
   defaultProps: {
