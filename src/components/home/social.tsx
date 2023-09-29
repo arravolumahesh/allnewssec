@@ -7,6 +7,7 @@ import {
   MotionGrid,
   MotionGridProps,
   MotionImage,
+  MotionStack,
   MotionTypography,
   MotionTypographyProps,
   MotionVariantProps,
@@ -45,6 +46,7 @@ import {
   YouTubeIcon,
 } from "@/commonComponents/social-icons";
 import { MaterialImage } from "@/commonComponents/material-components";
+import { bottomTextStagger, iconStagger, iconStaggerChildren, textStaggerChildren } from "@/commonComponents/animations";
 
 const HoverGrid = styled((props: MotionGridProps) => (
   <MotionGrid
@@ -245,19 +247,17 @@ const Social = () => {
         </HoverGrid>
       </Grid2>
       {matches && (
-        <Stack
+        <MotionStack
           height={1}
           justifyContent={"center"}
           mt={3}
-          component={motion.div}
           variants={bottomTextStagger}
           initial={"initial"}
           whileInView={"animate"}
           viewport={{ once: true }}
         >
-          <Stack
+          <MotionStack
             rowGap={3}
-            component={motion.div}
             variants={textStaggerChildren}
           >
             <MotionTypography fontSize={H6_2}>
@@ -267,12 +267,11 @@ const Social = () => {
             <MotionTypography fontSize={H6_2} fontWeight={700}>
               @bajajbeyond
             </MotionTypography>
-          </Stack>
-          <Stack
+          </MotionStack>
+          <MotionStack
             direction={"row"}
             gap={2}
             mt={2}
-            component={motion.div}
             variants={iconStagger}
           >
             {[
@@ -295,8 +294,8 @@ const Social = () => {
                 variants={iconStaggerChildren}
               />
             ))}
-          </Stack>
-        </Stack>
+          </MotionStack>
+        </MotionStack>
       )}
     </SectionWrapper>
   );
@@ -384,48 +383,5 @@ const arrowTransition: MotionBoxProps = {
   },
   viewport: {
     once: true,
-  },
-};
-
-const bottomTextStagger: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      delayChildren: 2.4,
-      staggerChildren: 0.4,
-      duration: 0.4,
-    },
-  },
-};
-const textStaggerChildren: MotionVariantProps = {
-  initial: {
-    y: 120,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-};
-const iconStagger: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-const iconStaggerChildren: MotionVariantProps = {
-  initial: {
-    scale: 0,
-  },
-  animate: {
-    scale: 1,
-    transition: {
-      type: "spring",
-    },
   },
 };

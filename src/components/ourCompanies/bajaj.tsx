@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
-import { MotionTypography } from "@/commonComponents/motion-components";
+import {
+  MotionStack,
+  MotionTypography,
+} from "@/commonComponents/motion-components";
 import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
 import { Box, Stack } from "@mui/material";
 import group2 from "@/components/ourCompanies/images/group2.png";
@@ -21,6 +24,19 @@ import Link from "next/link";
 import { ArrowForwardIos } from "@mui/icons-material";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import { motion } from "framer-motion";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+  YouTubeIcon,
+} from "@/commonComponents/social-icons";
+import {
+  bottomTextStagger,
+  iconStagger,
+  iconStaggerChildren,
+  textStaggerChildren,
+} from "@/commonComponents/animations";
 const Bajaj = () => {
   return (
     <SectionWrapper
@@ -68,7 +84,19 @@ const Bajaj = () => {
           }
         }
       >
-        <Stack direction={"row"} mt={{ xs: 5, md: 7 }} px={basePx}>
+        <MotionStack
+          direction={{ xs: "column-reverse", md: "row" }}
+          rowGap={3}
+          mt={{ xs: 5, md: 7 }}
+          px={basePx}
+          width={1}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          variants={bottomTextStagger}
+          initial={"initial"}
+          whileInView={"animate"}
+          viewport={{ once: true }}
+        >
           <MaterialLink
             sx={{
               display: "flex",
@@ -77,31 +105,34 @@ const Bajaj = () => {
               textDecoration: "none",
             }}
             href='/'
+            variants={textStaggerChildren}
           >
             Visit Bajaj Auto Website
             <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
           </MaterialLink>
-          {/* <Stack
-                direction={"row"}
-                gap={4}
-                mt={2}
-                component={motion.div}
-                variants={iconStagger}
-              >
-                {[fb, twitter, yt, insta, linkd].map((item, idx) => (
-                  <Box
-                    key={idx}
-                    position={"relative"}
-                    width={48}
-                    height={48}
-                    component={motion.div}
-                    variants={iconStaggerChildren}
-                  >
-                    <MotionImage src={item} alt="" fill />
-                  </Box>
-                ))}
-              </Stack> */}
-        </Stack>
+          <MotionStack direction={"row"} gap={2} variants={iconStagger}>
+            {[
+              FacebookIcon,
+              TwitterIcon,
+              YouTubeIcon,
+              InstagramIcon,
+              LinkedInIcon,
+            ].map((Icon, idx) => (
+              <Icon
+                key={idx}
+                variant='contained'
+                SvgIconProps={{
+                  sx: {
+                    bgcolor: "common.white",
+                    width: { xs: 32, md: 48 },
+                    height: { xs: 32, md: 48 },
+                  },
+                }}
+                variants={iconStaggerChildren}
+              />
+            ))}
+          </MotionStack>
+        </MotionStack>
       </Stack>
     </SectionWrapper>
   );
