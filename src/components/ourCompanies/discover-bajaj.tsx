@@ -1,9 +1,6 @@
 "use client";
 import React from "react";
-import {
-  MotionStack,
-  MotionTypography,
-} from "@/commonComponents/motion-components";
+import { MotionStack } from "@/commonComponents/motion-components";
 import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
 import { Stack } from "@mui/material";
 import group2 from "@/components/ourCompanies/images/group2.png";
@@ -35,7 +32,8 @@ import {
   iconStaggerChildren,
   textStaggerChildren,
 } from "@/commonComponents/animations";
-const Bajaj = () => {
+
+const DiscoverBajaj = () => {
   return (
     <SectionWrapper
       SectionProps={{
@@ -58,12 +56,12 @@ const Bajaj = () => {
       <Stack rowGap={{ xs: 2, m: 3 }}>
         <EnhancedSwiper
           data={imageData}
-          SlideComponent={ImageSlies}
+          SlideComponent={ImageSlics}
           {...swiperProps}
         />
         <EnhancedSwiper
           data={imageData}
-          SlideComponent={ImageSlies}
+          SlideComponent={ImageSlics}
           {...swiperProps}
           autoplay={{
             delay: 0,
@@ -93,11 +91,11 @@ const Bajaj = () => {
               fontSize: H6_2,
               textDecoration: "none",
             }}
-            href='/'
+            href="/"
             variants={textStaggerChildren}
           >
             Visit Bajaj Auto Website
-            <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
+            <ArrowForwardIos sx={{ ml: "8px" }} fontSize="small" />
           </MaterialLink>
           <MotionStack
             direction={"row"}
@@ -113,7 +111,7 @@ const Bajaj = () => {
             ].map((Icon, idx) => (
               <Icon
                 key={idx}
-                variant='contained'
+                variant="contained"
                 SvgIconProps={{
                   sx: {
                     bgcolor: "common.white",
@@ -131,7 +129,7 @@ const Bajaj = () => {
   );
 };
 
-export default Bajaj;
+export default DiscoverBajaj;
 
 const imageData = [
   { img: group2 },
@@ -146,16 +144,16 @@ const imageData = [
   { img: group8 },
 ];
 
-interface ImageSliesProps {
+interface ImageSlicsProps {
   img: StaticImageData | string;
 }
 
-const ImageSlies = (props: ImageSliesProps) => {
+const ImageSlics = (props: ImageSlicsProps) => {
   const { img } = props;
   return (
     <MaterialImage
       src={img}
-      alt=''
+      alt=""
       width={421}
       height={247}
       sx={{
@@ -184,6 +182,10 @@ const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
     },
   },
   sx: {
+    overflow: {
+      xs: "visible",
+      xxl: "hidden",
+    },
     width: "100%",
     "& .swiper-wrapper": {
       transitionTimingFunction: "linear !important",

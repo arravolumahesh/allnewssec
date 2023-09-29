@@ -50,8 +50,7 @@ const CompanyIntermediateBanner = () => {
 
   return (
     <Stack
-      sx={{
-        background: "#fff",
+      sx={{        
         position: "relative",
         overflow: "hidden",
         "& img": {
@@ -107,6 +106,7 @@ const CompanyIntermediateBanner = () => {
           pb:{xxl:9,xs:1},
           pt:{xxl:4,xs:2}
         }}
+        color={'white'}
       >
         <CommonBreadcrumb />
         <MotionTypography

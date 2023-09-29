@@ -58,7 +58,7 @@ const InitiativeCard = (prop: props) => {
     <>
       <MotionBox
         initial={{
-          x: !prop.matches ? (swiperSlide.isPrev ? "-40%" : "40%") : 0,
+          x: !prop.matches ? (swiperSlide?.isPrev ? "-40%" : "40%") : 0,
           opacity: !prop.matches ? 0 : 1,
         }}
         whileInView={{

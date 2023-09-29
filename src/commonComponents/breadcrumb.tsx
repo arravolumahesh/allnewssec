@@ -21,13 +21,14 @@ export default function CommonBreadcrumb() {
         <Typography
           component={Link}
           sx={{
+            opacity:0.5,
             '&:hover':{
               background:'none'
             }
           }}
           href="/"
           underline="hover"
-          color="secondary.dark"
+          // color="secondary.dark"
         >
           Home  
         </Typography>
@@ -47,13 +48,14 @@ export default function CommonBreadcrumb() {
                   textTransform="capitalize"
                   component={Link}
                   sx={{
+                    opacity:0.5,
                     '&:hover':{
                       background:'none'
                     }
                   }}
                   href={item}
                   underline="hover"
-                  color="secondary.dark"
+                  // color="secondary.dark"
                   key={index}
                 >
                   {item.replace("-", " ")}
