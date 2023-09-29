@@ -52,8 +52,7 @@ const IntermediateBanner = () => {
 
   return (
     <Stack
-      sx={{
-        background: "#fff",
+      sx={{        
         position: "relative",
         overflow: "hidden",
         "& img": {

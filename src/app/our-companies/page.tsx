@@ -7,10 +7,9 @@ import Happening from "@/components/ourCompanies/happening";
 import Stories from "@/components/ourCompanies/stories";
 import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpportunities";
 import PartnerSwiperSection from "@cc/partner-swiper-section";
-import Enquire from "@/components/ourCompanies/enquire";
-import Bajaj from "@/components/ourCompanies/bajaj";
-import HerosOfInitiatives from "@c/ourCompanies/heros-of-initiatives";
+import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
 import CsrReport from "@/components/ourCompanies/csrRepots";
+import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 
 const Company = () => {
   return (
@@ -21,17 +20,18 @@ const Company = () => {
       <Stories />
       <Sustainability />
       <CaseStudies />
+      <HerosOfInitiatives />
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
-      <Bajaj />
+      <DiscoverBajaj />
       <CsrReport />
       {/* <HerosSection /> */}
-      {/* 
+      {/*
       <HerosOfInitiatives />
       {/* <Bajaj />
       <Enquire />
       <Section />
-      */}
+      <CsrReport /> */}
     </>
   );
 };

@@ -4,6 +4,7 @@ import IntermediateMenu from "@/commonComponents/commonIntermediates/intermediat
 import { NextPage } from "next";
 import CompanyIntermediateInitiatives from "@/components/companyIntermediate/companyInitiatives";
 import DiscoverCompanyIntermidiate from "@/components/companyIntermediate/discover";
+import IntermediateCountAndCards from "@/components/companyIntermediate/companyInitiativecountandcards";
 
 const menus = [
   {
@@ -69,6 +70,25 @@ const IntermediatePage: NextPage = () => {
   return (
     <>
       <CompanyIntermediateBanner />
+      
+        <IntermediateMenu
+          logoImg={logoImg}
+          menus={menus}
+          styles={{
+            alignItems:'center',
+            justifyContent:'flex-start',
+            gap:{xs:5,lg:12},          
+              '& a:nth-child(2)':{
+                ml:-12
+              },
+              '& a:last-child':{
+                mr:'auto'
+              }          
+          }}
+        />
+        <IntermediateCountAndCards initiative={initiative} />
+        <DiscoverCompanyIntermidiate />
+      
 
       <IntermediateMenu
         logoImg={logoImg}

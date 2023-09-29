@@ -55,14 +55,14 @@ const ContactUs = () => {
           sx={{ aspectRatio: 0.86 }}
           {...boxTransition}
         >
-          <MotionImage src={contact} alt="" fill />
+          <MotionImage src={contact} alt='' fill />
         </MotionBox>
         <Stack
           rowGap={5}
           maxWidth={{ xs: 1, md_lg: 670 }}
           component={motion.div}
           variants={staggerDiv}
-          initial="initial"
+          initial='initial'
           whileInView={"animate"}
           viewport={{ once: true }}
         >
@@ -71,7 +71,7 @@ const ContactUs = () => {
             component={motion.div}
             variants={staggerDivChildrenRight}
           >
-            <Typography variant="h3">REACH OUT TO US</Typography>
+            <Typography variant='h3'>REACH OUT TO US</Typography>
             <Typography fontSize={"18px"}>
               We are always looking forward to support you.
             </Typography>
@@ -84,55 +84,34 @@ const ContactUs = () => {
             variants={staggerDivChildrenUp}
           >
             <Grid2 xs={12} md={6}>
-              <TextField
-                placeholder="Name"
-                fullWidth
-                variant="outlined"
-                sx={fieldSx}
-              />
+              <TextField placeholder='Name' fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField
-                placeholder="Email ID"
-                type="email"
-                fullWidth
-                sx={fieldSx}
-              />
+              <TextField placeholder='Email ID' type='email' fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder="Phone Number" fullWidth sx={fieldSx} />
+              <TextField placeholder='Phone Number' fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField
-                placeholder="Company Name (optional)"
-                fullWidth
-                sx={fieldSx}
-              />
+              <TextField placeholder='Company Name (optional)' fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
               <Select
                 fullWidth
-                sx={[
-                  fieldSx,
-                  (theme) => ({
-                    [`& .${selectClasses.icon}`]: {
-                      color: "white",
-                    },
-                    color: alpha(
-                      theme.palette.secondary.main,
-                      !!company ? 1 : 0.4,
-                    ),
-                  }),
-                ]}
+                sx={(theme) => ({
+                  color: alpha(
+                    theme.palette.secondary.main,
+                    !!company ? 1 : 0.4
+                  ),
+                })}
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 displayEmpty
                 renderValue={(value) => {
                   return value === "" ? "Select Company" : value;
                 }}
-                MenuProps={{
-                  sx: MenuStyle,
-                }}
+                variant='outlined'
+                color='secondary'
                 IconComponent={KeyboardArrowDown}
               >
                 {[
@@ -151,18 +130,12 @@ const ContactUs = () => {
             <Grid2 xs={12} md={6}>
               <Select
                 fullWidth
-                sx={[
-                  fieldSx,
-                  (theme) => ({
-                    [`& .${selectClasses.icon}`]: {
-                      color: "white",
-                    },
-                    color: alpha(
-                      theme.palette.secondary.main,
-                      !!category ? 1 : 0.4,
-                    ),
-                  }),
-                ]}
+                sx={(theme) => ({
+                  color: alpha(
+                    theme.palette.secondary.main,
+                    !!category ? 1 : 0.4
+                  ),
+                })}
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 displayEmpty
@@ -171,9 +144,8 @@ const ContactUs = () => {
                     ? "Select Initiative Category (optional)"
                     : value;
                 }}
-                MenuProps={{
-                  sx: MenuStyle,
-                }}
+                variant='outlined'
+                color='secondary'
                 IconComponent={KeyboardArrowDown}
               >
                 {["Category 1", "Category 2"].map((item, idx) => (
@@ -185,21 +157,20 @@ const ContactUs = () => {
             </Grid2>
             <Grid2 xs={12}>
               <TextField
-                placeholder="Enter A Message"
+                placeholder='Enter A Message'
                 multiline
                 fullWidth
                 rows={4}
-                sx={fieldSx}
               />
             </Grid2>
           </Grid2>
           <AnimatedButton
             href={"#"}
-            rotation="anticlockwise"
+            rotation='anticlockwise'
             variant={"contained"}
             color={"secondary"}
             sx={{
-              width: { xs: "100%", md: "313px" },
+              width: { xs: 1, md: 313 },
             }}
             variants={staggerDivChildrenRight}
             animationDelay={1000}
@@ -224,7 +195,7 @@ const ContactUs = () => {
                 sx={{ aspectRatio: 459 / 155 }}
                 position={"relative"}
               >
-                <Image src={dialogbanner} alt="" fill />
+                <Image src={dialogbanner} alt='' fill />
               </Box>
               <Stack
                 maxWidth={357}
@@ -235,8 +206,8 @@ const ContactUs = () => {
                 my={{ xs: 3, md: 4 }}
               >
                 <Typography
-                  variant="body1"
-                  color="primary.main"
+                  variant='body1'
+                  color='primary.main'
                   fontSize={H6}
                   fontWeight={700}
                 >
@@ -247,7 +218,7 @@ const ContactUs = () => {
                   shortly.
                 </Typography>
                 <Button
-                  variant="outlined"
+                  variant='outlined'
                   sx={{ width: { xs: 1, md: 213 } }}
                   onClick={() => setOpen(false)}
                 >
@@ -263,42 +234,6 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
-const fieldSx = {
-  "*": { borderRadius: 0 },
-  ".MuiInputBase-root": {
-    height: "auto",
-    overflow: "unset",
-    // "&:hover": {
-    //   ".MuiOutlinedInput-notchedOutline": {
-    //     borderColor: "white !important",
-    //   },
-    // },
-  },
-  ".MuiOutlinedInput-notchedOutline": {
-    borderRadius: 0,
-    borderColor: "white",
-  },
-};
-
-const MenuStyle = {
-  ".MuiPaper-root": {
-    // bgcolor: "primary.main",
-    borderRadius: 0,
-    maxHeight: 280,
-    overflowY: "scroll",
-    ".MuiMenuItem-root": {
-      color: "#575756",
-      borderBottom: "1px solid rgba(0, 0, 0, 0.10)",
-    },
-    "&::-webkit-scrollbar": {
-      width: "4px",
-    },
-    "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "#DADADA",
-    },
-  },
-};
 
 const boxTransition: MotionBoxProps = {
   initial: {

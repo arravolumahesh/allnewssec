@@ -12,12 +12,12 @@ const IntermediateInitiatives = () => {
               key={index}
               SectionProps={{
                 sx: {
-                  backgroundColor: `${index % 2 === 0 ? "white" : "#E6E6E6"}`,
+                  backgroundColor: `${index % 2 === 0 ? "white" : "default"}`,
                 },
               }}
               sx={{
                 py: {xxl:0,md:0,xs:0},
-                backgroundColor: `${index % 2 === 0 ? "white" : "#E6E6E6"}`,
+                backgroundColor: `${index % 2 === 0 ? "white" : "default"}`,
               }}
             >
               <CompanyInitiatives initiativedata={item} key={index} />

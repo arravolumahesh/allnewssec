@@ -1,4 +1,9 @@
-import {Components, Theme} from "@mui/material";
+import {
+  Components,
+  Theme,
+  inputBaseClasses,
+  outlinedInputClasses,
+} from "@mui/material";
 
 /**
  * @SelectVariants
@@ -9,25 +14,46 @@ import {Components, Theme} from "@mui/material";
  * @see https://mui.com/material-ui/react-seslect/#customization
  */
 export const SelectVariants: Components<
-    Omit<Theme, "components">
+  Omit<Theme, "components">
 >["MuiSelect"] = {
-    variants: [
-        {
-            props: {variant: "outlined", color: "primary"},
-            style: ({theme}) => {
-                return theme.unstable_sx({
-                    "& .MuiSvgIcon-root": {
-                        color: "primary.main",
-                        transition: "all 0.4s ease-in-out",
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                    },
-                    "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                    },
-                });
-            },
-        },
-    ],
+  styleOverrides: {
+    icon: {
+      color: "white",
+    },
+  },
+  variants: [
+    {
+      props: { variant: "outlined", color: "primary" },
+      style: ({ theme }) => {
+        return theme.unstable_sx({
+          "& .MuiSvgIcon-root": {
+            color: "primary.main",
+            transition: "all 0.4s ease-in-out",
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "primary.main",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "primary.main",
+          },
+        });
+      },
+    },
+    {
+      props: { variant: "outlined", color: "secondary" },
+      style: ({ theme }) => {
+        return theme.unstable_sx({
+          "*": { borderRadius: 0 },
+          [`.${inputBaseClasses.root}`]: {
+            height: "auto",
+            overflow: "unset",
+          },
+          [`.${outlinedInputClasses.notchedOutline}`]: {
+            borderRadius: 0,
+            borderColor: "white",
+          },
+        });
+      },
+    },
+  ],
 };
