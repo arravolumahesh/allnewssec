@@ -8,6 +8,7 @@ import {
   TabProps,
   Tabs,
   tabsClasses,
+  useScrollTrigger,
 } from "@mui/material";
 import { StaticImageData } from "next/image";
 import React, { useState } from "react";
@@ -26,6 +27,8 @@ const SectionMenu = (props: SectionMenuProps) => {
   const { logoImg, menus, TabButtonProps, WrapperProps, ...rest } = props;
   const [value, setValue] = useState<number>(0);
 
+  const trigger = useScrollTrigger();
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -38,6 +41,12 @@ const SectionMenu = (props: SectionMenuProps) => {
       columnGap={{ xs: 3, md: 4 }}
       bgcolor={"common.white"}
       color={"primary.main"}
+      sx={{
+        position: "sticky",
+        top: !trigger ? 120 : 0,
+        zIndex: 10,
+        transition: "all .4s ease-in-out",
+      }}
       {...WrapperProps}
     >
       <MaterialImage
