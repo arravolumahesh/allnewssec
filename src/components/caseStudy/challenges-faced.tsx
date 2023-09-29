@@ -48,6 +48,7 @@ const ChallengesFaced = () => {
         >
           CHALLENGES FACED
         </MotionTypography>
+
         <Grid container>
           {data.map((eachItem) => (
             <Grid xs={12} md={6} item>
@@ -55,7 +56,6 @@ const ChallengesFaced = () => {
                 <ArrowGradient
                   width={50}
                   height={isDeskTop ? 132 : isTablet ? 114 : 96}
-                  zIndex={1}
                   marginRight={"69px"}
                   variants={StaggerArrow}
                 />
@@ -148,20 +148,6 @@ const staggerText: MotionVariantProps = {
   initial: {
     opacity: 0,
     y: "-100%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-    },
-  },
-};
-
-const staggerTextChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "100%",
   },
   animate: {
     opacity: 1,
