@@ -47,6 +47,10 @@ const CaseStudies = () => {
                   Our Case Studies
                 </MotionTypography>
                 <SwiperNavigationButton
+                  display={{
+                    xs: "none",
+                    md: "flex",
+                  }}
                   PrevButtonProps={{
                     className: "swiper-prev",
                   }}
@@ -55,6 +59,22 @@ const CaseStudies = () => {
                   }}
                 />
               </Stack>
+            ),
+            ContainerEndChildren: (
+              <SwiperNavigationButton
+                mt={5}
+                display={{
+                  xs: "flex",
+                  md: "none",
+                }}
+                alignSelf={"center"}
+                PrevButtonProps={{
+                  className: "swiper-prev",
+                }}
+                NextButtonProps={{
+                  className: "swiper-next",
+                }}
+              />
             ),
           }}
         />
