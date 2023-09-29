@@ -20,7 +20,7 @@ const InitiativeHeroCard = (
         backgroundSize: "cover",
         width: {
           xs: isActive ? 330 : 160,
-          md: isActive ? 375 : 264.5,
+          md: isActive ? 375 : 179.5,
           xl: isActive ? 420 : 199,
         },
         aspectRatio: "1/1",

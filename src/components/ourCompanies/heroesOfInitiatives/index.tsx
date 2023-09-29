@@ -35,19 +35,19 @@ const HerosOfInitiatives = () => {
         }}
         alignSelf={"flex-start"}
         mt={-12}
-        ml={8.375}
+        ml={{ xl: 0, xxl: 8.375 }}
       />
-      <Stack width={{ xs: 1, xl: 0.83 }}>
+      <Stack width={{ xs: 1, xl: 0.83 }} flexGrow={1}>
         <MotionTypography
           variant={"h2"}
           fontSize={H3_1}
           mb={5}
           width={650}
           maxWidth={"100%"}
-          textAlign={{ xs: "center", xl: "left" }}
+          textAlign={{ xs: "center", md: "left" }}
           alignSelf={{
             xs: "center",
-            xl: "flex-start",
+            md: "flex-start",
           }}
         >
           Heroes behind our successful initiatives.
@@ -73,7 +73,7 @@ const HerosOfInitiatives = () => {
           sx={{
             overflow: {
               xs: "visible",
-              xxl: "hidden",
+              lg: "hidden",
             },
           }}
           navigation={{
