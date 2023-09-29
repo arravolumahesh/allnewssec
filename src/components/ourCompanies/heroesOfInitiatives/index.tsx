@@ -17,6 +17,7 @@ import { Navigation } from "swiper/modules";
 const HerosOfInitiatives = () => {
   return (
     <SectionWrapper
+      id='recognition'
       color={"secondary.main"}
       SectionProps={{
         bgcolor: "primary.main",

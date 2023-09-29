@@ -43,34 +43,38 @@ export default Company;
 const menus = [
   {
     title: "What’s New",
-    anchorTag: "/",
+    anchorTag: "#whats-new",
   },
   {
     title: "Programs & Initiatives",
-    anchorTag: "/",
+    anchorTag: "#programs-initiatives",
   },
   {
     title: "Stories",
-    anchorTag: "/",
+    anchorTag: "#stories",
   },
   {
     title: "Sustainability",
-    anchorTag: "/",
+    anchorTag: "#sustainability",
   },
   {
     title: "Case Studies",
-    anchorTag: "/",
+    anchorTag: "#case-studies",
   },
   {
     title: "Recognition",
-    anchorTag: "/",
+    anchorTag: "#recognition",
   },
   {
     title: "Volunteering Opportunities",
-    anchorTag: "/",
+    anchorTag: "#volunteering-opportunities",
+  },
+  {
+    title: "Bajaj Auto",
+    anchorTag: "#bajaj-auto",
   },
   {
     title: "CSR Reports",
-    anchorTag: "/",
+    anchorTag: "#csr-reports",
   },
 ];

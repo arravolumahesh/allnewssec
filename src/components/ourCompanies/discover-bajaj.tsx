@@ -36,6 +36,7 @@ import {
 const DiscoverBajaj = () => {
   return (
     <SectionWrapper
+      id='bajaj-auto'
       SectionProps={{
         bgcolor: "primary.500",
       }}

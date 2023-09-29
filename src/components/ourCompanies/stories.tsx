@@ -10,6 +10,7 @@ import React from "react";
 const Stories = () => {
   return (
     <ArrowSwiperWithInfoSection
+      id='stories'
       data={data}
       SwiperKey={Stories.name}
       SectionWrapperProps={{
