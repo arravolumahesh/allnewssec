@@ -1,4 +1,10 @@
-import {Components, inputAdornmentClasses, inputBaseClasses, outlinedInputClasses, Theme,} from "@mui/material";
+import {
+  Components,
+  inputAdornmentClasses,
+  inputBaseClasses,
+  outlinedInputClasses,
+  Theme,
+} from "@mui/material";
 
 /**
  * @TextFieldVariants
@@ -55,6 +61,22 @@ export const TextFieldVariants: Components<
               color: theme.palette.grey[600],
               opacity: 1,
             },
+          },
+        });
+      },
+    },
+    {
+      props: { variant: "outlined" },
+      style: ({ theme }) => {
+        return theme.unstable_sx({
+          "*": { borderRadius: 0 },
+          [`.${inputBaseClasses.root}`]: {
+            height: "auto",
+            overflow: "unset",
+          },
+          [`.${outlinedInputClasses.notchedOutline}`]: {
+            borderRadius: 0,
+            borderColor: "white",
           },
         });
       },
