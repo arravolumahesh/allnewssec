@@ -7,6 +7,7 @@ import {
   MotionGrid,
   MotionGridProps,
   MotionImage,
+  MotionStack,
   MotionTypography,
   MotionTypographyProps,
   MotionVariantProps,
@@ -37,6 +38,15 @@ import linkd from "./images/linkd.svg";
 import ArrowGradient from "@cc/arrow-gradient";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import { motion } from "framer-motion";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+  YouTubeIcon,
+} from "@/commonComponents/social-icons";
+import { MaterialImage } from "@/commonComponents/material-components";
+import { bottomTextStagger, iconStagger, iconStaggerChildren, textStaggerChildren } from "@/commonComponents/animations";
 
 const HoverGrid = styled((props: MotionGridProps) => (
   <MotionGrid
@@ -53,7 +63,7 @@ const HoverGrid = styled((props: MotionGridProps) => (
 
 const Social = () => {
   const matches = useMediaQuery<Theme>((theme) =>
-    theme.breakpoints.down("sm_md"),
+    theme.breakpoints.down("sm_md")
   );
   return (
     <SectionWrapper
@@ -70,7 +80,7 @@ const Social = () => {
           position={"relative"}
         >
           <MotionTypography
-            variant="h1"
+            variant='h1'
             component={"p"}
             width={"min-content"}
             {...textTransition}
@@ -117,7 +127,7 @@ const Social = () => {
             position={"relative"}
           >
             <MotionTypography
-              variant="h1"
+              variant='h1'
               component={"p"}
               width={"min-content"}
               {...textTransition}
@@ -136,7 +146,7 @@ const Social = () => {
           </Grid2>
         )}
         {!matches && (
-          <HoverGrid xs={4} overflow="hidden">
+          <HoverGrid xs={4} overflow='hidden'>
             <SocialCard
               img={
                 "https://s3-alpha-sig.figma.com/img/91a1/a459/2d9ef5167cdce4c6779f48b8cd85fde4?Expires=1696204800&Signature=eH9Gawh3waJ5Yl5NdZ1~twC6UgNXBolGR482h1d1uidvc7j~bJk6TBTK8wPJW5bcVQn4iC1rtgl7pgZAyC~v4NuIY1H5SgYsTxsXuMqPUSHUYf5IBmvmL3W-2qmjzqMzcj9IXINOXQuN~KW7JfBHhrdv3Ou2EUVw6KwzC9daO6QfLE9qdpboSQWmwsDQ23Li9vt6XYtLsKuMG8YwkLeCbd3-vaiExEf2CgQYLeCvfEsVZLdRjumVfGo5S-1ZkMeOm7ngVy7MdAw9HHUOxOT~CiBYcFtCUGo1-nvO6G2vu9a1YsqqPQA157kE1vEz4gjUBZniLRV1sdnVDkmt4MUZbg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -146,7 +156,7 @@ const Social = () => {
             />
           </HoverGrid>
         )}
-        <HoverGrid xs={6} sm_md={4} overflow="hidden">
+        <HoverGrid xs={6} sm_md={4} overflow='hidden'>
           <SocialCard
             img={
               "https://s3-alpha-sig.figma.com/img/7775/10fe/6f54cc5ebb1bb1075ce3fe6b9245e704?Expires=1696204800&Signature=f2ZClAxBwyxAgJIBu2dP6w~mfzAH3U46Xb6moEIlQKfl4F~GH3ONAg3TdzBFha~i99VqIUMkYfPiezLERLGj24f14vIGQ3UDFWrsDOBcsRk0tRpr7ZL4Syk~ZbH6ND94OazhwkrlyTyW8vilRyx-qBxkZVqjGzt0UDdsl9F~CbS5mGzu05FMN-bPPROeupaD66fdtSb2eQkTAFLmAnESNNbbMgTj2HS3RXTCmJQWT8fl5CZ10fIFM-QbzDdtUxb~tMypfEqKOvUoLW9p0Koupa70zKM~DHNY3mql8aBmAuEb158j1yVcwZa3Fc8j1CnZZ2o~YmEDjyXAHqVlQppcyg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -155,7 +165,7 @@ const Social = () => {
             {...cardTransitionRight(1)}
           />
         </HoverGrid>
-        <HoverGrid xs={6} sm_md={4} overflow="hidden">
+        <HoverGrid xs={6} sm_md={4} overflow='hidden'>
           <SocialCard
             img={
               "https://s3-alpha-sig.figma.com/img/02cb/58c2/aeaa50aeb369b72d106951eb60aa2799?Expires=1696204800&Signature=fYyAz3RkrMFQJWyM5NHVRSKaJoJCfOUNgJiOrunEqwrN23LtPtK5ls4xY14mcGiV49wDoLpL3FjN8jDpf7plNlZfvTIexj0HMR5wuT4irkkC4PNWTewLriw~nTh56AbgzOa2CbKmkSj6eWo51rvA~YhpFWzAHGVlvkCFb9c6rAM5kvhh9yr8skfPF-q5EPSJl-a8FJa7pq1T1VMAogZkXNtDyfrSgQtO5ANudbSUKRRcX-0xg7vbyStrM86GCOk17gUeYSDCQbS3YSGwH6f-r4L9Fe77cMc4WyUF1j~UaXroB55WJURTDVnLwbJY8QQhIt4vHuuf0omFu-77cQR5qg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -202,23 +212,31 @@ const Social = () => {
                 component={motion.div}
                 variants={iconStagger}
               >
-                {[fb, twitter, yt, insta, linkd].map((item, idx) => (
-                  <Box
+                {[
+                  FacebookIcon,
+                  TwitterIcon,
+                  YouTubeIcon,
+                  InstagramIcon,
+                  LinkedInIcon,
+                ].map((Icon, idx) => (
+                  <Icon
                     key={idx}
-                    position={"relative"}
-                    width={48}
-                    height={48}
-                    component={motion.div}
+                    variant='contained'
+                    SvgIconProps={{
+                      sx: {
+                        bgcolor: "common.white",
+                        width: 48,
+                        height: 48,
+                      },
+                    }}
                     variants={iconStaggerChildren}
-                  >
-                    <MotionImage src={item} alt="" fill />
-                  </Box>
+                  />
                 ))}
               </Stack>
             </Stack>
           </Grid2>
         )}
-        <HoverGrid xs={6} sm_md={4} overflow="hidden">
+        <HoverGrid xs={6} sm_md={4} overflow='hidden'>
           <SocialCard
             img={
               "https://s3-alpha-sig.figma.com/img/2f89/8169/64d012ae3609a395c2a555f5595cea8c?Expires=1696204800&Signature=cvCmCrcx17~2RocD7bj7uPPstibXX3SzmaZj5ffcYAao1N3EXl9ozxqxhOxCJ-vaWaq5zpD~W7OwfOL57max71ZLgGPcZdhw3Z8CKNxmttkbWuSRrEyEezIbhZbYKN2Sgq5BQSwCWeIe~I1t8vOJ5GBNBHZRlmG-DSDZvIWM-7FwQVb9mbPAUC-gyaAD4FhwVSWT~e6zoajoBeLCz1ibGqClN2KZQR-2KpTOTDTki7b-qoQpFZden1OF7b0HyulL-do9PU5XKtqONxAZF9wNBFDlcVDy~Y~3AiGLwYwdCX0W-mMjlGvZNBL9ocfJria9ThyqEdf8AdUC0kNztfbTYg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -229,19 +247,17 @@ const Social = () => {
         </HoverGrid>
       </Grid2>
       {matches && (
-        <Stack
+        <MotionStack
           height={1}
           justifyContent={"center"}
           mt={3}
-          component={motion.div}
           variants={bottomTextStagger}
           initial={"initial"}
           whileInView={"animate"}
           viewport={{ once: true }}
         >
-          <Stack
+          <MotionStack
             rowGap={3}
-            component={motion.div}
             variants={textStaggerChildren}
           >
             <MotionTypography fontSize={H6_2}>
@@ -251,27 +267,35 @@ const Social = () => {
             <MotionTypography fontSize={H6_2} fontWeight={700}>
               @bajajbeyond
             </MotionTypography>
-          </Stack>
-          <Stack
+          </MotionStack>
+          <MotionStack
             direction={"row"}
             gap={2}
             mt={2}
-            component={motion.div}
             variants={iconStagger}
           >
-            {[fb, twitter, yt, insta, linkd].map((item, idx) => (
-              <MotionBox
+            {[
+              FacebookIcon,
+              TwitterIcon,
+              YouTubeIcon,
+              InstagramIcon,
+              LinkedInIcon,
+            ].map((Icon, idx) => (
+              <Icon
                 key={idx}
-                position={"relative"}
-                width={32}
-                height={32}
+                variant='contained'
+                SvgIconProps={{
+                  sx: {
+                    bgcolor: "common.white",
+                    width: 32,
+                    height: 32,
+                  },
+                }}
                 variants={iconStaggerChildren}
-              >
-                <MotionImage src={item} alt="" fill />
-              </MotionBox>
+              />
             ))}
-          </Stack>
-        </Stack>
+          </MotionStack>
+        </MotionStack>
       )}
     </SectionWrapper>
   );
@@ -359,48 +383,5 @@ const arrowTransition: MotionBoxProps = {
   },
   viewport: {
     once: true,
-  },
-};
-
-const bottomTextStagger: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      delayChildren: 2.4,
-      staggerChildren: 0.4,
-      duration: 0.4,
-    },
-  },
-};
-const textStaggerChildren: MotionVariantProps = {
-  initial: {
-    y: 120,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-};
-const iconStagger: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-const iconStaggerChildren: MotionVariantProps = {
-  initial: {
-    scale: 0,
-  },
-  animate: {
-    scale: 1,
-    transition: {
-      type: "spring",
-    },
   },
 };
