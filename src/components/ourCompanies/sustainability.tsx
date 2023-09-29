@@ -13,6 +13,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Emission from "./images/Emission.png";
 import supplyChain from "./images/supplyChain.png";
 import solar from "./images/solar.png";
+import sustain from "./images/sustain.png";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
 import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
@@ -28,8 +29,8 @@ const Sustainability = () => {
       SectionProps={{
         id: "sustainability",
         sx: {
-          background: "black",
-          // background: `url(${sustain.src})`,
+          background: (theme) =>
+            `${theme.palette.gradient.darkOverlay}, url(${sustain.src})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -85,6 +86,7 @@ const Sustainability = () => {
                   orientation='vertical'
                   sx={{
                     height: "100%",
+                    borderColor: "common.white",
                   }}
                 />
               </Grid2>

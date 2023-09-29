@@ -1,4 +1,8 @@
-import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/material";
+import {
+  PaletteOptions,
+  SimplePaletteColorOptions,
+  ThemeOptions,
+} from "@mui/material";
 
 /**
  * @ThemeOptions['palette']
@@ -180,6 +184,8 @@ export const PaletteTheme = (
           "linear-gradient(to top,#0A0A0A 50.71%, rgba(10, 10, 10, 0.00) 84.55%)",
         transparentToDarkRight:
           "linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%)",
+        darkOverlay:
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.5) 14.69%, #000 130%)",
       };
     },
   };
@@ -194,6 +200,7 @@ declare module "@mui/material/styles" {
       lightToDark: string;
       transparentToDark: string;
       transparentToDarkRight: string;
+      darkOverlay: string;
     };
   }
 
@@ -205,6 +212,7 @@ declare module "@mui/material/styles" {
       lightToDark: string;
       transparentToDark: string;
       transparentToDarkRight: string;
+      darkOverlay: string;
     };
   }
 }
