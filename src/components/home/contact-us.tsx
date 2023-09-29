@@ -170,7 +170,7 @@ const ContactUs = () => {
             variant={"contained"}
             color={"secondary"}
             sx={{
-              width: { xs: "100%", md: "313px" },
+              width: { xs: 1, md: 313 },
             }}
             variants={staggerDivChildrenRight}
             animationDelay={1000}
