@@ -5,6 +5,7 @@ import Impact from "@/components/home/impact";
 import Social from "@/components/home/social";
 import Partners from "@/components/home/partners";
 import OurFocusAreas from "@/components/ourCompanies/ourFocusAreas";
+<<<<<<< HEAD
 import BuildFuture from "@/components/ourCompanies/build-future";
 import Section from "@/components/ourCompanies/section";
 import OurCaseStudies from "@/components/ourCompanies/our-studies";
@@ -29,6 +30,8 @@ import Accordians from "@/components/charitableTrusts/accordians";
 import SunithaBio from "@/components/charitableTrusts/sunithaBio";
 import RequestDonations from "@/components/charitableTrusts/request-donation";
 import BajajFoundation from "@/components/charitableTrusts/bajajfoundation";
+=======
+>>>>>>> afc0bf43da4eb29f4e385a6d5c2e9b92f8ea8a13
 
 const HomePage = () => {
   return (
@@ -41,6 +44,7 @@ const HomePage = () => {
       <InTheNews />
       <Partners />
       <Social />
+<<<<<<< HEAD
       <ContactUs />
       <BuildFuture />
       <Section />
@@ -64,6 +68,9 @@ const HomePage = () => {
       <Partners />
       <RequestDonations />
       <BajajFoundation />
+=======
+      <OurFocusAreas />
+>>>>>>> afc0bf43da4eb29f4e385a6d5c2e9b92f8ea8a13
     </>
   );
 };

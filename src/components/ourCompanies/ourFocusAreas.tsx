@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
+<<<<<<< HEAD
 import AnimatedButton from "@/commonComponents/animated-button";
 import { motion } from "framer-motion";
+=======
+>>>>>>> afc0bf43da4eb29f4e385a6d5c2e9b92f8ea8a13
 
 import {
   Box,
