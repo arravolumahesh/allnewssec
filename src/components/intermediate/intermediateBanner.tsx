@@ -52,8 +52,7 @@ const IntermediateBanner = () => {
 
   return (
     <Stack
-      sx={{
-        background: "#fff",
+      sx={{        
         position: "relative",
         overflow: "hidden",
         "& img": {
@@ -151,14 +150,7 @@ const IntermediateBanner = () => {
           pt:{xxl:4,xs:2}
         }}
       >
-        <CommonBreadcrumb
-          data={[
-            {
-              title: "All Initiatives",
-              path: "/",
-            },
-          ]}
-        />
+        <CommonBreadcrumb/>
         <MotionTypography
           variant="h3"
           color="white"

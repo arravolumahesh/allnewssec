@@ -1,17 +1,14 @@
 "use client";
-
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
-import "swiper/swiper-bundle.css";
+import { Navigation } from "swiper/modules";
 import { MotionVariantProps } from "@/commonComponents/motion-components";
 import React, { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { useMediaQuery, Stack, Button } from "@mui/material";
-import { helvetica } from "@/app/font";
+import { useMediaQuery, Stack, Theme } from "@mui/material";
 import womens from "@/components/ourCompanies/images/womens.png";
 import childrens from "@/components/ourCompanies/images/childrens.png";
 import { MotionTypography } from "@/commonComponents/motion-components";
 import { MaterialImage } from "@/commonComponents/material-components";
+<<<<<<< HEAD
 import SlideButtons from "../intermediate/swiper/swiperButton";
 import AnimatedButton from "@/commonComponents/animated-button";
 import { common } from "@mui/material/colors";
@@ -82,31 +79,30 @@ const CaseStudies = () => {
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
 
   const slidesPerView = isTabletOrLarger ? 2 : isMobile ? 1 : 1;
+=======
+import { StaticImageData } from "next/image";
+import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import { H6_1, H6_2 } from "@/styles/theme/components/typography.fontvariant";
+import Link from "next/link";
+import { ArrowForwardIos } from "@mui/icons-material";
+import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
+
+const CaseStudies = () => {
+>>>>>>> e22abe04bb2b6d42eb119c65924146e0fc4a9458
   return (
     <SectionWrapper
-      sx={{
-        backgroundColor: "rgba(234, 234, 234, 1)",
-        padding: "96px 64px",
-        textAlign: "center",
-      }}
+      SectionProps={{ id: "case-studies" }}
+      color={"primary.main"}
     >
-      <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          gap: "auto",
-        }}
-      >
-        <MotionTypography
-          variant="h3"
-          sx={{
-            color: "var(--primary-blue, #005DAC)",
-            textOverflow: "ellipsis",
-            fontSize: "48px",
-            fontStyle: "normal",
-            lineHeight: "128%",
+      <Stack width={1}>
+        <EnhancedSwiper
+          slidesPerView={"auto"}
+          navigation={{
+            enabled: true,
+            nextEl: ".swiper-case-next",
+            prevEl: ".swiper-case-prev",
           }}
+<<<<<<< HEAD
           variants={staggerChildren}
           initial={"initial"}
           whileInView={"animate"}
@@ -225,16 +221,178 @@ const CaseStudies = () => {
                     Learn More
                   </AnimatedButton>
                 )}
+=======
+          modules={[Navigation]}
+          SlideWrapperProps={{
+            sx: {
+              width: { xs: 301, lg: 643 },
+              mr: 3,
+            },
+          }}
+          SlideComponent={CaseStudySlide}
+          data={swiperData}
+          Slots={{
+            ContainerStartChildren: (
+              <Stack
+                direction='row'
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                mb={{ xs: 5, md: 6 }}
+              >
+                <MotionTypography variant='h3'>
+                  Our Case Studies
+                </MotionTypography>
+                <SwiperNavigationButton
+                  display={{
+                    xs: "none",
+                    md: "flex",
+                  }}
+                  PrevButtonProps={{
+                    className: "swiper-case-prev",
+                  }}
+                  NextButtonProps={{
+                    className: "swiper-case-next",
+                  }}
+                />
+>>>>>>> e22abe04bb2b6d42eb119c65924146e0fc4a9458
               </Stack>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ),
+            ContainerEndChildren: (
+              <SwiperNavigationButton
+                mt={5}
+                display={{
+                  xs: "flex",
+                  md: "none",
+                }}
+                alignSelf={"center"}
+                PrevButtonProps={{
+                  className: "swiper-case-prev",
+                }}
+                NextButtonProps={{
+                  className: "swiper-case-next",
+                }}
+              />
+            ),
+          }}
+        />
       </Stack>
     </SectionWrapper>
   );
 };
 
 export default CaseStudies;
+
+interface CaseStudySlideProps {
+  img: StaticImageData | string;
+  tag: string;
+  title: string;
+  subTitle: string;
+}
+
+const CaseStudySlide = (props: CaseStudySlideProps) => {
+  const { img, tag, title, subTitle } = props;
+  const isMobile = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("md")
+  );
+  return (
+    <Stack
+      sx={{
+        cursor: "pointer",
+        "&:after": {
+          display: isMobile ? "none" : "flex",
+          opacity: 0,
+          content: '"VIEW CASE STUDY"',
+          fontSize: H6_2,
+          color: "white",
+          width: 1,
+          height: 310,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          background:
+            "linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all .3s",
+        },
+        "&:hover": {
+          "&:after": {
+            opacity: 1,
+          },
+        },
+      }}
+      rowGap={2}
+    >
+      <MaterialImage
+        src={img}
+        alt='childerns'
+        sx={{
+          position: "relative",
+          width: { xs: 310, md: 643 },
+          height: { xs: 240, md: 310 },
+        }}
+      />
+      <MotionTypography
+        fontSize={"14px"}
+        color={"grey.A400"}
+        p={1.3}
+        bgcolor={"#DADADA"}
+        width={"max-content"}
+      >
+        {tag}
+      </MotionTypography>
+      <MotionTypography variant='body1' fontSize={H6_1}>
+        {title}
+      </MotionTypography>
+      <MotionTypography variant='body1'>{subTitle}</MotionTypography>
+      {isMobile && (
+        <Link
+          style={{
+            display: "flex",
+            alignItems: "center",
+            fontSize: "18px",
+            textDecoration: "none",
+          }}
+          href='/'
+        >
+          View Case Study{" "}
+          <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
+        </Link>
+      )}
+    </Stack>
+  );
+};
+
+const swiperData = [
+  {
+    img: childrens,
+    tag: "IPH-Triveni Program",
+    title: "Digital Skilling for Youth",
+    subTitle:
+      "Helping students learn digitally in order to keep them future and employment ready. ",
+  },
+  {
+    img: womens,
+    tag: "IPH-Triveni Program",
+    title: "Providing Vocational Training for Women in Maharashtra",
+    subTitle:
+      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+  },
+  {
+    img: childrens,
+    tag: "IPH-Triveni Program",
+    title: "Digital Skilling for Youth",
+    subTitle:
+      "Helping students learn digitally in order to keep them future and employment ready. ",
+  },
+  {
+    img: womens,
+    tag: "IPH-Triveni Program",
+    title: "Providing Vocational Training for Women in Maharashtra",
+    subTitle:
+      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+  },
+];
 
 const staggerChildren: MotionVariantProps = {
   initial: {

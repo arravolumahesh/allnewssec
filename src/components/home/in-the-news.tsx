@@ -11,13 +11,24 @@ const InTheNews = () => {
   return (
     <ArrowSwiperWithInfoSection
       data={data}
+      SwiperKey={InTheNews.name}
       SectionWrapperProps={{
+        color: "primary.main",
         SectionHeaderProps: {
           title: "In the News",
+        },
+        ContainerProps: {
+          pb: 0,
         },
       }}
       ArrowSlideInfoProps={{
         isNavigation: true,
+        SlotProps: {
+          ButtonProps: {
+            href: "#",
+            color: "primary",
+          },
+        },
       }}
     />
   );

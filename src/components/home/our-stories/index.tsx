@@ -1,3 +1,4 @@
+"use client";
 import SectionWrapper from "@cc/section-wrapper";
 import StorySlide, {
   StorySlideProps,
@@ -6,10 +7,60 @@ import EnhancedSwiper from "@cc/enhanced-swiper";
 import StoryImage from "./images/story-of-bajaj-auto.jpg";
 import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
 import { Navigation } from "swiper/modules";
+import { useLayoutEffect, useRef, useState } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 const OurStories = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const refTimeline = useRef<GSAPTimeline>();
+  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const section = sectionRef.current;
+    if (section) {
+      const { offsetHeight } = section;
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 15%",
+          end: `+=${offsetHeight}`,
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+          onLeave: () => {
+            setIsAnimationCompleted(true);
+          },
+        },
+      });
+      timeline
+        .to(section, {
+          clipPath:
+            "polygon(49% 0%, 60% 50%, 50% 100%, 46% 100%, 56% 50%, 45% 0%)",
+        })
+        .to(section, {
+          clipPath:
+            "polygon(100% 0%, 111% 50%, 101% 100%, -10% 100%, 0% 50%, -11% 0%)",
+          minWidth: "auto",
+          minHeight: "auto",
+          height: "auto",
+          width: "auto",
+        });
+      refTimeline.current = timeline;
+    }
+    return () => {
+      if (refTimeline.current) {
+        refTimeline.current?.scrollTrigger?.kill();
+        refTimeline.current?.kill();
+        refTimeline.current?.clear();
+      }
+    };
+  }, []);
+
   return (
     <SectionWrapper
+      ref={sectionRef}
       color={"secondary.main"}
       SectionHeaderProps={{
         title: "Our Stories",
@@ -23,11 +74,18 @@ const OurStories = () => {
           xxl: 3,
         },
       }}
+      sx={{
+        clipPath:
+          "polygon(48% 25%, 55% 50%, 49% 75%, 46% 75%, 52% 50%, 45% 25%)",
+      }}
+      initial={"initial"}
+      whileInView={isAnimationCompleted ? "animate" : undefined}
     >
       <EnhancedSwiper
         data={data}
         SlideComponent={StorySlide}
         modules={[Navigation]}
+        passSlideState
         navigation={{
           enabled: true,
           nextEl: ".swiper-next",

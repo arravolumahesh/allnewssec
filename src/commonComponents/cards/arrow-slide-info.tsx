@@ -13,42 +13,51 @@ import { BehaviorSubject } from "rxjs";
 import { useObservable } from "react-use";
 import { H5_1 } from "@theme/components/typography.fontvariant";
 import { AnimatePresence, MotionProps } from "framer-motion";
-import SwiperNavigationButton from "@cc/swiper-navigation-button";
+import SwiperNavigationButton, {
+  SwiperNavigationButtonProps,
+} from "@cc/swiper-navigation-button";
 import { Stack, StackProps } from "@mui/material";
+import { CalendarToday, FmdGood } from "@mui/icons-material";
 
 export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
   data: {
     prefix?: string;
+    suffix?: {
+      date?: string;
+      region?: string;
+    };
     title: string;
     description: string;
     image: string | StaticImageData;
-    btnText: string;
-    btnLink: string;
+    btnText?: string;
+    btnLink?: string;
   }[];
   SlotProps?: {
     PrefixTypographyProps?: Omit<MotionTypographyProps, "children">;
+    SuffixTypographyProps?: Omit<MotionTypographyProps, "children">;
     TitleTypographyProps?: Omit<MotionTypographyProps, "children">;
     DescriptionTypographyProps?: Omit<MotionTypographyProps, "children">;
     ButtonProps?: Omit<AnimatedButtonProps, "children">;
   };
   isNavigation?: boolean;
-  NavigationWrapperProps?: Omit<MotionStackProps, "children">;
   InfoWrapperProps?: Omit<MotionStackProps, "children">;
   SwiperInstance: BehaviorSubject<Swiper | null>;
+  SwiperNavigationButtonProps?: SwiperNavigationButtonProps;
 }
 
 const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   const {
     data,
     isNavigation,
-    NavigationWrapperProps,
     InfoWrapperProps,
     SwiperInstance,
+    SwiperNavigationButtonProps,
     SlotProps = {},
     ...restStackProps
   } = props;
   const {
     PrefixTypographyProps,
+    SuffixTypographyProps,
     TitleTypographyProps,
     DescriptionTypographyProps,
     ButtonProps,
@@ -56,7 +65,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   const swiper = useObservable(SwiperInstance, null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const { prefix, title, description, btnText } = useMemo(() => {
+  const { prefix, suffix, title, description, btnText } = useMemo(() => {
     return data[activeIndex];
   }, [activeIndex, data]);
 
@@ -85,7 +94,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           exit={"exit"}
           viewport={{
             once: true,
-            amount: "all",
+            amount: "some",
           }}
           variants={{
             animate: {
@@ -116,6 +125,39 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           >
             {title}
           </MotionTypography>
+          {suffix && (suffix.date || suffix.region) && (
+            <MotionStack
+              variants={childMotionVariants}
+              direction="row"
+              alignItems="center"
+              columnGap={3}
+            >
+              {suffix.date && (
+                <MotionTypography
+                  display={"flex"}
+                  gap={0.5}
+                  alignItems={"center"}
+                  variant={"body1"}
+                  gutterBottom
+                  {...SuffixTypographyProps}
+                >
+                  <CalendarToday fontSize="small" /> {suffix.date}
+                </MotionTypography>
+              )}
+              {suffix.region && (
+                <MotionTypography
+                  display={"flex"}
+                  gap={0.5}
+                  alignItems={"center"}
+                  variant={"body1"}
+                  gutterBottom
+                  {...SuffixTypographyProps}
+                >
+                  <FmdGood fontSize="small" /> {suffix.region}
+                </MotionTypography>
+              )}
+            </MotionStack>
+          )}
           <MotionTypography
             variant={"body1"}
             mb={3}
@@ -124,16 +166,18 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           >
             {description}
           </MotionTypography>
-          <AnimatedButton
-            href={"/"}
-            variant={"outlined"}
-            color={"inherit"}
-            variants={childMotionVariants}
-            animationDelay={850}
-            {...ButtonProps}
-          >
-            {btnText}
-          </AnimatedButton>
+          {btnText && (
+            <AnimatedButton
+              href={"/"}
+              variant={"outlined"}
+              color={"inherit"}
+              variants={childMotionVariants}
+              animationDelay={850}
+              {...ButtonProps}
+            >
+              {btnText}
+            </AnimatedButton>
+          )}
         </MotionStack>
       </AnimatePresence>
       {isNavigation && swiper && (
@@ -159,8 +203,9 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           }}
           viewport={{
             once: true,
-            amount: "all",
+            amount: "some",
           }}
+          {...SwiperNavigationButtonProps}
         />
       )}
     </Stack>

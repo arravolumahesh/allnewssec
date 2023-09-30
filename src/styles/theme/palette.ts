@@ -25,11 +25,11 @@ export const PaletteTheme = (
       200: "#a2c0e9",
       300: "#79a7e1",
       400: "#588fda",
-      500: "#3682ca",
+      500: "#326ccf",
       600: "#005dac",
       700: "#0053a3",
       800: "#004899",
-      900: "#003b8e",
+      900: "#0f182a",
       A100: "#82b1ff",
       A200: "#448aff",
       A400: "#2979ff",
@@ -143,13 +143,13 @@ export const PaletteTheme = (
       300: "#819EAB",
       400: "#5E8494",
       500: "#405A76",
-      600: "#334860",
-      700: "#24445B",
+      600: "#575756",
+      700: "#334860", // used in Navigation-Bar
       800: "#163850",
       900: "#263447",
       A100: "#6C8497",
       A200: "#4F6B7C",
-      A400: "#314661",
+      A400: "#575756",
       A700: "#29385d",
     },
     get text(): PaletteOptions["text"] {
@@ -182,6 +182,10 @@ export const PaletteTheme = (
         lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
         transparentToDark:
           "linear-gradient(to top,#0A0A0A 50.71%, rgba(10, 10, 10, 0.00) 84.55%)",
+        transparentToDarkRight:
+          "linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%)",
+        darkOverlay:
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.5) 14.69%, #000 130%)",
       };
     },
   };
@@ -195,6 +199,8 @@ declare module "@mui/material/styles" {
       darkToLight: string;
       lightToDark: string;
       transparentToDark: string;
+      transparentToDarkRight: string;
+      darkOverlay: string;
     };
   }
 
@@ -205,6 +211,8 @@ declare module "@mui/material/styles" {
       darkToLight: string;
       lightToDark: string;
       transparentToDark: string;
+      transparentToDarkRight: string;
+      darkOverlay: string;
     };
   }
 }

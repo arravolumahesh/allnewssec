@@ -9,6 +9,10 @@ const users = [
     username: "thumbstack",
     password: "C33PKW6BLrBoQi50",
   },
+  {
+    username: "onething",
+    password: "ukEUamJc6pWW0HY8",
+  },
 ];
 
 export function middleware(req: NextRequest) {
@@ -20,6 +24,7 @@ export function middleware(req: NextRequest) {
     const [user, pwd] = atob(authValue).split(":");
 
     if (users.find((u) => u.username === user && u.password === pwd)) {
+      console.log(`${Date.now()}:- ${user} -- ${url.pathname}`);
       return NextResponse.next();
     }
   }

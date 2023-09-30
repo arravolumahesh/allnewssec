@@ -7,15 +7,8 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { usePathname } from "next/navigation";
 import { Typography } from "@mui/material";
 
-interface props {
-  data: {
-    title: string;
-    path: string;
-  }[];
-}
-
-export default function CommonBreadcrumb(prop: props) {
-  const { data } = prop;
+export default function CommonBreadcrumb() {
+  
   const paths = usePathname();
   const pathNames = paths && paths.split("/").filter((path) => path);
 
@@ -28,22 +21,47 @@ export default function CommonBreadcrumb(prop: props) {
         <Typography
           component={Link}
           sx={{
+            opacity:0.5,
             '&:hover':{
               background:'none'
             }
           }}
           href="/"
           underline="hover"
-          color="secondary.dark"
+          // color="secondary.dark"
         >
-          Home
+          Home  
         </Typography>
+        
         {pathNames &&
-          pathNames.map((item, index) => (
-            <Typography color="white" textTransform="capitalize" key={index}>
-              {item.replace("-", " ")}
-            </Typography>
-          ))}
+          pathNames.map((item, index) => {
+            if(pathNames?.length === index+1){
+              return(
+                <Typography color="white" textTransform="capitalize" key={index}>
+                  {item.replace("-", " ")}
+                </Typography>
+              )
+            }
+
+            return(
+              <Typography
+                  textTransform="capitalize"
+                  component={Link}
+                  sx={{
+                    opacity:0.5,
+                    '&:hover':{
+                      background:'none'
+                    }
+                  }}
+                  href={item}
+                  underline="hover"
+                  // color="secondary.dark"
+                  key={index}
+                >
+                  {item.replace("-", " ")}
+                </Typography>
+              )
+          })}
       </Breadcrumbs>
     </Stack>
   );

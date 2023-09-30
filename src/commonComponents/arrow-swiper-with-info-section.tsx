@@ -20,6 +20,12 @@ export interface ArrowSwiperWithInfoProps<
     "data" | "SwiperInstance"
   >;
   SectionWrapperProps?: Omit<SectionWrapperProps, "children">;
+  /**
+   * Must be unique for each instance of ArrowSwiperWithInfoSection
+   *
+   * Example: "ArrowSwiperWithInfoSection-1"
+   * */
+  SwiperKey: string;
 }
 
 const ArrowSwiperWithInfoSection = <
@@ -30,6 +36,7 @@ const ArrowSwiperWithInfoSection = <
 ) => {
   const {
     data,
+    SwiperKey,
     SwiperProps,
     ArrowSlideInfoProps,
     SectionWrapperProps,
@@ -47,6 +54,7 @@ const ArrowSwiperWithInfoSection = <
     >
       <ArrowSwiper
         data={data}
+        SwiperKey={SwiperKey}
         SwiperProps={{
           onSwiper: (swiper) => $swiperInstance.next(swiper),
           ...SwiperProps,
@@ -71,20 +79,22 @@ const ArrowSwiperWithInfoSection = <
 
 export default ArrowSwiperWithInfoSection;
 
-export const ArrowSwiperWithInfoSectionWrapperDefaultProps: SectionWrapperProps =
-  {
-    direction: { md_lg: "row" },
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    color: "primary.main",
-    rowGap: { xs: 4, md_lg: 0 },
-  };
+export const ArrowSwiperWithInfoSectionWrapperDefaultProps: Omit<
+  SectionWrapperProps,
+  "children" | "ref"
+> = {
+  direction: { md_lg: "row" },
+  alignItems: "flex-start",
+  justifyContent: "space-between",
+  color: "primary.main",
+  rowGap: { xs: 4, md_lg: 0 },
+};
 
 export const arrowSlideInfoDefaultProps: Omit<
   ArrowSlideInfoProps,
   "data" | "SwiperInstance"
 > = {
-  NavigationWrapperProps: {
+  SwiperNavigationButtonProps: {
     alignSelf: { xs: "center", md: "flex-end" },
   },
   height: "fit-content",

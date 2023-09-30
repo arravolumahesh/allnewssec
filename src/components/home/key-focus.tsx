@@ -5,12 +5,10 @@ import {
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import { Stack, useMediaQuery, useTheme } from "@mui/material";
-import Image from "next/image";
 import React from "react";
 import skillImage from "./images/Rectangle 24993.png";
-import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
+import { SmallTitleCard } from "@/commonComponents/cards/small-title";
 import { motion } from "framer-motion";
-import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
 import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
@@ -63,6 +61,7 @@ const KeyFocus = () => {
       </Stack>
       <ArrowSwiperWithInfoSection
         data={arrowData}
+        SwiperKey={KeyFocus.name}
         SwiperProps={{
           navigation: false,
         }}
@@ -71,6 +70,11 @@ const KeyFocus = () => {
             TitleTypographyProps: {
               fontSize: H3_1,
             },
+            ButtonProps: {
+              href: "/all-initiative",
+              variant: "contained",
+              color: "primary",
+            },
           },
         }}
         SectionWrapperProps={{
@@ -78,13 +82,6 @@ const KeyFocus = () => {
           mb: { xs: 0, md: 6 },
         }}
       />
-      {/* <SlideAnimationWrapper
-          title={"SKILL DEVELOPEMENT"}
-          subtitle='Providing skill-based education through various programs to strengthen
-          the foundation of a progressive nation.'
-        >
-          <Image src={skillImage} alt='Skill Banner' fill />
-        </SlideAnimationWrapper> */}
       <Stack direction='row' alignItems={"center"} width={"107%"}>
         <EnhancedSwiper
           slidesPerView={"auto"}
@@ -92,9 +89,9 @@ const KeyFocus = () => {
             sx: {
               width: { xs: 200, lg: 328 },
               mr: { xs: 2, lg: 0 },
+              transition: "all 0.3s",
               "&:hover": {
                 transform: "scale(1.1)",
-                transition: "all .3s",
                 zIndex: 1,
               },
             },

@@ -92,7 +92,7 @@ const NavItem = (props: NavItemProps) => {
                   px: 3,
                   py: 1.5,
                   "&:hover": {
-                    background: (theme: Theme) => theme.palette.grey["600"],
+                    background: (theme: Theme) => theme.palette.grey["700"],
                   },
                 }}
               >

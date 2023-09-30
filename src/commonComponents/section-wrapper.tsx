@@ -1,76 +1,75 @@
-import { Breakpoint, Stack, StackProps } from "@mui/material";
+import { Breakpoint } from "@mui/material";
 import { forwardRef } from "react";
 import SectionHeader, { SectionHeaderProps } from "@cc/section-header";
 import { SetRequired } from "type-fest";
 import { sxArrayUtil } from "@util/sx-helpers";
+import { MotionStack, MotionStackProps } from "@cc/motion-components";
 
-export interface SectionWrapperProps extends StackProps {
-  SectionProps?: Omit<StackProps, "children">;
-  ContainerProps?: Omit<StackProps, "children">;
+export interface SectionWrapperProps extends MotionStackProps {
+  SectionProps?: Omit<MotionStackProps, "children">;
+  ContainerProps?: Omit<MotionStackProps, "children">;
   SectionHeaderProps?: Omit<SectionHeaderProps, "children">;
 }
 
-const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
-  (props, ref) => {
-    const {
-      children,
-      SectionProps = {},
-      ContainerProps = {},
-      SectionHeaderProps = {} as SetRequired<
-        SectionWrapperProps,
-        "SectionHeaderProps"
-      >["SectionHeaderProps"],
-      color,
-      ...rest
-    } = props;
-      const { title } = SectionHeaderProps;
-      const { sx, ...restProps } = SectionProps;
+const SectionWrapper = forwardRef<
+  HTMLElement | SVGElement,
+  SectionWrapperProps
+>((props, ref) => {
+  const {
+    children,
+    SectionProps = {},
+    ContainerProps = {},
+    SectionHeaderProps = {} as SetRequired<
+      SectionWrapperProps,
+      "SectionHeaderProps"
+    >["SectionHeaderProps"],
+    color,
+    ...rest
+  } = props;
+  const { title } = SectionHeaderProps;
+  const { sx, ...restProps } = SectionProps;
 
-      return (
-        <Stack
-          component={"section"}
-          alignItems={"center"}
-          height={1}
-          ref={ref}
-          overflow={"hidden"}
-          color={color}
-          sx={[
-            {
-              "*": {
-                color: "inherit",
-              },
-            },
-            ...sxArrayUtil(sx),
-          ]}
-          {...restProps}
-        >
-          <Stack
-            pl={basePx}
-            pr={basePx}
-            pt={basePy}
-            pb={basePy}
-            width={1}
-            maxWidth={"xxl"}
-            height={"inherit"}
-            color={color}
-            {...ContainerProps}
-            {...(!title && rest)}
-          >
-            {title ? (
-              <>
-                <SectionHeader {...SectionHeaderProps} />
-                <Stack width={1} {...rest}>
-                  {children}
-                </Stack>
-              </>
-            ) : (
-              children
-            )}
-          </Stack>
-        </Stack>
-      );
-  },
-);
+  return (
+    <MotionStack
+      component={"section"}
+      alignItems={"center"}
+      height={1}
+      overflow={"hidden"}
+      color={color}
+      sx={[
+        {
+          "*": {
+            color: "inherit",
+          },
+        },
+        ...sxArrayUtil(sx),
+      ]}
+      {...restProps}
+    >
+      <MotionStack
+        px={basePx}
+        py={basePy}
+        width={1}
+        maxWidth={"xxl"}
+        height={"inherit"}
+        color={color}
+        {...ContainerProps}
+        {...(!title && { ref, ...rest })}
+      >
+        {title ? (
+          <>
+            <SectionHeader {...SectionHeaderProps} />
+            <MotionStack width={1} ref={ref} {...rest}>
+              {children}
+            </MotionStack>
+          </>
+        ) : (
+          children
+        )}
+      </MotionStack>
+    </MotionStack>
+  );
+});
 
 export default SectionWrapper;
 

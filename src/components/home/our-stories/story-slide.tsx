@@ -1,8 +1,8 @@
 "use client";
-import { alpha, Typography } from "@mui/material";
+import { alpha, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionStack } from "@cc/motion-components";
+import { MotionStack, MotionVariantProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
@@ -25,8 +25,19 @@ export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
 
 const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
   (props, ref) => {
-    const { bgImage, company, title, location, description, ...restCardProps } =
-      props;
+    const {
+      bgImage,
+      company,
+      title,
+      location,
+      description,
+      isNext,
+      isActive,
+      isPrev,
+      isVisible,
+      index,
+      ...restCardProps
+    } = props;
     const { sx, ...rest } = restCardProps;
     return (
       <SectionWrapper
@@ -61,20 +72,19 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
         }}
         {...rest}
       >
-        <MaterialImage
-          src={bgImage}
-          alt={company}
+        <Box
           sx={{
             position: "absolute",
-            width: "auto",
-            minWidth: "100%",
+            width: "100%",
             height: "auto",
-            minHeight: "100%",
+            minHeight: { xs: 366, md: "100%" },
             top: 0,
             left: 0,
             zIndex: -1,
           }}
-        />
+        >
+          <MaterialImage src={bgImage} alt={company} fill objectFit="cover" />
+        </Box>
         <MotionStack
           sx={{
             width: {
@@ -91,21 +101,16 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               md: 0,
             },
           }}
-          initial={{
-            opacity: 0,
-            x: "20%",
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: {
-              duration: 0.8,
-            },
-          }}
-          viewport={{
-            once: true,
-            amount: "some",
-          }}
+          variants={clipTransition}
+          {...(index &&
+            index > 0 && {
+              initial: "initial",
+              whileInView: "animate",
+              viewport: {
+                once: true,
+                amount: 0.5,
+              },
+            })}
         >
           <Typography
             variant={"body2"}
@@ -151,6 +156,9 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               xxl: 5,
             }}
             whiteSpace={"pre-wrap"}
+            sx={{
+              color: (theme) => alpha(theme.palette.secondary.main, 0.6),
+            }}
           >
             {description}
           </Typography>
@@ -173,3 +181,17 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
 export default StorySlide;
 
 StorySlide.displayName = StorySlide.name;
+
+const clipTransition: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    x: "20%",
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};

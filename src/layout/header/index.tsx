@@ -19,12 +19,12 @@ const Header = (props: HeaderProps) => {
     <SectionWrapper
       direction={"row"}
       alignItems={"center"}
-      pt={0}
-      pb={0}
+      py={0}
       height={"inherit"}
       SectionProps={{
         component: ReactiveAppBar,
       }}
+      color={"secondary.main"}
     >
       <Logo
         SvgIconProps={{

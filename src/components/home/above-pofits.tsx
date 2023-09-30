@@ -2,7 +2,7 @@
 import { IconButton, Stack } from "@mui/material";
 import Image from "next/image";
 import videoImage from "./images/Frame 111142.png";
-import React, { useState } from "react";
+import React from "react";
 import {
   MotionBox,
   MotionBoxProps,
@@ -11,15 +11,12 @@ import {
 } from "@/commonComponents/motion-components";
 import { PlayCircle } from "@mui/icons-material";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import theme from "@/styles/theme";
 import { H3_2, H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 const AboveProfits = () => {
-  const [textTransition, setTextTransition] = useState(false);
-
   const videoBannerTransition: MotionBoxProps = {
     initial: {
-      x: "-107%",
+      x: "-100%",
       opacity: 0,
     },
     whileInView: {
@@ -33,8 +30,8 @@ const AboveProfits = () => {
     viewport: {
       once: true,
     },
-    // onTransitionEnd: () => setTextTransition(true),
   };
+
   const descTransition: MotionTypographyProps = {
     initial: {
       y: "-130%",

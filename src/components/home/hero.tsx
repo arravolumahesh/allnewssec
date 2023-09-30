@@ -33,6 +33,7 @@ const Hero = () => {
           background: (theme) => theme.palette.gradient.radialLightToDark,
         },
       }}
+      columnGap={4}
     >
       <Stack
         component={motion.div}
@@ -41,7 +42,7 @@ const Hero = () => {
         animate={"animate"}
       >
         <MotionTypography
-          variant='h1'
+          variant="h1"
           color={"#fff"}
           sx={{ fontWeight: 400, mb: 2 }}
           variants={staggerChildren}
@@ -49,7 +50,7 @@ const Hero = () => {
           TURNING POTENTIAL TO PROGRESS
         </MotionTypography>
         <MotionTypography
-          variant='body1'
+          variant="body1"
           color={"secondary.main"}
           variants={staggerChildren}
         >
@@ -62,7 +63,7 @@ const Hero = () => {
             width: { xs: "100%", md: "207px" },
             fontSize: { xs: "18px", md: "24px !important" },
           }}
-          href={"./all-initiatives"}
+          href={"./initiatives/all-initiatives"}
           variant={"contained"}
           color={"secondary"}
           animationDelay={1000}
@@ -72,13 +73,13 @@ const Hero = () => {
         </AnimatedButton>
       </Stack>
       <Stack
-        direction='row'
+        direction="row"
         alignItems={"center"}
         justifyContent={"center"}
         width={{ xs: 1, md: 354, lg: 528 /* large: 651 */ }}
       >
         <Slide
-          direction='right'
+          direction="right"
           in={logoAnimate}
           timeout={500}
           easing={{ enter: "cubic-bezier(.13,.47,.02,1)" }}

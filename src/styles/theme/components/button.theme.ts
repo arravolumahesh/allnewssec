@@ -21,7 +21,7 @@ export const ButtonVariants: Components<
           ...helvetica.style,
           whiteSpace: "nowrap",
           lineHeight: "128%",
-          fontWeight: 500,
+          fontWeight: 400,
           fontSize: Button,
           textRendering: "optimizeSpeed",
           letterSpacing: "normal",
@@ -64,7 +64,7 @@ export const ButtonVariants: Components<
           : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
         px: 3,
-        height: 56,
+        height: { xs: 48, md: 52, lg: 56 },
         border: `1px solid`,
         borderColor,
         background,
@@ -99,7 +99,7 @@ export const ButtonVariants: Components<
           : alpha(palette[color].main, 0.1);
       return theme.unstable_sx({
         px: { xs: 3, md: 2.5, lg: 2 },
-        height: 48,
+        height: { sm: 40, md: 44, lg: 48 },
         border: `1px solid`,
         borderColor,
         color: !color || color === "inherit" ? "inherit" : palette[color].main,
@@ -116,16 +116,22 @@ export const ButtonVariants: Components<
       },
       style: ({ theme }) => {
         return {
-          color: theme.palette.grey[500],
-          padding: theme.spacing(2),
-          paddingLeft: 0,
-          paddingRight: 0,
-          borderBottom: "2px solid",
-          borderColor: "transparent",
-          "&.MuiButton-menulinkSecondary, &:hover ": {
-            color: theme.palette.primary.main,
-            borderColor: theme.palette.primary.main,
-            background: "none",
+          [theme.breakpoints.up('xs')]:{
+            color: theme.palette.grey.A400,
+            padding: theme.spacing(2),
+            paddingLeft: 0,
+            paddingRight: 0,
+            borderBottom: "2px solid",
+            borderColor: "transparent",
+            "&.MuiButton-menulinkPrimary":{
+              color: theme.palette.grey.A400,
+              opacity:0.6
+            },
+            "&.MuiButton-menulinkSecondary, &:hover ": {
+              color: theme.palette.primary.main,
+              borderColor: theme.palette.primary.main,
+              background: "none",
+            },
           },
         };
       },
@@ -142,15 +148,15 @@ export const ButtonVariants: Components<
           },
           [theme.breakpoints.down("md")]: {
             fontSize: "24px",
-            maxWidth:'100%',
-            '& span:first-child':{
-              float: 'left',
-              width: 'auto',
+            maxWidth: "100%",
+            "& span:first-child": {
+              float: "left",
+              width: "auto",
               maxWidth: 250,
-            }
+            },
             // paddingRight:theme.spacing(6),
           },
-          overflow:'visible',
+          overflow: "visible",
           whiteSpace: "break-spaces",
           display: "inline-block",
           width: "max-content",
@@ -160,6 +166,9 @@ export const ButtonVariants: Components<
           borderColor: "transparent",
           textTransform: "uppercase",
           position: "relative",
+          "&.MuiButton-companylinkPrimary": {
+            color: theme.palette.primary.main,
+          },
           "&.MuiButton-menulinkSecondary, &:hover ": {
             color: theme.palette.primary.main,
             borderColor: theme.palette.primary.main,
@@ -172,16 +181,16 @@ export const ButtonVariants: Components<
             margin: "auto",
             right: "-40px",
             display: "flex",
-            alignItems: "center",            
+            alignItems: "center",
             [theme.breakpoints.down("md")]: {
               top: 0,
               alignItems: "flex-start",
-              position: 'static',
+              position: "static",
               margin: 0,
               left: 0,
-              marginLeft:10,
-              marginTop:'-2px',
-              float: 'left',
+              marginLeft: 10,
+              marginTop: "-2px",
+              float: "left",
             },
             "& svg": {
               width: 36,

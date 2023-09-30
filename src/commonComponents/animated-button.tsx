@@ -1,9 +1,9 @@
 "use client";
 import { buttonClasses, SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
-import { MotionButton, MotionButtonProps } from "./motion-components";
+import { MotionLink, MotionLinkProps } from "./motion-components";
 
-export interface AnimatedButtonProps extends MotionButtonProps {
+export interface AnimatedButtonProps extends MotionLinkProps {
   /*
    * Animation delay in milliseconds
    *
@@ -106,7 +106,7 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
   }, [after, before, color, isInView, variant]);
 
   return (
-    <MotionButton
+    <MotionLink
       sx={[
         animatedButtonInitialSx,
         animatedButtonOnViewportEnterSx,
@@ -133,11 +133,12 @@ const animatedButtonInitialSx: SxProps<Theme> = () => {
     overflow: "hidden",
     position: "relative",
     width: { xs: "100%", md: "fit-content" },
-    [`&.${buttonClasses.outlined}`]: {
-      border: "none",
-      "&:hover": {
+    [`&.${buttonClasses.outlined}, &.${buttonClasses.contained},  &.${buttonClasses.text}`]:
+      {
         border: "none",
+        "&:hover": {
+          border: "none",
+        },
       },
-    },
   };
 };

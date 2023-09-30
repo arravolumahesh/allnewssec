@@ -19,6 +19,10 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
     [`& .${svgIconClasses.root}`]: {
       fontSize: "inherit",
     },
+    "&[disabled]": {
+      pointerEvents: "none",
+      opacity: 0.5,
+    },
     "&:hover": {
       "&::before": {
         content: '""',
@@ -32,7 +36,7 @@ const BorderedIconButton = styled(IconButton)(({ theme, color }) =>
         opacity: color === "secondary" ? 0.4 : 0.2,
       },
     },
-  }),
+  })
 );
 
 export default BorderedIconButton;

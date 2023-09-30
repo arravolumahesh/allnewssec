@@ -13,6 +13,7 @@ const KeyHighlights = () => {
   return (
     <ArrowSwiperWithInfoSection
       data={data}
+      SwiperKey={KeyHighlights.name}
       SectionWrapperProps={{
         color: "secondary.main",
         SectionHeaderProps: {
@@ -26,6 +27,10 @@ const KeyHighlights = () => {
         SlotProps: {
           TitleTypographyProps: {
             fontSize: H3_1,
+          },
+          ButtonProps: {
+            href: "#",
+            color: "secondary",
           },
         },
       }}

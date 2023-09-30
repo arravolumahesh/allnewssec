@@ -16,6 +16,7 @@ import { useState } from "react";
 import SectionWrapper from "@cc/section-wrapper";
 import { appbarHeight } from "@/layout/header/reactive-appbar";
 import BorderedIconButton from "@cc/bordered-icon-button";
+import { H6_3 } from "@theme/components/typography.fontvariant";
 
 export interface SearchDrawerTogglerProps
   extends Omit<IconButtonProps, "children"> {}
@@ -57,6 +58,7 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
           }}
           pt={0}
           pb={0}
+          color={"grey.600"}
         >
           <TextField
             variant={"standard"}
@@ -67,6 +69,9 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
               setSearchKeyword(e.target.value);
             }}
             InputProps={{
+              sx: {
+                color: "grey.600",
+              },
               startAdornment: (
                 <InputAdornment
                   position={"start"}
@@ -112,8 +117,9 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
                 md: 72,
                 xl: 80,
               },
+              color: "inherit",
               bgcolor: "transparent",
-              fontSize: { xs: "16px", md: "20px", xl: "24px" },
+              fontSize: H6_3,
             }}
           />
         </SectionWrapper>
