@@ -2,11 +2,8 @@
 
 import { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-<<<<<<< HEAD
 import AnimatedButton from "@/commonComponents/animated-button";
 import { motion } from "framer-motion";
-=======
->>>>>>> afc0bf43da4eb29f4e385a6d5c2e9b92f8ea8a13
 
 import {
   Box,
@@ -222,8 +219,13 @@ const Areas = () => {
                 {eachArea.discrption}
               </Typography>
               <Box display={"flex"} gap={2} overflow={"scroll"} mt={10}>
-                {eachArea.intitiatives.map((eachIntiative,index) => (
-                  <Box display={"flex"} flexDirection={"column"} key={index} gap={2}>
+                {eachArea.intitiatives.map((eachIntiative, index) => (
+                  <Box
+                    display={"flex"}
+                    flexDirection={"column"}
+                    key={index}
+                    gap={2}
+                  >
                     <Image
                       src={eachIntiative.imageUrl}
                       alt={eachIntiative.title}

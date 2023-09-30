@@ -148,7 +148,7 @@ const NominationsOpen = () => {
                 15 Aug 2023
               </MotionTypography>
             </Stack>
-            <AnimatedButton href={"/"} sx={{ color: common.white }}>
+            <AnimatedButton href={"/"} variant={"outlined"} color={"inherit"}>
               Apply Now
             </AnimatedButton>
           </Stack>

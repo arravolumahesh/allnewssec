@@ -90,7 +90,7 @@ const Awards = () => {
           grassroots level; celebrating their dedication to building a more
           compassionate and equitable society.
         </MotionTypography>
-        <AnimatedButton href={"/"} sx={{ color: common.white }}>
+        <AnimatedButton href={"/"} variant={"outlined"} color={"inherit"}>
           Learn More
         </AnimatedButton>
       </Stack>

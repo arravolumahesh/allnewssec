@@ -4,7 +4,7 @@ import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { MotionVariantProps } from "@/commonComponents/motion-components";
-import React from "react";
+import React, { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { useMediaQuery, Stack, Button } from "@mui/material";
 import { helvetica } from "@/app/font";
@@ -13,6 +13,10 @@ import childrens from "@/components/ourCompanies/images/childrens.png";
 import { MotionTypography } from "@/commonComponents/motion-components";
 import { MaterialImage } from "@/commonComponents/material-components";
 import SlideButtons from "../intermediate/swiper/swiperButton";
+import AnimatedButton from "@/commonComponents/animated-button";
+import { common } from "@mui/material/colors";
+import theme from "@/styles/theme";
+import { Body1, H6_3 } from "@/styles/theme/components/typography.fontvariant";
 
 const useStyles = {
   imageContainer: {
@@ -68,28 +72,16 @@ const CaseStudies = () => {
       subheading:
         "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
     },
-    {
-      imageUrl: childrens,
-      tag: "IPH-Triveni Program",
-      heading: "Digital Skilling for Youth",
-      subheading:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-    },
-    {
-      imageUrl: womens,
-      tag: "IPH-Triveni Program",
-      heading: "Providing Vocational Training for Women in Maharashtra",
-      subheading:
-        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-    },
   ];
+  const [disablePrev, setDisabledPrev] = useState<boolean>(true);
+  const [disableNext, setDisabledNext] = useState<boolean>(false);
   const isTabletOrLarger = useMediaQuery((theme: any) =>
     theme.breakpoints.up("md")
   );
 
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
 
-  const slidesPerView = isMobile ? 1 : 2;
+  const slidesPerView = isTabletOrLarger ? 2 : isMobile ? 1 : 1;
   return (
     <SectionWrapper
       sx={{
@@ -130,11 +122,10 @@ const CaseStudies = () => {
           display: "flex",
           flexDirection: "row",
           alignItems: "flex-start",
-          paddingTop: "30px",
+          pt: "30px",
           justifyContent: "flex-start",
         }}
       >
-        {/*  */}
         <Swiper
           freeMode={true}
           pagination={false}
@@ -143,8 +134,15 @@ const CaseStudies = () => {
           spaceBetween={24}
           modules={[Pagination, Navigation, FreeMode]}
         >
-          <Stack>
-            {/* <SlideButtons /> */}
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "flex-start",
+              alignItems: "flex-start",
+              mt: { xs: "30px" },
+            }}
+          >
+            <SlideButtons disablePrev={disablePrev} disableNext={disableNext} />
           </Stack>
           {DetailsOfLargerDevices.map((element, index) => (
             <SwiperSlide key={index}>
@@ -169,12 +167,10 @@ const CaseStudies = () => {
                   <MotionTypography
                     variant="body1"
                     sx={{
-                      color: "#fff",
-                      fontFamily: helvetica,
+                      color: common.white,
                       fontSize: "14px",
-                      fontStyle: "normal",
                       fontWeight: "200",
-                      background: "var(--primary-light-grey, #DADADA);",
+                      background: "var(--primary-light-grey, #DADADA)",
                       padding: "5px",
                     }}
                     variants={staggerChildren}
@@ -188,11 +184,8 @@ const CaseStudies = () => {
                     variant="body1"
                     sx={{
                       color: "var(--primary-blue, #005DAC)",
-                      fontFamily: helvetica,
-                      fontStyle: "normal",
                       fontWeight: "400",
-                      fontSize: { xs: "20px", md: "24px" },
-                      lineHeight: "128%",
+                      fontSize: H6_3,
                       textAlign: "start",
                     }}
                     variants={staggerChildren}
@@ -214,10 +207,7 @@ const CaseStudies = () => {
                       variant="body1"
                       sx={{
                         color: "var(--primary-blue, #005DAC)",
-                        fontStyle: "normal",
-                        fontWeight: "400",
-                        fontSize: { xs: "16px", md: "18px" },
-                        lineHeight: "128%",
+                        fontSize: Body1,
                         width: { xs: "310px", md: "643px" },
                         textAlign: "start",
                       }}
@@ -227,17 +217,13 @@ const CaseStudies = () => {
                   </Stack>
                 </Stack>
                 {isMobile && (
-                  <Button
-                    href="/"
-                    sx={{
-                      color: "rgba(0, 93, 172, 1)",
-                      alignItems: "center",
-                      display: "flex",
-                      flexDirection: "row",
-                    }}
+                  <AnimatedButton
+                    href={"/"}
+                    variant={"outlined"}
+                    color={"inherit"}
                   >
-                    View Case Study {">"}
-                  </Button>
+                    Learn More
+                  </AnimatedButton>
                 )}
               </Stack>
             </SwiperSlide>

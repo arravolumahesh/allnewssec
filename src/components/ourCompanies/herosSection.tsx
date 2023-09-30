@@ -25,10 +25,10 @@ import "swiper/css";
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import SlideButtons from "@/components/intermediate/swiper/swiperButton";
 
-import boy1 from "./images/boy1.png";
-import girl1 from "./images/girl1.png";
-import boy2 from "./images/boy2.png";
-import girl2 from "./images/girl2.png";
+import boy1 from "@/components/ourCompanies/images/boy1.png";
+import girl1 from "@/components/ourCompanies/images/girl1 .png";
+import boy2 from "@/components/ourCompanies/images/boy2.png";
+import girl2 from "@/components/ourCompanies/images/gril2.png";
 
 interface ButtonsProps {
   disablePrev: boolean;
