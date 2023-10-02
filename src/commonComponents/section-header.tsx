@@ -8,6 +8,7 @@ import { ReactNode } from "react";
 import { H6_4 } from "@theme/components/typography.fontvariant";
 import { MotionProps } from "framer-motion";
 import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
+import { deepmerge } from "@mui/utils";
 
 export interface SectionHeaderProps
   extends Omit<MotionStackProps, "children" | "title"> {
@@ -64,13 +65,20 @@ const SectionHeader = (props: SectionHeaderProps) => {
         </MotionTypography>
       )}
       {LinkProps && (
-        <AnimatedButton {...{ children: "Learn More", ...LinkProps }} />
+        <AnimatedButton {...deepmerge(defaultLinkProps, LinkProps)} />
       )}
     </MotionStack>
   );
 };
 
 export default SectionHeader;
+
+const defaultLinkProps: AnimatedButtonProps = {
+  href: "#",
+  color: "inherit",
+  variant: "outlined",
+  children: "Learn More",
+};
 
 const childMotionVariant: MotionProps["variants"] = {
   initial: {
