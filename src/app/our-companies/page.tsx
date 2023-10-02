@@ -6,13 +6,18 @@ import Happening from "@/components/ourCompanies/happening";
 import Stories from "@/components/ourCompanies/stories";
 import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpportunities";
 import PartnerSwiperSection from "@cc/partner-swiper-section";
-import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
 import CsrReport from "@/components/ourCompanies/csr-repots";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 import SectionNavigation, {
   SectionNavigationProps,
 } from "@cc/section-navigation";
-import Enquire from "@c/ourCompanies/enquire";
+import Discover from "@/commonComponents/discover";
+import group2 from "@/components/ourCompanies/images/group2.png";
+import group3 from "@/components/ourCompanies/images/group3.png";
+import group5 from "@/components/ourCompanies/images/group5.png";
+import group7 from "@/components/ourCompanies/images/group7.png";
+import group8 from "@/components/ourCompanies/images/group8.png";
+import Enquire from "@/commonComponents/enquire";
 
 const Company = () => {
   return (
@@ -28,13 +33,31 @@ const Company = () => {
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
       <Enquire data={enquireData} />
-      <DiscoverBajaj />
+      <Discover
+        title='Discover bajaj Auto'
+        link='Visit Bajaj Auto Website'
+        href='/'
+        ImageData={imageData}
+      />
       <CsrReport />
     </>
   );
 };
 
 export default Company;
+
+const imageData = [
+  { img: group2 },
+  { img: group3 },
+  { img: group5 },
+  { img: group7 },
+  { img: group8 },
+  { img: group2 },
+  { img: group3 },
+  { img: group5 },
+  { img: group7 },
+  { img: group8 },
+];
 
 const menus: SectionNavigationProps["Sections"] = [
   {

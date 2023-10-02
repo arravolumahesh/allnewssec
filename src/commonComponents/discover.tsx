@@ -3,11 +3,6 @@ import React from "react";
 import { MotionStack } from "@/commonComponents/motion-components";
 import SectionWrapper, { basePx } from "@/commonComponents/section-wrapper";
 import { Stack } from "@mui/material";
-import group2 from "@/components/ourCompanies/images/group2.png";
-import group3 from "@/components/ourCompanies/images/group3.png";
-import group5 from "@/components/ourCompanies/images/group5.png";
-import group7 from "@/components/ourCompanies/images/group7.png";
-import group8 from "@/components/ourCompanies/images/group8.png";
 import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
@@ -33,14 +28,24 @@ import {
   textStaggerChildren,
 } from "@/commonComponents/animations";
 
-const DiscoverBajaj = () => {
+interface DiscoverProps {
+  title: string;
+  link: string;
+  href: string;
+  ImageData: {
+    img: StaticImageData | string;
+  }[];
+}
+
+const Discover = (props: DiscoverProps) => {
+  const { title, link, href, ImageData } = props;
   return (
     <SectionWrapper
       SectionProps={{
         bgcolor: "primary.500",
       }}
       SectionHeaderProps={{
-        title: "Discover bajaj Auto",
+        title: title,
         TitleTypographyProps: {
           variant: "h3",
         },
@@ -55,12 +60,12 @@ const DiscoverBajaj = () => {
     >
       <Stack rowGap={{ xs: 2, m: 3 }}>
         <EnhancedSwiper
-          data={imageData}
+          data={ImageData}
           SlideComponent={ImageSlics}
           {...swiperProps}
         />
         <EnhancedSwiper
-          data={imageData}
+          data={ImageData}
           SlideComponent={ImageSlics}
           {...swiperProps}
           autoplay={{
@@ -91,10 +96,10 @@ const DiscoverBajaj = () => {
               fontSize: H6_2,
               textDecoration: "none",
             }}
-            href='/'
+            href={href}
             variants={textStaggerChildren}
           >
-            Visit Bajaj Auto Website
+            {link}
             <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
           </MaterialLink>
           <MotionStack
@@ -129,20 +134,7 @@ const DiscoverBajaj = () => {
   );
 };
 
-export default DiscoverBajaj;
-
-const imageData = [
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
-];
+export default Discover;
 
 interface ImageSlicsProps {
   img: StaticImageData | string;
