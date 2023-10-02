@@ -6,6 +6,7 @@ import {
   tabClasses,
   TabProps,
   Tabs,
+  tabsClasses,
   TabsProps,
   useScrollTrigger,
 } from "@mui/material";
@@ -16,7 +17,7 @@ import {
 } from "@/layout/header/reactive-appbar";
 import SectionWrapper, { SectionWrapperProps } from "@cc/section-wrapper";
 import { sxArrayUtil } from "@util/sx-helpers";
-import MLink from "@cc/m-link";
+import Link from "next/link";
 
 export interface SectionNavigationProps
   extends Omit<SectionWrapperProps, "children"> {
@@ -92,7 +93,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
         sx={[
           {
             width: 1,
-            [`.MuiTabs-flexContainer`]: {
+            [`.${tabsClasses.flexContainer}`]: {
               justifyContent: "space-between",
               columnGap: 4,
             },
@@ -103,7 +104,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
         {Sections.map((item, idx) => (
           <Tab
             key={idx}
-            component={MLink}
+            component={Link}
             href={item.href}
             label={item.title}
             disableRipple
