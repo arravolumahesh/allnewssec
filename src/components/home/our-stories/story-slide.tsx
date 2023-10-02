@@ -1,12 +1,12 @@
 "use client";
-import { alpha, Box, Typography } from "@mui/material";
+import { alpha, Box, Stack, Typography, TypographyProps } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import { MotionStack, MotionVariantProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
-import { H5_1 } from "@theme/components/typography.fontvariant";
+import { Button, H5_1, H6_2 } from "@theme/components/typography.fontvariant";
 import SectionWrapper, {
   basePx,
   basePy,
@@ -21,6 +21,12 @@ export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
   title: string;
   location: string;
   description: string;
+  person?: {
+    name: string;
+    info: string;
+  };
+  button: string;
+  DescriptionTypographyProps?: TypographyProps;
 }
 
 const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
@@ -31,6 +37,9 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
       title,
       location,
       description,
+      DescriptionTypographyProps,
+      person,
+      button,
       isNext,
       isActive,
       isPrev,
@@ -54,7 +63,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
           sx: {
             background: (theme) => ({
               xs: theme.palette.gradient.transparentToDark,
-              md: "none",
+              md: theme.palette.gradient.darkToTransparentRight,
             }),
           },
         }}
@@ -83,7 +92,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             zIndex: -1,
           }}
         >
-          <MaterialImage src={bgImage} alt={company} fill objectFit="cover" />
+          <MaterialImage src={bgImage} alt={company} fill objectFit='cover' />
         </Box>
         <MotionStack
           sx={{
@@ -112,42 +121,48 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               },
             })}
         >
-          <Typography
-            variant={"body2"}
-            gutterBottom
-            sx={{
-              width: "fit-content",
-              textTransform: "capitalize",
-              px: 2,
-              py: {
-                xs: 1,
-                md: 1.25,
-                xxl: 1.5,
-              },
-              background: (theme) => alpha(theme.palette.secondary.main, 0.2),
-            }}
-          >
-            {company}
-          </Typography>
-          <Typography
-            fontSize={H5_1}
-            fontWeight={"bold"}
-            mb={3}
-            lineHeight={"125%"}
-            textTransform={"capitalize"}
-          >
-            {title}
-          </Typography>
-          <Typography
-            variant={"body2"}
-            mb={3}
-            textTransform={"capitalize"}
-            display={"flex"}
-            alignItems={"center"}
-            columnGap={1}
-          >
-            <LocationOnRounded fontSize={"inherit"} /> {location}
-          </Typography>
+          {company && (
+            <Typography
+              variant={"body2"}
+              gutterBottom
+              sx={{
+                width: "fit-content",
+                textTransform: "capitalize",
+                px: 2,
+                py: {
+                  xs: 1,
+                  md: 1.25,
+                  xxl: 1.5,
+                },
+                background: (theme) => alpha(theme.palette.secondary.main, 0.2),
+              }}
+            >
+              {company}
+            </Typography>
+          )}
+          {title && (
+            <Typography
+              fontSize={H5_1}
+              fontWeight={"bold"}
+              mb={3}
+              lineHeight={"125%"}
+              textTransform={"capitalize"}
+            >
+              {title}
+            </Typography>
+          )}
+          {location && (
+            <Typography
+              variant={"body2"}
+              mb={3}
+              textTransform={"capitalize"}
+              display={"flex"}
+              alignItems={"center"}
+              columnGap={1}
+            >
+              <LocationOnRounded fontSize={"inherit"} /> {location}
+            </Typography>
+          )}
           <Typography
             variant={"body1"}
             mb={{
@@ -159,23 +174,32 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             sx={{
               color: (theme) => alpha(theme.palette.secondary.main, 0.6),
             }}
+            {...DescriptionTypographyProps}
           >
             {description}
           </Typography>
-          <AnimatedButton
-            href={"/bajaj-auto-initiatives"}
-            variant={"outlined"}
-            color={"secondary"}
-            sx={{
-              mt: "auto",
-            }}
-          >
-            View More Initiatives
-          </AnimatedButton>
+          {person && (
+            <Stack rowGap={{ xs: 1, md: 2 }} mt={"auto"}>
+              <Typography fontSize={H6_2}>{person.name}</Typography>
+              <Typography variant={"subtitle1"}>{person.info}</Typography>
+            </Stack>
+          )}
+          {button && (
+            <AnimatedButton
+              href={"/bajaj-auto-initiatives"}
+              variant={"outlined"}
+              color={"secondary"}
+              sx={{
+                mt: "auto",
+              }}
+            >
+              {button}
+            </AnimatedButton>
+          )}
         </MotionStack>
       </SectionWrapper>
     );
-  },
+  }
 );
 
 export default StorySlide;

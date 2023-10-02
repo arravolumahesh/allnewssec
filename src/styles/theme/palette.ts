@@ -186,6 +186,8 @@ export const PaletteTheme = (
           "linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%)",
         darkOverlay:
           "linear-gradient(180deg, rgba(0, 0, 0, 0.5) 14.69%, #000 130%)",
+        darkToTransparentRight:
+          "linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%)",
       };
     },
   };
@@ -201,6 +203,7 @@ declare module "@mui/material/styles" {
       transparentToDark: string;
       transparentToDarkRight: string;
       darkOverlay: string;
+      darkToTransparentRight: string;
     };
   }
 
@@ -213,6 +216,7 @@ declare module "@mui/material/styles" {
       transparentToDark: string;
       transparentToDarkRight: string;
       darkOverlay: string;
+      darkToTransparentRight: string;
     };
   }
 }
