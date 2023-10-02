@@ -1,7 +1,7 @@
 "use client";
 import { initiativedata } from "./intermediateInitiatives";
 import MLink from "@/commonComponents/m-link";
-import { Box, Stack, styled } from "@mui/material";
+import { Box, Stack, Typography, styled } from "@mui/material";
 import { useState } from "react";
 // import Swiper core and required modules
 import { Navigation, Pagination } from "swiper/modules";
@@ -18,6 +18,7 @@ import InitiativeCard from "./swiper/initiativeCard";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import SvgIconArrow from "./icons/arrowIcon";
+import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
 
 interface props {
   initiativedata: (typeof initiativedata)[0];
@@ -102,15 +103,19 @@ const CompanyInitiatives = (props: props) => {
             })}
           >
             <Box sx={{ maxWidth: "100%" }}>
-              <MLink
-                href={""}
-                variant="companylink"
-                disableRipple
-                endIcon={<SvgIconArrow />}
-                className={initiativedata.companyName.replace(/\s/g, "")}
-              >
-                <span>{initiativedata.companyName}</span>
-              </MLink>
+              {initiativedata.companyPath ? 
+                <MLink
+                  href={""}
+                  variant="companylink"
+                  disableRipple
+                  endIcon={<SvgIconArrow />}
+                  className={initiativedata.companyName.replace(/\s/g, "")}
+                >
+                  <span>{initiativedata.companyName}</span>
+                </MLink>
+              :
+                <Typography variant="h2" fontSize={H5_1}>{initiativedata.companyName}</Typography>
+              }
             </Box>
 
             {matches === false && initiativedata.initiative.length > 3 && (

@@ -15,6 +15,7 @@ const MoreInitiatives = () => {
                 py: {xxl:0,md:0,xs:0},
                 backgroundColor: `default`,
               }}
+              color={'primary.main'}
             >
               <CompanyInitiatives initiativedata={initiativedata} />
         </SectionWrapper>
@@ -27,8 +28,7 @@ export default MoreInitiatives;
 
 const initiativedata = {
     companyName: "more skill development initiatives",
-    companyPath: "/",
-    title:"more skill development initiatives",
+    companyPath: "",    
     initiative: [
       {
         imageUrl: "",
