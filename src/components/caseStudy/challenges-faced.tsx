@@ -50,8 +50,8 @@ const ChallengesFaced = () => {
         </MotionTypography>
 
         <Grid container>
-          {data.map((eachItem) => (
-            <Grid xs={12} md={6} item>
+          {data.map((eachItem, index) => (
+            <Grid key={index} xs={12} md={6} item>
               <Box display={"flex"} alignItems={"baseline"}>
                 <ArrowGradient
                   width={50}
