@@ -1,16 +1,14 @@
 "use client";
 
 import {
-  MotionTypography,
-  MotionStack,
-  MotionVariantProps,
   MotionButton,
+  MotionTypography,
+  MotionVariantProps,
 } from "@/commonComponents/motion-components";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import theme from "@/styles/theme";
 import { Body2 } from "@/styles/theme/components/typography.fontvariant";
-import { Box, Button, Grid, Stack } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 
 import bg from "../ourCompanies/images/workForce.png";
 
@@ -104,8 +102,8 @@ const HowWeDid = () => {
           justifyContent={{ xs: "space-between", md: "space-evenly" }}
           rowGap={4}
         >
-          {data.map((eachData) => (
-            <Grid xs={12} md={6} lg={3} item>
+          {data.map((eachData, index) => (
+            <Grid key={index} xs={12} md={6} lg={3} item>
               <Stack spacing={2}>
                 <MotionButton
                   sx={{
