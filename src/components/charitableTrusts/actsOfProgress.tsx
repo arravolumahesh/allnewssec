@@ -13,34 +13,35 @@ import theme from "@/styles/theme";
 
 const ActsOfProgress = () => {
   return (
-    <SectionWrapper
-      SectionProps={{
-        sx: {
-          backgroundColor: (theme) => theme.palette?.primary.main,
+    <ArrowSwiperWithInfoSection
+      data={data}
+      SwiperKey={ActsOfProgress.name}
+      SectionWrapperProps={{
+        color: "secondary.main",
+        SectionProps: {
+          sx: {
+            backgroundColor: (theme) => theme.palette.primary.main,
+          },
+        },
+        SectionHeaderProps: {
+          title: "ACTS OF PROGRESS, ONE AT A TIME",
         },
       }}
-    >
-      <ArrowSwiperWithInfoSection
-        data={data}
-        SwiperKey={ActsOfProgress.name}
-        SectionWrapperProps={{
-          color: "secondary.main",
-          SectionHeaderProps: {
-            title: "ACTS OF PROGRESS, ONE AT A TIME",
+      SwiperProps={{
+        navigation: true,
+      }}
+      ArrowSlideInfoProps={{
+        SlotProps: {
+          TitleTypographyProps: {
+            fontSize: H3_1,
           },
-        }}
-        SwiperProps={{
-          navigation: true,
-        }}
-        ArrowSlideInfoProps={{
-          SlotProps: {
-            TitleTypographyProps: {
-              fontSize: H3_1,
-            },
+          ButtonProps: {
+            href: "#",
+            color: "secondary",
           },
-        }}
-      />
-    </SectionWrapper>
+        },
+      }}
+    />
   );
 };
 
@@ -51,7 +52,7 @@ const data: (ArrowSwiperWithInfoProps<
 >["data"][number]["data"][number] &
   ArrowSlideDefaultImageProps)[] = [
   {
-    title: "Announcing Jamnalal Bajaj Awards",
+    title: "Jamnalal Bajaj Awards 2023",
     description:
       "Felicitating the efforts of women and men who have dedicated their life to constructive work.",
     image: keyHighlights,
@@ -59,7 +60,7 @@ const data: (ArrowSwiperWithInfoProps<
     btnLink: "/",
   },
   {
-    title: "Announcing Jamnalal Bajaj Awards",
+    title: "Jamnalal Bajaj Awards 2023",
     description:
       "Felicitating the efforts of women and men who have dedicated their life to constructive work.",
     image: inTheNews,

@@ -1,106 +1,48 @@
-import SectionWrapper from "@/commonComponents/section-wrapper";
+"use client";
+import SectionWrapper, { basePy } from "@/commonComponents/section-wrapper";
 import { Stack, Typography } from "@mui/material";
-import { helvetica } from "@/app/font";
-import bgCarrying from "@/components/charitableTrusts/images/bgCarrying.png";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import React from "react";
-
 import {
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
-import { Body2, H1 } from "@/styles/theme/components/typography.fontvariant";
-import { common } from "@mui/material/colors";
-import SectionPage from "./section-chari";
+import bg from "./images/bg.png";
+import CommonBreadcrumb from "@/commonComponents/breadcrumb";
 
-const CarryingServies = () => {
+const CarryingService = () => {
   return (
     <>
       <SectionWrapper
-        sx={{
-          background: `linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dspbnevuo/image/upload/v1695902855/Frame_1171280553_i532al.png),lightgray 50% / cover no-repeat`,
-          height: "464px",
+        SectionProps={{
+          sx: {
+            background: (theme) =>
+              `${theme.palette.gradient.transparentToDarkRight}, url(https://res.cloudinary.com/dspbnevuo/image/upload/v1695902855/Frame_1171280553_i532al.png) no-repeat`,
+            backgroundPosition: "right",
+            backgroundSize: "cover",
+          },
         }}
+        py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
+        pb={{ /* ...basePy, */ xs: 4, md: 8 }}
       >
-        <Stack
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            height: "100%",
-          }}
-        >
-          <Stack
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <MotionTypography
-              variant="body1"
-              sx={{
-                fontSize: Body2,
-                fontStyle: "normal",
-                fontWeight: "400",
-                lineHeight: "130%",
-                color: "rgba(255, 255, 255, 0.50)",
-                fontFamily: helvetica,
-              }}
-              variants={staggerChildren}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
-            >
-              Charitable Trusts
-            </MotionTypography>
-            <ArrowForwardIosIcon
-              sx={{
-                color: "#fff",
-                width: "20px",
-                height: "20px",
-              }}
-            />
+        <CommonBreadcrumb />
+        <Stack mt={23} maxWidth={863} rowGap={3}>
+          <MotionTypography
+            variant='h1'
 
-            <MotionTypography
-              variant="body1"
-              sx={{
-                fontSize: Body2,
-                fontStyle: "normal",
-                fontWeight: "400",
-                lineHeight: "130%",
-                color: common.white,
-              }}
-              variants={staggerChildren}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
-            >
-              Jamnalal Bajaj Foundation
-            </MotionTypography>
-          </Stack>
-          <Stack>
-            <MotionTypography
-              variant="h1"
-              sx={{
-                fontSize: H1,
-                fontStyle: "normal",
-                fontWeight: "400",
-                lineHeight: "128%" /* 40.96px */,
-                textTransform: "uppercase",
-                width: "70%",
-              }}
-            >
-              Carrying forward a legacy of service
-            </MotionTypography>
-          </Stack>
+            // variants={staggerChildren}
+            // initial={"initial"}
+            // whileInView={"animate"}
+            // viewport={{ once: true }}
+          >
+            CARRYING FORWARD A LEGACY OF SERVICE
+          </MotionTypography>
         </Stack>
       </SectionWrapper>
-      <SectionPage />
     </>
   );
 };
 
-export default CarryingServies;
+export default CarryingService;
 
 const staggerChildren: MotionVariantProps = {
   initial: {

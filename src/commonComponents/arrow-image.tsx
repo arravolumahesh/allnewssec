@@ -43,7 +43,7 @@ const ArrowImage = (props: ArrowImageProps) => {
           },
         }}
       />
-      <MaterialImage {...rest} fill />
+      <MaterialImage sx={{ objectFit: "cover" }} {...rest} fill />
     </MotionBox>
   );
 };
