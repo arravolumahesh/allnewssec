@@ -14,6 +14,7 @@ const Enquire = () => {
     <SectionWrapper
       SectionProps={{
         bgcolor: "common.white",
+        id: "contact-us",
       }}
       color={"primary.main"}
       direction={{ xs: "column", xl: "row" }}

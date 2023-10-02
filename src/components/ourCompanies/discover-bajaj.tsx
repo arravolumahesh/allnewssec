@@ -38,7 +38,6 @@ const DiscoverBajaj = () => {
     <SectionWrapper
       SectionProps={{
         bgcolor: "primary.500",
-        id: "bajaj-auto",
       }}
       SectionHeaderProps={{
         title: "Discover bajaj Auto",

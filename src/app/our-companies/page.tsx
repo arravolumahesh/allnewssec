@@ -69,8 +69,8 @@ const menus = [
     anchorTag: "#volunteering-opportunities",
   },
   {
-    title: "Bajaj Auto",
-    anchorTag: "#bajaj-auto",
+    title: "Contact Us",
+    anchorTag: "#contact-us",
   },
   {
     title: "CSR Reports",
