@@ -22,6 +22,7 @@ const ActsOfProgress = () => {
     >
       <ArrowSwiperWithInfoSection
         data={data}
+        SwiperKey={ActsOfProgress.name}
         SectionWrapperProps={{
           color: "secondary.main",
           SectionHeaderProps: {
