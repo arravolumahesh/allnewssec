@@ -7,7 +7,7 @@ import Stories from "@/components/ourCompanies/stories";
 import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpportunities";
 import PartnerSwiperSection from "@cc/partner-swiper-section";
 import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
-import CsrReport from "@/components/ourCompanies/csrRepots";
+import CsrReport from "@/components/ourCompanies/csr-repots";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 import SectionMenu from "@/components/ourCompanies/section-menu";
 
@@ -26,13 +26,6 @@ const Company = () => {
       <PartnerSwiperSection />
       <DiscoverBajaj />
       <CsrReport />
-      {/* <HerosSection /> */}
-      {/*
-      <HerosOfInitiatives />
-      <Section />
-      {/* <Bajaj />
-      <Enquire />
-      <CsrReport /> */}
     </>
   );
 };

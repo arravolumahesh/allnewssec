@@ -2,11 +2,8 @@
 
 import AnimatedButton from "@/commonComponents/animated-button";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { motion } from "framer-motion";
 
-import { MenuItem, Select, Stack, alpha } from "@mui/material";
-
-import Image from "next/image";
+import { alpha, MenuItem, Select, Stack } from "@mui/material";
 import React, { useState } from "react";
 import csrReport from "./images/Group 1.png";
 
