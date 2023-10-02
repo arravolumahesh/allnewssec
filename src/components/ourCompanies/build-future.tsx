@@ -13,10 +13,6 @@ const BuildFuture = () => {
   return (
     <>
       <SectionWrapper
-<<<<<<< HEAD
-        sx={{
-          background: `linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695908230/Frame_1171280554_qhbcdb.png),lightgray 50% / cover no-repeat`,
-=======
         SectionProps={{
           sx: {
             background: (theme) =>
@@ -24,7 +20,6 @@ const BuildFuture = () => {
             backgroundPosition: "right",
             backgroundSize: "cover",
           },
->>>>>>> e22abe04bb2b6d42eb119c65924146e0fc4a9458
         }}
         py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
         pb={{ /* ...basePy, */ xs: 3, md: 9 }}
