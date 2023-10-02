@@ -9,6 +9,13 @@ const OurStories = () => {
       SectionHeaderProps={{
         title: "Our Stories",
       }}
+      ContainerProps={{
+        pb: {
+          xs: 0,
+          md: 1.5,
+          xxl: 3,
+        },
+      }}
       data={data}
     />
   );

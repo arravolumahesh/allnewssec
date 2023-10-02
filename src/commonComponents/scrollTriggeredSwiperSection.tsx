@@ -136,13 +136,7 @@ export default ScrollTriggeredSwiperSection;
 const defaultSectionWrapperProps: SectionWrapperProps = {
   color: "secondary.main",
   ContainerProps: {
-    pl: 0,
-    pr: 0,
-    pb: {
-      xs: 0,
-      md: 1.5,
-      xxl: 3,
-    },
+    px: 0,
   },
   sx: {
     clipPath: "polygon(48% 25%, 55% 50%, 49% 75%, 46% 75%, 52% 50%, 45% 25%)",
