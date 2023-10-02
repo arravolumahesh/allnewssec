@@ -136,6 +136,7 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
           position: "relative",
           width: { xs: 310, md: 643 },
           height: { xs: 240, md: 310 },
+          objectFit: "cover",
         }}
       />
       <MotionTypography
