@@ -6,10 +6,17 @@ import ArrowImage from "@cc/arrow-image";
 import { Typography } from "@mui/material";
 import AnimatedButton from "@cc/animated-button";
 
-import raiseFunds from "./images/raise-funds.jpg";
-import partnerWithUs from "./images/partner-with-us.jpg";
+interface EnquireProps {
+  data: {
+    title: string;
+    description: string;
+    image: string | StaticImageData;
+    btnText: string;
+  }[];
+}
 
-const Enquire = () => {
+const Enquire = (props: EnquireProps) => {
+  const { data } = props;
   return (
     <SectionWrapper
       SectionProps={{
@@ -50,7 +57,7 @@ const Enquire = () => {
                 alt={title}
                 width={196}
                 height={228}
-                sx={{ minWidth: 217 }}
+                // sx={{ minWidth: 217 }}
               />
             </Grid2>
             <Grid2
@@ -92,24 +99,3 @@ const Enquire = () => {
 };
 
 export default Enquire;
-
-const data: {
-  title: string;
-  description: string;
-  image: string | StaticImageData;
-  btnText: string;
-}[] = [
-  {
-    title: "Raise Funds",
-    description:
-      "We can help with spreading the word and collecting funds for your cause.",
-    image: raiseFunds,
-    btnText: "Enquire About Fundraising",
-  },
-  {
-    title: "Partner with us",
-    description: "Our team will join hands with you in your initiatives.",
-    image: partnerWithUs,
-    btnText: "Enquire About Partnerships",
-  },
-];
