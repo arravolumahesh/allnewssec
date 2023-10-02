@@ -1,4 +1,3 @@
-import Partners from "@/components/home/partners";
 import CarryingServies from "@/components/charitableTrusts/carring-servies";
 import Awards from "@/components/charitableTrusts/bajaj-awards";
 import NominationsOpen from "@/components/charitableTrusts/nominations-open";
@@ -10,6 +9,7 @@ import Accordians from "@/components/charitableTrusts/accordians";
 import SunithaBio from "@/components/charitableTrusts/sunithaBio";
 import RequestDonations from "@/components/charitableTrusts/request-donation";
 import BajajFoundation from "@/components/charitableTrusts/bajajfoundation";
+import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 
 const HomePage = () => {
   return (
@@ -23,7 +23,7 @@ const HomePage = () => {
       <Wardha />
       <Accordians />
       <SunithaBio />
-      <Partners />
+      <PartnerSwiperSection />
       <RequestDonations />
       <BajajFoundation />
     </>
