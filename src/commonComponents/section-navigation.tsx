@@ -1,5 +1,5 @@
 "use client";
-import { MaterialImage } from "@cc/material-components";
+import { MaterialImage, MaterialImageProps } from "@cc/material-components";
 import { Button } from "@theme/components/typography.fontvariant";
 import {
   Stack,
@@ -26,10 +26,18 @@ interface SectionMenuProps {
   }[];
   TabButtonProps?: TabProps;
   WrapperProps?: StackProps;
+  LogoImgProps?: MaterialImageProps["sx"];
 }
 
 const SectionNavigation = (props: SectionMenuProps) => {
-  const { logoImg, menus, TabButtonProps, WrapperProps, ...rest } = props;
+  const {
+    logoImg,
+    menus,
+    TabButtonProps,
+    WrapperProps,
+    LogoImgProps,
+    ...rest
+  } = props;
   const [value, setValue] = useState<number>(0);
 
   const trigger = useScrollTrigger();
@@ -68,6 +76,8 @@ const SectionNavigation = (props: SectionMenuProps) => {
             sx={{
               width: { xs: 94, md: 124 },
               height: { xs: 24, md: 32 },
+              objectFit: "contain",
+              ...LogoImgProps,
             }}
             alt='Company Name'
           />
