@@ -9,14 +9,16 @@ import PartnerSwiperSection from "@cc/partner-swiper-section";
 import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
 import CsrReport from "@/components/ourCompanies/csr-repots";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
-import SectionNavigation from "@cc/section-navigation";
+import SectionNavigation, {
+  SectionNavigationProps,
+} from "@cc/section-navigation";
 import Enquire from "@c/ourCompanies/enquire";
 
 const Company = () => {
   return (
     <>
       <BuildFuture />
-      <SectionNavigation menus={menus} />
+      <SectionNavigation Sections={menus} />
       <Happening />
       <OurFocusAreas />
       <Stories />
@@ -34,41 +36,41 @@ const Company = () => {
 
 export default Company;
 
-const menus = [
+const menus: SectionNavigationProps["Sections"] = [
   {
     title: "What’s New",
-    anchorTag: "#whats-new",
+    href: "#whats-new",
   },
   {
     title: "Programs & Initiatives",
-    anchorTag: "#programs-initiatives",
+    href: "#programs-initiatives",
   },
   {
     title: "Stories",
-    anchorTag: "#stories",
+    href: "#stories",
   },
   {
     title: "Sustainability",
-    anchorTag: "#sustainability",
+    href: "#sustainability",
   },
   {
     title: "Case Studies",
-    anchorTag: "#case-studies",
+    href: "#case-studies",
   },
   {
     title: "Recognition",
-    anchorTag: "#recognition",
+    href: "#recognition",
   },
   {
     title: "Volunteering Opportunities",
-    anchorTag: "#volunteering-opportunities",
+    href: "#volunteering-opportunities",
   },
   {
     title: "Bajaj Auto",
-    anchorTag: "#bajaj-auto",
+    href: "#bajaj-auto",
   },
   {
     title: "CSR Reports",
-    anchorTag: "#csr-reports",
+    href: "#csr-reports",
   },
 ];

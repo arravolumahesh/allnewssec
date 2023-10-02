@@ -1,115 +1,132 @@
 "use client";
-import { MaterialImage } from "@cc/material-components";
+import { MaterialImage, MaterialImageProps } from "@cc/material-components";
 import { Button } from "@theme/components/typography.fontvariant";
 import {
-  Stack,
-  StackProps,
   Tab,
+  tabClasses,
   TabProps,
   Tabs,
+  TabsProps,
   useScrollTrigger,
 } from "@mui/material";
-import { StaticImageData } from "next/image";
-import React, { useState } from "react";
-import Link from "next/link";
-import { MotionStack } from "@cc/motion-components";
+import React, { SyntheticEvent, useState } from "react";
 import {
   appbarHeight,
   appbarMotionTransition,
 } from "@/layout/header/reactive-appbar";
+import SectionWrapper, { SectionWrapperProps } from "@cc/section-wrapper";
+import { sxArrayUtil } from "@util/sx-helpers";
+import MLink from "@cc/m-link";
 
-interface SectionMenuProps {
-  logoImg?: StaticImageData | string;
-  menus: {
+export interface SectionNavigationProps
+  extends Omit<SectionWrapperProps, "children"> {
+  LogoImageProps?: MaterialImageProps;
+  Sections: {
     title: string;
-    anchorTag: string;
+    href: string;
   }[];
-  TabButtonProps?: TabProps;
-  WrapperProps?: StackProps;
+  TabProps?: Omit<TabProps, "children">;
+  TabsProps?: Omit<TabsProps, "children">;
 }
 
-const SectionNavigation = (props: SectionMenuProps) => {
-  const { logoImg, menus, TabButtonProps, WrapperProps, ...rest } = props;
+const SectionNavigation = (props: SectionNavigationProps) => {
+  const {
+    LogoImageProps,
+    Sections,
+    TabProps,
+    TabsProps,
+    SectionProps = {},
+    ...rest
+  } = props;
+  const { sx, ...restSectionProps } = SectionProps;
   const [value, setValue] = useState<number>(0);
 
   const trigger = useScrollTrigger();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_e: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
   return (
-    <MotionStack
+    <SectionWrapper
       width={1}
-      bgcolor={"common.white"}
-      alignItems={{ xs: "flex-start", xxl_wide: "center" }}
-      justifyContent={"center"}
-      pl={{ xs: 3, md: 8 }}
-      sx={{
-        position: "sticky",
-        top: !trigger ? appbarHeight : 0,
-        zIndex: 10,
-        transition: `all ${appbarMotionTransition.duration}s ease-in-out`,
+      py={0}
+      direction={"row"}
+      alignItems={"center"}
+      columnGap={{ xs: 3, md: 4 }}
+      color={"grey.600"}
+      SectionProps={{
+        bgcolor: "common.white",
+        sx: [
+          {
+            position: "sticky",
+            top: !trigger ? appbarHeight : 0,
+            zIndex: 10,
+            transition: `all ${appbarMotionTransition.duration}s ease-in-out`,
+          },
+          ...sxArrayUtil(sx),
+        ],
+        ...restSectionProps,
       }}
+      {...rest}
     >
-      <Stack
-        direction={"row"}
-        width={1}
-        maxWidth={1440}
-        alignItems={"center"}
-        columnGap={{ xs: 3, md: 4 }}
-        color={"primary.main"}
-        {...WrapperProps}
-      >
-        <MaterialImage
-          src={
-            "https://s3-alpha-sig.figma.com/img/db64/8e41/5817c9640f87a5e65c72730fd3c68df2?Expires=1696809600&Signature=CxQFzRXfbXHrEnJKXnG95laUmKKq0nOqnAW3CoeP6OJE8EgqbwkdNVdkbz8K8ya3yuv0M9gwESb1P9Afo80u4LFknhiblu3NbFUdVnwE37E2DRmDAxGQfxVuF0YuWaph~XlnMjaiXRowaPo-~TnQaSojfiLGvazwMENkDsq55s3KFItCsjDwnzuOvSoOQzGlljE9Ef1qBtcSa2Sn3RchKZqkN07-weEozkD7KHgdieV1CyHeCSq1c5hT4ZziO0JK8fTKmGtBrPbGvkkNbb7LhWBtkLrhbhZT4PyV69qAGfMVvaA8eKliQFEI53JIyKicQBE0gsmG6Nw1XZ~DByHKbg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-          }
-          width={124}
-          height={32}
-          sx={{
-            width: { xs: 94, md: 124 },
-            height: { xs: 24, md: 32 },
-          }}
-          alt="Company Name"
-        />
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="scrollable"
-          scrollButtons={false}
-          sx={{
+      <MaterialImage
+        src={
+          "https://s3-alpha-sig.figma.com/img/db64/8e41/5817c9640f87a5e65c72730fd3c68df2?Expires=1696809600&Signature=CxQFzRXfbXHrEnJKXnG95laUmKKq0nOqnAW3CoeP6OJE8EgqbwkdNVdkbz8K8ya3yuv0M9gwESb1P9Afo80u4LFknhiblu3NbFUdVnwE37E2DRmDAxGQfxVuF0YuWaph~XlnMjaiXRowaPo-~TnQaSojfiLGvazwMENkDsq55s3KFItCsjDwnzuOvSoOQzGlljE9Ef1qBtcSa2Sn3RchKZqkN07-weEozkD7KHgdieV1CyHeCSq1c5hT4ZziO0JK8fTKmGtBrPbGvkkNbb7LhWBtkLrhbhZT4PyV69qAGfMVvaA8eKliQFEI53JIyKicQBE0gsmG6Nw1XZ~DByHKbg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+        }
+        width={124}
+        height={32}
+        sx={{
+          width: { xs: 94, md: 124 },
+          height: { xs: 24, md: 32 },
+        }}
+        alt="Company Name"
+        {...LogoImageProps}
+      />
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        variant={"scrollable"}
+        scrollButtons={false}
+        {...TabsProps}
+        sx={[
+          {
             width: 1,
             [`.MuiTabs-flexContainer`]: {
-              //${tabsClasses.flexContainer}
               justifyContent: "space-between",
-              columnGap: 3,
+              columnGap: 4,
             },
-          }} /* onChange={handleChange} */
-        >
-          {menus.map((item, idx) => (
-            <Tab
-              key={idx}
-              component={Link}
-              href={item.anchorTag}
-              label={item.title}
-              sx={{
+          },
+          ...sxArrayUtil(TabsProps?.sx),
+        ]}
+      >
+        {Sections.map((item, idx) => (
+          <Tab
+            key={idx}
+            component={MLink}
+            href={item.href}
+            label={item.title}
+            disableRipple
+            {...TabProps}
+            sx={[
+              {
                 border: "none",
                 fontSize: Button,
                 px: 0,
                 height: { xs: 56, md: 64 },
-                color: "#575756",
+                color: "inherit",
                 opacity: 0.6,
-                // mr: idx === menus.length - 1 ? 3 : 0,
-                "&.Mui-selected": {
-                  color: "#005dac !important",
+                [`&.${tabClasses.selected}`]: {
+                  color: "primary.main",
+                  opacity: 1,
                 },
-              }}
-              {...TabButtonProps}
-            />
-          ))}
-        </Tabs>
-      </Stack>
-    </MotionStack>
+              },
+              ...sxArrayUtil(TabProps?.sx),
+            ]}
+          />
+        ))}
+      </Tabs>
+    </SectionWrapper>
   );
 };
 
