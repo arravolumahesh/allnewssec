@@ -16,21 +16,34 @@ const Enquire = () => {
         bgcolor: "common.white",
       }}
       color={"primary.main"}
-      direction={"row"}
+      direction={{ xs: "column", xl: "row" }}
       justifyContent={"center"}
+      alignItems={"center"}
+      columnGap={6}
+      rowGap={10}
     >
       {data.map((item, index) => {
         const { image, title, description, btnText } = item;
         return (
           <Grid2
-            container
             key={`${title}-${index}`}
             display={"grid"}
-            gridTemplateAreas={`'image title' 'image description' 'image button'`}
-            rowGap={{ xs: 2.5, lg: 0 }}
+            gridTemplateAreas={{
+              xs: `'title' 'image' 'description' 'button'`,
+              xl: `'image title' 'image description' 'image button'`,
+            }}
+            rowGap={{ xs: 2.5, xl: 0 }}
             columnGap={4}
+            alignItems={"center"}
+            width={1}
+            maxWidth={{ xs: 400, xl: 545 }}
           >
-            <Grid2 gridArea={"image"} height={"fit-content"}>
+            <Grid2
+              gridArea={"image"}
+              height={"fit-content"}
+              display={"flex"}
+              justifyContent={{ xs: "center", xl: "flex-start" }}
+            >
               <ArrowImage
                 src={image}
                 alt={title}
@@ -39,13 +52,35 @@ const Enquire = () => {
                 sx={{ minWidth: 217 }}
               />
             </Grid2>
-            <Grid2 gridArea={"title"} height={"fit-content"}>
-              <Typography variant={"h5"}>{title}</Typography>
+            <Grid2
+              gridArea={"title"}
+              height={"fit-content"}
+              display={"flex"}
+              justifyContent={{ xs: "center", xl: "flex-start" }}
+            >
+              <Typography
+                variant={"h5"}
+                textAlign={{ xs: "center", xl: "left" }}
+              >
+                {title}
+              </Typography>
             </Grid2>
-            <Grid2 gridArea={"description"} height={"fit-content"}>
-              <Typography>{description}</Typography>
+            <Grid2
+              gridArea={"description"}
+              height={"fit-content"}
+              display={"flex"}
+              justifyContent={{ xs: "center", xl: "flex-start" }}
+            >
+              <Typography textAlign={{ xs: "center", xl: "left" }}>
+                {description}
+              </Typography>
             </Grid2>
-            <Grid2 gridArea={"button"} height={"fit-content"}>
+            <Grid2
+              gridArea={"button"}
+              height={"fit-content"}
+              display={"flex"}
+              justifyContent={{ xs: "center", xl: "flex-start" }}
+            >
               <AnimatedButton href={"#"}>{btnText}</AnimatedButton>
             </Grid2>
           </Grid2>
