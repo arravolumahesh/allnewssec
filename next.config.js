@@ -3,7 +3,6 @@ const { i18n } = require("./next-i18next.config.js");
 /** @type {import('next').NextConfig} */
 module.exports = {
   i18n,
-  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -15,5 +14,9 @@ module.exports = {
         hostname: "s3-alpha-sig.figma.com",
       },
     ],
+  },
+  devIndicators: {
+    buildActivity: true,
+    buildActivityPosition: "bottom-left",
   },
 };

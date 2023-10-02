@@ -1,14 +1,15 @@
+"use client";
 import React from "react";
 import { sxArrayUtil } from "@/utils/sx-helpers";
 import { MaterialImage, MaterialImageProps } from "./material-components";
 import { MotionBox } from "./motion-components";
-import ArrowTransparent from "./arrow-transparent";
+import ArrowTransparent from "@cc/arrow-transparent";
 
 export type ArrowImageProps = MaterialImageProps & {
   clipPath?: string;
   aspectRatio?: number;
-  width?: string | number;
-  height?: string | number;
+  width: string | number;
+  height: string | number;
 };
 
 const ArrowImage = (props: ArrowImageProps) => {

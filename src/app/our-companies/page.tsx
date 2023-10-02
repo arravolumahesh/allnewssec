@@ -10,6 +10,7 @@ import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
 import CsrReport from "@/components/ourCompanies/csr-repots";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 import SectionMenu from "@/components/ourCompanies/section-menu";
+import Enquire from "@c/ourCompanies/enquire";
 
 const Company = () => {
   return (
@@ -24,6 +25,7 @@ const Company = () => {
       <HerosOfInitiatives />
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
+      <Enquire />
       <DiscoverBajaj />
       <CsrReport />
     </>
