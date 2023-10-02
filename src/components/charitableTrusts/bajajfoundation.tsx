@@ -1,13 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MotionTypography } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Stack } from "@mui/material";
-import { Box } from "@mui/material";
-import { Button } from "@mui/material";
 import Image from "next/image";
-import { randomFillSync } from "crypto";
-import { Translate } from "@mui/icons-material";
 import foundation1 from "@/components/charitableTrusts/images/Foundation1.png";
 import foundation2 from "@/components/charitableTrusts/images/Foundation2.png";
 import foundation3 from "@/components/charitableTrusts/images/Foundation3.png";
