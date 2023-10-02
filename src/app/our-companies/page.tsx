@@ -9,14 +9,14 @@ import PartnerSwiperSection from "@cc/partner-swiper-section";
 import DiscoverBajaj from "@c/ourCompanies/discover-bajaj";
 import CsrReport from "@/components/ourCompanies/csr-repots";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
-import SectionMenu from "@/components/ourCompanies/section-menu";
+import SectionNavigation from "@cc/section-navigation";
 import Enquire from "@c/ourCompanies/enquire";
 
 const Company = () => {
   return (
     <>
       <BuildFuture />
-      <SectionMenu menus={menus} />
+      <SectionNavigation menus={menus} />
       <Happening />
       <OurFocusAreas />
       <Stories />

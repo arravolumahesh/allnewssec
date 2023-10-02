@@ -1,6 +1,6 @@
 "use client";
-import { MaterialImage } from "@/commonComponents/material-components";
-import { Button } from "@/styles/theme/components/typography.fontvariant";
+import { MaterialImage } from "@cc/material-components";
+import { Button } from "@theme/components/typography.fontvariant";
 import {
   Stack,
   StackProps,
@@ -12,6 +12,11 @@ import {
 import { StaticImageData } from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
+import { MotionStack } from "@cc/motion-components";
+import {
+  appbarHeight,
+  appbarMotionTransition,
+} from "@/layout/header/reactive-appbar";
 
 interface SectionMenuProps {
   logoImg?: StaticImageData | string;
@@ -23,7 +28,7 @@ interface SectionMenuProps {
   WrapperProps?: StackProps;
 }
 
-const SectionMenu = (props: SectionMenuProps) => {
+const SectionNavigation = (props: SectionMenuProps) => {
   const { logoImg, menus, TabButtonProps, WrapperProps, ...rest } = props;
   const [value, setValue] = useState<number>(0);
 
@@ -33,7 +38,7 @@ const SectionMenu = (props: SectionMenuProps) => {
     setValue(newValue);
   };
   return (
-    <Stack
+    <MotionStack
       width={1}
       bgcolor={"common.white"}
       alignItems={{ xs: "flex-start", xxl_wide: "center" }}
@@ -41,9 +46,9 @@ const SectionMenu = (props: SectionMenuProps) => {
       pl={{ xs: 3, md: 8 }}
       sx={{
         position: "sticky",
-        top: !trigger ? { xs: 64, md: 92, xxl: 120 } : 0,
+        top: !trigger ? appbarHeight : 0,
         zIndex: 10,
-        transition: "all .4s ease-in-out",
+        transition: `all ${appbarMotionTransition.duration}s ease-in-out`,
       }}
     >
       <Stack
@@ -104,8 +109,8 @@ const SectionMenu = (props: SectionMenuProps) => {
           ))}
         </Tabs>
       </Stack>
-    </Stack>
+    </MotionStack>
   );
 };
 
-export default SectionMenu;
+export default SectionNavigation;

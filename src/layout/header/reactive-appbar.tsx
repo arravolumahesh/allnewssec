@@ -13,11 +13,18 @@ import { MotionVariantProps } from "@cc/motion-components";
 import { forwardRef } from "react";
 import { sxArrayUtil } from "@util/sx-helpers";
 
+export const appbarMotionTransition = {
+  duration: 0.4,
+  ease: "easeInOut",
+} as const;
+
+
 const appbarVariant: MotionVariantProps = {
   hidden: {
     y: "-100%",
+    transition: appbarMotionTransition,
   },
-  visible: { y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
+  visible: { y: 0, transition: appbarMotionTransition },
 };
 
 const AppbarWithScrollTrigger = forwardRef<HTMLHeadElement, AppBarProps>(
