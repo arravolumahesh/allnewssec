@@ -7,15 +7,17 @@ import Accomplished from "@/components/caseStudy/what-we-accomplished";
 import HowWeDid from "@/components/caseStudy/how-we-did-it";
 
 const CaseStudy = () => {
-  <>
-    <CaseHome />
-    <Counts />
-    <Accomplished />
-    <HowWeDid />
-    <ChallengesFaced />
-    <GallaryWall />
-    <CaseStudies />
-  </>;
+  return (
+    <>
+      <CaseHome />
+      <Counts />
+      <Accomplished />
+      <HowWeDid />
+      <ChallengesFaced />
+      <GallaryWall />
+      <CaseStudies />
+    </>
+  );
 };
 
 export default CaseStudy;
