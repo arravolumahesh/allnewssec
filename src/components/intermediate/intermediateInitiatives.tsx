@@ -19,6 +19,7 @@ const IntermediateInitiatives = () => {
                 py: {xxl:0,md:0,xs:0},
                 backgroundColor: `${index % 2 === 0 ? "white" : "default"}`,
               }}
+              color={'primary.main'}
             >
               <CompanyInitiatives initiativedata={item} key={index} />
             </SectionWrapper>
