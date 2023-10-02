@@ -1,4 +1,4 @@
-const HomePage = () => {
+const CharitableTrusts = () => {
   return (
     <>
       {/*<CarryingServies />*/}
@@ -17,4 +17,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default CharitableTrusts;
