@@ -7,11 +7,11 @@ import {
   Tab,
   TabProps,
   Tabs,
-  tabsClasses,
   useScrollTrigger,
 } from "@mui/material";
 import { StaticImageData } from "next/image";
 import React, { useState } from "react";
+import Link from "next/link";
 
 interface SectionMenuProps {
   logoImg?: StaticImageData | string;
@@ -65,12 +65,12 @@ const SectionMenu = (props: SectionMenuProps) => {
             width: { xs: 94, md: 124 },
             height: { xs: 24, md: 32 },
           }}
-          alt='Company Name'
+          alt="Company Name"
         />
         <Tabs
           value={value}
           onChange={handleChange}
-          variant='scrollable'
+          variant="scrollable"
           scrollButtons={false}
           sx={{
             width: 1,
@@ -84,6 +84,7 @@ const SectionMenu = (props: SectionMenuProps) => {
           {menus.map((item, idx) => (
             <Tab
               key={idx}
+              component={Link}
               href={item.anchorTag}
               label={item.title}
               sx={{
