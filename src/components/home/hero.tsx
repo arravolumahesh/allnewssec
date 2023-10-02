@@ -42,7 +42,7 @@ const Hero = () => {
         animate={"animate"}
       >
         <MotionTypography
-          variant="h1"
+          variant='h1'
           color={"#fff"}
           sx={{ fontWeight: 400, mb: 2 }}
           variants={staggerChildren}
@@ -50,7 +50,7 @@ const Hero = () => {
           TURNING POTENTIAL TO PROGRESS
         </MotionTypography>
         <MotionTypography
-          variant="body1"
+          variant='body1'
           color={"secondary.main"}
           variants={staggerChildren}
         >
@@ -73,13 +73,13 @@ const Hero = () => {
         </AnimatedButton>
       </Stack>
       <Stack
-        direction="row"
+        direction='row'
         alignItems={"center"}
         justifyContent={"center"}
         width={{ xs: 1, md: 354, lg: 528 /* large: 651 */ }}
       >
         <Slide
-          direction="right"
+          direction='right'
           in={logoAnimate}
           timeout={500}
           easing={{ enter: "cubic-bezier(.13,.47,.02,1)" }}
@@ -112,7 +112,7 @@ const Hero = () => {
         >
           <motion.video
             src={
-              "https://s3-figma-videos-production-sig.figma.com/video/624586955221933605/TEAM/5329/d0dd/-c7d2-4ea0-84ae-05de8da46856?Expires=1696204800&Signature=XCb1S83ao0yMbXPQ9kolPQGGNyNWfgw5lwWg-VZCTS4Q0Mb~LTwtRTtjmoiqmduqQRCYaLxab7uplfiXirj27B~Vf9V2Cfb25W8PUOVbkfctz3XgrDrb6ICa8KVExLUtMN0-phAtm46CVmcrGLIyfIFVGBungLgVQPzyUDRPc4JWF9P0WWQhoyRPWPRrssdCmgnkdGuFAxTeexQ~10xgkZ14vMOhZB0eb2rcBrTwd1wxfrRwBI-13QIodGTUguTWD3yXEo9ujgC~gzqylVpDtc0wJKwIGsU4ALi8r7~K2YJbUfvycsLdfl6bKyPEwWX6dOKKJVJ~9vf8C6u6tHyBWg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              "https://s3-figma-videos-production-sig.figma.com/video/624586955221933605/TEAM/5329/d0dd/-c7d2-4ea0-84ae-05de8da46856?Expires=1697414400&Signature=E9ekzQj8vbFAsnJmupPTBcOWNZ9EkPUwnPr1VEIlW-XeSr0ezK0nuunPKGjGJUYKIWX~Qcj10z4~sIX8F1L4bHcgLBSd2r3JnhOCr30SFawnRs~BN84UvqdmUUPWRi8wgWLB-7hyfVvypkgIOFYoTOFa-ClJg4ntSfmULKMi3ii7L9mJbC0IYq-L9ewYxAsJ2qf3fhZ979F~Noozn45Ta8oHlSfQmHTUvHfOuXPKAT98CSMNinvTnAEKVYSQc83Eqy6tjT6y50jMWc3XWPAAEJEn3KuiJeer6C2JEW4bemc9vqVlqwMocLhG4VfSfVLLjkYe3CxboNK2JgqHlj8YZw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
             }
             autoPlay
             muted
@@ -147,7 +147,7 @@ const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
     x: 0,
     transition: {
       duration: 0.8,
-      delay: 0.6, //0.2 for image
+      delay: 0.8, // Prev value - 0.6
     },
   },
 };
@@ -157,7 +157,7 @@ const staggerDiv: MotionVariantProps = {
   animate: {
     transition: {
       staggerChildren: 0.4,
-      delayChildren: 1,
+      delayChildren: 1.3, // Prev value - 1
     },
   },
 };
