@@ -1,10 +1,15 @@
+import Discover from "@/commonComponents/discover";
+import Enquire from "@/commonComponents/enquire";
 import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
 import ActsOfProgress from "@/components/charitableTrusts/actsOfProgress";
 import CarryingServies from "@/components/charitableTrusts/carring-servies";
-import Discover from "@/components/charitableTrusts/discover";
 import Initiatives from "@/components/charitableTrusts/initiatives";
-import Enquire from "@/components/ourCompanies/enquire";
+import group2 from "@/components/ourCompanies/images/group2.png";
+import group3 from "@/components/ourCompanies/images/group3.png";
+import group5 from "@/components/ourCompanies/images/group5.png";
+import group7 from "@/components/ourCompanies/images/group7.png";
+import group8 from "@/components/ourCompanies/images/group8.png";
 
 const CharitableTrusts = () => {
   return (
@@ -31,12 +36,30 @@ const CharitableTrusts = () => {
       {/*<SunithaBio />*/}
       <PartnerSwiperSection />
       <Enquire data={enquireData} />
-      <Discover />
+      <Discover
+        title='DISCOVER JAMNALAL BAJAJ FOUNDATION'
+        link='Visit The Jamnalal Bajaj Foundation Website'
+        href='/'
+        ImageData={imageData}
+      />
     </>
   );
 };
 
 export default CharitableTrusts;
+
+const imageData = [
+  { img: group2 },
+  { img: group3 },
+  { img: group5 },
+  { img: group7 },
+  { img: group8 },
+  { img: group2 },
+  { img: group3 },
+  { img: group5 },
+  { img: group7 },
+  { img: group8 },
+];
 
 const menus = [
   {
