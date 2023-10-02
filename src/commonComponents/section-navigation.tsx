@@ -15,7 +15,10 @@ import {
   appbarHeight,
   appbarMotionTransition,
 } from "@/layout/header/reactive-appbar";
-import SectionWrapper, { SectionWrapperProps } from "@cc/section-wrapper";
+import SectionWrapper, {
+  basePx,
+  SectionWrapperProps,
+} from "@cc/section-wrapper";
 import { sxArrayUtil } from "@util/sx-helpers";
 import Link from "next/link";
 
@@ -54,6 +57,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
     <SectionWrapper
       width={1}
       py={0}
+      pr={{ ...basePx, xs: 0, md: 0 }}
       direction={"row"}
       alignItems={"center"}
       columnGap={{ xs: 3, md: 4 }}
