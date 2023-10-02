@@ -7,6 +7,7 @@ import {
 import { ReactNode } from "react";
 import { H6_4 } from "@theme/components/typography.fontvariant";
 import { MotionProps } from "framer-motion";
+import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
 
 export interface SectionHeaderProps
   extends Omit<MotionStackProps, "children" | "title"> {
@@ -14,6 +15,7 @@ export interface SectionHeaderProps
   TitleTypographyProps?: Omit<MotionTypographyProps, "children">;
   description?: string | ReactNode;
   DescriptionTypographyProps?: Omit<MotionTypographyProps, "children">;
+  LinkProps?: AnimatedButtonProps;
 }
 
 const SectionHeader = (props: SectionHeaderProps) => {
@@ -22,6 +24,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
     TitleTypographyProps,
     description,
     DescriptionTypographyProps,
+    LinkProps,
     ...restStackProps
   } = props;
   return (
@@ -59,6 +62,9 @@ const SectionHeader = (props: SectionHeaderProps) => {
         >
           {description}
         </MotionTypography>
+      )}
+      {LinkProps && (
+        <AnimatedButton {...{ children: "Learn More", ...LinkProps }} />
       )}
     </MotionStack>
   );
