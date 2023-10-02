@@ -80,6 +80,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
         sx={{
           width: { xs: 94, md: 124 },
           height: { xs: 24, md: 32 },
+            objectFit: "contain",
         }}
         alt="Company Name"
         {...LogoImageProps}

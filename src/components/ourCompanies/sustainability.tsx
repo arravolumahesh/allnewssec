@@ -1,10 +1,13 @@
 "use client";
-import {Box, Divider, Stack} from "@mui/material";
-import Image, {StaticImageData} from "next/image";
-import {alpha, Theme} from "@mui/material/styles";
+import { Box, Divider, Stack } from "@mui/material";
+import Image, { StaticImageData } from "next/image";
+import { alpha, Theme } from "@mui/material/styles";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import {MotionTypography, MotionVariantProps,} from "@/commonComponents/motion-components";
+import {
+  MotionTypography,
+  MotionVariantProps,
+} from "@/commonComponents/motion-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import Emission from "./images/Emission.png";
@@ -13,10 +16,11 @@ import solar from "./images/solar.png";
 import sustain from "./images/sustain.png";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
-import {H5_1} from "@/styles/theme/components/typography.fontvariant";
+import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
-import {Navigation} from "swiper/modules";
-import {Fragment} from "react";
+import { Navigation } from "swiper/modules";
+import { Fragment } from "react";
+import { MaterialImage } from "@/commonComponents/material-components";
 
 // Main component Sustainability
 
@@ -58,14 +62,14 @@ const Sustainability = () => {
             <Grid2 width={{ xs: 0.5, md: "max-content" }}>
               <Stack rowGap={1} width={{ xs: 1, md: "max-content" }}>
                 <MotionTypography
-                  variant="body2"
+                  variant='body2'
                   fontSize={"18px !important"}
                   // variants={staggerTextChildren}
                 >
                   {item.title}
                 </MotionTypography>
                 <MotionTypography
-                  variant="body2"
+                  variant='body2'
                   sx={{ opacity: 0.68 }}
                   // variants={staggerTextChildren}
                   // sx={useStyles.bodySmall}
@@ -81,7 +85,7 @@ const Sustainability = () => {
                 }}
               >
                 <Divider
-                  orientation="vertical"
+                  orientation='vertical'
                   sx={{
                     height: "100%",
                     borderColor: "common.white",
@@ -92,7 +96,7 @@ const Sustainability = () => {
           </Fragment>
         ))}
       </Grid2>
-      <Stack direction="row" mt={{ xs: 7, md: 12 }} width={1}>
+      <Stack direction='row' mt={{ xs: 7, md: 12 }} width={1}>
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
@@ -112,12 +116,12 @@ const Sustainability = () => {
           Slots={{
             ContainerStartChildren: (
               <Stack
-                direction="row"
+                direction='row'
                 alignItems={"center"}
                 justifyContent={"space-between"}
                 mb={{ xs: 3, md: 6 }}
               >
-                <MotionTypography variant="h3" fontSize={H5_1}>
+                <MotionTypography variant='h3' fontSize={H5_1}>
                   Our Measures
                 </MotionTypography>
                 <SwiperNavigationButton
@@ -169,13 +173,19 @@ const InfoSlides = (props: InfoSlidesProps) => {
   const { img, title, description } = props;
   return (
     <Stack
-      direction="row"
+      direction='row'
       columnGap={2}
       alignItems={"stretch"}
       // component={motion.div}
       // viewport={{ once: true }}
     >
-      <Image src={img} alt={title} width={120} height={120} />
+      <MaterialImage
+        src={img}
+        alt={title}
+        width={120}
+        height={120}
+        sx={{ width: 120, height: 120 }}
+      />
       <Stack
         rowGap={2}
         alignItems={"flex-start"}
@@ -189,7 +199,7 @@ const InfoSlides = (props: InfoSlidesProps) => {
         <Box bgcolor={alpha("#fff", 0.2)} p={"6px 16px"} fontSize={"14px"}>
           {title}
         </Box>
-        <MotionTypography variant="body1">{description}</MotionTypography>
+        <MotionTypography variant='body1'>{description}</MotionTypography>
       </Stack>
     </Stack>
   );

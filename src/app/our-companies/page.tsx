@@ -70,6 +70,10 @@ const menus: SectionNavigationProps["Sections"] = [
     href: "#bajaj-auto",
   },
   {
+    title: "Contact Us",
+    href: "#contact-us",
+  },
+  {
     title: "CSR Reports",
     href: "#csr-reports",
   },
