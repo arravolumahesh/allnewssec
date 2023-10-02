@@ -2,6 +2,7 @@ import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
 import ActsOfProgress from "@/components/charitableTrusts/actsOfProgress";
 import CarryingServies from "@/components/charitableTrusts/carring-servies";
+import Discover from "@/components/charitableTrusts/discover";
 import Initiatives from "@/components/charitableTrusts/initiatives";
 import Enquire from "@/components/ourCompanies/enquire";
 
@@ -30,8 +31,7 @@ const CharitableTrusts = () => {
       {/*<SunithaBio />*/}
       <PartnerSwiperSection />
       <Enquire data={enquireData} />
-      {/*<RequestDonations />*/}
-      {/*<BajajFoundation />*/}
+      <Discover />
     </>
   );
 };
