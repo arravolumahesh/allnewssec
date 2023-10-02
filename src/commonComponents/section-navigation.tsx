@@ -28,6 +28,7 @@ export interface SectionNavigationProps
   }[];
   TabProps?: Omit<TabProps, "children">;
   TabsProps?: Omit<TabsProps, "children">;
+  CompanyName?: string;
 }
 
 const SectionNavigation = (props: SectionNavigationProps) => {
@@ -37,6 +38,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
     TabProps,
     TabsProps,
     SectionProps = {},
+    CompanyName = "Bajaj",
     ...rest
   } = props;
   const { sx, ...restSectionProps } = SectionProps;
@@ -77,13 +79,16 @@ const SectionNavigation = (props: SectionNavigationProps) => {
         }
         width={124}
         height={32}
-        sx={{
-          width: { xs: 94, md: 124 },
-          height: { xs: 24, md: 32 },
-            objectFit: "contain",
-        }}
-        alt="Company Name"
+        alt={CompanyName}
         {...LogoImageProps}
+        sx={[
+          {
+            width: { xs: 94, md: 124 },
+            height: { xs: 24, md: 32 },
+            objectFit: "contain",
+          },
+          ...sxArrayUtil(LogoImageProps?.sx),
+        ]}
       />
       <Tabs
         value={value}
