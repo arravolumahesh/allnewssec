@@ -5,22 +5,11 @@ import {
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import calender from "@/components/charitableTrusts/images/calender.svg";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import awards from "@/components/charitableTrusts/images/awards.png";
-import Image from "next/image";
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { motion } from "framer-motion";
-import theme from "@/styles/theme";
-import {
-  Body1,
-  H3_2,
-  H6_3,
-  Subtitle1,
-} from "@/styles/theme/components/typography.fontvariant";
-import AnimatedButton from "@/commonComponents/animated-button";
-import { useTheme } from "@mui/material/styles";
+import { H3_2 } from "@/styles/theme/components/typography.fontvariant";
 import { MaterialImage } from "@/commonComponents/material-components";
 import ArrowSlideInfo from "@/commonComponents/cards/arrow-slide-info";
 import { BehaviorSubject } from "rxjs";
@@ -28,12 +17,6 @@ import { useRef } from "react";
 import { Swiper } from "swiper/types";
 
 const Nominations = () => {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg_xl"));
-  const isTablet = useMediaQuery(theme.breakpoints.up("md"));
-
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
-
   const $swiperInstance = useRef(
     new BehaviorSubject<Swiper | null>(null)
   ).current;
