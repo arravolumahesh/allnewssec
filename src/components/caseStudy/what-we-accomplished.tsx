@@ -59,13 +59,14 @@ const Accomplished = () => {
             alignSelf: "stretch",
           }}
         >
-          <ArrowGradient height={"201.22px"} variants={arrowAnimation} />
+          <ArrowGradient height={"201.22px"} maxWidth={130} variants={arrowAnimation} />
         </Stack>
         <MotionTypography
           sx={{
             fontSize: H6_1,
             color: (theme) => theme.palette.primary.contrastText,
             width: { md: "50%", xs: "90%" },
+            textAlign:{md:'inherit',xs:'center'}
           }}
           variant="body1"
           variants={textAnimation}

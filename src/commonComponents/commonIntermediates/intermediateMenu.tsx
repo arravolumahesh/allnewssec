@@ -30,8 +30,9 @@ const trigger = useScrollTrigger();
           sx: {
             borderBottom: "1px solid var(--Stroke, #EAEAEA)",
             background: "#F8F8F8",
-            position: !trigger ? "sticky" : "static",
-            top: appbarHeight,
+            position: "sticky",
+            transition:'all 0.5s',
+            top: trigger ? 0 : appbarHeight,
             zIndex: 9999,
           },
         }}
