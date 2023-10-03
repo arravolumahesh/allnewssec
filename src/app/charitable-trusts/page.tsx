@@ -6,6 +6,7 @@ import ActsOfProgress from "@/components/charitableTrusts/acts-of-progress";
 import BajajAwards from "@/components/charitableTrusts/bajaj-awards";
 import CarryingServies from "@/components/charitableTrusts/carring-servies";
 import Initiatives from "@/components/charitableTrusts/initiatives";
+import Nominations from "@/components/charitableTrusts/nominations";
 import Stories from "@/components/charitableTrusts/stories";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
@@ -32,7 +33,7 @@ const CharitableTrusts = () => {
       {/*<OriginofChange />*/}
       <ActsOfProgress />
       <BajajAwards />
-      {/*<NominationsOpen />*/}
+      <Nominations />
       {/*<Wardha />*/}
       <Initiatives />
       <Stories />
