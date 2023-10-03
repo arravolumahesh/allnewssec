@@ -28,7 +28,7 @@ const CaseHome = () => {
             background:
               "linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "100% 100%",
+            backgroundSize: "cover",
           },
         }}
       >

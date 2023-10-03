@@ -22,13 +22,17 @@ import { Autoplay } from "swiper/modules";
 const GallaryWall = () => {
   return (
     <SectionWrapper
+      SectionProps={{
+        sx:{
+          backgroundColor:'white'
+        }
+      }}
       SectionHeaderProps={{
         title: "Gallery Wall",
         TitleTypographyProps: {
           variant: "h3",
           color: "primary.500",
-        },
-
+        },        
         pl: { ...basePx, xs: 8 },
         pr: { ...basePx, xs: 8 },
         mb: { xs: 5, md: 6 },
