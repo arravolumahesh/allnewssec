@@ -5,10 +5,11 @@ import SvgIconArrow from "../icons/arrowIcon";
 interface props {
   disablePrev: boolean;
   disableNext: boolean;
+  variant?: 'primary' | 'secondary' | null | undefined
 }
 
 export default function SlideButtons(prop: props) {
-  const { disableNext, disablePrev, ...rest } = prop;
+  const { disableNext, disablePrev,variant='primary', ...rest } = prop;
   const swiper = useSwiper();
 
   return (
@@ -19,7 +20,7 @@ export default function SlideButtons(prop: props) {
           display: "flex",
           gap: 2,
           "& .MuiIconButton-root": {
-            border: `2px solid ${theme.palette.primary.main}`,
+            border: `2px solid ${variant==="primary" ? theme.palette.primary.main : theme.palette.common.white}`,
             width: theme.spacing(6),
             height: theme.spacing(6),
             p: 0,
@@ -30,7 +31,7 @@ export default function SlideButtons(prop: props) {
               left: "4px",
               right: "4px",
               bottom: "4px",
-              background: alpha(theme.palette.primary.main, 0.25),
+              background: alpha(variant==="primary" ? theme.palette.primary.main : theme.palette.common.white, 0.25),
               zIndex: -1,
             },
             "&.Mui-disabled": {
@@ -54,14 +55,14 @@ export default function SlideButtons(prop: props) {
           className="arrow-left arrow"
           disabled={disablePrev}
         >
-          <SvgIconArrow />
+          <SvgIconArrow fill={variant==="primary" ? "#005DAC" : "white"} />
         </IconButton>
         <IconButton
           onClick={() => swiper.slideNext()}
           className="arrow-right arrow"
           disabled={disableNext}
         >
-          <SvgIconArrow />
+          <SvgIconArrow fill={variant==="primary" ? "#005DAC" : "white"} />
         </IconButton>
       </Box>
     </>

@@ -3,7 +3,7 @@
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import { MotionVariantProps } from "@/commonComponents/motion-components";
+import { MotionButton, MotionVariantProps } from "@/commonComponents/motion-components";
 import React, { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { useMediaQuery, Stack, Button } from "@mui/material";
@@ -17,6 +17,8 @@ import AnimatedButton from "@/commonComponents/animated-button";
 import { common } from "@mui/material/colors";
 import theme from "@/styles/theme";
 import { Body1, Caption, H3, H6_3 } from "@/styles/theme/components/typography.fontvariant";
+import Link from "next/link";
+import SvgIconArrow from "../intermediate/icons/arrowIcon";
 
 const useStyles = {
   imageContainer: {
@@ -70,7 +72,7 @@ const CaseStudies = () => {
       tag: "IPH-Triveni Program",
       heading: "Providing Vocational Training for Women in Maharashtra",
       subheading:
-        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+        "Helping students learn digitally in order to keep them future and employment ready.",
     },
     {
       imageUrl: childrens,
@@ -84,7 +86,7 @@ const CaseStudies = () => {
       tag: "IPH-Triveni Program",
       heading: "Providing Vocational Training for Women in Maharashtra",
       subheading:
-        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+        "Helping students learn digitally in order to keep them future and employment ready. ",
     },
     {
       imageUrl: childrens,
@@ -184,8 +186,9 @@ const CaseStudies = () => {
               >
                 OUR CASE STUDIES
               </MotionTypography>
-            <SlideButtons disablePrev={disablePrev} disableNext={disableNext} />
+              {!isMobile && <SlideButtons disablePrev={disablePrev} disableNext={disableNext} /> }
           </Stack>
+          {isMobile && <Stack slot="container-end"><SlideButtons disablePrev={disablePrev} disableNext={disableNext} /></Stack>  }
           {DetailsOfLargerDevices.map((element, index) => (
             <SwiperSlide key={index}>
               <Stack key={index}>
@@ -260,13 +263,9 @@ const CaseStudies = () => {
                   </Stack>
                 </Stack>
                 {isMobile && (
-                  <AnimatedButton
-                    href={"/"}
-                    variant={"outlined"}
-                    color={"inherit"}
-                  >
-                    Learn More
-                  </AnimatedButton>
+                  <MotionButton variant="text" sx={{px:0}} endIcon={<SvgIconArrow />}>
+                    View Case Study
+                  </MotionButton>
                 )}
               </Stack>
             </SwiperSlide>

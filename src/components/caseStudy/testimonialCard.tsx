@@ -90,7 +90,7 @@ const TestimonialCard: EnhancedSwiperSlideComponent<TestimonialCardProps> = forw
           sx={{
             width: {
               xs: 1,
-              md: 590,
+              md: 450,
             },
             height: {
               xs: "auto",
