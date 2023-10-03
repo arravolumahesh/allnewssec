@@ -1,12 +1,12 @@
 "use client";
-import { alpha, Box, Stack, Typography, TypographyProps } from "@mui/material";
+import { alpha, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import { MotionStack, MotionVariantProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton from "@cc/animated-button";
-import { Button, H5_1, H6_2 } from "@theme/components/typography.fontvariant";
+import { H5_1, H6_2, Subtitle1 } from "@theme/components/typography.fontvariant";
 import SectionWrapper, {
   basePx,
   basePy,
@@ -15,21 +15,15 @@ import SectionWrapper, {
 import { LocationOnRounded } from "@mui/icons-material";
 import { MaterialImage } from "@cc/material-components";
 
-export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
+export interface TestimonialCardProps extends Omit<SectionWrapperProps, "children"> {
   bgImage: string | StaticImageData;
   company: string;
   title: string;
   location: string;
   description: string;
-  person?: {
-    name: string;
-    info: string;
-  };
-  button: string;
-  DescriptionTypographyProps?: TypographyProps;
 }
 
-const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
+const TestimonialCard: EnhancedSwiperSlideComponent<TestimonialCardProps> = forwardRef(
   (props, ref) => {
     const {
       bgImage,
@@ -37,9 +31,6 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
       title,
       location,
       description,
-      DescriptionTypographyProps,
-      person,
-      button,
       isNext,
       isActive,
       isPrev,
@@ -55,7 +46,8 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
           {
             width: "100%",
             position: "relative",
-            alignItems: "flex-start",
+            alignItems: "flex-start",            
+            background: 'linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%)',
           },
           ...sxArrayUtil(sx),
         ]}
@@ -63,7 +55,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
           sx: {
             background: (theme) => ({
               xs: theme.palette.gradient.transparentToDark,
-              md: theme.palette.gradient.darkToTransparentRight,
+              md: "none",
             }),
           },
         }}
@@ -92,7 +84,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             zIndex: -1,
           }}
         >
-          <MaterialImage src={bgImage} alt={company} fill objectFit='cover' />
+          <MaterialImage src={bgImage} alt={company} fill objectFit="cover" />
         </Box>
         <MotionStack
           sx={{
@@ -102,11 +94,11 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             },
             height: {
               xs: "auto",
-              md: 488,
+              md: "auto",
             },
             px: { xs: 3, md: 0 },
             mt: {
-              xs: "50%",
+              xs: "80%",
               md: 0,
             },
           }}
@@ -121,90 +113,47 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               },
             })}
         >
-          {company && (
-            <Typography
-              variant={"body2"}
-              gutterBottom
-              sx={{
-                width: "fit-content",
-                textTransform: "capitalize",
-                px: 2,
-                py: {
-                  xs: 1,
-                  md: 1.25,
-                  xxl: 1.5,
-                },
-                background: (theme) => alpha(theme.palette.secondary.main, 0.2),
-              }}
-            >
-              {company}
-            </Typography>
-          )}
-          {title && (
-            <Typography
-              fontSize={H5_1}
-              fontWeight={"bold"}
-              mb={3}
-              lineHeight={"125%"}
-              textTransform={"capitalize"}
-            >
-              {title}
-            </Typography>
-          )}
-          {location && (
-            <Typography
-              variant={"body2"}
-              mb={3}
-              textTransform={"capitalize"}
-              display={"flex"}
-              alignItems={"center"}
-              columnGap={1}
-            >
-              <LocationOnRounded fontSize={"inherit"} /> {location}
-            </Typography>
-          )}
+          
+
           <Typography
             variant={"body1"}
             mb={{
               xs: 4,
               md: 4.5,
-              xxl: 5,
+              xxl: 10,
             }}
             whiteSpace={"pre-wrap"}
             sx={{
-              color: (theme) => alpha(theme.palette.secondary.main, 0.6),
+              color: (theme) => alpha(theme.palette.common.white, 1),
             }}
-            {...DescriptionTypographyProps}
           >
             {description}
+          </Typography> 
+
+          <Typography
+            fontSize={H6_2}            
+            mb={1.25}
+            lineHeight={"125%"}
+            textTransform={"capitalize"}
+          >
+            {title}
           </Typography>
-          {person && (
-            <Stack rowGap={{ xs: 1, md: 2 }} mt={"auto"}>
-              <Typography fontSize={H6_2}>{person.name}</Typography>
-              <Typography variant={"subtitle1"}>{person.info}</Typography>
-            </Stack>
-          )}
-          {button && (
-            <AnimatedButton
-              href={"/bajaj-auto-initiatives"}
-              variant={"outlined"}
-              color={"secondary"}
-              sx={{
-                mt: "auto",
-              }}
-            >
-              {button}
-            </AnimatedButton>
-          )}
+
+          <Typography
+            variant={"subtitle1"}            
+            fontSize={Subtitle1}
+          >
+            {company}
+          </Typography>      
         </MotionStack>
       </SectionWrapper>
     );
-  }
+  },
 );
 
-export default StorySlide;
+export default TestimonialCard;
 
-StorySlide.displayName = StorySlide.name;
+TestimonialCard.displayName = TestimonialCard.name;
 
 const clipTransition: MotionVariantProps = {
   initial: {

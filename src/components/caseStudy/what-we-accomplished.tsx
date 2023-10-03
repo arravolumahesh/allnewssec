@@ -151,9 +151,10 @@ const Accomplished = () => {
                         height: "297",
                         background: "rgba(255, 255, 255, 0.1)",
                         padding: "64px 0px 24px 0px",
-
+                        transition:'all 0.5s',
                         "&:hover": {
                           background: common.white,
+                          transition:'all 0.5s',
                           color: (theme) => theme.palette.primary.main,
                         },
                       }}
@@ -167,10 +168,10 @@ const Accomplished = () => {
                           height: { xs: "25px", md: "23px" },
                           textAlign: "center",
                           mb: "40px",
-                          color: (theme) => theme.palette.primary.contrastText,
-                          "&:hover": {
-                            color: (theme) => theme.palette.primary.main,
-                          },
+                          // color: (theme) => theme.palette.primary.contrastText,
+                          // "&:hover": {
+                          //   color: (theme) => theme.palette.primary.main,
+                          // },
                         }}
                         variants={staggerChildren}
                       >
@@ -286,6 +287,16 @@ const awardsdata = [
   {
     number: "12%",
     title: "WOMEN & CHILD WELFARE",
+    subtitle: "",
+  },
+  {
+    number: "35%",
+    title: "SCIENCE & TECHNOLOGY",
+    subtitle: "",
+  },
+  {
+    number: "35%",
+    title: "SCIENCE & TECHNOLOGY",
     subtitle: "",
   },
   {

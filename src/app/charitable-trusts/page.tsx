@@ -2,9 +2,10 @@ import Discover from "@/commonComponents/discover";
 import Enquire from "@/commonComponents/enquire";
 import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
-import ActsOfProgress from "@/components/charitableTrusts/actsOfProgress";
+import ActsOfProgress from "@/components/charitableTrusts/acts-of-progress";
 import CarryingServies from "@/components/charitableTrusts/carring-servies";
 import Initiatives from "@/components/charitableTrusts/initiatives";
+import Stories from "@/components/charitableTrusts/stories";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
@@ -33,7 +34,7 @@ const CharitableTrusts = () => {
       {/*<NominationsOpen />*/}
       {/*<Wardha />*/}
       <Initiatives />
-      {/*<SunithaBio />*/}
+      <Stories />
       <PartnerSwiperSection />
       <Enquire data={enquireData} />
       <Discover

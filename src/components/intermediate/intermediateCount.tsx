@@ -19,13 +19,13 @@ const IntermediateCount = () => {
       <SectionWrapper
         SectionProps={{
           sx: {
-            // backgroundColor: "white",
+            backgroundColor: "white",
           },
         }}
         sx={{
           pt: 5,
           pb: {xxl:0,xl:0,lg:0,md:0},
-          // backgroundColor: "white",
+          backgroundColor: "white",
         }}
       >
         <CountBox />

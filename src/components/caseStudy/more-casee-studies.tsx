@@ -16,7 +16,7 @@ import SlideButtons from "../intermediate/swiper/swiperButton";
 import AnimatedButton from "@/commonComponents/animated-button";
 import { common } from "@mui/material/colors";
 import theme from "@/styles/theme";
-import { Body1, H6_3 } from "@/styles/theme/components/typography.fontvariant";
+import { Body1, Caption, H3, H6_3 } from "@/styles/theme/components/typography.fontvariant";
 
 const useStyles = {
   imageContainer: {
@@ -72,6 +72,27 @@ const CaseStudies = () => {
       subheading:
         "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
     },
+    {
+      imageUrl: childrens,
+      tag: "IPH-Triveni Program",
+      heading: "Digital Skilling for Youth",
+      subheading:
+        "Helping students learn digitally in order to keep them future and employment ready. ",
+    },
+    {
+      imageUrl: womens,
+      tag: "IPH-Triveni Program",
+      heading: "Providing Vocational Training for Women in Maharashtra",
+      subheading:
+        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+    },
+    {
+      imageUrl: childrens,
+      tag: "IPH-Triveni Program",
+      heading: "Digital Skilling for Youth",
+      subheading:
+        "Helping students learn digitally in order to keep them future and employment ready. ",
+    },
   ];
   const [disablePrev, setDisabledPrev] = useState<boolean>(true);
   const [disableNext, setDisabledNext] = useState<boolean>(false);
@@ -90,7 +111,7 @@ const CaseStudies = () => {
         textAlign: "center",
       }}
     >
-      <Stack
+      {/* <Stack
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -114,15 +135,14 @@ const CaseStudies = () => {
         >
           OUR CASE STUDIES
         </MotionTypography>
-      </Stack>
+      </Stack> */}
       {/* Adding the image container */}
 
       <Stack
         sx={{
           display: "flex",
           flexDirection: "row",
-          alignItems: "flex-start",
-          pt: "30px",
+          alignItems: "flex-start",          
           justifyContent: "flex-start",
         }}
       >
@@ -133,15 +153,37 @@ const CaseStudies = () => {
           slidesPerView={slidesPerView}
           spaceBetween={24}
           modules={[Pagination, Navigation, FreeMode]}
+          onSlideChange={(swiper) => {
+            setDisabledPrev(swiper.isBeginning);
+            setDisabledNext(swiper.isEnd);
+          }}
         >
           <Stack
+            slot="container-start"
             sx={{
               display: "flex",
-              flexDirection: "flex-start",
-              alignItems: "flex-start",
-              mt: { xs: "30px" },
+              flexDirection: "row",
+              justifyContent: "space-between",
+              mb:{md:6,xs:5}
+              // mt: { xs: "30px" },
             }}
           >
+            <MotionTypography
+                variant="h3"
+                sx={{
+                  color: "primary.main",
+                  textOverflow: "ellipsis",
+                  fontSize: H3,
+                  fontStyle: "normal",
+                  lineHeight: "128%",
+                }}
+                variants={staggerChildren}
+                initial={"initial"}
+                whileInView={"animate"}
+                viewport={{ once: true }}
+              >
+                OUR CASE STUDIES
+              </MotionTypography>
             <SlideButtons disablePrev={disablePrev} disableNext={disableNext} />
           </Stack>
           {DetailsOfLargerDevices.map((element, index) => (
@@ -167,11 +209,12 @@ const CaseStudies = () => {
                   <MotionTypography
                     variant="body1"
                     sx={{
-                      color: common.white,
-                      fontSize: "14px",
+                      color: 'grey.600',
+                      fontSize: Caption,
                       fontWeight: "200",
                       background: "var(--primary-light-grey, #DADADA)",
                       padding: "5px",
+                      mt:2
                     }}
                     variants={staggerChildren}
                     initial={"initial"}
