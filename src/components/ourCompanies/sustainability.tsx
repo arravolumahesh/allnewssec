@@ -1,7 +1,6 @@
 "use client";
-import { Box, Divider, Stack } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
-import { alpha, Theme } from "@mui/material/styles";
+import { Divider, Stack } from "@mui/material";
+import { Theme } from "@mui/material/styles";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
@@ -20,7 +19,7 @@ import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
 import { Navigation } from "swiper/modules";
 import { Fragment } from "react";
-import { MaterialImage } from "@/commonComponents/material-components";
+import InfoSlides from "@/commonComponents/cards/info-slides";
 
 // Main component Sustainability
 
@@ -112,6 +111,11 @@ const Sustainability = () => {
           }}
           modules={[Navigation]}
           SlideComponent={InfoSlides}
+          SlideComponentProps={{
+            ImageProps: {
+              sx: { width: 120, height: 120 },
+            },
+          }}
           data={ourMeasuresdata}
           Slots={{
             ContainerStartChildren: (
@@ -162,48 +166,6 @@ const Sustainability = () => {
 };
 
 export default Sustainability;
-
-interface InfoSlidesProps {
-  img: StaticImageData | string;
-  title: string;
-  description: string;
-}
-
-const InfoSlides = (props: InfoSlidesProps) => {
-  const { img, title, description } = props;
-  return (
-    <Stack
-      direction='row'
-      columnGap={2}
-      alignItems={"stretch"}
-      // component={motion.div}
-      // viewport={{ once: true }}
-    >
-      <MaterialImage
-        src={img}
-        alt={title}
-        width={120}
-        height={120}
-        sx={{ width: 120, height: 120 }}
-      />
-      <Stack
-        rowGap={2}
-        alignItems={"flex-start"}
-        justifyContent={"space-between"}
-        // component={motion.div}
-        // variants={constrolButton}
-        // initial={"initial"}
-        // whileInView={"animate"}
-        // viewport={{ once: true }}
-      >
-        <Box bgcolor={alpha("#fff", 0.2)} p={"6px 16px"} fontSize={"14px"}>
-          {title}
-        </Box>
-        <MotionTypography variant='body1'>{description}</MotionTypography>
-      </Stack>
-    </Stack>
-  );
-};
 
 //  Carousel Data
 const ourMeasuresdata = [
