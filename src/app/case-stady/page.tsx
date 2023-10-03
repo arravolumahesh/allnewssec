@@ -5,6 +5,7 @@ import CaseHome from "@/components/caseStudy/IPH-Triveni-Program";
 import Counts from "@/components/caseStudy/counts";
 import Accomplished from "@/components/caseStudy/what-we-accomplished";
 import HowWeDid from "@/components/caseStudy/how-we-did-it";
+import EmployeeTestimonial from "@/components/caseStudy/employeeTestimonial";
 
 const CaseStudy = () => {
   return (
@@ -12,6 +13,7 @@ const CaseStudy = () => {
       <CaseHome />
       <Counts />
       <Accomplished />
+      <EmployeeTestimonial />
       <HowWeDid />
       <ChallengesFaced />
       <GallaryWall />

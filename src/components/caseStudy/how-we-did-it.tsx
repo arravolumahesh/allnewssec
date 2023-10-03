@@ -43,7 +43,7 @@ const HowWeDid = () => {
       SectionProps={{
         sx: {
           background: `linear-gradient(90deg,rgba(0, 0, 0, 0.8) -3.68%, rgba(0, 0, 0, 0.8) 72.78%, rgba(0, 0, 0, 0.8) 100%), url(${bg.src}) no-repeat`,
-          backgroundSize: "100% 100%",
+          backgroundSize: "cover",
         },
       }}
     >

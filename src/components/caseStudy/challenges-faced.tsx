@@ -57,6 +57,7 @@ const ChallengesFaced = () => {
                   width={50}
                   height={isDeskTop ? 132 : isTablet ? 114 : 96}
                   marginRight={"69px"}
+                  display={{xs:'block'}}
                   variants={StaggerArrow}
                 />
 

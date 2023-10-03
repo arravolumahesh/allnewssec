@@ -26,7 +26,7 @@ const Accomplished = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg_xl"));
   const isTablet = useMediaQuery(theme.breakpoints.up("md"));
-  const slidesPerView = isDesktop ? 3 : isTablet ? 2 : 1;
+  const slidesPerView = isDesktop ? 3 : isTablet ? 2 : 'auto';
   const [disablePrev, setDisabledPrev] = useState<boolean>(true);
   const [disableNext, setDisabledNext] = useState<boolean>(false);
   return (
@@ -115,7 +115,11 @@ const Accomplished = () => {
         development initiative, which stand as a testament to the transformative
         power of education and training.
       </MotionTypography>
-      <Box sx={{ display: "flex", gap: "24px", flexDirection: "row" }}>
+      <Box sx={{ display: "flex", gap: "24px", flexDirection: "row",
+      '& .swiper-slide':{
+        width:'auto'
+      }
+    }}>
         <Swiper
           freeMode={true}
           pagination={false}
@@ -132,28 +136,23 @@ const Accomplished = () => {
           <Stack>
             {awardsdata.map((award, index) => (
               <SwiperSlide key={index}>
-                <Stack>
-                  <Stack
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      alignContent: "center",
-                    }}
-                  >
                     <Box
                       sx={{
                         display: "flex",
-                        width: { xs: "320px", md: "410px" },
+                        width: { xs: "320px", md: 1 },
                         flexDirection: "column",
                         alignContent: "center",
                         alignItems: "center",
+                        justifyContent:'center',
                         gap: "24px",
-                        height: "297",
+                        minHeight: "297",
+                        height:'100%',
                         background: "rgba(255, 255, 255, 0.1)",
-                        padding: "64px 0px 24px 0px",
-
+                        p:{xs:3,md:5},
+                        transition:'all 0.5s',
                         "&:hover": {
                           background: common.white,
+                          transition:'all 0.5s',
                           color: (theme) => theme.palette.primary.main,
                         },
                       }}
@@ -163,14 +162,8 @@ const Accomplished = () => {
                         sx={{
                           fontSize: { lg: "72px", xs: "56px", md: "60px" },
                           width: "260px",
-                          fontWeight: "700",
-                          height: { xs: "25px", md: "23px" },
-                          textAlign: "center",
-                          mb: "40px",
-                          color: (theme) => theme.palette.primary.contrastText,
-                          "&:hover": {
-                            color: (theme) => theme.palette.primary.main,
-                          },
+                          fontWeight: "700",                          
+                          textAlign: "center",                          
                         }}
                         variants={staggerChildren}
                       >
@@ -180,8 +173,7 @@ const Accomplished = () => {
                         variant="body1"
                         sx={{
                           fontSize: "18px",
-                          width: "260px",
-                          height: { xs: "25px", md: "23px" },
+                          width: "260px",                          
                           textAlign: "center",
                         }}
                         variants={staggerChildren}
@@ -192,17 +184,14 @@ const Accomplished = () => {
                         variant="body2"
                         sx={{
                           fontSize: "16px",
-                          width: "262px",
-                          height: { xs: "88px", md: "80px" },
+                          width: "262px",                          
                           textAlign: "center",
                         }}
                         variants={staggerChildren}
                       >
                         {award.subtitle}
                       </MotionTypography>
-                    </Box>
-                  </Stack>
-                </Stack>
+                    </Box>                              
               </SwiperSlide>
             ))}
           </Stack>
@@ -210,12 +199,13 @@ const Accomplished = () => {
             sx={{
               display: "flex",
               flexDirection: " row",
-              justifyContent: "flex-end",
+              justifyContent: {md:"flex-end",xs:"center"},
               marginTop: "40px",
               color: common.white,
+
             }}
           >
-            <SlideButtons disablePrev={disablePrev} disableNext={disableNext} />
+            <SlideButtons disablePrev={disablePrev} variant={'secondary'} disableNext={disableNext} />
           </Stack>
         </Swiper>
       </Box>
@@ -286,6 +276,16 @@ const awardsdata = [
   {
     number: "12%",
     title: "WOMEN & CHILD WELFARE",
+    subtitle: "",
+  },
+  {
+    number: "35%",
+    title: "SCIENCE & TECHNOLOGY",
+    subtitle: "",
+  },
+  {
+    number: "35%",
+    title: "SCIENCE & TECHNOLOGY",
     subtitle: "",
   },
   {
