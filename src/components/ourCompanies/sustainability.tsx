@@ -116,6 +116,9 @@ const Sustainability = () => {
               sx: { width: 120, height: 120 },
             },
           }}
+          sx={{
+            overflow: { xs: "visible", xxl: "hidden" },
+          }}
           data={ourMeasuresdata}
           Slots={{
             ContainerStartChildren: (
