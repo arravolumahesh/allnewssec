@@ -1,7 +1,5 @@
 "use client";
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
-import AnimatedButton from "@/commonComponents/animated-button";
+import { Navigation } from "swiper/modules";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import {
@@ -9,193 +7,151 @@ import {
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
+import { Body1 } from "@/styles/theme/components/typography.fontvariant";
 import {
-  Body1,
-  H1,
-  H6_3,
-} from "@/styles/theme/components/typography.fontvariant";
-import { Box, Button, Stack, Typography, useMediaQuery } from "@mui/material";
-import { common } from "@mui/material/colors";
-import Image from "next/image";
+  Button,
+  Stack,
+  Typography,
+  stackClasses,
+  useMediaQuery,
+} from "@mui/material";
+import { StaticImageData } from "next/image";
 import cup1 from "@/components/charitableTrusts/images/cup1.png";
 import cup2 from "@/components/charitableTrusts/images/cup2.png";
 import cup3 from "@/components/charitableTrusts/images/cup3.png";
 import cup4 from "@/components/charitableTrusts/images/cup4.png";
 import React, { useState } from "react";
-import SlideButtons from "../intermediate/swiper/swiperButton";
 import { motion } from "framer-motion";
-import { useTheme } from "@mui/material/styles";
+import { alpha } from "@mui/material/styles";
+import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import { MaterialImage } from "@/commonComponents/material-components";
+import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
 
-const Awards = () => {
-  const theme = useTheme();
-  const [disablePrev, setDisabledPrev] = useState<boolean>(true);
-  const [disableNext, setDisabledNext] = useState<boolean>(false);
-  const isTabletOrLarger = useMediaQuery((theme: any) =>
-    theme.breakpoints.up("md")
-  );
-  const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg_xl"));
-  const isTablet = useMediaQuery(theme.breakpoints.up("md"));
-
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const slidesPerView = isDesktop ? 4 : isTablet ? 2 : 1;
-
+const BajajAwards = () => {
   return (
     <SectionWrapper
       SectionProps={{
         sx: {
           background: (theme) => theme.palette.gradient.darkToLight,
-          height: "978px",
         },
       }}
+      SectionHeaderProps={{
+        title: "Jamnalal Bajaj Awards",
+        description:
+          "The Jamnalal Bajaj Foundation along with other affiliates instituted Awards to provide a grateful gesture to men and women working at the grassroots level; celebrating their dedication to building a more compassionate and equitable society.",
+        TitleTypographyProps: {
+          variant: "h3",
+        },
+        DescriptionTypographyProps: {
+          fontSize: Body1,
+          maxWidth: 692,
+        },
+        LinkProps: {
+          href: "/",
+        },
+        mb: { xs: 6, md: 3 },
+      }}
     >
-      <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: H6_3,
-          alignItems: "center",
-          alignContent: "center",
+      <EnhancedSwiper
+        slidesPerView={"auto"}
+        SlideWrapperProps={{
+          sx: {
+            width: 310,
+            mr: 3,
+          },
         }}
-      >
-        <MotionTypography
-          variant="h1"
-          sx={{
-            fontSize: H1,
-            textAlign: "center",
-          }}
-          variants={staggerChildren}
-          initial={"initial"}
-          whileInView={"animate"}
-          viewport={{ once: true }}
-        >
-          Jamnalal Bajaj Awards
-        </MotionTypography>
-        <MotionTypography
-          variant="body1"
-          sx={{
-            fontSize: Body1,
-            textAlign: "center",
-            width: { xs: "342px", md: "692px" },
-            opacity: 0.6,
-          }}
-          variants={staggerChildren}
-          initial={"initial"}
-          whileInView={"animate"}
-          viewport={{ once: true }}
-        >
-          The Jamnalal Bajaj Foundation along with other affiliates instituted
-          Awards to provide a grateful gesture to men and women working at the
-          grassroots level; celebrating their dedication to building a more
-          compassionate and equitable society.
-        </MotionTypography>
-        <AnimatedButton href={"/"} variant={"outlined"} color={"inherit"}>
-          Learn More
-        </AnimatedButton>
-      </Stack>
-      <Box sx={{ display: "flex", gap: "24px", flexDirection: "row" }}>
-        <Swiper
-          freeMode={true}
-          pagination={false}
-          navigation={true}
-          spaceBetween={24}
-          slidesPerView={slidesPerView}
-          modules={[Pagination, Navigation, FreeMode]}
-          onSlideChange={(swiper) => {
-            setDisabledPrev(swiper.isBeginning);
-            setDisabledNext(swiper.isEnd);
-          }}
-          style={{ display: "flex", flexDirection: "column" }}
-        >
-          <Stack>
-            {awardsdata.map((award, index) => (
-              <SwiperSlide key={index}>
-                <Stack>
-                  <Stack
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      alignContent: "center",
-                      // position: "relative",
-                      // height: "400px",
-                    }}
-                  >
-                    <Image
-                      src={award.imageUrl}
-                      alt="awards"
-                      width={84}
-                      height={209}
-                      // style={{
-                      //   position: "absolute",
-                      //   zIndex: "0",
-                      //   left: "40%",
-                      //   top: "-20%",
-                      // }}
-                    />
-                    <Box
-                      sx={{
-                        display: "flex",
-                        width: "310px",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "16px",
-                        background: "rgba(255, 255, 255, 0.1)",
-                        padding: "64px 0px 24px 0px",
-
-                        "&:hover": {
-                          background: common.white,
-                          color: (theme) => theme.palette.primary.main,
-                        },
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontSize: "18px",
-                          width: "260px",
-                          height: { xs: "25px", md: "23px" },
-                          textAlign: "center",
-                        }}
-                      >
-                        {award.title}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontSize: "16px",
-                          width: "262px",
-                          height: { xs: "88px", md: "80px" },
-                          textAlign: "center",
-                        }}
-                      >
-                        {award.subtitle}
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </Stack>
-                {/* Need to add the button to the swipert thing */}
-              </SwiperSlide>
-            ))}
-          </Stack>
-          <Stack
-            sx={{
-              display: "flex",
-              flexDirection: " row",
-              justifyContent: "flex-end",
-              marginTop: "40px",
-              color: common.white,
-            }}
-          >
-            <SlideButtons disablePrev={disablePrev} disableNext={disableNext} />
-          </Stack>
-        </Swiper>
-      </Box>
+        sx={{
+          pt: { xs: 6, md: 7 },
+          overflow: { xs: "visible", xxl: "hidden" },
+        }}
+        SlideComponent={AwardCard}
+        data={awardsData}
+        navigation={{
+          enabled: true,
+          nextEl: ".swiper-next",
+          prevEl: ".swiper-prev",
+        }}
+        modules={[Navigation]}
+        Slots={{
+          ContainerEndChildren: (
+            <SwiperNavigationButton
+              mt={{ xs: 5, md: 6 }}
+              alignSelf={{ xs: "center", md: "flex-end" }}
+              PrevButtonProps={{
+                className: "swiper-prev",
+              }}
+              NextButtonProps={{
+                className: "swiper-next",
+              }}
+            />
+          ),
+        }}
+      />
     </SectionWrapper>
   );
 };
 
-export default Awards;
+export default BajajAwards;
+
+interface AwardCardProps {
+  imageUrl: StaticImageData | string;
+  title: string;
+  subTitle: string;
+}
+
+const AwardCard = (props: AwardCardProps) => {
+  const { imageUrl, title, subTitle } = props;
+  return (
+    <Stack
+      position={"relative"}
+      alignItems={"center"}
+      width={1}
+      sx={{
+        [`.${stackClasses.root}`]: {
+          bgcolor: alpha("#fff", 0.1),
+          transition: "all .3s ease-out",
+        },
+        "&:hover": {
+          color: (theme) => theme.palette.primary.main,
+          [`.${stackClasses.root}`]: {
+            bgcolor: alpha("#fff", 1),
+          },
+          img: {
+            transform: "scale(1.3)",
+            transformOrigin: "bottom",
+          },
+        },
+      }}
+    >
+      <MaterialImage
+        src={imageUrl}
+        alt='awards'
+        width={92}
+        height={209}
+        sx={{
+          width: { xs: 79, md: 94 },
+          height: { xs: 169, md: 209 },
+          mb: "-12%",
+          zIndex: 1,
+          transform: "scale(1)",
+          transition: "all .3s ease-out",
+        }}
+      />
+      <Stack
+        p={3}
+        pt={8}
+        rowGap={2}
+        justifyContent={"center"}
+        alignItems={"center"}
+        textAlign={"center"}
+        minHeight={207}
+      >
+        <Typography fontSize={"18px"}>{title}</Typography>
+        <Typography fontSize={"16px"}>{subTitle}</Typography>
+      </Stack>
+    </Stack>
+  );
+};
 
 const staggerChildren: MotionVariantProps = {
   initial: {
@@ -211,29 +167,29 @@ const staggerChildren: MotionVariantProps = {
   },
 };
 
-const awardsdata = [
+const awardsData = [
   {
     imageUrl: cup1,
     title: "CONSTRUCTIVE WORK",
-    subtitle:
+    subTitle:
       "Recognizes contributions in the field of constructive work focussing on any of the eighteen development areas.",
   },
   {
     imageUrl: cup2,
     title: "WOMEN & CHILD WELFARE",
-    subtitle:
+    subTitle:
       "Commends women for their contribution towards the development & welfare of women and children.",
   },
   {
-    imageUrl: cup3,
+    imageUrl: cup4,
     title: "SCIENCE & TECHNOLOGY",
-    subtitle:
+    subTitle:
       "Felicitates the contributions in the application of science and technology for rural and tribal development.",
   },
   {
-    imageUrl: cup4,
+    imageUrl: cup3,
     title: "INTERNATIONAL",
-    subtitle:
+    subTitle:
       "Honours individual foreign nationals for propagating Gandhian principles outside India.",
   },
 ];
@@ -256,76 +212,3 @@ interface ButtonsProps {
   disablePrev: boolean;
   disableNext: boolean;
 }
-
-const CuroselBttn = (prop: ButtonsProps) => {
-  const { disableNext, disablePrev, ...rest } = prop;
-  const swiper = useSwiper();
-  return (
-    <Stack
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "16px",
-      }}
-      component={motion.div}
-      variants={constrolButton}
-      initial={"initial"}
-      whileInView={"animate"}
-      viewport={{ once: true }}
-    >
-      <Button
-        sx={{
-          display: "flex",
-          width: "48px",
-          height: "48px",
-          padding: "4px",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8px",
-          background: "rgba(255, 255, 255, 0.20)",
-          border: "1px solid var(--White, #FFF)",
-          opacity: disablePrev ? 0.5 : 0.9,
-        }}
-        onClick={() => swiper.slidePrev()}
-        disabled={disablePrev}
-        disableRipple
-        disableTouchRipple
-      >
-        <NavigateBeforeIcon
-          sx={{
-            width: "30px",
-            height: "30px",
-            color: "#FFF",
-          }}
-        />
-      </Button>
-      <Button
-        sx={{
-          display: "flex",
-          width: "48px",
-          height: "48px",
-          padding: "4px",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8px",
-          border: "1px solid var(--White, #FFF)",
-          background: "rgba(255, 255, 255, 0.20)",
-          opacity: disableNext ? 0.5 : 0.9,
-        }}
-        onClick={() => swiper.slideNext()}
-        disabled={disableNext}
-        disableRipple
-        disableTouchRipple
-      >
-        <NavigateNextIcon
-          sx={{
-            width: "30px",
-            height: "30px",
-            color: "#FFF",
-          }}
-        />
-      </Button>
-    </Stack>
-  );
-};

@@ -3,6 +3,7 @@ import Enquire from "@/commonComponents/enquire";
 import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
 import ActsOfProgress from "@/components/charitableTrusts/acts-of-progress";
+import BajajAwards from "@/components/charitableTrusts/bajaj-awards";
 import CarryingServies from "@/components/charitableTrusts/carring-servies";
 import Initiatives from "@/components/charitableTrusts/initiatives";
 import Stories from "@/components/charitableTrusts/stories";
@@ -30,7 +31,7 @@ const CharitableTrusts = () => {
       {/*<AboutUs />*/}
       {/*<OriginofChange />*/}
       <ActsOfProgress />
-      {/*<Awards />*/}
+      <BajajAwards />
       {/*<NominationsOpen />*/}
       {/*<Wardha />*/}
       <Initiatives />
