@@ -58,6 +58,7 @@ const BajajAwards = () => {
           sx: {
             width: 310,
             mr: 3,
+            alignSelf: "center",
           },
         }}
         sx={{
@@ -146,7 +147,9 @@ const AwardCard = (props: AwardCardProps) => {
         textAlign={"center"}
         minHeight={207}
       >
-        <Typography fontSize={"18px"}>{title}</Typography>
+        <Typography variant='h6' fontSize={"18px !important"}>
+          {title}
+        </Typography>
         <Typography fontSize={"16px"}>{subTitle}</Typography>
       </Stack>
     </Stack>
