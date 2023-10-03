@@ -18,6 +18,7 @@ import {
 import theme from "@/styles/theme";
 import { Height } from "@mui/icons-material";
 import AnimatedButton from "@/commonComponents/animated-button";
+import CommonBreadcrumb from "@/commonComponents/breadcrumb";
 
 const CaseHome = () => {
   return (
@@ -25,68 +26,19 @@ const CaseHome = () => {
       <SectionWrapper
         SectionProps={{
           sx: {
-            background:
-              "linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            // background:"linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
+            background:{md:"linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png)",xs:"linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png)"},
+            backgroundRepeat: {xs:"no-repeat",md:"no-repeat"},
+            backgroundSize: {xs:"cover",md:"cover"},
+            backgroundPosition:{xs:'center'}
           },
         }}
+        sx={{pt:{xxl:4}}}
       >
+        <CommonBreadcrumb />  
+       
         <Stack
-          sx={{ display: "flex", flexDirection: "row" }}
-          //   component={motion.div}
-          //   variants={staggerDiv}
-          //   initial={"initial"}
-          //   animate={"animate"}
-        >
-          <Stack display={"flex"} flexDirection={"column"}>
-            <MotionTypography
-              variant="body2"
-              sx={{
-                fontSize: Subtitle1,
-                color: "rgba(255, 255, 255, 0.50)",
-                height: "20px",
-              }}
-              variants={staggerChildren}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
-            >
-              Our Companies
-              <ArrowForwardIosIcon style={{ height: "20px", width: "20px" }} />
-            </MotionTypography>
-          </Stack>
-          <MotionTypography
-            variant="body2"
-            sx={{
-              fontSize: Subtitle1,
-              color: "rgba(255, 255, 255, 0.50)",
-              height: "20px",
-            }}
-            variants={staggerChildren}
-            initial={"initial"}
-            whileInView={"animate"}
-            viewport={{ once: true }}
-          >
-            &nbsp;Bajaj Auto
-            <ArrowForwardIosIcon style={{ height: "20px", width: "20px" }} />
-          </MotionTypography>
-          <MotionTypography
-            variant="body2"
-            sx={{
-              fontSize: Subtitle1,
-              height: "20px",
-            }}
-            variants={staggerChildren}
-            initial={"initial"}
-            whileInView={"animate"}
-            viewport={{ once: true }}
-          >
-            &nbsp;Case Studies
-          </MotionTypography>
-        </Stack>
-        <Stack
-          sx={{ md: { width: "667px", height: "255px", marginTop: H6_3 } }}
+          sx={{ md: { width: "667px", height: "255px", marginTop: H6_3 },mt:10 }}
         >
           <MotionTypography
             variant="h1"
