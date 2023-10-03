@@ -1,12 +1,14 @@
 "use client";
 import { Navigation } from "swiper/modules";
-import { MotionVariantProps } from "@/commonComponents/motion-components";
-import React, { useState } from "react";
+import {
+  MotionTypography,
+  MotionVariantProps,
+} from "@/commonComponents/motion-components";
+import React from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { useMediaQuery, Stack, Theme } from "@mui/material";
+import { Stack, Theme, useMediaQuery } from "@mui/material";
 import womens from "@/components/ourCompanies/images/womens.png";
 import childrens from "@/components/ourCompanies/images/childrens.png";
-import { MotionTypography } from "@/commonComponents/motion-components";
 import { MaterialImage } from "@/commonComponents/material-components";
 import { StaticImageData } from "next/image";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
@@ -41,12 +43,12 @@ const CaseStudies = () => {
           Slots={{
             ContainerStartChildren: (
               <Stack
-                direction='row'
+                direction="row"
                 alignItems={"center"}
                 justifyContent={"space-between"}
                 mb={{ xs: 5, md: 6 }}
               >
-                <MotionTypography variant='h3'>
+                <MotionTypography variant="h3">
                   Our Case Studies
                 </MotionTypography>
                 <SwiperNavigationButton
@@ -131,7 +133,7 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
     >
       <MaterialImage
         src={img}
-        alt='childerns'
+        alt="childerns"
         sx={{
           position: "relative",
           width: { xs: 310, md: 643 },
@@ -140,7 +142,7 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
         }}
       />
       <MotionTypography
-        fontSize={"14px"}
+        variant={"caption"}
         color={"grey.A400"}
         p={1.3}
         bgcolor={"#DADADA"}
@@ -148,10 +150,10 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
       >
         {tag}
       </MotionTypography>
-      <MotionTypography variant='body1' fontSize={H6_1}>
+      <MotionTypography variant="body1" fontSize={H6_1}>
         {title}
       </MotionTypography>
-      <MotionTypography variant='body1'>{subTitle}</MotionTypography>
+      <MotionTypography variant="body1">{subTitle}</MotionTypography>
       {isMobile && (
         <Link
           style={{
@@ -160,10 +162,10 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
             fontSize: "18px",
             textDecoration: "none",
           }}
-          href='/'
+          href="/"
         >
           View Case Study{" "}
-          <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
+          <ArrowForwardIos sx={{ ml: "8px" }} fontSize="small" />
         </Link>
       )}
     </Stack>
