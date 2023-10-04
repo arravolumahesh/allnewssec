@@ -10,7 +10,7 @@ interface LayoutProps {
 const Layout = (props: LayoutProps) => {
   const { children } = props;
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
         <ThemeRegistry>
           <HeaderLayout routes={routes} />
@@ -30,19 +30,19 @@ const routes: HeaderProps["routes"] = [
     children: [
       {
         title: "Bajaj Auto Limited",
-        href: "bajaj-auto-limited",
+        href: "our-companies/bajaj-auto-limited",
       },
       {
         title: "Bajaj Electricals Limited",
-        href: "bajaj-electricals-limited",
+        href: "our-companies/bajaj-electricals-limited",
       },
       {
         title: "Bajaj Finserv Limited",
-        href: "bajaj-finserv-limited",
+        href: "our-companies/bajaj-finserv-limited",
       },
       {
         title: "Mukand Limited",
-        href: "mukand-limited",
+        href: "our-companies/mukand-limited",
       },
     ],
   },
