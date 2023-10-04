@@ -126,6 +126,7 @@ const NavItem = (props: NavItemProps) => {
     </>
   );
 };
+
 export default NavItem;
 
 const menuPaperProps: Required<MenuProps>["slotProps"]["paper"] = {

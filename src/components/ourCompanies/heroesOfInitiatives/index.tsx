@@ -1,18 +1,16 @@
 "use client";
 import React from "react";
 import SectionWrapper from "@cc/section-wrapper";
-import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
+import { EnhancedSwiperProps } from "@cc/enhanced-swiper";
 import InitiativeHeroCard from "@c/ourCompanies/heroesOfInitiatives/initiative-hero-card";
 import hero_1 from "./images/hero_1.jpg";
 import hero_2 from "./images/hero_2.jpg";
 import hero_3 from "./images/hero_3.jpg";
 import hero_4 from "./images/hero_4.jpg";
-import SwiperNavigationButton from "@cc/swiper-navigation-button";
 import { H3_1 } from "@theme/components/typography.fontvariant";
 import ArrowGradient from "@cc/arrow-gradient";
 import { MotionTypography } from "@cc/motion-components";
 import { Stack } from "@mui/material";
-import { Navigation } from "swiper/modules";
 
 const HerosOfInitiatives = () => {
   return (
@@ -54,57 +52,6 @@ const HerosOfInitiatives = () => {
         >
           Heroes behind our successful initiatives.
         </MotionTypography>
-        <EnhancedSwiper
-          data={[...herosData, ...herosData]}
-          SlideComponent={InitiativeHeroCard}
-          slidesPerView={"auto"}
-          passSlideState
-          simulateTouch={false}
-          modules={[Navigation]}
-          navigation={{
-            enabled: true,
-            nextEl: ".heroes-button-next",
-            prevEl: ".heroes-button-prev",
-          }}
-          SlideWrapperProps={{
-            sx: {
-              width: "auto",
-              height: "auto",
-              alignSelf: "flex-end",
-              mr: 3,
-              "&:last-child": {
-                mr: 0,
-              },
-            },
-          }}
-          sx={{
-            overflow: {
-              xs: "visible",
-              lg: "hidden",
-            },
-          }}
-          Slots={{
-            ContainerEndChildren: (
-              <SwiperNavigationButton
-                mt={{
-                  xs: 5,
-                  md: 4,
-                  xl: 3,
-                }}
-                PrevButtonProps={{
-                  className: "heroes-button-prev",
-                }}
-                NextButtonProps={{
-                  className: "heroes-button-next",
-                }}
-                alignSelf={{
-                  xs: "center",
-                  md: "flex-end",
-                }}
-              />
-            ),
-          }}
-        />
       </Stack>
     </SectionWrapper>
   );
