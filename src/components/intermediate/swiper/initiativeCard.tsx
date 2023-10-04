@@ -88,6 +88,7 @@ const InitiativeCard = (prop: props) => {
               height: "auto",
               "&:hover": {
                 transform: "scale(1.05)",
+                transformOrigin:'bottom',
                 transition: "all 0.3s ease-in-out",
               },
             },

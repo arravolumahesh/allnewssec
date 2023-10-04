@@ -74,17 +74,17 @@ const IntermediatePage: NextPage = () => {
         <IntermediateMenu
           logoImg={logoImg}
           menus={menus}
-          styles={{
-            alignItems:'center',
-            justifyContent:'flex-start',
-            gap:{xs:5,lg:12},          
-              '& a:nth-child(2)':{
-                ml:-12
-              },
-              '& a:last-child':{
-                mr:'auto'
-              }          
-          }}
+          // styles={{
+          //   alignItems:'center',
+          //   justifyContent:'flex-start',
+          //   gap:{xs:5,lg:12},          
+          //     '& a:nth-child(2)':{
+          //       ml:-12
+          //     },
+          //     '& a:last-child':{
+          //       mr:'auto'
+          //     }          
+          // }}
         />
         <IntermediateCountAndCards initiative={initiative} />
         <DiscoverCompanyIntermidiate />

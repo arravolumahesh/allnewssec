@@ -121,13 +121,12 @@ const Accomplished = () => {
         width:'auto'
       }
     }}>
-        <Swiper
-          freeMode={true}
+        <Swiper          
           pagination={false}
           navigation={true}
           spaceBetween={24}
           slidesPerView={slidesPerView}
-          modules={[Pagination, Navigation, FreeMode]}
+          modules={[Pagination, Navigation]}
           onSlideChange={(swiper) => {
             setDisabledPrev(swiper.isBeginning);
             setDisabledNext(swiper.isEnd);

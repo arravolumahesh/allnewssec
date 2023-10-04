@@ -26,6 +26,8 @@ export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
     info: string;
   };
   button: string;
+  CompanyTypographyProps?: TypographyProps;
+  TitleTypographyProps?: TypographyProps;
   DescriptionTypographyProps?: TypographyProps;
 }
 
@@ -37,6 +39,8 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
       title,
       location,
       description,
+      CompanyTypographyProps,
+      TitleTypographyProps,
       DescriptionTypographyProps,
       person,
       button,
@@ -136,6 +140,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
                 },
                 background: (theme) => alpha(theme.palette.secondary.main, 0.2),
               }}
+              {...CompanyTypographyProps}
             >
               {company}
             </Typography>
@@ -147,6 +152,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               mb={3}
               lineHeight={"125%"}
               textTransform={"capitalize"}
+              {...TitleTypographyProps}
             >
               {title}
             </Typography>
