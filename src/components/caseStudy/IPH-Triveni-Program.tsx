@@ -27,10 +27,10 @@ const CaseHome = () => {
         SectionProps={{
           sx: {
             // background:"linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
-            background:{md:"linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png)",xs:"linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png)"},
+            background:{md:"linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png)",xs:"linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png) left +65% center"},
             backgroundRepeat: {xs:"no-repeat",md:"no-repeat"},
             backgroundSize: {xs:"cover",md:"cover"},
-            backgroundPosition:{xs:'center'}
+            // backgroundPosition:{xs:'center'}
           },
         }}
         sx={{pt:{xxl:4}}}
@@ -48,6 +48,7 @@ const CaseHome = () => {
               alignItems: "stretch",
               height: "67px",
               paddingTop: "40px",
+              textTransform:'inherit'
             }}
             variants={staggerChildren}
             initial={"initial"}

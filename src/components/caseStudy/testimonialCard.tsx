@@ -90,7 +90,7 @@ const TestimonialCard: EnhancedSwiperSlideComponent<TestimonialCardProps> = forw
           sx={{
             width: {
               xs: 1,
-              md: 450,
+              md: 520,
             },
             height: {
               xs: "auto",
@@ -122,6 +122,7 @@ const TestimonialCard: EnhancedSwiperSlideComponent<TestimonialCardProps> = forw
               md: 4.5,
               xxl: 10,
             }}
+            fontSize={H6_2}
             whiteSpace={"pre-wrap"}
             sx={{
               color: (theme) => alpha(theme.palette.common.white, 1),

@@ -214,7 +214,7 @@ const CaseStudies = () => {
                     sx={{
                       color: 'grey.600',
                       fontSize: Caption,
-                      fontWeight: "200",
+                      fontWeight: "400",
                       background: "var(--primary-light-grey, #DADADA)",
                       padding: "5px",
                       mt:2

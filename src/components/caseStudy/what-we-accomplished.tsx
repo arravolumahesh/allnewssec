@@ -63,9 +63,9 @@ const Accomplished = () => {
         </Stack>
         <MotionTypography
           sx={{
-            fontSize: H6_1,
+            fontSize: {lg:32,md:28,xs:20},
             color: (theme) => theme.palette.primary.contrastText,
-            width: { md: "50%", xs: "90%" },
+            width: { md: "60%", xs: "90%" },
             textAlign:{md:'inherit',xs:'center'}
           }}
           variant="body1"
