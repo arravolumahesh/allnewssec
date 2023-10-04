@@ -1,6 +1,6 @@
 import { EnhancedSwiperSlideData } from "@cc/enhanced-swiper";
 import { StaticImageData } from "next/image";
-import { Stack } from "@mui/material";
+import { MotionStack } from "@cc/motion-components";
 
 export interface InitiativeHeroCardProps {
   title: string;
@@ -12,9 +12,9 @@ export interface InitiativeHeroCardProps {
 const InitiativeHeroCard = (
   props: EnhancedSwiperSlideData<InitiativeHeroCardProps>,
 ) => {
-    const { title, designation, description, image, isActive, index } = props;
+  const { title, designation, description, image, isActive, index } = props;
   return (
-    <Stack
+    <MotionStack
       key={`${title}-${index}`}
       sx={{
         background: `url(${typeof image === "string" ? image : image.src})`,
@@ -27,7 +27,7 @@ const InitiativeHeroCard = (
         aspectRatio: "1/1",
         transition: "all 0.3s ease-in-out",
       }}
-    ></Stack>
+    ></MotionStack>
   );
 };
 

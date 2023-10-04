@@ -16,11 +16,14 @@ const BuildFuture = () => {
       SectionProps={{
         sx: {
           background: (theme) => theme.palette.gradient.transparentToDarkRight,
-          position: "relative",
         },
       }}
       py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
       pb={{ /* ...basePy, */ xs: 3, md: 9 }}
+      ContainerProps={{
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
       <CommonBreadcrumb />
       <Stack
