@@ -1,33 +1,68 @@
-import { EnhancedSwiperSlideData } from "@cc/enhanced-swiper";
+"use client";
 import { StaticImageData } from "next/image";
-import { MotionStack } from "@cc/motion-components";
+import { MotionStack, MotionStackProps } from "@cc/motion-components";
+import { sxArrayUtil } from "@util/sx-helpers";
+import { Stack, Typography } from "@mui/material";
 
-export interface InitiativeHeroCardProps {
-  title: string;
-  designation: string;
-  description: string;
-  image: string | StaticImageData;
+export interface InitiativeHeroCardProps
+  extends Omit<MotionStackProps, "children"> {
+  data: {
+    title: string;
+    designation: string;
+    description: string;
+    image: string | StaticImageData;
+  };
+  isActive?: boolean;
+  index?: number;
 }
 
-const InitiativeHeroCard = (
-  props: EnhancedSwiperSlideData<InitiativeHeroCardProps>,
-) => {
-  const { title, designation, description, image, isActive, index } = props;
+const InitiativeHeroCard = (props: InitiativeHeroCardProps) => {
+  const { data, isActive, index, ...restMotionStackProps } = props;
+  const { title, designation, description, image } = data;
+  const { sx, ...restProps } = restMotionStackProps;
   return (
     <MotionStack
       key={`${title}-${index}`}
-      sx={{
-        background: `url(${typeof image === "string" ? image : image.src})`,
-        backgroundSize: "cover",
-        width: {
-          xs: isActive ? 330 : 160,
-          md: isActive ? 375 : 179.5,
-          xl: isActive ? 420 : 199,
+      layout
+      sx={[
+        {
+          background: `lightgray url(${
+            typeof image === "string" ? image : image.src
+          })`,
+          backgroundSize: "cover",
+          width: {
+            xs: 160,
+            md: 179.5,
+            xl: 199,
+          },
+          height: "fit-content",
+          flexShrink: 0,
+          aspectRatio: "1/1",
+          transition: "all 0.3s ease-in-out",
         },
-        aspectRatio: "1/1",
-        transition: "all 0.3s ease-in-out",
-      }}
-    ></MotionStack>
+        ...sxArrayUtil(sx),
+      ]}
+      {...restProps}
+    >
+      {isActive && (
+        <Stack
+          mt={"auto"}
+          sx={{
+            p: 2,
+            mt: "auto",
+            background: (theme) => theme.palette.gradient.transparentToDark_V2,
+          }}
+        >
+          <Typography variant={"h6"}>{title}</Typography>
+          <Typography variant={"subtitle1"} component={"span"}>
+            {designation}
+          </Typography>
+          <Typography variant={"subtitle2"} component={"p"}>
+            {description}
+          </Typography>
+        </Stack>
+      )}
+    </MotionStack>
   );
 };
 

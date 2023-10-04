@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import SectionWrapper from "@cc/section-wrapper";
-import { EnhancedSwiperProps } from "@cc/enhanced-swiper";
-import InitiativeHeroCard from "@c/ourCompanies/heroesOfInitiatives/initiative-hero-card";
 import hero_1 from "./images/hero_1.jpg";
 import hero_2 from "./images/hero_2.jpg";
 import hero_3 from "./images/hero_3.jpg";
@@ -11,6 +9,9 @@ import { H3_1 } from "@theme/components/typography.fontvariant";
 import ArrowGradient from "@cc/arrow-gradient";
 import { MotionTypography } from "@cc/motion-components";
 import { Stack } from "@mui/material";
+import HeoresSlider, {
+  HeoresSliderProps,
+} from "@c/ourCompanies/heroesOfInitiatives/heors-slider";
 
 const HerosOfInitiatives = () => {
   return (
@@ -22,6 +23,7 @@ const HerosOfInitiatives = () => {
       }}
       direction={"row"}
       alignItems={"flex-start"}
+      justifyContent={"space-between"}
     >
       <ArrowGradient
         SVGProps={{
@@ -37,7 +39,7 @@ const HerosOfInitiatives = () => {
         mt={-12}
         ml={{ xl: 0, xxl: 8.375 }}
       />
-      <Stack width={{ xs: 1, xl: 0.83 }} flexGrow={1}>
+      <Stack width={{ xs: 1, xl: 0.83 }}>
         <MotionTypography
           variant={"h2"}
           fontSize={H3_1}
@@ -52,6 +54,7 @@ const HerosOfInitiatives = () => {
         >
           Heroes behind our successful initiatives.
         </MotionTypography>
+        <HeoresSlider data={herosData} />
       </Stack>
     </SectionWrapper>
   );
@@ -59,7 +62,7 @@ const HerosOfInitiatives = () => {
 
 export default HerosOfInitiatives;
 
-const herosData: EnhancedSwiperProps<typeof InitiativeHeroCard>["data"] = [
+const herosData: HeoresSliderProps["data"] = [
   {
     title: "Sanchali Khanna",
     image: hero_1,
