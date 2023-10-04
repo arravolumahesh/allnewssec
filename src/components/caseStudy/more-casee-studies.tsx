@@ -151,13 +151,12 @@ const CaseStudies = () => {
           }
         }}
       >
-        <Swiper
-          freeMode={true}
+        <Swiper          
           pagination={false}
           navigation={!isMobile}
           slidesPerView={slidesPerView}
           spaceBetween={24}
-          modules={[Pagination, Navigation, FreeMode]}
+          modules={[Pagination, Navigation]}
           onSlideChange={(swiper) => {
             setDisabledPrev(swiper.isBeginning);
             setDisabledNext(swiper.isEnd);
