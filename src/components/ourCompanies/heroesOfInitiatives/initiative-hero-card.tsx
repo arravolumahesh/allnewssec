@@ -13,22 +13,18 @@ export interface InitiativeHeroCardProps
     image: string | StaticImageData;
   };
   isActive?: boolean;
-  index?: number;
 }
 
 const InitiativeHeroCard = (props: InitiativeHeroCardProps) => {
-  const { data, isActive, index, ...restMotionStackProps } = props;
+  const { data, isActive, ...restMotionStackProps } = props;
   const { title, designation, description, image } = data;
   const { sx, ...restProps } = restMotionStackProps;
   return (
     <MotionStack
-      key={`${title}-${index}`}
-      layout
+      key={title}
       sx={[
         {
-          background: `lightgray url(${
-            typeof image === "string" ? image : image.src
-          })`,
+          background: `url(${typeof image === "string" ? image : image.src})`,
           backgroundSize: "cover",
           width: {
             xs: 160,
@@ -38,7 +34,6 @@ const InitiativeHeroCard = (props: InitiativeHeroCardProps) => {
           height: "fit-content",
           flexShrink: 0,
           aspectRatio: "1/1",
-          transition: "all 0.3s ease-in-out",
         },
         ...sxArrayUtil(sx),
       ]}

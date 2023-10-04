@@ -4,6 +4,7 @@ import InitiativeHeroCard, {
 } from "@c/ourCompanies/heroesOfInitiatives/initiative-hero-card";
 import SwiperNavigationButton from "@cc/swiper-navigation-button";
 import { useCallback, useMemo, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 export interface HeoresSliderProps extends Omit<MotionStackProps, "children"> {
   data: InitiativeHeroCardProps["data"][];
@@ -45,27 +46,31 @@ const HeoresSlider = (props: HeoresSliderProps) => {
           md: 4,
           xl: 3,
         }}
+        height={{
+          xs: 330,
+          md: 375,
+          xl: 420,
+        }}
         {...restMotionStackProps}
       >
-        {slidesData.map((item, index) => {
-          return (
-            <InitiativeHeroCard
-              key={`${item.title}-${index}`}
-              data={item}
-              index={index}
-              isActive={index === 0}
-              sx={{
-                ...(index === 0 && {
-                  width: {
-                    xs: 330,
-                    md: 375,
-                    xl: 420,
-                  },
-                }),
-              }}
-            />
-          );
-        })}
+        <AnimatePresence mode={"popLayout"}>
+          <InitiativeHeroCard
+            data={slidesData[0]}
+            key={slidesData[0].title}
+            isActive
+            layout
+            sx={{
+              width: {
+                xs: 330,
+                md: 375,
+                xl: 420,
+              },
+            }}
+          />
+          {slidesData.slice(1, slidesData.length).map((item, index) => {
+            return <InitiativeHeroCard key={item.title} layout data={item} />;
+          })}
+        </AnimatePresence>
       </MotionStack>
       <SwiperNavigationButton
         PrevButtonProps={{
