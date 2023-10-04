@@ -15,19 +15,23 @@ export default function CommonBreadcrumb() {
   return (
     <Stack spacing={2}>
       <Breadcrumbs
-        separator={<NavigateNextIcon color="secondary" fontSize="small" />}
+        separator={<NavigateNextIcon sx={{opacity:0.5}} fontSize="small" />}
         aria-label="breadcrumb"
+        sx={{
+          color:'inherit'
+        }}
       >
         <Typography
           component={Link}
           sx={{
+            opacity:0.5,
             '&:hover':{
-              background:'none'
+              background:'none',              
             }
           }}
           href="/"
           underline="hover"
-          color="secondary.dark"
+          
         >
           Home  
         </Typography>
@@ -36,7 +40,7 @@ export default function CommonBreadcrumb() {
           pathNames.map((item, index) => {
             if(pathNames?.length === index+1){
               return(
-                <Typography color="white" textTransform="capitalize" key={index}>
+                <Typography textTransform="capitalize" key={index}>
                   {item.replace("-", " ")}
                 </Typography>
               )
@@ -47,13 +51,13 @@ export default function CommonBreadcrumb() {
                   textTransform="capitalize"
                   component={Link}
                   sx={{
+                    opacity:0.5,
                     '&:hover':{
-                      background:'none'
+                      background:'none'                     
                     }
                   }}
                   href={item}
-                  underline="hover"
-                  color="secondary.dark"
+                  underline="hover"                  
                   key={index}
                 >
                   {item.replace("-", " ")}

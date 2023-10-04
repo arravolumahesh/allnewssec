@@ -1,6 +1,6 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box, Card, Container, Stack, Typography } from "@mui/material";
+import { Box, Card, Container, Stack, Typography, alpha } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import React from "react";
 import {
@@ -18,75 +18,28 @@ import {
 import theme from "@/styles/theme";
 import { Height } from "@mui/icons-material";
 import AnimatedButton from "@/commonComponents/animated-button";
+import CommonBreadcrumb from "@/commonComponents/breadcrumb";
 
+const backUrl = "https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png";
 const CaseHome = () => {
   return (
     <>
       <SectionWrapper
         SectionProps={{
           sx: {
-            background:
-              "linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            // background:"linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
+            background:{md:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(${backUrl})`,xs:`linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(${backUrl}) left +65% center`},
+            backgroundRepeat: {xs:"no-repeat",md:"no-repeat"},
+            backgroundSize: {xs:"cover",md:"cover"},
+            // backgroundPosition:{xs:'center'}
           },
         }}
+        sx={{pt:{xxl:4}}}
       >
+        <CommonBreadcrumb />  
+       
         <Stack
-          sx={{ display: "flex", flexDirection: "row" }}
-          //   component={motion.div}
-          //   variants={staggerDiv}
-          //   initial={"initial"}
-          //   animate={"animate"}
-        >
-          <Stack display={"flex"} flexDirection={"column"}>
-            <MotionTypography
-              variant="body2"
-              sx={{
-                fontSize: Subtitle1,
-                color: "rgba(255, 255, 255, 0.50)",
-                height: "20px",
-              }}
-              variants={staggerChildren}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
-            >
-              Our Companies
-              <ArrowForwardIosIcon style={{ height: "20px", width: "20px" }} />
-            </MotionTypography>
-          </Stack>
-          <MotionTypography
-            variant="body2"
-            sx={{
-              fontSize: Subtitle1,
-              color: "rgba(255, 255, 255, 0.50)",
-              height: "20px",
-            }}
-            variants={staggerChildren}
-            initial={"initial"}
-            whileInView={"animate"}
-            viewport={{ once: true }}
-          >
-            &nbsp;Bajaj Auto
-            <ArrowForwardIosIcon style={{ height: "20px", width: "20px" }} />
-          </MotionTypography>
-          <MotionTypography
-            variant="body2"
-            sx={{
-              fontSize: Subtitle1,
-              height: "20px",
-            }}
-            variants={staggerChildren}
-            initial={"initial"}
-            whileInView={"animate"}
-            viewport={{ once: true }}
-          >
-            &nbsp;Case Studies
-          </MotionTypography>
-        </Stack>
-        <Stack
-          sx={{ md: { width: "667px", height: "255px", marginTop: H6_3 } }}
+          sx={{ md: { width: "667px", height: "255px", marginTop: H6_3 },mt:10 }}
         >
           <MotionTypography
             variant="h1"
@@ -96,6 +49,7 @@ const CaseHome = () => {
               alignItems: "stretch",
               height: "67px",
               paddingTop: "40px",
+              textTransform:'inherit'
             }}
             variants={staggerChildren}
             initial={"initial"}
@@ -150,13 +104,13 @@ const CaseHome = () => {
         >
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
               viewport={{ once: true }}
             >
-              Key Secuter
+              Key Sector
             </MotionTypography>
             <MotionTypography
               sx={{ fontSize: "18px" }}
@@ -170,7 +124,7 @@ const CaseHome = () => {
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{ fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -190,7 +144,7 @@ const CaseHome = () => {
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{ fontSize: Body2 ,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -204,7 +158,7 @@ const CaseHome = () => {
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{fontSize: Body2 , color:(theme)=> alpha(theme.palette.common.white,0.6)}}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}

@@ -43,6 +43,7 @@ const Discover = (props: DiscoverProps) => {
     <SectionWrapper
       SectionProps={{
         bgcolor: "primary.500",
+        id: "gallery",
       }}
       SectionHeaderProps={{
         title: title,

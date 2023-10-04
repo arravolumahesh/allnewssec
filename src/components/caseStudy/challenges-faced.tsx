@@ -12,11 +12,13 @@ import { Box, Grid, Stack } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { H6_1 } from "@/styles/theme/components/typography.fontvariant";
 import { motion } from "framer-motion";
+import GlobalArrowSmall from "../intermediate/icons/globalArrowSmall";
 
 const ChallengesFaced = () => {
   const theme = useTheme();
   const isDeskTop = useMediaQuery(theme.breakpoints.up("lg"));
   const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <SectionWrapper
@@ -53,13 +55,17 @@ const ChallengesFaced = () => {
           {data.map((eachItem, index) => (
             <Grid key={index} xs={12} md={6} item>
               <Box display={"flex"} alignItems={"baseline"}>
-                <ArrowGradient
-                  width={50}
-                  height={isDeskTop ? 132 : isTablet ? 114 : 96}
-                  marginRight={"69px"}
-                  variants={StaggerArrow}
-                />
-
+                {!isMobile ?
+                  <ArrowGradient
+                    width={50}
+                    height={isDeskTop ? 132 : isTablet ? 114 : 96}
+                    marginRight={"69px"}
+                    display={{xs:'block'}}
+                    variants={StaggerArrow}
+                  />
+                :
+                  <GlobalArrowSmall sx={{width:40,height:100,mt:2.5,mr:-1.25}} />
+                }
                 <Stack
                   spacing={4.5}
                   alignSelf={"center"}
@@ -112,7 +118,7 @@ const staggerDiv: MotionVariantProps = {
   initial: {},
   animate: {
     transition: {
-      staggerChildren: 0.7,
+      staggerChildren: 0.4,
     },
   },
 };

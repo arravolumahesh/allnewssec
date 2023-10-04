@@ -7,7 +7,7 @@ import {
 } from "@/commonComponents/motion-components";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Body2 } from "@/styles/theme/components/typography.fontvariant";
+import { Body2, Caption } from "@/styles/theme/components/typography.fontvariant";
 import { Box, Grid, Stack } from "@mui/material";
 
 import bg from "../ourCompanies/images/workForce.png";
@@ -107,7 +107,7 @@ const HowWeDid = () => {
               <Stack spacing={2}>
                 <MotionButton
                   sx={{
-                    fontSize: Body2,
+                    fontSize: Caption,
                     color: "#FFF",
                     background: "rgba(255, 255, 255, 0.20)",
                     padding: "6px 16px",
@@ -118,7 +118,7 @@ const HowWeDid = () => {
                 >
                   {eachData.title}
                 </MotionButton>
-                <MotionTypography width={"95%"} variants={staggerTextChildren}>
+                <MotionTypography width={"80%"} fontSize={Body2} variants={staggerTextChildren}>
                   {eachData.description}
                 </MotionTypography>
               </Stack>

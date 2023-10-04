@@ -82,7 +82,11 @@ const KeyFocus = () => {
           mb: { xs: 0, md: 6 },
         }}
       />
-      <Stack direction='row' alignItems={"center"} width={"107%"}>
+      <Stack
+        direction='row'
+        alignItems={"center"}
+        width={{ xs: 1, xxl: "107%" }}
+      >
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
@@ -97,11 +101,15 @@ const KeyFocus = () => {
             },
           }}
           sx={{
-            m: { xs: "-48px 0 -56px -24px", md: "-64px 0 -96px -64px" },
-            p: {
-              xs: "48px 24px 56px 24px",
-              md: "64px 64px 96px 64px",
+            m: {
+              //  xs: "-48px 0 -56px -24px",
+              xxl: "-64px 0 -96px -64px",
             },
+            p: {
+              // xs: "48px 24px 56px 24px",
+              xxl: "64px 64px 96px 64px",
+            },
+            overflow: { xs: "visible", xxl: "hidden" },
           }}
           SlideComponent={SmallTitleCard}
           data={data}

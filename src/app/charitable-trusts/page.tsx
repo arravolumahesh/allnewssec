@@ -1,11 +1,15 @@
 import Discover from "@/commonComponents/discover";
 import Enquire from "@/commonComponents/enquire";
+import ObjectiveSection from "@/commonComponents/objective-section";
 import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
 import ActsOfProgress from "@/components/charitableTrusts/acts-of-progress";
+import BajajAwards from "@/components/charitableTrusts/bajaj-awards";
 import CarryingServies from "@/components/charitableTrusts/carring-servies";
 import Initiatives from "@/components/charitableTrusts/initiatives";
+import Nominations from "@/components/charitableTrusts/nominations";
 import Stories from "@/components/charitableTrusts/stories";
+import Wardha from "@/components/charitableTrusts/wardha-section";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
@@ -27,12 +31,13 @@ const CharitableTrusts = () => {
           },
         }}
       />
+      <ObjectiveSection Objective='We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation.' />
       {/*<AboutUs />*/}
       {/*<OriginofChange />*/}
       <ActsOfProgress />
-      {/*<Awards />*/}
-      {/*<NominationsOpen />*/}
-      {/*<Wardha />*/}
+      <BajajAwards />
+      <Nominations />
+      <Wardha />
       <Initiatives />
       <Stories />
       <PartnerSwiperSection />

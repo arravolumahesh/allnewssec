@@ -26,9 +26,10 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
       date?: string;
       region?: string;
     };
+    applyDate?: string;
     title: string;
     description: string;
-    image: string | StaticImageData;
+    image?: string | StaticImageData;
     btnText?: string;
     btnLink?: string;
   }[];
@@ -65,9 +66,10 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   const swiper = useObservable(SwiperInstance, null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const { prefix, suffix, title, description, btnText } = useMemo(() => {
-    return data[activeIndex];
-  }, [activeIndex, data]);
+  const { prefix, suffix, applyDate, title, description, btnText } =
+    useMemo(() => {
+      return data[activeIndex];
+    }, [activeIndex, data]);
 
   useEffect(() => {
     if (swiper) {
@@ -128,8 +130,8 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           {suffix && (suffix.date || suffix.region) && (
             <MotionStack
               variants={childMotionVariants}
-              direction="row"
-              alignItems="center"
+              direction='row'
+              alignItems='center'
               columnGap={3}
             >
               {suffix.date && (
@@ -141,7 +143,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
                   gutterBottom
                   {...SuffixTypographyProps}
                 >
-                  <CalendarToday fontSize="small" /> {suffix.date}
+                  <CalendarToday fontSize='small' /> {suffix.date}
                 </MotionTypography>
               )}
               {suffix.region && (
@@ -153,7 +155,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
                   gutterBottom
                   {...SuffixTypographyProps}
                 >
-                  <FmdGood fontSize="small" /> {suffix.region}
+                  <FmdGood fontSize='small' /> {suffix.region}
                 </MotionTypography>
               )}
             </MotionStack>
@@ -166,6 +168,22 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
           >
             {description}
           </MotionTypography>
+          {applyDate && (
+            <MotionStack variants={childMotionVariants}>
+              <MotionTypography fontSize={"14px !important"} mb={"6px"}>
+                Apply by:
+              </MotionTypography>
+              <MotionTypography
+                display={"flex"}
+                gap={0.5}
+                alignItems={"center"}
+                variant={"body1"}
+                gutterBottom
+              >
+                <CalendarToday fontSize='small' /> {applyDate}
+              </MotionTypography>
+            </MotionStack>
+          )}
           {btnText && (
             <AnimatedButton
               href={"/"}
