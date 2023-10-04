@@ -118,7 +118,7 @@ const staggerDiv: MotionVariantProps = {
   initial: {},
   animate: {
     transition: {
-      staggerChildren: 0.7,
+      staggerChildren: 0.4,
     },
   },
 };

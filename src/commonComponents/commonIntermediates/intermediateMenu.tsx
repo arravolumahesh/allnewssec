@@ -36,22 +36,29 @@ const trigger = useScrollTrigger();
             zIndex: 9999,
           },
         }}
-        sx={{ py: {xxl:0,xs:0,md:0} }}
+        sx={{ 
+          py: {xxl:0,xs:0,md:0},
+          display:'flex',
+          flexDirection:'row',
+          alignItems:'center'
+       }}
       >
+        {logoImg &&
+          <Box sx={{pr:1.25}}>
+            <Image src={logoImg} width={124} height={32} alt="Company Name" />
+          </Box>
+        }
         <Box
           sx={{
             display: "flex",
-            justifyContent: { xs: "flex-start", lg: "space-around" },
+            flex:1,
+            justifyContent: { xs: "flex-start", lg: logoImg ? "center" :"space-around" },
             overflow: "auto",
-            gap: { xs: 5, lg: 0 },
+            gap: { xs: 5, lg: logoImg ? 10 : 0  },
             ...(styles && styles)
           }}
         >
-          {logoImg &&
-            <Box sx={{mr:'auto'}}>
-              <Image src={logoImg} width={124} height={32} alt="Company Name" />
-            </Box>
-          }
+          
           {skillMenu && skillMenu.map((item, index) => {
             return (
               <MotionButton
