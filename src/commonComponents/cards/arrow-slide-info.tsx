@@ -27,7 +27,7 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
       region?: string;
     };
     applyDate?: string;
-    title: string;
+    title?: string;
     description: string;
     image?: string | StaticImageData;
     btnText?: string;
@@ -118,15 +118,17 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
               {prefix}
             </MotionTypography>
           )}
-          <MotionTypography
-            variant={"h4"}
-            fontSize={H5_1}
-            gutterBottom
-            variants={childMotionVariants}
-            {...TitleTypographyProps}
-          >
-            {title}
-          </MotionTypography>
+          {title && (
+            <MotionTypography
+              variant={"h4"}
+              fontSize={H5_1}
+              gutterBottom
+              variants={childMotionVariants}
+              {...TitleTypographyProps}
+            >
+              {title}
+            </MotionTypography>
+          )}
           {suffix && (suffix.date || suffix.region) && (
             <MotionStack
               variants={childMotionVariants}
