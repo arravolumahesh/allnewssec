@@ -146,6 +146,9 @@ const CaseStudies = () => {
           flexDirection: "row",
           alignItems: "flex-start",          
           justifyContent: "flex-start",
+          "& .swiper": {
+            width: "100%",
+          },
           '& .swiper-slide':{
             width:'auto'
           }

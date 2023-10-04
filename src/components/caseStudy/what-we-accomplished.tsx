@@ -117,6 +117,9 @@ const Accomplished = () => {
         power of education and training.
       </MotionTypography>
       <Box sx={{ display: "flex", gap: "24px", flexDirection: "row",
+      "& .swiper": {
+        width: "100%",
+      },
       '& .swiper-slide':{
         width:'auto'
       }
