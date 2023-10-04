@@ -30,19 +30,19 @@ const routes: HeaderProps["routes"] = [
     children: [
       {
         title: "Bajaj Auto Limited",
-        href: "our-companies/bajaj-auto-limited",
+        href: "/our-companies/bajaj-auto-limited",
       },
       {
         title: "Bajaj Electricals Limited",
-        href: "our-companies/bajaj-electricals-limited",
+        href: "/our-companies/bajaj-electricals-limited",
       },
       {
         title: "Bajaj Finserv Limited",
-        href: "our-companies/bajaj-finserv-limited",
+        href: "/our-companies/bajaj-finserv-limited",
       },
       {
         title: "Mukand Limited",
-        href: "our-companies/mukand-limited",
+        href: "/our-companies/mukand-limited",
       },
     ],
   },
