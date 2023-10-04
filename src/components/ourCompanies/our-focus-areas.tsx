@@ -1,41 +1,20 @@
 "use client";
-import { useState } from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import AnimatedButton from "@/commonComponents/animated-button";
 import { motion } from "framer-motion";
-import {
-  Box,
-  Stack,
-  Typography,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Divider,
-  alpha,
-} from "@mui/material";
 
-import {
-  MotionImage,
-  MotionTypography,
-  MotionVariantProps,
-} from "@/commonComponents/motion-components";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import OFA1 from "./images/OFA1.png";
-import OFA2 from "./images/OFA2.png";
+import { MotionVariantProps } from "@/commonComponents/motion-components";
 import OFA3 from "./images/OFA3.png";
 import WorkForce from "./images/workForce.png";
 import classRoom from "./images/classRoom.png";
 import IPH1 from "./images/IPH1.png";
 import IPH2 from "./images/IPH2.png";
-import {
-  H3_2,
-  H6_2,
-  H6_3,
-} from "@/styles/theme/components/typography.fontvariant";
-import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
-import { CompanyCard } from "@/commonComponents/cards/company";
+import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import ExpandableAccordion from "@/commonComponents/expandable-accordion";
+import ArrowSwiperWithInfoSection, {
+  ArrowSwiperWithInfoProps,
+} from "@/commonComponents/arrow-swiper-with-info-section";
+import ArrowSlideInfo from "@/commonComponents/cards/arrow-slide-info";
+import { ArrowSlideDefaultImageProps } from "@/commonComponents/cards/arrow-slide-default-image";
 
 const data = [
   {
@@ -123,103 +102,50 @@ const OurFocusAreas = () => {
       }}
       color={"common.white"}
     >
-      <Stack
-        direction={{ xs: "column", md: "row" }}
-        alignItems={{ xs: "center", md: "stretch", lg: "center" }}
-        justifyContent={"space-between"}
-        mb={12}
-        columnGap={2}
-        rowGap={3}
-      >
-        <Stack
-          direction={"row"}
-          columnGap={{ xs: 0.5, md: 1 }}
-          width={{ xs: 1, md: 0.5 }}
-        >
-          <MotionImage
-            src={OFA1}
-            alt='OFA1'
-            sx={{
-              width: 0.5,
-              maxWidth: { xs: "none", md: 318 },
-              height: { xs: 1, lg: 368 },
-              objectFit: "cover",
-            }}
-            // variants={StagImage1}
-            // initial={"initial"}
-            // whileInView={"animate"}
-            // viewport={{ once: true }}
-          />
-          <Stack
-            width={0.5}
-            rowGap={{ xs: 0.5, md: 1 }}
-            maxWidth={{ xs: "none", md: 318 }}
-          >
-            <MotionImage
-              src={OFA2}
-              alt=''
-              sx={{
-                width: 1,
-                height: { xs: 0.5, lg: 180 },
-                objectFit: "cover",
-              }}
-              // variants={StagImage2}
-              // initial={"initial"}
-              // whileInView={"animate"}
-              // viewport={{ once: true }}
-            />
-            <MotionImage
-              src={OFA3}
-              alt=''
-              sx={{
-                width: 1,
-                height: { xs: 0.5, lg: 180 },
-                objectFit: "cover",
-              }}
-              // variants={StagImage3}
-              // initial={"initial"}
-              // whileInView={"animate"}
-              // viewport={{ once: true }}
-            />
-          </Stack>
-        </Stack>
-        <Stack
-          width={{ xs: 1, md: 0.5 }}
-          maxWidth={{ xs: 1, md: 612 }}
-          rowGap={{ xs: 3, md: 5 }}
-          // component={motion.div}
-          // variants={staggerDiv}
-          // initial={"initial"}
-          // whileInView={"animate"}
-          // viewport={{ once: true }}
-        >
-          <MotionTypography
-            variant='body1'
-            fontSize={H6_2}
-            // variants={staggerChildren}
-          >
-            We are deeply committed to improving livelihoods, particularly for
-            the marginalized youth of our country by skilling and empowering
-            them. We also contribute to education, health, environment, animal
-            welfare projects, and other relevant areas for the sustainable
-            development of the community and the nation.
-          </MotionTypography>
-          <AnimatedButton
-            href={"./"}
-            variant='contained'
-            color='secondary'
-            // variants={staggerBtn}
-          >
-            View Initiatives
-          </AnimatedButton>
-        </Stack>
-      </Stack>
+      <ArrowSwiperWithInfoSection
+        data={arrowData}
+        SwiperKey={OurFocusAreas.name}
+        SwiperProps={{
+          navigation: false,
+        }}
+        ArrowSlideInfoProps={{
+          SlotProps: {
+            DescriptionTypographyProps: {
+              fontSize: H6_2,
+              color: "common.white",
+            },
+            ButtonProps: {
+              href: "/",
+              variant: "contained",
+              color: "secondary",
+            },
+          },
+          // width: "50%",
+        }}
+        SectionWrapperProps={{
+          p: "0 !important",
+          mb: { xs: 4, md: 9 },
+        }}
+      />
       <ExpandableAccordion data={data} TopDivider BottomDivider />
     </SectionWrapper>
   );
 };
 
 export default OurFocusAreas;
+
+const arrowData: (ArrowSwiperWithInfoProps<
+  typeof ArrowSlideInfo
+>["data"][number]["data"][number] &
+  ArrowSlideDefaultImageProps)[] = [
+  {
+    description:
+      "We are deeply committed to improving livelihoods, particularly for the marginalized youth of our country by skilling and empowering them. We also contribute to education, health, environment, animal welfare projects, and other relevant areas for the sustainable development of the community and the nation.",
+    image: OFA3,
+    btnText: "View All Initiatives",
+    btnLink: "/",
+  },
+];
 
 const staggerChildren: MotionVariantProps = {
   initial: {

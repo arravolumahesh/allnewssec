@@ -60,16 +60,6 @@ const CsrReport = () => {
           >
             Csr Reports
           </MotionTypography>
-          <MotionTypography
-            variant='body1'
-            mt={{ xs: 2, md: 1 }}
-            // variants={staggerChildren}
-            // initial={"initial"}
-            // whileInView={"animate"}
-            // viewport={{ once: true }}
-          >
-            We are always looking forward to support you
-          </MotionTypography>
           <Stack
             mt={5}
             mb={4}

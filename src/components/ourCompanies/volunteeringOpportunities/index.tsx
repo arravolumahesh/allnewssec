@@ -30,13 +30,6 @@ const VolunteeringOpportunities = () => {
             color: "primary",
           },
         },
-        SwiperNavigationButtonProps: {
-          color: "primary.main",
-          alignSelf: {
-            xs: "center",
-            md: "flex-start",
-          },
-        },
       }}
     />
   );
