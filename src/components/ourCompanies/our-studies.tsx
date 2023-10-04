@@ -38,17 +38,20 @@ const CaseStudies = () => {
               mr: 3,
             },
           }}
+          sx={{
+            overflow: { xs: "visible", xxl: "hidden" },
+          }}
           SlideComponent={CaseStudySlide}
           data={swiperData}
           Slots={{
             ContainerStartChildren: (
               <Stack
-                direction="row"
+                direction='row'
                 alignItems={"center"}
                 justifyContent={"space-between"}
                 mb={{ xs: 5, md: 6 }}
               >
-                <MotionTypography variant="h3">
+                <MotionTypography variant='h3'>
                   Our Case Studies
                 </MotionTypography>
                 <SwiperNavigationButton
@@ -133,7 +136,7 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
     >
       <MaterialImage
         src={img}
-        alt="childerns"
+        alt='childerns'
         sx={{
           position: "relative",
           width: { xs: 310, md: 643 },
@@ -150,10 +153,10 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
       >
         {tag}
       </MotionTypography>
-      <MotionTypography variant="body1" fontSize={H6_1}>
+      <MotionTypography variant='body1' fontSize={H6_1}>
         {title}
       </MotionTypography>
-      <MotionTypography variant="body1">{subTitle}</MotionTypography>
+      <MotionTypography variant='body1'>{subTitle}</MotionTypography>
       {isMobile && (
         <Link
           style={{
@@ -162,10 +165,10 @@ const CaseStudySlide = (props: CaseStudySlideProps) => {
             fontSize: "18px",
             textDecoration: "none",
           }}
-          href="/"
+          href='/'
         >
           View Case Study{" "}
-          <ArrowForwardIos sx={{ ml: "8px" }} fontSize="small" />
+          <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
         </Link>
       )}
     </Stack>

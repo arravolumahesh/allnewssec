@@ -1,5 +1,6 @@
 import Discover from "@/commonComponents/discover";
 import Enquire from "@/commonComponents/enquire";
+import ObjectiveSection from "@/commonComponents/objective-section";
 import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
 import ActsOfProgress from "@/components/charitableTrusts/acts-of-progress";
@@ -30,6 +31,7 @@ const CharitableTrusts = () => {
           },
         }}
       />
+      <ObjectiveSection Objective='We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation.' />
       {/*<AboutUs />*/}
       {/*<OriginofChange />*/}
       <ActsOfProgress />

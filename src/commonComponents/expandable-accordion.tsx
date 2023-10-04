@@ -155,6 +155,9 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                       mr: 3,
                     },
                   }}
+                  sx={{
+                    overflow: { xs: "visible", xxl: "hidden" },
+                  }}
                   SlideComponent={CompanyCard}
                   data={eachArea.intitiatives}
                 />
