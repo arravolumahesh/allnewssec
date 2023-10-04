@@ -53,8 +53,10 @@ const InitiativeHeroCard = (props: InitiativeHeroCardProps) => {
             background: (theme) => theme.palette.gradient.transparentToDark_V2,
           }}
         >
-          <Typography variant={"h6"}>{title}</Typography>
-          <Typography variant={"subtitle1"} component={"span"}>
+          <Typography variant={"h6"} mb={0.5}>
+            {title}
+          </Typography>
+          <Typography variant={"subtitle1"} component={"span"} mb={1}>
             {designation}
           </Typography>
           <Typography variant={"subtitle2"} component={"p"}>

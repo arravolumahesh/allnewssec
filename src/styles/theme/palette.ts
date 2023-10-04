@@ -1,8 +1,4 @@
-import {
-  PaletteOptions,
-  SimplePaletteColorOptions,
-  ThemeOptions,
-} from "@mui/material";
+import {PaletteOptions, SimplePaletteColorOptions, ThemeOptions,} from "@mui/material";
 
 /**
  * @ThemeOptions['palette']
@@ -11,7 +7,7 @@ import {
  * @see https://material-ui.com/customization/palette/#palette
  */
 export const PaletteTheme = (
-  mode: PaletteOptions["mode"]
+  mode: PaletteOptions["mode"],
 ): ThemeOptions["palette"] => {
   const isLight = mode !== "dark";
   return {
@@ -182,6 +178,8 @@ export const PaletteTheme = (
         lightToDark: "linear-gradient(0deg, #0F182A 35.16%, #244A8F 100%)",
         transparentToDark:
           "linear-gradient(to top,#0A0A0A 50.71%, rgba(10, 10, 10, 0.00) 84.55%)",
+        transparentToDark_V2:
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%);",
         transparentToDarkRight:
           "linear-gradient(90deg, #000 -3.68%, rgba(0, 0, 0, 0.59) 72.78%, rgba(0, 0, 0, 0.30) 100%)",
         darkOverlay:
@@ -201,6 +199,7 @@ declare module "@mui/material/styles" {
       darkToLight: string;
       lightToDark: string;
       transparentToDark: string;
+      transparentToDark_V2: string;
       transparentToDarkRight: string;
       darkOverlay: string;
       darkToTransparentRight: string;
@@ -214,6 +213,7 @@ declare module "@mui/material/styles" {
       darkToLight: string;
       lightToDark: string;
       transparentToDark: string;
+      transparentToDark_V2: string;
       transparentToDarkRight: string;
       darkOverlay: string;
       darkToTransparentRight: string;
