@@ -89,16 +89,12 @@ const menus: SectionNavigationProps["Sections"] = [
     href: "#volunteering-opportunities",
   },
   {
-    title: "Bajaj Auto",
-    href: "#bajaj-auto",
-  },
-  {
     title: "Contact Us",
     href: "#contact-us",
   },
   {
-    title: "CSR Reports",
-    href: "#csr-reports",
+    title: "Gallery",
+    href: "#gallery",
   },
 ];
 
