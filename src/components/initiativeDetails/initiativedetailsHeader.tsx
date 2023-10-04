@@ -7,7 +7,7 @@ const InitiativeDetailsHeader = () => {
             <SectionWrapper  
                 SectionProps={{
                     sx:{
-                        py:{xs:4,md:4},
+                        py:{xs:0,md:4},
                         backgroundColor:'white'
                     }
                     
