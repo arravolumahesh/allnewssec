@@ -4,6 +4,7 @@ import { Theme } from "@mui/material/styles";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
+  MotionImage,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
@@ -20,11 +21,13 @@ import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button"
 import { Navigation } from "swiper/modules";
 import { Fragment } from "react";
 import InfoSlides from "@/commonComponents/cards/info-slides";
+import line from "@c/home/images/Line 1322.svg";
+import { MaterialImage } from "@/commonComponents/material-components";
 
 // Main component Sustainability
 
 const Sustainability = () => {
-  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
   return (
     <SectionWrapper
       SectionProps={{
@@ -53,13 +56,13 @@ const Sustainability = () => {
     >
       <Grid2
         container
-        justifyContent={{ xs: "space-between", md: "space-around" }}
+        justifyContent={{ xs: "space-between", lg: "space-around" }}
         rowGap={3}
       >
         {gridData.map((item, idx) => (
           <Fragment key={idx}>
-            <Grid2 width={{ xs: 0.5, md: "max-content" }}>
-              <Stack rowGap={1} width={{ xs: 1, md: "max-content" }}>
+            <Grid2 width={{ xs: 0.5, lg: "max-content" }}>
+              <Stack rowGap={1} width={{ xs: 1, lg: "max-content" }}>
                 <MotionTypography
                   variant='body2'
                   fontSize={"18px !important"}
@@ -83,11 +86,13 @@ const Sustainability = () => {
                   display: matches ? "none" : "block",
                 }}
               >
-                <Divider
-                  orientation='vertical'
+                <MaterialImage
+                  // variants={staggerArrowChildren}
+                  src={line}
+                  alt=''
                   sx={{
-                    height: "100%",
-                    borderColor: "common.white",
+                    height: 51,
+                    display: { xs: "none", md: "block" },
                   }}
                 />
               </Grid2>

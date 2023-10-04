@@ -28,14 +28,19 @@ export interface ScrollTriggeredSwiperSectionProps<
   SlideComponent?:
     | EnhancedSwiperProps<T, P>["SlideComponent"]
     | EnhancedSwiperProps<typeof StorySlide>["SlideComponent"];
-  EnhancedSwiperProps?: Omit<EnhancedSwiperProps<T, P>, "children">;
+  EnhancedSwiperProps?: Partial<
+    Omit<
+      EnhancedSwiperProps<T, P> | EnhancedSwiperProps<typeof StorySlide>,
+      "children"
+    >
+  >;
 }
 
 const ScrollTriggeredSwiperSection = <
   T extends ComponentType<any>,
   P extends ComponentProps<T>,
 >(
-  props: ScrollTriggeredSwiperSectionProps<T, P>,
+  props: ScrollTriggeredSwiperSectionProps<T, P>
 ) => {
   const {
     data,
