@@ -1,6 +1,6 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box, Card, Container, Stack, Typography } from "@mui/material";
+import { Box, Card, Container, Stack, Typography, alpha } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import React from "react";
 import {
@@ -20,6 +20,7 @@ import { Height } from "@mui/icons-material";
 import AnimatedButton from "@/commonComponents/animated-button";
 import CommonBreadcrumb from "@/commonComponents/breadcrumb";
 
+const backUrl = "https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png";
 const CaseHome = () => {
   return (
     <>
@@ -27,7 +28,7 @@ const CaseHome = () => {
         SectionProps={{
           sx: {
             // background:"linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
-            background:{md:"linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png)",xs:"linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png) left +65% center"},
+            background:{md:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(${backUrl})`,xs:`linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(${backUrl}) left +65% center`},
             backgroundRepeat: {xs:"no-repeat",md:"no-repeat"},
             backgroundSize: {xs:"cover",md:"cover"},
             // backgroundPosition:{xs:'center'}
@@ -103,13 +104,13 @@ const CaseHome = () => {
         >
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
               viewport={{ once: true }}
             >
-              Key Secuter
+              Key Sector
             </MotionTypography>
             <MotionTypography
               sx={{ fontSize: "18px" }}
@@ -123,7 +124,7 @@ const CaseHome = () => {
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{ fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -143,7 +144,7 @@ const CaseHome = () => {
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{ fontSize: Body2 ,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -157,7 +158,7 @@ const CaseHome = () => {
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
             <MotionTypography
-              sx={{ opacity: "0.7", fontSize: Body2 }}
+              sx={{fontSize: Body2 , color:(theme)=> alpha(theme.palette.common.white,0.6)}}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}

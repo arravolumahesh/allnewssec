@@ -146,15 +146,24 @@ const Accomplished = () => {
                         alignItems: "center",
                         justifyContent:'center',
                         gap: "24px",
-                        minHeight: "297",
+                        minHeight: 340,
                         height:'100%',
                         background: "rgba(255, 255, 255, 0.1)",
                         p:{xs:3,md:5},
                         transition:'all 0.5s',
+                        "& .hoverSubs":{                          
+                          height:0,
+                          overflow:'hidden',
+                          transition:'height 0.5s',
+                        },
                         "&:hover": {
                           background: common.white,
                           transition:'all 0.5s',
                           color: (theme) => theme.palette.primary.main,
+                          "& .hoverSubs":{                            
+                            height:100,                            
+                            transition:'height 0.5s',
+                          },
                         },
                       }}
                     >
@@ -189,6 +198,7 @@ const Accomplished = () => {
                           textAlign: "center",
                         }}
                         variants={staggerChildren}
+                        className="hoverSubs"
                       >
                         {award.subtitle}
                       </MotionTypography>
@@ -271,27 +281,26 @@ const awardsdata = [
   {
     number: "20%",
     title: "INCREASE IN INCOME LEVEL",
-    subtitle:
-      "Families of participants experiences an increase in household income, contributing to overall economic growth in the community.",
+    subtitle:"Families of participants experiences an increase in household income, contributing to overall economic growth in the community.",
   },
   {
     number: "12%",
     title: "WOMEN & CHILD WELFARE",
-    subtitle: "",
+    subtitle:"Families of participants experiences an increase in household income, contributing to overall economic growth in the community.",
   },
   {
     number: "35%",
     title: "SCIENCE & TECHNOLOGY",
-    subtitle: "",
+    subtitle:"Families of participants experiences an increase in household income, contributing to overall economic growth in the community.",
   },
   {
     number: "35%",
     title: "SCIENCE & TECHNOLOGY",
-    subtitle: "",
+    subtitle:"Families of participants experiences an increase in household income, contributing to overall economic growth in the community.",
   },
   {
     number: "35%",
     title: "SCIENCE & TECHNOLOGY",
-    subtitle: "",
+    subtitle:"Families of participants experiences an increase in household income, contributing to overall economic growth in the community.",
   },
 ];

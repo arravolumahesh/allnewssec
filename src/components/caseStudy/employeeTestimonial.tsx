@@ -15,6 +15,9 @@ const EmployeeTestimonial = () => {
                         backgroundColor:'white'
                     }
                 }}
+                sx={{
+                    p:{xs:0}
+                }}
             >
                 <EnhancedSwiper
                     data={data || []}
