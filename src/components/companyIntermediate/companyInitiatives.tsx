@@ -24,6 +24,7 @@ const CompanyIntermediateInitiatives = (prop: props) => {
               sx={{
                 py: {xxl:0,md:0,xs:0},
               }}
+              color={'primary.main'}
             >
                 <Grid container spacing={3}  rowSpacing={8}>
                     {initiative && initiative.map((item,index)=>{
@@ -35,7 +36,7 @@ const CompanyIntermediateInitiatives = (prop: props) => {
                     })}
                 </Grid>
 
-                <Button variant="outlined" sx={{mt:10,mx:'auto'}}>View More</Button>
+                <Button variant="outlined" sx={{mt:10,mx:'auto',width:{xs:1,md:'auto'}}}>View More</Button>
                 
         </SectionWrapper>
         </>

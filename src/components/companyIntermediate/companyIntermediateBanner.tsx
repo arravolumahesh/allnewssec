@@ -104,7 +104,7 @@ const CompanyIntermediateBanner = () => {
           display: "flex",
           justifyContent: "space-between",
           pb:{xxl:9,xs:1},
-          pt:{xxl:4,xs:2}
+          pt:{xxl:4,xs:2},          
         }}
         color={'white'}
       >

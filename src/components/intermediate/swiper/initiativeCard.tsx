@@ -8,8 +8,9 @@ import companyImage from "../images/companyImage.svg";
 import Image from "next/image";
 import { useSwiperSlide } from "swiper/react";
 import RoomIcon from "@mui/icons-material/Room";
-import { Box } from "@mui/material";
+import { Box, Link as MuiLink } from "@mui/material";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
+import Link from "next/link";
 
 interface props {
   data: {
@@ -56,6 +57,7 @@ const InitiativeCard = (prop: props) => {
 
   return (
     <>
+    <MuiLink component={Link} href={'/initiatives/all-initiatives/gifting-smiles'}>
       <MotionBox
         initial={{
           x: !prop.matches ? (swiperSlide?.isPrev ? "-40%" : "40%") : 0,
@@ -110,6 +112,7 @@ const InitiativeCard = (prop: props) => {
           {prop.data.title}
         </MotionTypography>
       </MotionBox>
+    </MuiLink>
     </>
   );
 };
