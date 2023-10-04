@@ -104,7 +104,7 @@ const CaseStudies = () => {
 
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
 
-  const slidesPerView = isTabletOrLarger ? 2 : isMobile ? 1 : 1;
+  const slidesPerView = isTabletOrLarger ? 2 : isMobile ? 'auto' : 'auto';
   return (
     <SectionWrapper
       sx={{
@@ -146,6 +146,9 @@ const CaseStudies = () => {
           flexDirection: "row",
           alignItems: "flex-start",          
           justifyContent: "flex-start",
+          '& .swiper-slide':{
+            width:'auto'
+          }
         }}
       >
         <Swiper
@@ -191,7 +194,10 @@ const CaseStudies = () => {
           {isMobile && <Stack slot="container-end"><SlideButtons disablePrev={disablePrev} disableNext={disableNext} /></Stack>  }
           {DetailsOfLargerDevices.map((element, index) => (
             <SwiperSlide key={index}>
-              <Stack key={index}>
+              <Stack 
+                key={index}
+                sx={{width: { xs:300, md: 1 }}}
+                >
                 <MaterialImage
                   src={element.imageUrl}
                   alt="childerns"
