@@ -65,16 +65,6 @@ const Discover = (props: DiscoverProps) => {
           SlideComponent={ImageSlics}
           {...swiperProps}
         />
-        <EnhancedSwiper
-          data={ImageData}
-          SlideComponent={ImageSlics}
-          {...swiperProps}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            reverseDirection: false,
-          }}
-        />
       </Stack>
       <Stack display={"flex"} flexDirection={"row"}>
         <MotionStack
@@ -148,10 +138,10 @@ const ImageSlics = (props: ImageSlicsProps) => {
       src={img}
       alt=''
       width={421}
-      height={247}
+      height={484}
       sx={{
-        width: { xs: 200, md: 421 },
-        height: { xs: 164, md: 247 },
+        width: { xs: 250, md: 421 },
+        height: { xs: 290, md: 484 },
         objectFit: "cover",
       }}
     />
