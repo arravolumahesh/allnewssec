@@ -3,13 +3,10 @@ import {
   MotionImage,
   MotionStack,
   MotionTypography,
-  MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Stack } from "@mui/material";
 import React from "react";
 import line from "./images/Line 1322.svg";
-import { motion } from "framer-motion";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import {
   staggerArrowChildren,
@@ -89,28 +86,6 @@ const Impact = () => {
 };
 
 export default Impact;
-
-const staggerDiv: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.4,
-    },
-  },
-};
-const staggerChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "100%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
 
 const data = [
   {

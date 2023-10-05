@@ -54,14 +54,14 @@ const BuildFuture = () => {
       >
         <MotionTypography
           variant='h1'
-          variants={bottomToToptextStaggerChildren(0)}
+          variants={bottomToToptextStaggerChildren}
         >
           Building futures, empowering by skilling
         </MotionTypography>
 
         <MotionTypography
           variant='body2'
-          variants={bottomToToptextStaggerChildren(0)}
+          variants={bottomToToptextStaggerChildren}
         >
           At Bajaj Auto, our commitment to society is way beyond our business.
           As a true corporate citizen, our actions in community development have

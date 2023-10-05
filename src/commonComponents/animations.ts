@@ -4,24 +4,38 @@ export const bottomToToptextStagger = (delay: number): MotionVariantProps => ({
   initial: {},
   animate: {
     transition: {
-      staggerChildren: 0.4,
       delayChildren: delay,
+      staggerChildren: 0.4,
     },
   },
 });
 
-export const bottomToToptextStaggerChildren = (
-  delay: number
-): MotionVariantProps => ({
+export const bottomToToptextStaggerChildren: MotionVariantProps = {
   initial: {
-    y: 50,
+    y: "50%",
     opacity: 0,
   },
   animate: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: delay,
+      // delay: delay,
+      duration: 0.5,
+    },
+  },
+};
+export const bottomToToptextTransition = (
+  delay: number
+): MotionVariantProps => ({
+  initial: {
+    y: "50%",
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      // delay: delay,
       duration: 0.5,
     },
   },

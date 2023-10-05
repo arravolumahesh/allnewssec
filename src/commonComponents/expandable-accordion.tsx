@@ -23,6 +23,7 @@ import {
 import {
   bottomToToptextStagger,
   bottomToToptextStaggerChildren,
+  bottomToToptextTransition,
   staggerArrowChildren,
   staggerDivArrow,
   staggerStackChildren,
@@ -111,7 +112,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               <MotionTypography
                 variant='h3'
                 fontSize={H3_2}
-                variants={bottomToToptextStaggerChildren(0)}
+                variants={bottomToToptextTransition(0)}
                 initial={"initial"}
                 whileInView={"animate"}
                 viewport={{ once: true }}
@@ -124,7 +125,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                 variant='body1'
                 fontSize={H6_3}
                 maxWidth={867}
-                variants={bottomToToptextStaggerChildren(0.2)}
+                variants={bottomToToptextTransition(0.2)}
                 initial={"initial"}
                 whileInView={"animate"}
                 viewport={{ once: true }}
