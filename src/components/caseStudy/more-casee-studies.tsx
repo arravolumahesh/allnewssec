@@ -53,7 +53,7 @@ const CaseStudies = () => {
                 mb={{ xs: 5, md: 6 }}
               >
                 <MotionTypography variant='h3'>
-                  Our Case Studies
+                  More Case Studies
                 </MotionTypography>
                 <SwiperNavigationButton
                   display={{
