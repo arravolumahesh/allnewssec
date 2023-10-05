@@ -1,290 +1,131 @@
 "use client";
-
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
-import "swiper/swiper-bundle.css";
-import { MotionButton, MotionVariantProps } from "@/commonComponents/motion-components";
-import React, { useState } from "react";
+import { Navigation } from "swiper/modules";
+import {
+  MotionTypography,
+  MotionVariantProps,
+} from "@/commonComponents/motion-components";
+import React from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { useMediaQuery, Stack, Button } from "@mui/material";
-import { helvetica } from "@/app/font";
+import { Stack, Theme, useMediaQuery } from "@mui/material";
 import womens from "@/components/ourCompanies/images/womens.png";
 import childrens from "@/components/ourCompanies/images/childrens.png";
-import { MotionTypography } from "@/commonComponents/motion-components";
 import { MaterialImage } from "@/commonComponents/material-components";
-import SlideButtons from "../intermediate/swiper/swiperButton";
-import AnimatedButton from "@/commonComponents/animated-button";
-import { common } from "@mui/material/colors";
-import theme from "@/styles/theme";
-import { Body1, Caption, H3, H6_3 } from "@/styles/theme/components/typography.fontvariant";
+import { StaticImageData } from "next/image";
+import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import { H6_1, H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import Link from "next/link";
-import SvgIconArrow from "../intermediate/icons/arrowIcon";
-
-const useStyles = {
-  imageContainer: {
-    position: "relative",
-    overflow: "hidden",
-  },
-  hoverableImage: {
-    width: "100%",
-    height: "auto",
-    transition: "transform 0.3s ease",
-    "&:hover": {
-      transform: "scale(1.1)",
-      filter: "brightness(0.5)",
-    },
-  },
-  buttonOverlay: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    padding: "10px 20px",
-    border: "none",
-    color: "white",
-    cursor: "pointer",
-    transition: "opacity 0.3s ease",
-    opacity: 0,
-    "&:hover": {
-      opacity: 1,
-    },
-  },
-};
+import { ArrowForwardIos } from "@mui/icons-material";
+import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
+import { CaseStudySlide } from "../ourCompanies/our-studies";
 
 const CaseStudies = () => {
-  interface DetailsOfLargerDevices {
-    imageUrl: string;
-    tag: string;
-    heading: string;
-    subheading: string;
-  }
-  const DetailsOfLargerDevices = [
-    {
-      imageUrl: childrens,
-      tag: "IPH-Triveni Program",
-      heading: "Digital Skilling for Youth",
-      subheading:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-    },
-    {
-      imageUrl: womens,
-      tag: "IPH-Triveni Program",
-      heading: "Providing Vocational Training for Women in Maharashtra",
-      subheading:
-        "Helping students learn digitally in order to keep them future and employment ready.",
-    },
-    {
-      imageUrl: childrens,
-      tag: "IPH-Triveni Program",
-      heading: "Digital Skilling for Youth",
-      subheading:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-    },
-    {
-      imageUrl: womens,
-      tag: "IPH-Triveni Program",
-      heading: "Providing Vocational Training for Women in Maharashtra",
-      subheading:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-    },
-    {
-      imageUrl: childrens,
-      tag: "IPH-Triveni Program",
-      heading: "Digital Skilling for Youth",
-      subheading:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-    },
-  ];
-  const [disablePrev, setDisabledPrev] = useState<boolean>(true);
-  const [disableNext, setDisabledNext] = useState<boolean>(false);
-  const isTabletOrLarger = useMediaQuery((theme: any) =>
-    theme.breakpoints.up("md")
-  );
-
-  const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
-
-  const slidesPerView = isTabletOrLarger ? 2 : isMobile ? 'auto' : 'auto';
   return (
     <SectionWrapper
-      sx={{
-        backgroundColor: "rgba(234, 234, 234, 1)",
-        padding: "96px 64px",
-        textAlign: "center",
-      }}
+      SectionProps={{ id: "case-studies" }}
+      color={"primary.main"}
     >
-      {/* <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          gap: "auto",
-        }}
-      >
-        <MotionTypography
-          variant="h3"
+      <Stack width={1}>
+        <EnhancedSwiper
+          slidesPerView={"auto"}
+          navigation={{
+            enabled: true,
+            nextEl: ".swiper-case-next",
+            prevEl: ".swiper-case-prev",
+          }}
+          modules={[Navigation]}
+          SlideWrapperProps={{
+            sx: {
+              width: { xs: 301, lg: 643 },
+              mr: 3,
+            },
+          }}
           sx={{
-            color: "var(--primary-blue, #005DAC)",
-            textOverflow: "ellipsis",
-            fontSize: "48px",
-            fontStyle: "normal",
-            lineHeight: "128%",
+            overflow: { xs: "visible", xxl: "hidden" },
           }}
-          variants={staggerChildren}
-          initial={"initial"}
-          whileInView={"animate"}
-          viewport={{ once: true }}
-        >
-          OUR CASE STUDIES
-        </MotionTypography>
-      </Stack> */}
-      {/* Adding the image container */}
-
-      <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-start",          
-          justifyContent: "flex-start",
-          "& .swiper": {
-            width: "100%",
-          },
-          '& .swiper-slide':{
-            width:'auto'
-          }
-        }}
-      >
-        <Swiper          
-          pagination={false}
-          navigation={!isMobile}
-          slidesPerView={slidesPerView}
-          spaceBetween={24}
-          modules={[Pagination, Navigation]}
-          onSlideChange={(swiper) => {
-            setDisabledPrev(swiper.isBeginning);
-            setDisabledNext(swiper.isEnd);
-          }}
-        >
-          <Stack
-            slot="container-start"
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              mb:{md:6,xs:5}
-              // mt: { xs: "30px" },
-            }}
-          >
-            <MotionTypography
-                variant="h3"
-                sx={{
-                  color: "primary.main",
-                  textOverflow: "ellipsis",
-                  fontSize: H3,
-                  fontStyle: "normal",
-                  lineHeight: "128%",
-                }}
-                variants={staggerChildren}
-                initial={"initial"}
-                whileInView={"animate"}
-                viewport={{ once: true }}
+          SlideComponent={CaseStudySlide}
+          data={swiperData}
+          Slots={{
+            ContainerStartChildren: (
+              <Stack
+                direction='row'
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                mb={{ xs: 5, md: 6 }}
               >
-                OUR CASE STUDIES
-              </MotionTypography>
-              {!isMobile && <SlideButtons disablePrev={disablePrev} disableNext={disableNext} /> }
-          </Stack>
-          {isMobile && <Stack slot="container-end"><SlideButtons disablePrev={disablePrev} disableNext={disableNext} /></Stack>  }
-          {DetailsOfLargerDevices.map((element, index) => (
-            <SwiperSlide key={index}>
-              <Stack 
-                key={index}
-                sx={{width: { xs:300, md: 1 }}}
-                >
-                <MaterialImage
-                  src={element.imageUrl}
-                  alt="childerns"
-                  sx={{
-                    width: { xs: "310px", md: "643px" },
-                    height: { xs: "240px", md: "310px" },
+                <MotionTypography variant='h3'>
+                  Our Case Studies
+                </MotionTypography>
+                <SwiperNavigationButton
+                  display={{
+                    xs: "none",
+                    md: "flex",
+                  }}
+                  PrevButtonProps={{
+                    className: "swiper-case-prev",
+                  }}
+                  NextButtonProps={{
+                    className: "swiper-case-next",
                   }}
                 />
-                <Stack
-                  sx={{
-                    display: "flex",
-                    gap: "16px",
-                    flexDirection: "column",
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <MotionTypography
-                    variant="body1"
-                    sx={{
-                      color: 'grey.600',
-                      fontSize: Caption,
-                      fontWeight: "400",
-                      background: "var(--primary-light-grey, #DADADA)",
-                      padding: "5px",
-                      mt:2
-                    }}
-                    variants={staggerChildren}
-                    initial={"initial"}
-                    whileInView={"animate"}
-                    viewport={{ once: true }}
-                  >
-                    {element.tag}
-                  </MotionTypography>
-                  <MotionTypography
-                    variant="body1"
-                    sx={{
-                      color: "var(--primary-blue, #005DAC)",
-                      fontWeight: "400",
-                      fontSize: H6_3,
-                      textAlign: "start",
-                    }}
-                    variants={staggerChildren}
-                    initial={"initial"}
-                    whileInView={"animate"}
-                    viewport={{ once: true }}
-                  >
-                    {element.heading}
-                  </MotionTypography>
-                  <Stack
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <MotionTypography
-                      variant="body1"
-                      sx={{
-                        color: "var(--primary-blue, #005DAC)",
-                        fontSize: Body1,
-                        width: { xs: "310px", md: "643px" },
-                        textAlign: "start",
-                      }}
-                    >
-                      {element.subheading}
-                    </MotionTypography>
-                  </Stack>
-                </Stack>
-                {isMobile && (
-                  <MotionButton variant="text" sx={{px:0}} endIcon={<SvgIconArrow />}>
-                    View Case Study
-                  </MotionButton>
-                )}
               </Stack>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ),
+            ContainerEndChildren: (
+              <SwiperNavigationButton
+                mt={5}
+                display={{
+                  xs: "flex",
+                  md: "none",
+                }}
+                alignSelf={"flex-start"}
+                PrevButtonProps={{
+                  className: "swiper-case-prev",
+                }}
+                NextButtonProps={{
+                  className: "swiper-case-next",
+                }}
+              />
+            ),
+          }}
+        />
       </Stack>
     </SectionWrapper>
   );
 };
 
 export default CaseStudies;
+
+
+
+const swiperData = [
+  {
+    img: childrens,
+    tag: "IPH-Triveni Program",
+    title: "Digital Skilling for Youth",
+    subTitle:
+      "Helping students learn digitally in order to keep them future and employment ready. ",
+  },
+  {
+    img: womens,
+    tag: "IPH-Triveni Program",
+    title: "Providing Vocational Training for Women in Maharashtra",
+    subTitle:
+      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+  },
+  {
+    img: childrens,
+    tag: "IPH-Triveni Program",
+    title: "Digital Skilling for Youth",
+    subTitle:
+      "Helping students learn digitally in order to keep them future and employment ready. ",
+  },
+  {
+    img: womens,
+    tag: "IPH-Triveni Program",
+    title: "Providing Vocational Training for Women in Maharashtra",
+    subTitle:
+      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+  },
+];
 
 const staggerChildren: MotionVariantProps = {
   initial: {
