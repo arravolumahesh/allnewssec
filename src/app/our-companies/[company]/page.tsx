@@ -18,6 +18,7 @@ import group5 from "@/components/ourCompanies/images/group5.png";
 import group7 from "@/components/ourCompanies/images/group7.png";
 import group8 from "@/components/ourCompanies/images/group8.png";
 import Enquire from "@/commonComponents/enquire";
+import FormDialog from "@/commonComponents/form-dialog";
 
 const Company = () => {
   return (
@@ -40,6 +41,7 @@ const Company = () => {
         ImageData={imageData}
       />
       <CsrReport />
+      <FormDialog />
     </>
   );
 };
