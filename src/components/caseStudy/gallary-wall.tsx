@@ -44,7 +44,7 @@ const GallaryWall = () => {
           SlideComponent={ImageSlies}
           {...swiperProps}
         />
-        <EnhancedSwiper
+        {/* <EnhancedSwiper
           data={imageData}
           SlideComponent={ImageSlies}
           {...swiperProps}
@@ -53,7 +53,7 @@ const GallaryWall = () => {
             disableOnInteraction: false,
             reverseDirection: false,
           }}
-        />
+        /> */}
       </Stack>
     </SectionWrapper>
   );
@@ -87,8 +87,10 @@ const ImageSlies = (props: ImageSliesProps) => {
       width={421}
       height={247}
       sx={{
-        width: { xs: 200, md: 421 },
-        height: { xs: 164, md: 247 },
+        // width: { xs: 200, md: 421 },
+        // height: { xs: 164, md: 247 },
+        width: { xs: 250, md: 421 },
+        height: { xs: 290, md: 484 },
         objectFit: "cover",
       }}
     />
