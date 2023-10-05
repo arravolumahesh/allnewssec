@@ -126,7 +126,7 @@ const AwardCard = (props: AwardCardProps) => {
     >
       <MaterialImage
         src={imageUrl}
-        alt='awards'
+        alt="awards"
         width={92}
         height={209}
         sx={{
@@ -147,7 +147,7 @@ const AwardCard = (props: AwardCardProps) => {
         textAlign={"center"}
         minHeight={207}
       >
-        <Typography variant='h6' fontSize={"18px !important"}>
+        <Typography variant="h6" fontSize={"18px !important"}>
           {title}
         </Typography>
         <Typography fontSize={"16px"}>{subTitle}</Typography>
