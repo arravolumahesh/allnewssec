@@ -77,7 +77,7 @@ const AboveProfits = () => {
       }}
       color={"common.white"}
       SectionHeaderProps={{
-        title: "ABOVE PROFITS. BEYOND BOTTOM LINES.",
+        title: "Shaping a sustainable legacy ",
         TitleTypographyProps: {
           fontSize: H3_2,
         },
@@ -119,12 +119,7 @@ const AboveProfits = () => {
           </IconButton>
         </MotionBox>
         <MotionTypography variant='body1' fontSize={H6_2} {...descTransition}>
-          Welcome to Bajaj Beyond, a holistic and integrated platform that
-          combines the myriad of Bajaj Inc’s CSR initiatives to create a single
-          force of good that goes beyond profits and bottom lines. We’re certain
-          that our unwavering commitment towards empowering communities through
-          skill development will cement India’s legacy as we walk hand in hand
-          towards an equitable future.
+          Welcome to Bajaj Beyond, a holistic and integrated platform that brings together the collective CSR initiatives of all Bajaj companies. As a distinguished conglomerate, we share a united commitment towards empowering communities through skill development to foster an equitable society.
         </MotionTypography>
       </Stack>
     </SectionWrapper>

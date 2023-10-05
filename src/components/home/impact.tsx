@@ -3,14 +3,17 @@ import {
   MotionImage,
   MotionStack,
   MotionTypography,
-  MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Stack } from "@mui/material";
 import React from "react";
 import line from "./images/Line 1322.svg";
-import { motion } from "framer-motion";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
+import {
+  staggerArrowChildren,
+  staggerDivArrow,
+  staggerStackChildren,
+  staggerTextChildren,
+} from "@/commonComponents/animations";
 
 const Impact = () => {
   return (
@@ -38,7 +41,7 @@ const Impact = () => {
         justifyContent={"space-between"}
         flexWrap={"wrap"}
         rowGap={4}
-        variants={staggerDivArrow}
+        variants={staggerDivArrow(0.5)}
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
@@ -46,7 +49,7 @@ const Impact = () => {
           <MotionImage
             variants={staggerArrowChildren}
             src={line}
-            alt=""
+            alt=''
             sx={{
               display: { xs: "none", md: "block" },
             }}
@@ -55,18 +58,17 @@ const Impact = () => {
       >
         {data.map((item, idx) => {
           return (
-            <Stack
+            <MotionStack
               key={idx}
               alignItems={"center"}
               width={{ xs: "50%", md: "auto" }}
               rowGap={1}
-              component={motion.div}
               variants={staggerStackChildren}
               viewport={{ once: true }}
             >
               <MotionTypography
                 variants={staggerTextChildren}
-                variant="h2"
+                variant='h2'
                 component={"h3"}
                 fontWeight={700}
               >
@@ -75,7 +77,7 @@ const Impact = () => {
               <MotionTypography variants={staggerTextChildren}>
                 {item.subtitle}
               </MotionTypography>
-            </Stack>
+            </MotionStack>
           );
         })}
       </MotionStack>
@@ -84,71 +86,6 @@ const Impact = () => {
 };
 
 export default Impact;
-
-const staggerDiv: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.4,
-    },
-  },
-};
-const staggerChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "100%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
-const staggerDivArrow: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.5,
-      delayChildren: 0.5,
-    },
-  },
-};
-const staggerStackChildren: MotionVariantProps = {
-  initial: { opacity: 0.9 },
-  animate: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-      duration: 0.7,
-    },
-  },
-};
-const staggerTextChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "100%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-    },
-  },
-};
-const staggerArrowChildren: MotionVariantProps = {
-  initial: {
-    clipPath: "inset(0% 0% 100% 0%)",
-  },
-  animate: {
-    clipPath: "inset(0% 0% 0% 0%)",
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
 
 const data = [
   {

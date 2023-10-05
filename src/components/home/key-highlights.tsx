@@ -8,6 +8,12 @@ import { ArrowSlideDefaultImageProps } from "@cc/cards/arrow-slide-default-image
 import keyHighlights from "@/components/home/images/key-highlights.jpg";
 import inTheNews from "@/components/home/images/in-the-news.jpg";
 import { H3_1 } from "@theme/components/typography.fontvariant";
+import keyhighlight1 from './images/keyhighlightImg/keyhighlit1.jpg'
+import keyhighlight2 from './images/keyhighlightImg/Jamnalal-Bajaj-Awards_JBF.jpg'
+import keyhighlight3 from './images/keyhighlightImg/Nutritious Food Distribution to school kids (5).jpeg'
+import keyhighlight4 from './images/keyhighlightImg/highlight4.jpeg'
+import keyhighlight5 from './images/keyhighlightImg/keyhighlight5.jpg'
+
 
 const KeyHighlights = () => {
   return (
@@ -45,18 +51,42 @@ const data: (ArrowSwiperWithInfoProps<
 >["data"][number]["data"][number] &
   ArrowSlideDefaultImageProps)[] = [
   {
-    title: "Announcing Jamnalal Bajaj Awards",
+    title: " Maha Smile Program",
     description:
-      "Felicitating the efforts of women and men who have dedicated their life to constructive work.",
-    image: keyHighlights,
+      "Creating awareness for cleft care for every child in Maharashtra, and supporting 24,000 free reconstructive surgeries for underprivileged beneficiaries. ",
+    image: keyhighlight1,
     btnText: "Learn More",
     btnLink: "/",
   },
   {
-    title: "Announcing Jamnalal Bajaj Awards",
+    title: "Trailblazers of Social Impact: 45th Jamnalal Bajaj Awards 2023 Recipients",
     description:
-      "Felicitating the efforts of women and men who have dedicated their life to constructive work.",
-    image: inTheNews,
+      " The Jamnalal Bajaj Awards, established in 1978, honour individuals who have made outstanding contributions to propagate Gandhian values and ideals.",
+    image: keyhighlight2,
+    btnText: "Learn More",
+    btnLink: "/",
+  },
+  {
+    title: "Nurturing the next generation ",
+    description:
+      "Fulfilling nutrition requirements of school going kids by undertaking Nutritious Ladoo distribution in all the schools. ",
+    image: keyhighlight3,
+    btnText: "Learn More",
+    btnLink: "/",
+  },
+  {
+    title: "Bridge the gap programme",
+    description:
+      "Working towards supporting government aided, unaided schools, anganwadis and creating demonstrable models, helping the capacity of the students. ",
+    image: keyhighlight4,
+    btnText: "Learn More",
+    btnLink: "/",
+  },
+  {
+    title: "Bajaj Engineering Skills Training (BEST)",
+    description:
+      "BEST is the flagship CSR initiative of Bajaj Auto Ltd. in collaboration with top NIRF-ranked universities and engineering colleges. It aims to build state-of-the-art centres and enable hands-on-skilling for thousands of young people",
+    image: keyhighlight5,
     btnText: "Learn More",
     btnLink: "/",
   },

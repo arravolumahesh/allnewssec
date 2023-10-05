@@ -75,7 +75,7 @@ const Discover = (props: DiscoverProps) => {
           width={1}
           alignItems={"center"}
           justifyContent={"space-between"}
-          variants={bottomTextStagger}
+          variants={bottomTextStagger(0)}
           initial={"initial"}
           whileInView={"animate"}
           viewport={{ once: true }}

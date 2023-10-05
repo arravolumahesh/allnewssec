@@ -16,6 +16,7 @@ import {
   H1,
   H2,
   H6_1,
+  Subtitle2,
 } from "@/styles/theme/components/typography.fontvariant";
 import SlideButtons from "../intermediate/swiper/swiperButton";
 import { useTheme } from "@mui/material/styles";
@@ -125,8 +126,7 @@ const Accomplished = () => {
       }
     }}>
         <Swiper          
-          pagination={false}
-          navigation={true}
+          pagination={false}          
           spaceBetween={24}
           slidesPerView={slidesPerView}
           modules={[Pagination, Navigation]}
@@ -195,7 +195,7 @@ const Accomplished = () => {
                       <MotionTypography
                         variant="body2"
                         sx={{
-                          fontSize: "16px",
+                          fontSize: Subtitle2,
                           width: "262px",                          
                           textAlign: "center",
                         }}

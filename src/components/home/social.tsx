@@ -46,7 +46,12 @@ import {
   YouTubeIcon,
 } from "@/commonComponents/social-icons";
 import { MaterialImage } from "@/commonComponents/material-components";
-import { bottomTextStagger, iconStagger, iconStaggerChildren, textStaggerChildren } from "@/commonComponents/animations";
+import {
+  bottomTextStagger,
+  iconStagger,
+  iconStaggerChildren,
+  textStaggerChildren,
+} from "@/commonComponents/animations";
 
 const HoverGrid = styled((props: MotionGridProps) => (
   <MotionGrid
@@ -187,7 +192,7 @@ const Social = () => {
               height={1}
               justifyContent={"center"}
               component={motion.div}
-              variants={bottomTextStagger}
+              variants={bottomTextStagger(2.4)}
               initial={"initial"}
               whileInView={"animate"}
               viewport={{ once: true }}
@@ -198,8 +203,8 @@ const Social = () => {
                 variants={textStaggerChildren}
               >
                 <MotionTypography fontSize={H6_2}>
-                  Stay informed about our initiatives that are geared towards
-                  making a lasting impact.
+                  Stay informed about our impactful initiatives by following us
+                  on our social media platforms.
                 </MotionTypography>
                 <MotionTypography fontSize={H6_2} fontWeight={700}>
                   @bajajbeyond
@@ -251,29 +256,21 @@ const Social = () => {
           height={1}
           justifyContent={"center"}
           mt={3}
-          variants={bottomTextStagger}
+          variants={bottomTextStagger(2.4)}
           initial={"initial"}
           whileInView={"animate"}
           viewport={{ once: true }}
         >
-          <MotionStack
-            rowGap={3}
-            variants={textStaggerChildren}
-          >
+          <MotionStack rowGap={3} variants={textStaggerChildren}>
             <MotionTypography fontSize={H6_2}>
-              Stay informed about our initiatives that are geared towards making
-              a lasting impact.
+              Stay informed about our impactful initiatives by following us on
+              our social media platforms.
             </MotionTypography>
             <MotionTypography fontSize={H6_2} fontWeight={700}>
               @bajajbeyond
             </MotionTypography>
           </MotionStack>
-          <MotionStack
-            direction={"row"}
-            gap={2}
-            mt={2}
-            variants={iconStagger}
-          >
+          <MotionStack direction={"row"} gap={2} mt={2} variants={iconStagger}>
             {[
               FacebookIcon,
               TwitterIcon,

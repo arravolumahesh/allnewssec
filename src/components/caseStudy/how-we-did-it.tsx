@@ -108,9 +108,12 @@ const HowWeDid = () => {
                 <MotionButton
                   sx={{
                     fontSize: Caption,
-                    color: "#FFF",
+                    color: "#DADADA",
                     background: "rgba(255, 255, 255, 0.20)",
                     padding: "6px 16px",
+                    '&:hover':{
+                      background: "rgba(255, 255, 255, 0.20)",
+                    }
                   }}
                   disableRipple
                   disableTouchRipple

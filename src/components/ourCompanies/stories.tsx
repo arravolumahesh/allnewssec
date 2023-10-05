@@ -12,6 +12,9 @@ const Stories = () => {
   return (
     <ScrollTriggeredSwiperSection
       data={data}
+      SectionProps={{
+        id: "stories",
+      }}
       EnhancedSwiperProps={{
         SlideComponentProps: {
           DescriptionTypographyProps: {

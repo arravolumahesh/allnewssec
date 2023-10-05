@@ -2,13 +2,23 @@ import { Box, CardContent, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import Link from "next/link";
-import { MotionCard, MotionCardProps } from "@cc/motion-components";
+import {
+  MotionCard,
+  MotionCardProps,
+  MotionImage,
+  MotionTypography,
+} from "@cc/motion-components";
 import { H6_2, H6_3 } from "@/styles/theme/components/typography.fontvariant";
 import Image, { StaticImageData } from "next/image";
 import { MaterialImage } from "../material-components";
+import { motion } from "framer-motion";
+import {
+  bottomToToptextStagger,
+  bottomToToptextStaggerChildren,
+} from "../animations";
 
 interface CompanyCardProps extends Omit<MotionCardProps, "children"> {
-  img: StaticImageData;
+  img: StaticImageData | string;
   title: string;
 }
 
@@ -37,18 +47,31 @@ export const CompanyCard: EnhancedSwiperSlideComponent<CompanyCardProps> =
         }}
         {...restProps}
       >
-        <CardContent sx={{ p: 0, pb: "0 !important" }}>
-          <MaterialImage
+        <CardContent
+          sx={{ p: 0, pb: "0 !important" }}
+          component={motion.div}
+          variants={bottomToToptextStagger(0.4)}
+          initial={"initial"}
+          whileInView={"animate"}
+          viewport={{ once: true }}
+        >
+          <MotionImage
             src={img}
             alt={title}
             sx={{
               width: 1,
               height: { xs: 301, md: 310 },
             }}
+            variants={bottomToToptextStaggerChildren}
           />
-          <Typography variant='body1' fontSize={H6_3} mt={2}>
+          <MotionTypography
+            variant='body1'
+            fontSize={H6_3}
+            mt={2}
+            variants={bottomToToptextStaggerChildren}
+          >
             {title}
-          </Typography>
+          </MotionTypography>
         </CardContent>
       </MotionCard>
     );

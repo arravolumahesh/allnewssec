@@ -21,6 +21,20 @@ const data = [
     title: "Skill Development",
     discrption:
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
+      stats:[
+        {
+        header:'93K',
+        subHeader:'Students Educated'
+      },
+        {
+        header:' 100+',
+        subHeader:'Training Institutions'
+      },
+        {
+        header:'300+',
+        subHeader:'Programs Conducted'
+      }
+    ],
     intitiatives: [
       {
         img: WorkForce,
@@ -67,7 +81,21 @@ const data = [
     title: "Miscellaneous",
     discrption:
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
-    intitiatives: [
+      stats:[
+        {
+        header:'93K',
+        subHeader:'Students Educated'
+      },
+        {
+        header:' 100+',
+        subHeader:'Training Institutions'
+      },
+        {
+        header:'300+',
+        subHeader:'Programs Conducted'
+      }
+    ],
+      intitiatives: [
       {
         img: WorkForce,
         title: "Building a Skilled-Workforce",

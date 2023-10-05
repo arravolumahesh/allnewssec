@@ -47,15 +47,14 @@ const Hero = () => {
           sx={{ fontWeight: 400, mb: 2 }}
           variants={staggerChildren}
         >
-          TURNING POTENTIAL TO PROGRESS
+          Turning potential to success
         </MotionTypography>
         <MotionTypography
           variant='body1'
           color={"secondary.main"}
           variants={staggerChildren}
         >
-          The wheels of a self-reliant future are turning with equal
-          opportunities for all.
+          Witness the making of a self-reliant future with equal opportunities for all.
         </MotionTypography>
         <AnimatedButton
           sx={{

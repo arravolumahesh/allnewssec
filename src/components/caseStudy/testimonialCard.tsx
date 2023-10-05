@@ -84,7 +84,9 @@ const TestimonialCard: EnhancedSwiperSlideComponent<TestimonialCardProps> = forw
             zIndex: -1,
           }}
         >
-          <MaterialImage src={bgImage} alt={company} fill objectFit="cover" />
+          <MaterialImage src={bgImage} alt={company} fill objectFit="cover" sx={{
+            objectPosition:{xs:"75%"}
+          }} />
         </Box>
         <MotionStack
           sx={{

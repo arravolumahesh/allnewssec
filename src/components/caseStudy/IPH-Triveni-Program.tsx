@@ -62,7 +62,7 @@ const CaseHome = () => {
           <MotionTypography
             variant="body2"
             sx={{
-              color: (theme) => theme.palette.primary.contrastText,
+              color: (theme) => alpha(theme.palette.common.white,0.7),
               alignItems: "stretch",
               fontSize: Body2,
               paddingTop: "50px",
