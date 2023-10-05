@@ -51,6 +51,9 @@ const Sustainability = () => {
           fontSize: "18px",
           maxWidth: 716,
           mt: "16px !important",
+          sx: {
+            opacity: "0.8 !important",
+          },
         },
       }}
     >

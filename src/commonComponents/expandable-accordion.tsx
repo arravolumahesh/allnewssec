@@ -14,6 +14,7 @@ import EnhancedSwiper from "./enhanced-swiper";
 import AnimatedButton from "./animated-button";
 import { StaticImageData } from "next/image";
 import { CompanyCard } from "./cards/company";
+import { MotionAccordion, MotionAccordionProps } from "./motion-components";
 
 interface ExpandableAccordionProps {
   data: {
@@ -47,7 +48,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
       // viewport={{ once: true }}
       >
         {data.map((eachArea, index) => (
-          <Accordion
+          <MotionAccordion
             expanded={expanded === `Area${index}`}
             onChange={handleChange(`Area${index}`)}
             sx={{
@@ -66,14 +67,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               },
             }}
             key={index}
-            // component={motion.div}
-            // variants={StagAccordion}
-            // initial={{
-            //   opacity: 0,
-            //   y: `${index % 2 === 0 ? "-30%" : "30%"}`,
-            // }}
-            // whileInView={"animate"}
-            // viewport={{ once: true }}
+            // {...accordionTransition}
           >
             <AccordionSummary
               sx={{
@@ -177,7 +171,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                 </AnimatedButton>
               </Stack>
             </AccordionDetails>
-          </Accordion>
+          </MotionAccordion>
         ))}
       </Stack>
       {BottomDivider && <Divider />}
@@ -186,3 +180,15 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
 };
 
 export default ExpandableAccordion;
+
+// const accordionTransition: MotionAccordionProps = {
+//   initial: {
+//     opacity: 0,
+//   },
+//   whileInView: {
+//     opacity: 1,
+//     transition: {
+//       duration: 0.4,
+//     },
+//   },
+// };
