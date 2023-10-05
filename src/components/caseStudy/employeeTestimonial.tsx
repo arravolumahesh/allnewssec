@@ -42,7 +42,7 @@ const EmployeeTestimonial = () => {
                         },
                         fontSize: { xs: 45, md: 70 },
                         top: {
-                        xs: "15%",
+                        xs: "25%",
                         sm: "22%",
                         md: "50%",
                         },

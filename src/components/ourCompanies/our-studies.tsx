@@ -100,7 +100,7 @@ interface CaseStudySlideProps {
   subTitle: string;
 }
 
-const CaseStudySlide = (props: CaseStudySlideProps) => {
+export const CaseStudySlide = (props: CaseStudySlideProps) => {
   const { img, tag, title, subTitle } = props;
   const isMobile = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md")
