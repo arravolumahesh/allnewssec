@@ -18,7 +18,7 @@ export default function CommonBreadcrumb() {
         separator={<NavigateNextIcon sx={{opacity:0.5}} fontSize="small" />}
         aria-label="breadcrumb"
         sx={{
-          color:'inherit'
+          color:'inherit',
         }}
       >
         {(Array.isArray(finalpath) && finalpath.length < 3)  &&
@@ -28,7 +28,8 @@ export default function CommonBreadcrumb() {
               opacity:0.5,
               '&:hover':{
                 background:'none',              
-              }
+              },
+              fontSize:{xs_sm:12}
             }}
             href="/"
             underline="hover"
@@ -42,7 +43,13 @@ export default function CommonBreadcrumb() {
           finalpath.map((item, index) => {
             if(finalpath?.length === index+1){
               return(
-                <Typography textTransform="capitalize" key={index}>
+                <Typography textTransform="capitalize"
+                sx={{
+                  '@media (max-width: 390px)': {
+                    fontSize:12,
+                  },
+                }}
+                key={index}>
                   {item.replace("-", " ")}
                 </Typography>
               )
@@ -54,6 +61,9 @@ export default function CommonBreadcrumb() {
                   component={Link}
                   sx={{
                     opacity:0.5,
+                    '@media (max-width: 390px)': {
+                      fontSize:12,
+                    },
                     '&:hover':{
                       background:'none'                     
                     }

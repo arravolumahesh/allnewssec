@@ -1,4 +1,5 @@
 import { MotionTypography, MotionTypographyProps } from "@/commonComponents/motion-components";
+import { Body2, H4 } from "@/styles/theme/components/typography.fontvariant";
 import { Box, Grid } from "@mui/material";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -94,6 +95,10 @@ const CountBox = (prop: props) => {
               >
                 <MotionTypography
                   variant="h3"
+                  fontSize={H4}
+                  sx={{
+                    fontWeight:{md:700}
+                  }}
                   color={variant==="primary" ? 'white' : 'primary.main'}
                   {...contAnimation}
                 >
@@ -101,6 +106,7 @@ const CountBox = (prop: props) => {
                 </MotionTypography>
                 <MotionTypography
                   variant="body1"
+                  fontSize={Body2}
                   color={variant==="primary" ? 'white' : 'primary.main'}
                   fontWeight={400}
                   {...contAnimation}

@@ -7,10 +7,10 @@ import BajajAwards from "@/components/charitableTrusts/bajaj-awards";
 const AwardsPage = () => {
   return (
     <>
-      <BajajAwards />
+      {/* <BajajAwards />
       <AwardsWinner />
       <AwardsAssociatedWithUs />
-      <GallaryWall />
+      <GallaryWall /> */}
     </>
   );
 };
