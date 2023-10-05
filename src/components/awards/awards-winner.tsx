@@ -7,8 +7,8 @@ import {
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { H1 } from "@/styles/theme/components/typography.fontvariant";
-import { useTheme } from "@emotion/react";
-import { Stack, useMediaQuery } from "@mui/material";
+
+import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import { color } from "framer-motion";
 import theme from "@/styles/theme";
 const AwardsWinner = () => {
