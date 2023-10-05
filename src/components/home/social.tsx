@@ -198,8 +198,7 @@ const Social = () => {
                 variants={textStaggerChildren}
               >
                 <MotionTypography fontSize={H6_2}>
-                  Stay informed about our initiatives that are geared towards
-                  making a lasting impact.
+                  Stay informed about our impactful initiatives by following us on our social media platforms.
                 </MotionTypography>
                 <MotionTypography fontSize={H6_2} fontWeight={700}>
                   @bajajbeyond
@@ -261,8 +260,7 @@ const Social = () => {
             variants={textStaggerChildren}
           >
             <MotionTypography fontSize={H6_2}>
-              Stay informed about our initiatives that are geared towards making
-              a lasting impact.
+              Stay informed about our impactful initiatives by following us on our social media platforms.
             </MotionTypography>
             <MotionTypography fontSize={H6_2} fontWeight={700}>
               @bajajbeyond
