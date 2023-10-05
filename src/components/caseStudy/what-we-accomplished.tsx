@@ -125,8 +125,7 @@ const Accomplished = () => {
       }
     }}>
         <Swiper          
-          pagination={false}
-          navigation={true}
+          pagination={false}          
           spaceBetween={24}
           slidesPerView={slidesPerView}
           modules={[Pagination, Navigation]}
