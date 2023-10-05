@@ -11,7 +11,7 @@ export default function CommonBreadcrumb() {
   
   const paths = usePathname();
   const pathNames = paths && paths.split("/").filter((path) => path);
-
+  const finalpath  = (pathNames !== null && pathNames?.length > 3) ? pathNames.slice(-3) : pathNames;  
   return (
     <Stack spacing={2}>
       <Breadcrumbs
@@ -21,24 +21,26 @@ export default function CommonBreadcrumb() {
           color:'inherit'
         }}
       >
-        <Typography
-          component={Link}
-          sx={{
-            opacity:0.5,
-            '&:hover':{
-              background:'none',              
-            }
-          }}
-          href="/"
-          underline="hover"
-          
-        >
-          Home  
-        </Typography>
+        {(Array.isArray(finalpath) && finalpath.length < 3)  &&
+          <Typography
+            component={Link}
+            sx={{
+              opacity:0.5,
+              '&:hover':{
+                background:'none',              
+              }
+            }}
+            href="/"
+            underline="hover"
+            
+          >
+            Home  
+          </Typography>
+        }
         
-        {pathNames &&
-          pathNames.map((item, index) => {
-            if(pathNames?.length === index+1){
+        {Array.isArray(finalpath) &&
+          finalpath.map((item, index) => {
+            if(finalpath?.length === index+1){
               return(
                 <Typography textTransform="capitalize" key={index}>
                   {item.replace("-", " ")}

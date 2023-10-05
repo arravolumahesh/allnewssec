@@ -12,8 +12,8 @@ const InitiativeDetailsHeader = () => {
                     }
                     
                 }}
-                sx={{pb:{xxl:0,xs:1},
-                pt:{xxl:0,xs:2}}}
+                sx={{pb:{xxl:0,md:0,xs:1},
+                pt:{xxl:0,md:0,xs:2}}}
                 color={"grey.600"}
                 >
                 <CommonBreadcrumb />
