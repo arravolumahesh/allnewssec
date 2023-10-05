@@ -9,6 +9,7 @@ import React from "react";
 import { H5_1, H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import { MotionLink } from "@/commonComponents/motion-components";
 import SvgIconArrow from "../intermediate/icons/arrowIcon";
+import UpdownSlide from "./updownslide";
 
 
 const HorizontalSlider = styled(Box)(({ theme }) => ({
@@ -64,28 +65,46 @@ const DiscoverCompanyIntermidiate = () => {
                 }}
                 sx={{
                     py: {xxl:0,md:0,xs:0},
+                    px:{xs:0}
                   }}
                   color={"primary.main"}
             >
-                <Container maxWidth={"lg"}>
+                <Box maxWidth={"lg"} sx={{
+                    mx:'auto'
+                }}>
                     <Grid container spacing={{md:10,xs:0}}>
                         <Grid item xs={12} md={6}>
-                            <HorizontalSlider>
+                            
+                            {/* <HorizontalSlider>
                                 <InnerSlider>
                                     {Array(23).fill('1').map((item,index)=>{
                                         return (
                                             <React.Fragment key={index}>
-                                            <Image src={blockImg} alt="" />                                            
-                                            {/* <Image src={blockImg3} alt="" /> */}
+                                            <Image src={blockImg} alt="" />                                                                                        
                                             <Image src={blockImg2} alt="" />
                                             </React.Fragment>
                                         )
                                     })}
                                 </InnerSlider>
-                            </HorizontalSlider>
+                            </HorizontalSlider> */}
+
+                            <Box maxHeight={500} 
+                            // sx={{
+                            //     background:'#333',
+                            //     '& .swiper':{
+                            //         height:'200px !important',
+                            //     },
+                            //     '& .swiper-wrapper':{
+                            //         height:'200px !important',
+                            //     }
+                            // }}
+                            
+                            >
+                            <UpdownSlide />
+                            </Box>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                                <Box sx={{mt:{md:10,xs:4}}}>
+                                <Box sx={{mt:{md:10,xs:4},px:{xs:3}}}>
                                     <Typography variant="h3" sx={{fontSize:H5_1,mb:{xs:3,md:5}}}>Discover initiatives by other companies</Typography>
                                     {reletedCompany.map((item,index)=>{
                                         return (
@@ -124,7 +143,7 @@ const DiscoverCompanyIntermidiate = () => {
                                 </Box>
                         </Grid>
                     </Grid>
-                </Container>
+                </Box>
             </SectionWrapper>
         </>
     )
