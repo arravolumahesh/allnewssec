@@ -38,14 +38,26 @@ type countProps = dataType[];
 
 const Counts: React.FC<{ countData?: countProps }> = ({ countData = data }) => {
   return (
-    <Box
+    <SectionWrapper
+      color={'primary.main'}
       sx={{
-        padding: {
-          xs: "24px 48px",
-          md: "40px",
-        },
-        background: "#FFF",
+        py:{xs:6,xxl:6,md:6},
+        px:{xs:3}
       }}
+      SectionProps={{
+        sx:{
+          backgroundColor:'white'
+        }
+      }}
+    >
+    <Box
+      // sx={{
+      //   padding: {
+      //     xs: "24px 48px",
+      //     md: "40px",
+      //   },
+      //   background: "#FFF",
+      // }}
       component={motion.div}
       initial={"initial"}
       whileInView={"animate"}
@@ -85,6 +97,7 @@ const Counts: React.FC<{ countData?: countProps }> = ({ countData = data }) => {
         ))}
       </Grid>
     </Box>
+    </SectionWrapper>
   );
 };
 
