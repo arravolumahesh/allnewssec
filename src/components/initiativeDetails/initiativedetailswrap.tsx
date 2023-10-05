@@ -4,7 +4,7 @@ import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import detailiamge from './image/initiativedetail.svg'
-import { H3, H6_2, Subtitle2 } from "@/styles/theme/components/typography.fontvariant";
+import { Body2, H3, H6_2, Subtitle2 } from "@/styles/theme/components/typography.fontvariant";
 import IntermediateCount from "../intermediate/intermediateCount";
 import AnimatedButton from "@/commonComponents/animated-button";
 import { MotionTypography } from "@/commonComponents/motion-components";
@@ -43,7 +43,7 @@ const InitiativeDetailsWrap = () => {
                         href={"/"}
                         variant='contained'
                         color='secondary'
-                        sx={{px:2,py:{md:1.5,xs:0.75},maxWidth:'max-content',height:{xs:'auto'}}}
+                        sx={{px:2,py:{md:1.5,xs:0.75},maxWidth:'max-content',height:{xs:'auto'},fontSize:Body2}}
                         >
                         <Typography variant="body1" fontSize={Subtitle2}>Skill Development</Typography>
                     </AnimatedButton>
@@ -51,6 +51,7 @@ const InitiativeDetailsWrap = () => {
                     <MotionTypography
                         component={'span'}
                         variant="body1"
+                        fontSize={Body2}
                         color={"white"}
                         sx={{
                             display: "flex",
@@ -62,7 +63,7 @@ const InitiativeDetailsWrap = () => {
                     <RoomIcon sx={{ width: { xs: "18px", md: "18px" } }} />{" "}
                         Wardha, Maharashtra
                     </MotionTypography>                        
-                    <Typography variant="h1" sx={{fontSize:H3}}>Gifting Smiles – No child left behind</Typography>
+                    <Typography variant="h1" sx={{fontSize:H3,mt:{md:3}}}>Gifting Smiles – No child left behind</Typography>
 
                     </Box>
                     <Image src={detailiamge} alt="" />
