@@ -10,7 +10,7 @@ export type ArrowImageProps = MaterialImageProps & {
   aspectRatio?: number;
   width: string | number;
   height: string | number;
-  ContainerProps: MotionBoxProps;
+  ContainerProps?: MotionBoxProps;
 };
 
 const ArrowImage = (props: ArrowImageProps) => {
