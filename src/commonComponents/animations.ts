@@ -9,7 +9,10 @@ export const bottomToToptextStagger = (delay: number): MotionVariantProps => ({
     },
   },
 });
-export const bottomToToptextStaggerChildren: MotionVariantProps = {
+
+export const bottomToToptextStaggerChildren = (
+  delay: number
+): MotionVariantProps => ({
   initial: {
     y: 50,
     opacity: 0,
@@ -18,10 +21,11 @@ export const bottomToToptextStaggerChildren: MotionVariantProps = {
     opacity: 1,
     y: 0,
     transition: {
+      delay: delay,
       duration: 0.5,
     },
   },
-};
+});
 
 export const bottomTextStagger = (delay: number): MotionVariantProps => ({
   initial: {},
@@ -63,6 +67,53 @@ export const iconStaggerChildren: MotionVariantProps = {
     scale: 1,
     transition: {
       type: "spring",
+    },
+  },
+};
+
+export const staggerDivArrow = (delay: number): MotionVariantProps => ({
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.5,
+      delayChildren: delay,
+    },
+  },
+});
+
+export const staggerStackChildren: MotionVariantProps = {
+  initial: { opacity: 0.9 },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      duration: 0.7,
+    },
+  },
+};
+
+export const staggerTextChildren: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "100%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+    },
+  },
+};
+
+export const staggerArrowChildren: MotionVariantProps = {
+  initial: {
+    clipPath: "inset(0% 0% 100% 0%)",
+  },
+  animate: {
+    clipPath: "inset(0% 0% 0% 0%)",
+    transition: {
+      duration: 0.2,
     },
   },
 };

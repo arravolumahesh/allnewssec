@@ -14,12 +14,30 @@ import EnhancedSwiper from "./enhanced-swiper";
 import AnimatedButton from "./animated-button";
 import { StaticImageData } from "next/image";
 import { CompanyCard } from "./cards/company";
-import { MotionAccordion, MotionAccordionProps } from "./motion-components";
+import {
+  MotionAccordion,
+  MotionAccordionProps,
+  MotionStack,
+  MotionTypography,
+} from "./motion-components";
+import {
+  bottomToToptextStagger,
+  bottomToToptextStaggerChildren,
+  staggerArrowChildren,
+  staggerDivArrow,
+  staggerStackChildren,
+  staggerTextChildren,
+} from "./animations";
+import { motion } from "framer-motion";
 
 interface ExpandableAccordionProps {
   data: {
     title: string;
     discrption: string;
+    stats?: {
+      header: string;
+      subHeader?: string;
+    }[];
     intitiatives: {
       img: StaticImageData | string;
       title: string;
@@ -67,7 +85,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               },
             }}
             key={index}
-            // {...accordionTransition}
+            {...accordionTransition}
           >
             <AccordionSummary
               sx={{
@@ -90,56 +108,81 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                 />
               }
             >
-              <Typography variant='h3' fontSize={H3_2}>
+              <MotionTypography
+                variant='h3'
+                fontSize={H3_2}
+                variants={bottomToToptextStaggerChildren(0)}
+                initial={"initial"}
+                whileInView={"animate"}
+                viewport={{ once: true }}
+              >
                 {eachArea.title}
-              </Typography>
+              </MotionTypography>
             </AccordionSummary>
             <AccordionDetails sx={{ p: 0 }}>
-              <Typography variant='body1' fontSize={H6_3} maxWidth={867}>
-                {eachArea.discrption}
-              </Typography>
-              <Stack
-                direction='row'
-                alignItems={"center"}
-                justifyContent={"space-around"}
-                py={1.5}
-                mt={3}
-                borderTop={"1px solid rgba(234, 234, 234, 0.20)"}
-                borderBottom={"1px solid rgba(234, 234, 234, 0.20)"}
+              <MotionTypography
+                variant='body1'
+                fontSize={H6_3}
+                maxWidth={867}
+                variants={bottomToToptextStaggerChildren(0.2)}
+                initial={"initial"}
+                whileInView={"animate"}
+                viewport={{ once: true }}
               >
-                <Stack textAlign={"center"} rowGap={{ xs: 1, md: 0.5 }}>
-                  <Typography variant='h4' fontWeight={700}>
-                    93K
-                  </Typography>
-                  <Typography variant='body2'>Students Educated</Typography>
-                </Stack>
-                <Divider
-                  orientation='vertical'
-                  sx={{
-                    height: 75,
-                    borderColor: "rgba(234, 234, 234, 0.20)",
-                  }}
-                />
-                <Stack textAlign={"center"} rowGap={{ xs: 1, md: 0.5 }}>
-                  <Typography variant='h4' fontWeight={700}>
-                    100+
-                  </Typography>
-                  <Typography variant='body2'>Training Institutions</Typography>
-                </Stack>
-                <Divider
-                  orientation='vertical'
-                  sx={{
-                    height: 75,
-                    borderColor: "rgba(234, 234, 234, 0.20)",
-                  }}
-                />
-                <Stack textAlign={"center"} rowGap={{ xs: 1, md: 0.5 }}>
-                  <Typography variant='h4' fontWeight={700}>
-                    300+
-                  </Typography>
-                  <Typography variant='body2'>Programs Conducted</Typography>
-                </Stack>
-              </Stack>
+                {eachArea.discrption}
+              </MotionTypography>
+              {eachArea.stats && (
+                <MotionStack
+                  direction='row'
+                  alignItems={"center"}
+                  justifyContent={"space-around"}
+                  py={1.5}
+                  mt={3}
+                  borderTop={"1px solid rgba(234, 234, 234, 0.20)"}
+                  borderBottom={"1px solid rgba(234, 234, 234, 0.20)"}
+                  variants={staggerDivArrow(0.5)}
+                  initial={"initial"}
+                  whileInView={"animate"}
+                  viewport={{ once: true }}
+                  divider={
+                    <Divider
+                      orientation='vertical'
+                      component={motion.hr}
+                      variants={staggerArrowChildren}
+                      sx={{
+                        height: 75,
+                        borderColor: "rgba(234, 234, 234, 0.20)",
+                      }}
+                    />
+                  }
+                >
+                  {eachArea.stats.map((item, idx) => (
+                    <MotionStack
+                      key={idx}
+                      textAlign={"center"}
+                      rowGap={{ xs: 1, md: 0.5 }}
+                      variants={staggerStackChildren}
+                      viewport={{ once: true }}
+                    >
+                      <MotionTypography
+                        variant='h4'
+                        fontWeight={700}
+                        variants={staggerTextChildren}
+                      >
+                        {item.header}
+                      </MotionTypography>
+                      {item.subHeader && (
+                        <MotionTypography
+                          variant='body2'
+                          variants={staggerTextChildren}
+                        >
+                          {item.subHeader}
+                        </MotionTypography>
+                      )}
+                    </MotionStack>
+                  ))}
+                </MotionStack>
+              )}
               <Stack direction='row' mt={{ xs: 4, md: 7 }} width={1}>
                 <EnhancedSwiper
                   slidesPerView={"auto"}
@@ -181,14 +224,18 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
 
 export default ExpandableAccordion;
 
-// const accordionTransition: MotionAccordionProps = {
-//   initial: {
-//     opacity: 0,
-//   },
-//   whileInView: {
-//     opacity: 1,
-//     transition: {
-//       duration: 0.4,
-//     },
-//   },
-// };
+const accordionTransition: Omit<MotionAccordionProps, "children"> = {
+  initial: {
+    opacity: 0,
+  },
+  whileInView: {
+    opacity: 1,
+    transition: {
+      delay: 0.2,
+      duration: 0.4,
+    },
+  },
+  viewport: {
+    once: true,
+  },
+};
