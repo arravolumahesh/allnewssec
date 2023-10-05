@@ -8,12 +8,19 @@ import React, { useState } from "react";
 import csrReport from "./images/Group 1.png";
 
 import {
+  MotionStack,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Button } from "@/styles/theme/components/typography.fontvariant";
 import ArrowImage from "@/commonComponents/arrow-image";
+import {
+  arrowImageTransition,
+  formStagger,
+  formStaggerChildrenRight,
+  formStaggerChildrenUp,
+} from "@/commonComponents/animations";
 
 const CsrReport = () => {
   const [report, setReport] = useState("");
@@ -40,27 +47,22 @@ const CsrReport = () => {
           width={217}
           height={262}
           sx={{ minWidth: 217 }}
+          ContainerProps={{ ...arrowImageTransition }}
         />
-        <Stack
+        <MotionStack
           direction={"column"}
           width={1}
           maxWidth={668}
-          // component={motion.div}
-          // variants={staggerDiv}
-          // initial={"initial"}
-          // whileInView={"animate"}
-          // viewport={{ once: true }}
+          variants={formStagger}
+          initial='initial'
+          whileInView={"animate"}
+          viewport={{ once: true }}
         >
-          <MotionTypography
-            variant='h3'
-            // initial={"initial"}
-            // whileInView={"animate"}
-            // viewport={{ once: true }}
-            // variants={staggerheading}
-          >
+          <MotionTypography variant='h3' variants={formStaggerChildrenRight}>
             Csr Reports
           </MotionTypography>
-          <Stack
+          <MotionStack
+            variants={formStaggerChildrenUp}
             mt={5}
             mb={4}
             direction={{ xs: "column", md: "row" }}
@@ -108,7 +110,7 @@ const CsrReport = () => {
                 </MenuItem>
               ))}
             </Select>
-          </Stack>
+          </MotionStack>
           <AnimatedButton
             href={"#"}
             rotation='anticlockwise'
@@ -118,94 +120,15 @@ const CsrReport = () => {
               width: { xs: 1, md: 172 },
               fontSize: Button,
             }}
-            // variants={staggerBtn}
+            animationDelay={2000}
+            variants={formStaggerChildrenRight}
           >
             Download Report
           </AnimatedButton>
-        </Stack>
+        </MotionStack>
       </Stack>
     </SectionWrapper>
   );
 };
 
 export default CsrReport;
-
-const staggerDiv: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.4,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const staggerBtn: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "30%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const staggerheading: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "-100%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const staggerChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "150%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const StagerImage: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    x: "-100%",
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const staggerReports: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    x: "100%",
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};

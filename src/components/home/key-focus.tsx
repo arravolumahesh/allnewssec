@@ -1,6 +1,7 @@
 "use client";
 import {
   MotionBoxProps,
+  MotionStack,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
@@ -20,10 +21,14 @@ import ArrowSwiperWithInfoSection, {
 } from "@/commonComponents/arrow-swiper-with-info-section";
 import ArrowSlideInfo from "@/commonComponents/cards/arrow-slide-info";
 import { ArrowSlideDefaultImageProps } from "@/commonComponents/cards/arrow-slide-default-image";
-import educationImg from './images/keyfocusImg/education.jpg'
-import communityImg from './images/keyfocusImg/communitydevelop.jpg'
-import othersImg from './images/keyfocusImg/others.jpg'
-
+import educationImg from "./images/keyfocusImg/education.jpg";
+import communityImg from "./images/keyfocusImg/communitydevelop.jpg";
+import othersImg from "./images/keyfocusImg/others.jpg";
+import {
+  arrowInfoStaggerDiv,
+  arrowInfoStaggerDivChildren,
+  arrowLeftToRightTransition,
+} from "@/commonComponents/animations";
 
 const KeyFocus = () => {
   const theme = useTheme();
@@ -36,10 +41,11 @@ const KeyFocus = () => {
       color={"primary.main"}
     >
       <Stack direction={"row"} alignItems={"center"}>
-        {matches && <ArrowGradient height={"301px"} {...imageTransition} />}
-        <Stack
-          component={motion.div}
-          variants={staggerDiv}
+        {matches && (
+          <ArrowGradient height={"301px"} {...arrowLeftToRightTransition} />
+        )}
+        <MotionStack
+          variants={arrowInfoStaggerDiv}
           initial={"initial"}
           whileInView={"animate"}
           viewport={{ once: true }}
@@ -50,18 +56,21 @@ const KeyFocus = () => {
             <MotionTypography
               variant='h1'
               component={"h3"}
-              variants={staggerChildren}
+              variants={arrowInfoStaggerDivChildren}
             >
               OUR KEY FOCUS AREAS
             </MotionTypography>
-            <MotionTypography fontSize={H6_3} variants={staggerChildren}>
+            <MotionTypography
+              fontSize={H6_3}
+              variants={arrowInfoStaggerDivChildren}
+            >
               Our CSR initiatives encompass a diverse range of focus areas, with
               a strong emphasis on skill development. We aim to address social,
               environmental, and community needs to create a positive and
               lasting impact.
             </MotionTypography>
           </Stack>
-        </Stack>
+        </MotionStack>
       </Stack>
       <ArrowSwiperWithInfoSection
         data={arrowData}
@@ -141,47 +150,6 @@ const KeyFocus = () => {
 };
 
 export default KeyFocus;
-
-const imageTransition: MotionBoxProps = {
-  initial: {
-    x: "-121%",
-    opacity: 0,
-  },
-  whileInView: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-  viewport: {
-    once: true,
-  },
-};
-
-const staggerDiv: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.4,
-      delayChildren: 0.5,
-    },
-  },
-};
-const staggerChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "150%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
 
 const arrowData: (ArrowSwiperWithInfoProps<
   typeof ArrowSlideInfo

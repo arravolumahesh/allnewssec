@@ -5,6 +5,7 @@ import { Theme } from "@mui/material/styles";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
   MotionImage,
+  MotionStack,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
@@ -23,6 +24,14 @@ import { Fragment } from "react";
 import InfoSlides from "@/commonComponents/cards/info-slides";
 import line from "@c/home/images/Line 1322.svg";
 import { MaterialImage } from "@/commonComponents/material-components";
+import { motion } from "framer-motion";
+import {
+  staggerArrowChildren,
+  staggerDivArrow,
+  staggerStackChildren,
+  staggerTextChildren,
+  staggerTextChildrenLowOpacity,
+} from "@/commonComponents/animations";
 
 // Main component Sustainability
 
@@ -51,9 +60,7 @@ const Sustainability = () => {
           fontSize: "18px",
           maxWidth: 716,
           mt: "16px !important",
-          sx: {
-            opacity: "0.8 !important",
-          },
+          variants: staggerTextChildrenLowOpacity,
         },
       }}
     >
@@ -61,36 +68,48 @@ const Sustainability = () => {
         container
         justifyContent={{ xs: "space-between", lg: "space-around" }}
         rowGap={3}
+        component={motion.div}
+        variants={staggerDivArrow(0.5)}
+        initial={"initial"}
+        whileInView={"animate"}
+        viewport={{ once: true }}
       >
         {gridData.map((item, idx) => (
           <Fragment key={idx}>
-            <Grid2 width={{ xs: 0.5, lg: "max-content" }}>
-              <Stack rowGap={1} width={{ xs: 1, lg: "max-content" }}>
+            <Grid2
+              width={{ xs: 0.5, lg: "max-content" }}
+              component={motion.div}
+              variants={staggerStackChildren}
+            >
+              <MotionStack
+                rowGap={1}
+                width={{ xs: 1, lg: "max-content" }}
+                variants={staggerStackChildren}
+              >
                 <MotionTypography
                   variant='body2'
                   fontSize={"18px !important"}
-                  // variants={staggerTextChildren}
+                  variants={staggerTextChildren}
                 >
                   {item.title}
                 </MotionTypography>
                 <MotionTypography
                   variant='body2'
-                  sx={{ opacity: 0.68 }}
-                  // variants={staggerTextChildren}
-                  // sx={useStyles.bodySmall}
+                  variants={staggerTextChildrenLowOpacity}
                 >
                   {item.subtitle}
                 </MotionTypography>
-              </Stack>
+              </MotionStack>
             </Grid2>
             {idx !== gridData.length - 1 && (
               <Grid2
                 sx={{
                   display: matches ? "none" : "block",
                 }}
+                component={motion.div}
+                variants={staggerArrowChildren}
               >
                 <MaterialImage
-                  // variants={staggerArrowChildren}
                   src={line}
                   alt=''
                   sx={{
@@ -119,11 +138,26 @@ const Sustainability = () => {
           }}
           modules={[Navigation]}
           SlideComponent={InfoSlides}
-          SlideComponentProps={{
+          SlideComponentProps={(index) => ({
             ImageProps: {
               sx: { width: 120, height: 120 },
             },
-          }}
+            initial: {
+              opacity: 0,
+              y: "100%",
+            },
+            whileInView: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.6,
+                delay: index * 0.5,
+              },
+            },
+            viewport: {
+              once: true,
+            },
+          })}
           sx={{
             overflow: { xs: "visible", xxl: "hidden" },
           }}
@@ -218,99 +252,3 @@ const gridData = [
     subtitle: "by 2050",
   },
 ];
-
-// Animation Props
-
-const staggerDiv: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.4,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const staggerheading: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "-100%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const staggerSubHeading: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    x: "-50%",
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.9,
-    },
-  },
-};
-
-const constrolButton: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    x: "40%",
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.9,
-    },
-  },
-};
-
-const staggerTextChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    x: "40%",
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.4,
-    },
-  },
-};
-
-const staggerChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "150%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const staggerButton: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    x: "100%",
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 2,
-    },
-  },
-};

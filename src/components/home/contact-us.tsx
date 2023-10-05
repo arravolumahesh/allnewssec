@@ -3,6 +3,7 @@ import {
   MotionBox,
   MotionBoxProps,
   MotionImage,
+  MotionStack,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
@@ -29,6 +30,12 @@ import { Body1, H6 } from "@/styles/theme/components/typography.fontvariant";
 import dialogbanner from "./images/Group 427321833.svg";
 import Image from "next/image";
 import ArrowImage from "@/commonComponents/arrow-image";
+import {
+  arrowImageTransition,
+  formStagger,
+  formStaggerChildrenRight,
+  formStaggerChildrenUp,
+} from "@/commonComponents/animations";
 
 const ContactUs = () => {
   const [company, setCompany] = useState("");
@@ -54,7 +61,7 @@ const ContactUs = () => {
           width={{ xs: 342, xl: 470 }}
           minWidth={{ xs: 342, xl: 470 }}
           sx={{ aspectRatio: 0.86 }}
-          {...boxTransition}
+          {...arrowImageTransition}
         >
           <MotionImage src={contact} alt='' fill />
         </MotionBox>
@@ -66,31 +73,26 @@ const ContactUs = () => {
           sx={{ aspectRatio: 0.86 }}
           {...boxTransition}
         /> */}
-        <Stack
+        <MotionStack
           rowGap={5}
           maxWidth={{ xs: 1, md_lg: 670 }}
-          component={motion.div}
-          variants={staggerDiv}
+          variants={formStagger}
           initial='initial'
           whileInView={"animate"}
           viewport={{ once: true }}
         >
-          <Stack
-            gap={1}
-            component={motion.div}
-            variants={staggerDivChildrenRight}
-          >
+          <MotionStack gap={1} variants={formStaggerChildrenRight}>
             <Typography variant='h3'>REACH OUT TO US</Typography>
             <Typography fontSize={"18px"}>
               We are always looking forward to support you.
             </Typography>
-          </Stack>
+          </MotionStack>
           <Grid2
             container
             rowGap={3}
             columnSpacing={5}
             component={motion.div}
-            variants={staggerDivChildrenUp}
+            variants={formStaggerChildrenUp}
           >
             <Grid2 xs={12} md={6}>
               <TextField placeholder='Name' fullWidth />
@@ -181,8 +183,8 @@ const ContactUs = () => {
             sx={{
               width: { xs: 1, md: 313 },
             }}
-            variants={staggerDivChildrenRight}
-            animationDelay={1000}
+            variants={formStaggerChildrenRight}
+            animationDelay={2000}
             onClick={() => setOpen(true)}
           >
             Submit
@@ -236,63 +238,10 @@ const ContactUs = () => {
               </Stack>
             </DialogContent>
           </Dialog>
-        </Stack>
+        </MotionStack>
       </Stack>
     </SectionWrapper>
   );
 };
 
 export default ContactUs;
-
-const boxTransition: MotionBoxProps = {
-  initial: {
-    x: "-102%",
-    opacity: 0,
-  },
-  whileInView: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-  viewport: {
-    once: true,
-  },
-};
-
-const staggerDiv: MotionVariantProps = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.6,
-      delayChildren: 0.5,
-    },
-  },
-};
-const staggerDivChildrenRight: MotionVariantProps = {
-  initial: {
-    x: 100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-};
-const staggerDivChildrenUp: MotionVariantProps = {
-  initial: {
-    y: 100,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-};

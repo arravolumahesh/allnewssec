@@ -31,6 +31,7 @@ const InfoSlides = (props: InfoSlidesProps) => {
     ContentWrapperProps,
     TagProps,
     DescriptionTypographyProps,
+    ...restProps
   } = props;
   return (
     <MotionStack
@@ -38,8 +39,7 @@ const InfoSlides = (props: InfoSlidesProps) => {
       columnGap={2}
       alignItems={"stretch"}
       {...CardWrapperProps}
-      // component={motion.div}
-      // viewport={{ once: true }}
+      {...restProps}
     >
       <MaterialImage
         src={img}
@@ -52,11 +52,6 @@ const InfoSlides = (props: InfoSlidesProps) => {
         rowGap={2}
         alignItems={"flex-start"}
         justifyContent={"space-between"}
-        // component={motion.div}
-        // variants={constrolButton}
-        // initial={"initial"}
-        // whileInView={"animate"}
-        // viewport={{ once: true }}
         {...ContentWrapperProps}
       >
         <MotionBox

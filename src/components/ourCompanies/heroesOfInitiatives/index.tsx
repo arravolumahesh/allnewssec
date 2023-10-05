@@ -7,11 +7,16 @@ import hero_3 from "./images/hero_3.jpg";
 import hero_4 from "./images/hero_4.jpg";
 import { H3_1 } from "@theme/components/typography.fontvariant";
 import ArrowGradient from "@cc/arrow-gradient";
-import { MotionTypography } from "@cc/motion-components";
+import { MotionStack, MotionTypography } from "@cc/motion-components";
 import { Stack } from "@mui/material";
 import HeoresSlider, {
   HeoresSliderProps,
 } from "@c/ourCompanies/heroesOfInitiatives/heors-slider";
+import {
+  arrowInfoStaggerDiv,
+  arrowInfoStaggerDivChildren,
+  arrowLeftToRightTransition,
+} from "@/commonComponents/animations";
 
 const HerosOfInitiatives = () => {
   return (
@@ -38,8 +43,15 @@ const HerosOfInitiatives = () => {
         alignSelf={"flex-start"}
         mt={-12}
         ml={{ xl: 0, xxl: 8.375 }}
+        {...arrowLeftToRightTransition}
       />
-      <Stack width={{ xs: 1, xl: 0.83 }}>
+      <MotionStack
+        width={{ xs: 1, xl: 0.83 }}
+        variants={arrowInfoStaggerDiv}
+        initial={"initial"}
+        whileInView={"animate"}
+        viewport={{ once: true }}
+      >
         <MotionTypography
           variant={"h2"}
           fontSize={H3_1}
@@ -51,11 +63,12 @@ const HerosOfInitiatives = () => {
             xs: "center",
             md: "flex-start",
           }}
+          variants={arrowInfoStaggerDivChildren}
         >
           Heroes behind our successful initiatives.
         </MotionTypography>
         <HeoresSlider data={herosData} />
-      </Stack>
+      </MotionStack>
     </SectionWrapper>
   );
 };

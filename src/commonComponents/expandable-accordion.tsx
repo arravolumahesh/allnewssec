@@ -163,7 +163,6 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                       textAlign={"center"}
                       rowGap={{ xs: 1, md: 0.5 }}
                       variants={staggerStackChildren}
-                      viewport={{ once: true }}
                     >
                       <MotionTypography
                         variant='h4'

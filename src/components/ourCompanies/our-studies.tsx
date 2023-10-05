@@ -1,6 +1,8 @@
 "use client";
 import { Navigation } from "swiper/modules";
 import {
+  MotionImage,
+  MotionStack,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
@@ -16,6 +18,10 @@ import { H6_1, H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import Link from "next/link";
 import { ArrowForwardIos } from "@mui/icons-material";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
+import {
+  bottomToToptextStagger,
+  bottomToToptextStaggerChildren,
+} from "@/commonComponents/animations";
 
 const CaseStudies = () => {
   return (
@@ -106,7 +112,7 @@ export const CaseStudySlide = (props: CaseStudySlideProps) => {
     theme.breakpoints.down("md")
   );
   return (
-    <Stack
+    <MotionStack
       sx={{
         cursor: "pointer",
         "&:after": {
@@ -133,8 +139,12 @@ export const CaseStudySlide = (props: CaseStudySlideProps) => {
         },
       }}
       rowGap={2}
+      variants={bottomToToptextStagger(0.4)}
+      initial={"initial"}
+      whileInView={"animate"}
+      viewport={{ once: true }}
     >
-      <MaterialImage
+      <MotionImage
         src={img}
         alt='childerns'
         sx={{
@@ -143,6 +153,7 @@ export const CaseStudySlide = (props: CaseStudySlideProps) => {
           height: { xs: 240, md: 310 },
           objectFit: "cover",
         }}
+        variants={bottomToToptextStaggerChildren}
       />
       <MotionTypography
         variant={"caption"}
@@ -150,28 +161,31 @@ export const CaseStudySlide = (props: CaseStudySlideProps) => {
         p={1.3}
         bgcolor={"#DADADA"}
         width={"max-content"}
+        variants={bottomToToptextStaggerChildren}
       >
         {tag}
       </MotionTypography>
-      <MotionTypography variant='body1' fontSize={H6_1}>
-        {title}
-      </MotionTypography>
-      <MotionTypography variant='body1'>{subTitle}</MotionTypography>
-      {isMobile && (
-        <Link
-          style={{
-            display: "flex",
-            alignItems: "center",
-            fontSize: "18px",
-            textDecoration: "none",
-          }}
-          href='/'
-        >
-          View Case Study{" "}
-          <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
-        </Link>
-      )}
-    </Stack>
+      <MotionStack rowGap={2} variants={bottomToToptextStaggerChildren}>
+        <MotionTypography variant='body1' fontSize={H6_1}>
+          {title}
+        </MotionTypography>
+        <MotionTypography variant='body1'>{subTitle}</MotionTypography>
+        {isMobile && (
+          <Link
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: "18px",
+              textDecoration: "none",
+            }}
+            href='/'
+          >
+            View Case Study{" "}
+            <ArrowForwardIos sx={{ ml: "8px" }} fontSize='small' />
+          </Link>
+        )}
+      </MotionStack>
+    </MotionStack>
   );
 };
 

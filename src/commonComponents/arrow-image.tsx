@@ -2,7 +2,7 @@
 import React from "react";
 import { sxArrayUtil } from "@/utils/sx-helpers";
 import { MaterialImage, MaterialImageProps } from "./material-components";
-import { MotionBox } from "./motion-components";
+import { MotionBox, MotionBoxProps } from "./motion-components";
 import ArrowTransparent from "@cc/arrow-transparent";
 
 export type ArrowImageProps = MaterialImageProps & {
@@ -10,10 +10,12 @@ export type ArrowImageProps = MaterialImageProps & {
   aspectRatio?: number;
   width: string | number;
   height: string | number;
+  ContainerProps: MotionBoxProps;
 };
 
 const ArrowImage = (props: ArrowImageProps) => {
-  const { clipPath, aspectRatio, width, height, sx, ...rest } = props;
+  const { clipPath, aspectRatio, width, height, sx, ContainerProps, ...rest } =
+    props;
   return (
     <MotionBox
       position={"relative"}
@@ -29,6 +31,7 @@ const ArrowImage = (props: ArrowImageProps) => {
         },
         ...sxArrayUtil(sx),
       ]}
+      {...ContainerProps}
     >
       <ArrowTransparent
         SVGProps={{
