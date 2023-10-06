@@ -1,17 +1,16 @@
 import SectionWrapper from "@cc/section-wrapper";
-import React from "react";
+import React, { ReactNode } from "react";
 import { StaticImageData } from "next/image";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import ArrowImage from "@cc/arrow-image";
 import { Typography } from "@mui/material";
-import AnimatedButton from "@cc/animated-button";
 
-interface EnquireProps {
+export interface EnquireProps {
   data: {
     title: string;
     description: string;
     image: string | StaticImageData;
-    btnText: string;
+    btn: ReactNode;
   }[];
 }
 
@@ -31,7 +30,7 @@ const Enquire = (props: EnquireProps) => {
       rowGap={10}
     >
       {data.map((item, index) => {
-        const { image, title, description, btnText } = item;
+          const { image, title, description, btn } = item;
         return (
           <Grid2
             key={`${title}-${index}`}
@@ -89,7 +88,7 @@ const Enquire = (props: EnquireProps) => {
               display={"flex"}
               justifyContent={{ xs: "center", xl: "flex-start" }}
             >
-              <AnimatedButton href={"#"}>{btnText}</AnimatedButton>
+              {btn}
             </Grid2>
           </Grid2>
         );

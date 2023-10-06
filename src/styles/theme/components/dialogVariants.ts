@@ -8,10 +8,15 @@ import {alpha, Components, Theme} from "@mui/material";
  *
  * @see https://mui.com/material-ui/react-dialog/#customization
  */
-export const DialogVariants: Components<
-  Omit<Theme, "components">
->["MuiDialog"] = {
+export const DialogVariants: Components<Omit<Theme, "components">>["MuiDialog"] = {
   defaultProps: {
+    PaperProps: {
+      root: {
+        sx: {
+          borderRadius: 0,
+        },
+      },
+    },
     slotProps: {
       backdrop: {
         sx: (theme) => {

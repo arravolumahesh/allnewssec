@@ -8,29 +8,30 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import React, { useState } from "react";
-import AnimatedButton from "./animated-button";
+import AnimatedButton, { AnimatedButtonProps } from "./animated-button";
 import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
 import { CalendarToday } from "@mui/icons-material";
 
-const FormDialog = () => {
-  const [open, setOpen] = useState(true);
+interface FormDialogButtonProps extends AnimatedButtonProps {}
+
+const FormDialogButton = (props: FormDialogButtonProps) => {
+  const { ...restAnimatedButtonProps } = props;
+  const [open, setOpen] = useState(false);
   const fullScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md"),
   );
   return (
     <>
-      <AnimatedButton href={"#"}>btnText</AnimatedButton>
+      <AnimatedButton
+        onClick={() => setOpen(true)}
+        {...restAnimatedButtonProps}
+      />
       <Dialog
         onClose={() => setOpen(false)}
         open={open}
         fullWidth
         fullScreen={fullScreen}
         maxWidth={"lg_xl"}
-        sx={{
-          ".MuiPaper-root": {
-            borderRadius: 0,
-          },
-        }}
         scroll="paper"
       >
         <DialogContent sx={{ width: 1, p: 0, bgcolor: "primary.main" }}>
@@ -97,4 +98,4 @@ const FormDialog = () => {
   );
 };
 
-export default FormDialog;
+export default FormDialogButton;

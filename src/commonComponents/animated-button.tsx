@@ -2,14 +2,14 @@
 import { buttonClasses, SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
 import {
+  MotionButton,
   MotionButtonProps,
   MotionLink,
   MotionLinkProps,
 } from "./motion-components";
 
 export interface AnimatedButtonProps
-  extends Omit<MotionLinkProps, "href">,
-    MotionButtonProps {
+  extends Omit<MotionLinkProps & MotionButtonProps, "href"> {
   /*
    * Animation delay in milliseconds
    *
@@ -19,7 +19,7 @@ export interface AnimatedButtonProps
    * */
   animationDelay?: number;
   rotation?: "clockwise" | "anticlockwise";
-  href?: MotionLinkProps["href"];
+  href?: MotionLinkProps["href"] & MotionButtonProps["href"];
 }
 
 const AnimatedButton = (props: AnimatedButtonProps) => {
