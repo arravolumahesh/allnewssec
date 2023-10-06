@@ -76,7 +76,7 @@ export const TextFieldVariants: Components<
           },
           [`.${outlinedInputClasses.notchedOutline}`]: {
             borderRadius: 0,
-            borderColor: "white",
+            borderColor: "white !important",
           },
         });
       },
