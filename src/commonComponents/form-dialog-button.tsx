@@ -25,7 +25,10 @@ const FormDialogButton = (props: FormDialogButtonProps) => {
   return (
     <>
       <AnimatedButton
-        sx={{ fontSize: "18px !important" }}
+        sx={{
+          fontSize: "18px !important",
+          width: { xs: 1, xl: "max-content" },
+        }}
         onClick={() => setOpen(true)}
         {...restAnimatedButtonProps}
       />
