@@ -5,7 +5,6 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import ArrowImage from "@cc/arrow-image";
 import { Stack, Typography } from "@mui/material";
 import { MotionStack, MotionVariantProps } from "../motion-components";
-import { arrowImageTransition } from "../animations";
 
 export interface EnquireProps {
   data: {
@@ -46,17 +45,18 @@ const Enquire = (props: EnquireProps) => {
             alignItems={"center"}
             width={1}
             maxWidth={{ xs: 400, md: 545 }}
-            variants={arrowStaggerChildren}
+            variants={arrowStaggerChildDiv}
+            overflow={"hidden"}
           >
             <ArrowImage
               src={image}
               alt={title}
               width={196}
               height={228}
-              sx={{ minWidth: 196, minHeight: 228 }}
-              ContainerProps={{ ...arrowImageTransition }}
+              sx={{ minWidth: 196, minHeight: 228, zIndex: 1 }}
+              ContainerProps={{ variants: arrowImageTransition }}
             />
-            <MotionStack rowGap={2} {...arrowImageTransition}>
+            <MotionStack rowGap={2} variants={arrowImageTransition}>
               <Typography
                 variant={"h5"}
                 textAlign={{ xs: "center", xl: "left" }}
@@ -84,16 +84,29 @@ const arrowStagger: MotionVariantProps = {
   initial: {},
   whileInView: {
     transition: {
-      staggerChildren: 2,
+      staggerChildren: 0.9,
     },
   },
 };
-const arrowStaggerChildren: MotionVariantProps = {
-  initial: { opacity: 0 },
+const arrowStaggerChildDiv: MotionVariantProps = {
+  initial: {},
   whileInView: {
+    transition: {
+      staggerChildren: 0.4,
+    },
+  },
+};
+
+const arrowImageTransition: MotionVariantProps = {
+  initial: {
+    x: "-102%",
+    opacity: 0,
+  },
+  whileInView: {
+    x: 0,
     opacity: 1,
     transition: {
-      staggerChildren: 2,
+      duration: 0.4,
     },
   },
 };
