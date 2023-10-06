@@ -12,7 +12,6 @@ import InputValidatorsMapper, {
 } from "./input-validator-mapper";
 import { useEffect } from "react";
 import { SubscriptionLike } from "rxjs";
-import { AnimatedButtonProps } from "@cc/animated-button";
 
 export interface ValidatorFormProps<T extends FieldValues>
   extends InputValidatorsMapperProps<T, typeof Grid2, typeof Grid2>,
@@ -20,11 +19,9 @@ export interface ValidatorFormProps<T extends FieldValues>
   onValid?: (data: T) => void;
   onInvalid?: (errors: unknown) => void;
   formProps?: UseFormProps<T>;
-  submitButtonProps?: AnimatedButtonProps;
   getFormMethods?: (
     formMethods: UseFormReturn<T>,
   ) => Omit<SubscriptionLike, "closed"> | void;
-  isLoading?: boolean;
 }
 
 const ValidatorForm = <T extends FieldValues = FieldValues>(
@@ -37,7 +34,7 @@ const ValidatorForm = <T extends FieldValues = FieldValues>(
     getFormMethods,
     Dto,
     inputFields,
-    submitButtonProps = { children: "Submit" },
+    SubmitButtonProps = { children: "Submit" },
     ButtonItemComponentProps,
     WrapperComponentProps,
     ItemComponentProps,
@@ -93,7 +90,7 @@ const ValidatorForm = <T extends FieldValues = FieldValues>(
             ...ItemComponentProps,
           }}
           isLoading={isLoading}
-          submitButtonProps={submitButtonProps}
+          SubmitButtonProps={SubmitButtonProps}
           ButtonItemComponentProps={{
             xs: 12,
             md: 6,

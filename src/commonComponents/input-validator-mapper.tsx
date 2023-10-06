@@ -26,7 +26,7 @@ export type InputValidatorsMapperProps<
       ItemComponentProps?: ComponentProps<I>;
     })[];
   isLoading?: boolean;
-  submitButtonProps?: AnimatedButtonProps;
+  SubmitButtonProps?: AnimatedButtonProps;
 } & WrapperAndItemType<W, I>;
 
 type WrapperAndItemType<W extends ComponentType, I extends ComponentType> = {
@@ -51,7 +51,7 @@ const InputValidatorsMapper = <
     ItemComponent = Fragment,
     ItemComponentProps,
     isLoading,
-    submitButtonProps,
+    SubmitButtonProps,
     ButtonItemComponentProps,
   } = props;
   const { control } = useFormContext<T>();
@@ -108,7 +108,7 @@ const InputValidatorsMapper = <
           disableElevation
           {...(isLoading
             ? { children: <CircularProgress size={25} color="inherit" /> }
-            : { ...submitButtonProps })}
+            : { ...SubmitButtonProps })}
         />
       </ItemComponent>
     </WrapperComponent>

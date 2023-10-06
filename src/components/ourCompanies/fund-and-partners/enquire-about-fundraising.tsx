@@ -23,6 +23,15 @@ const EnquireAboutFundraising = () => {
         columnSpacing: 3,
         rowSpacing: 3,
       }}
+      SubmitButtonProps={{
+        children: "Submit",
+        sx: {
+          width: {
+            xs: "100%",
+            md: "100%",
+          },
+        },
+      }}
     />
   );
 };
