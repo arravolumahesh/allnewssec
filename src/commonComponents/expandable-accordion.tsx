@@ -1,11 +1,9 @@
 import {
-  Accordion,
   AccordionDetails,
   AccordionSummary,
+  alpha,
   Divider,
   Stack,
-  Typography,
-  alpha,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React, { useState } from "react";
@@ -21,8 +19,6 @@ import {
   MotionTypography,
 } from "./motion-components";
 import {
-  bottomToToptextStagger,
-  bottomToToptextStaggerChildren,
   bottomToToptextTransition,
   staggerArrowChildren,
   staggerDivArrow,

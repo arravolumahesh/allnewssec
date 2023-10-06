@@ -9,24 +9,20 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import AnimatedButton from "./animated-button";
-import {
-  H3_1,
-  H3_2,
-  H5_1,
-} from "@/styles/theme/components/typography.fontvariant";
+import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
 import { CalendarToday } from "@mui/icons-material";
 
 const FormDialog = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const fullScreen = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("md")
+    theme.breakpoints.down("md"),
   );
   return (
     <>
       <AnimatedButton href={"#"}>btnText</AnimatedButton>
       <Dialog
         onClose={() => setOpen(false)}
-        open={true}
+        open={open}
         fullWidth
         fullScreen={fullScreen}
         maxWidth={"lg_xl"}
@@ -35,7 +31,7 @@ const FormDialog = () => {
             borderRadius: 0,
           },
         }}
-        scroll='paper'
+        scroll="paper"
       >
         <DialogContent sx={{ width: 1, p: 0, bgcolor: "primary.main" }}>
           <Stack
@@ -52,11 +48,11 @@ const FormDialog = () => {
               minHeight={{ xs: "none", md: 625 }}
             >
               <Stack rowGap={5}>
-                <Typography variant='h3' fontSize={H5_1}>
+                <Typography variant="h3" fontSize={H5_1}>
                   Restocking Community Fridges
                 </Typography>
                 {/* ADD ACCORDION */}
-                <Typography variant='body1'>
+                <Typography variant="body1">
                   The Restocking Community Fridges volunteering event is an
                   initiative that aims to address food insecurity. The event
                   focuses on replenishing and maintaining community fridges
@@ -71,7 +67,7 @@ const FormDialog = () => {
                   alignItems={"center"}
                   fontSize={"16px"}
                 >
-                  <CalendarToday fontSize='small' /> Mumbai, Maharashtra
+                  <CalendarToday fontSize="small" /> Mumbai, Maharashtra
                 </Typography>
 
                 <Typography
@@ -80,7 +76,7 @@ const FormDialog = () => {
                   alignItems={"center"}
                   fontSize={"16px"}
                 >
-                  <CalendarToday fontSize='small' />
+                  <CalendarToday fontSize="small" />
                   15 July 2023 | 10:00 AM - 6:00 PM
                 </Typography>
                 <Typography
@@ -89,7 +85,7 @@ const FormDialog = () => {
                   alignItems={"center"}
                   fontSize={"16px"}
                 >
-                  <CalendarToday fontSize='small' /> +91 7607907690
+                  <CalendarToday fontSize="small" /> +91 7607907690
                 </Typography>
               </Stack>
             </Stack>

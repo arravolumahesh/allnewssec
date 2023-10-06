@@ -1,10 +1,8 @@
-import CompanyIntermediateBanner from "@/components/companyIntermediate/companyIntermediateBanner";
-import IntermediateCount from "@/components/intermediate/intermediateCount";
-import IntermediateMenu from "@/commonComponents/commonIntermediates/intermediateMenu";
+import CompanyIntermediateBanner from "@c/companyIntermediate/companyIntermediateBanner";
+import IntermediateMenu from "@cc/commonIntermediates/intermediateMenu";
 import { NextPage } from "next";
-import CompanyIntermediateInitiatives from "@/components/companyIntermediate/companyInitiatives";
-import DiscoverCompanyIntermidiate from "@/components/companyIntermediate/discover";
-import IntermediateCountAndCards from "@/components/companyIntermediate/companyInitiativecountandcards";
+import DiscoverCompanyIntermidiate from "@c/companyIntermediate/discover";
+import IntermediateCountAndCards from "@c/companyIntermediate/companyInitiativecountandcards";
 
 const menus = [
   {
@@ -70,7 +68,6 @@ const IntermediatePage: NextPage = () => {
   return (
     <>
       <CompanyIntermediateBanner />
-      
         <IntermediateMenu
           logoImg={logoImg}
           menus={menus}

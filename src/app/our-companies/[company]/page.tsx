@@ -18,7 +18,6 @@ import group5 from "@/components/ourCompanies/images/group5.png";
 import group7 from "@/components/ourCompanies/images/group7.png";
 import group8 from "@/components/ourCompanies/images/group8.png";
 import Enquire from "@/commonComponents/enquire";
-import FormDialog from "@/commonComponents/form-dialog";
 
 const Company = () => {
   return (
@@ -35,13 +34,13 @@ const Company = () => {
       <PartnerSwiperSection />
       <Enquire data={enquireData} />
       <Discover
-        title='Discover bajaj Auto'
-        link='Visit Bajaj Auto Website'
-        href='/'
+        title="Discover bajaj Auto"
+        link="Visit Bajaj Auto Website"
+        href="/"
         ImageData={imageData}
       />
       <CsrReport />
-      <FormDialog />
+      {/*<FormDialog />*/}
     </>
   );
 };
