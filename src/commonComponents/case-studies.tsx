@@ -1,6 +1,9 @@
 "use client";
 import { Navigation } from "swiper/modules";
-import { MotionTypography } from "@/commonComponents/motion-components";
+import {
+  MotionStackProps,
+  MotionTypography,
+} from "@/commonComponents/motion-components";
 import React from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Stack } from "@mui/material";
@@ -11,10 +14,11 @@ import { CaseStudySlide, CaseStudySlideProps } from "./cards/case-study-slide";
 type CaseStudiesProps = {
   SectioHeader?: string;
   data: CaseStudySlideProps[];
+  ContainerEndChildrenProps?: Omit<MotionStackProps, "children">;
 };
 
 const CaseStudies = (props: CaseStudiesProps) => {
-  const { SectioHeader, data } = props;
+  const { SectioHeader, data, ContainerEndChildrenProps } = props;
   return (
     <SectionWrapper
       SectionProps={{ id: "case-studies" }}
@@ -79,6 +83,7 @@ const CaseStudies = (props: CaseStudiesProps) => {
                 NextButtonProps={{
                   className: "swiper-case-next",
                 }}
+                {...ContainerEndChildrenProps}
               />
             ),
           }}

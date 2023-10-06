@@ -19,7 +19,11 @@ const CaseStudy = () => {
       <HowWeDid />
       <ChallengesFaced />
       <GallaryWall />
-      <CaseStudies SectioHeader='More Case Studies' data={caseStudyData} />
+      <CaseStudies
+        SectioHeader='More Case Studies'
+        data={caseStudyData}
+        ContainerEndChildrenProps={{ alignSelf: "flex-start" }}
+      />
     </>
   );
 };
