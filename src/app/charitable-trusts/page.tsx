@@ -15,7 +15,6 @@ import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
 import group7 from "@/components/ourCompanies/images/group7.png";
 import group8 from "@/components/ourCompanies/images/group8.png";
-import BeginningOfChange from "@c/charitableTrusts/beginning-of-change";
 
 const CharitableTrusts = () => {
   return (
@@ -33,7 +32,7 @@ const CharitableTrusts = () => {
         }}
       />
       <ObjectiveSection Objective="We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation." />
-      <BeginningOfChange />
+      {/*<BeginningOfChange />*/}
       <ActsOfProgress />
       <BajajAwards />
       <Nominations />
