@@ -6,27 +6,21 @@ import {
   UseFormReturn,
 } from "react-hook-form";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import {
-  Button,
-  ButtonProps,
-  CircularProgress,
-  Stack,
-  StackProps,
-} from "@mui/material";
+import { Stack, StackProps } from "@mui/material";
 import InputValidatorsMapper, {
   InputValidatorsMapperProps,
 } from "./input-validator-mapper";
 import { useEffect } from "react";
 import { SubscriptionLike } from "rxjs";
+import { AnimatedButtonProps } from "@cc/animated-button";
 
 export interface ValidatorFormProps<T extends FieldValues>
   extends InputValidatorsMapperProps<T, typeof Grid2, typeof Grid2>,
     Omit<StackProps<"form">, "children" | "onSubmit"> {
   onValid?: (data: T) => void;
   onInvalid?: (errors: unknown) => void;
-  btnColorPrimary?: boolean;
   formProps?: UseFormProps<T>;
-  submitButtonProps?: ButtonProps;
+  submitButtonProps?: AnimatedButtonProps;
   getFormMethods?: (
     formMethods: UseFormReturn<T>,
   ) => Omit<SubscriptionLike, "closed"> | void;
@@ -40,11 +34,15 @@ const ValidatorForm = <T extends FieldValues = FieldValues>(
     onValid = () => {},
     onInvalid = () => {},
     formProps,
+    getFormMethods,
     Dto,
     inputFields,
-    btnColorPrimary,
-    getFormMethods,
     submitButtonProps = { children: "Submit" },
+    ButtonItemComponentProps,
+    WrapperComponentProps,
+    ItemComponentProps,
+    ItemComponent,
+    WrapperComponent,
     isLoading,
     ...rest
   } = props;
@@ -81,28 +79,27 @@ const ValidatorForm = <T extends FieldValues = FieldValues>(
         <InputValidatorsMapper
           Dto={Dto}
           inputFields={inputFields}
-          WrapperComponent={Grid2}
+          WrapperComponent={WrapperComponent || Grid2}
           WrapperComponentProps={{
             container: true,
             p: 0,
             columnSpacing: 3,
             rowSpacing: 3.5,
+            ...WrapperComponentProps,
           }}
-          ItemComponent={Grid2}
+          ItemComponent={ItemComponent || Grid2}
           ItemComponentProps={{
             xs: 12,
+            ...ItemComponentProps,
+          }}
+          isLoading={isLoading}
+          submitButtonProps={submitButtonProps}
+          ButtonItemComponentProps={{
+            xs: 12,
+            md: 6,
+            ...ButtonItemComponentProps,
           }}
         />
-        <Button
-          type={"submit"}
-          variant={"contained"}
-          color={btnColorPrimary ? "primary" : "secondary"}
-          fullWidth
-          disableElevation
-          {...(isLoading
-            ? { children: <CircularProgress size={25} color="inherit" /> }
-            : { ...submitButtonProps })}
-        ></Button>
       </Stack>
     </FormProvider>
   );

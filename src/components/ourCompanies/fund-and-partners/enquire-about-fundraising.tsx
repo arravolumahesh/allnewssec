@@ -19,6 +19,10 @@ const EnquireAboutFundraising = () => {
       }}
       onValid={(data) => console.log(data)}
       onInvalid={(errors) => console.log(errors)}
+      WrapperComponentProps={{
+        columnSpacing: 3,
+        rowSpacing: 3,
+      }}
     />
   );
 };
@@ -59,26 +63,54 @@ const inputFields: ValidatorFormProps<EnquireAboutFundraisingDto>["inputFields"]
   [
     {
       name: "name",
+      placeholder: "Name",
     },
     {
       name: "email",
+      placeholder: "Email ID",
+      ItemComponentProps: {
+        md: 6,
+      },
     },
     {
       name: "phone",
+      placeholder: "Phone Number",
+      ItemComponentProps: {
+        md: 6,
+      },
     },
     {
       name: "organization",
+      placeholder: "Your Organization Name",
+      ItemComponentProps: {
+        md: 6,
+      },
     },
     {
       name: "city",
+      placeholder: "City",
+      ItemComponentProps: {
+        md: 6,
+      },
     },
     {
       name: "InitiativeCategory",
+      placeholder: "Initiative Category (optional)",
+      select: true,
+      ItemComponentProps: {
+        md: 6,
+      },
     },
     {
       name: "Amount",
+      placeholder: "Amount to be raised (in ₹)",
+      ItemComponentProps: {
+        md: 6,
+      },
     },
     {
       name: "message",
+      placeholder: "Enter A Message",
+      multiline: true,
     },
   ];

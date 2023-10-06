@@ -12,6 +12,8 @@ import {
   Resolver,
 } from "@hookform/resolvers/class-validator";
 import InputValidator, { InputValidatorProps } from "./input-validator";
+import { CircularProgress } from "@mui/material";
+import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
 
 export type InputValidatorsMapperProps<
   T extends FieldValues,
@@ -23,6 +25,8 @@ export type InputValidatorsMapperProps<
     InputValidatorProps & {
       ItemComponentProps?: ComponentProps<I>;
     })[];
+  isLoading?: boolean;
+  submitButtonProps?: AnimatedButtonProps;
 } & WrapperAndItemType<W, I>;
 
 type WrapperAndItemType<W extends ComponentType, I extends ComponentType> = {
@@ -30,6 +34,7 @@ type WrapperAndItemType<W extends ComponentType, I extends ComponentType> = {
   WrapperComponentProps?: ComponentProps<W>;
   ItemComponent?: I;
   ItemComponentProps?: ComponentProps<I>;
+  ButtonItemComponentProps?: ComponentProps<I>;
 };
 
 const InputValidatorsMapper = <
@@ -45,6 +50,9 @@ const InputValidatorsMapper = <
     WrapperComponentProps,
     ItemComponent = Fragment,
     ItemComponentProps,
+    isLoading,
+    submitButtonProps,
+    ButtonItemComponentProps,
   } = props;
   const { control } = useFormContext<T>();
 
@@ -91,6 +99,18 @@ const InputValidatorsMapper = <
           </ItemComponent>
         );
       })}
+      <ItemComponent {...ItemComponentProps} {...ButtonItemComponentProps}>
+        <AnimatedButton
+          type={"submit"}
+          variant={"contained"}
+          color={"secondary"}
+          fullWidth
+          disableElevation
+          {...(isLoading
+            ? { children: <CircularProgress size={25} color="inherit" /> }
+            : { ...submitButtonProps })}
+        />
+      </ItemComponent>
     </WrapperComponent>
   );
 };

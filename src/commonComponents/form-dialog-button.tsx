@@ -92,7 +92,9 @@ const FormDialogButton = (props: FormDialogButtonProps) => {
                 </Typography>
               </Stack>
             </Stack>
-            <Stack width={{ xs: 1, md: "60%" }}>{ReactiveForm}</Stack>
+            <Stack width={{ xs: 1, md: "60%" }} px={5} py={7}>
+              {ReactiveForm}
+            </Stack>
           </Stack>
         </DialogContent>
       </Dialog>
