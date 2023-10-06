@@ -6,75 +6,73 @@ import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { usePathname } from "next/navigation";
 import { Typography } from "@mui/material";
+import { Body2 } from "@/styles/theme/components/typography.fontvariant";
 
 export default function CommonBreadcrumb() {
-  
   const paths = usePathname();
   const pathNames = paths && paths.split("/").filter((path) => path);
-  const finalpath  = (pathNames !== null && pathNames?.length > 3) ? pathNames.slice(-3) : pathNames;  
+  const finalpath =
+    pathNames !== null && pathNames?.length > 3
+      ? pathNames.slice(-3)
+      : pathNames;
   return (
     <Stack spacing={2}>
       <Breadcrumbs
-        separator={<NavigateNextIcon sx={{opacity:0.5}} fontSize="small" />}
-        aria-label="breadcrumb"
+        separator={<NavigateNextIcon sx={{ opacity: 0.5 }} fontSize='small' />}
+        aria-label='breadcrumb'
         sx={{
-          color:'inherit',
+          color: "inherit",
         }}
       >
-        {(Array.isArray(finalpath) && finalpath.length < 3)  &&
+        {Array.isArray(finalpath) && finalpath.length < 3 && (
           <Typography
             component={Link}
             sx={{
-              opacity:0.5,
-              '&:hover':{
-                background:'none',              
+              opacity: 0.5,
+              "&:hover": {
+                background: "none",
               },
-              fontSize:{xs_sm:12}
             }}
-            href="/"
-            underline="hover"
-            
+            href='/'
+            variant='body2'
+            underline='hover'
           >
-            Home  
+            Home
           </Typography>
-        }
-        
+        )}
+
         {Array.isArray(finalpath) &&
           finalpath.map((item, index) => {
-            if(finalpath?.length === index+1){
-              return(
-                <Typography textTransform="capitalize"
-                sx={{
-                  '@media (max-width: 390px)': {
-                    fontSize:12,
-                  },
-                }}
-                key={index}>
-                  {item.replace("-", " ")}
-                </Typography>
-              )
-            }
-
-            return(
-              <Typography
-                  textTransform="capitalize"
-                  component={Link}
-                  sx={{
-                    opacity:0.5,
-                    '@media (max-width: 390px)': {
-                      fontSize:12,
-                    },
-                    '&:hover':{
-                      background:'none'                     
-                    }
-                  }}
-                  href={item}
-                  underline="hover"                  
+            if (finalpath?.length === index + 1) {
+              return (
+                <Typography
+                  textTransform='capitalize'
+                  variant='body2'
                   key={index}
                 >
                   {item.replace("-", " ")}
                 </Typography>
-              )
+              );
+            }
+
+            return (
+              <Typography
+                textTransform='capitalize'
+                component={Link}
+                sx={{
+                  opacity: 0.5,
+                  fontSize: Body2,
+                  "&:hover": {
+                    background: "none",
+                  },
+                }}
+                href={item}
+                underline='hover'
+                key={index}
+              >
+                {item.replace("-", " ")}
+              </Typography>
+            );
           })}
       </Breadcrumbs>
     </Stack>
