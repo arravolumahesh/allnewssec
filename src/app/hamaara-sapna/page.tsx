@@ -1,10 +1,12 @@
 import ObjectiveSection from "@cc/objective-section";
 import BeginningOfChange from "@c/hamaara-sapna/beginning-of-change";
 import SectionNavigation from "@cc/section-navigation";
+import HeroBanner from "@c/hamaara-sapna/hero-banner";
 
 const HamaaraSapna = () => {
   return (
     <>
+      <HeroBanner />
       <SectionNavigation
         Sections={menus}
         LogoImageProps={{
