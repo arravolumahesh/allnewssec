@@ -10,7 +10,7 @@ import {
 import React, { ReactNode, useState } from "react";
 import AnimatedButton, { AnimatedButtonProps } from "./animated-button";
 import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
-import { CalendarToday } from "@mui/icons-material";
+import { CalendarToday, Call, LocationOn } from "@mui/icons-material";
 
 interface FormDialogButtonProps extends AnimatedButtonProps {
   ReactiveForm?: ReactNode;
@@ -70,16 +70,16 @@ const FormDialogButton = (props: FormDialogButtonProps) => {
               <Stack rowGap={2}>
                 <Typography
                   display={"flex"}
-                  gap={0.5}
+                  gap={1}
                   alignItems={"center"}
                   fontSize={"16px"}
                 >
-                  <CalendarToday fontSize='small' /> Mumbai, Maharashtra
+                  <LocationOn fontSize='small' /> Mumbai, Maharashtra
                 </Typography>
 
                 <Typography
                   display={"flex"}
-                  gap={0.5}
+                  gap={1}
                   alignItems={"center"}
                   fontSize={"16px"}
                 >
@@ -88,11 +88,11 @@ const FormDialogButton = (props: FormDialogButtonProps) => {
                 </Typography>
                 <Typography
                   display={"flex"}
-                  gap={0.5}
+                  gap={1}
                   alignItems={"center"}
                   fontSize={"16px"}
                 >
-                  <CalendarToday fontSize='small' /> +91 7607907690
+                  <Call fontSize='small' /> +91 7607907690
                 </Typography>
               </Stack>
             </Stack>

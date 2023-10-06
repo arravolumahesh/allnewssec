@@ -20,6 +20,7 @@ const Stories = () => {
     <ScrollTriggeredSwiperSection
       data={data}
       SectionProps={{ id: "stories" }}
+      py={0}
     />
   );
 };
