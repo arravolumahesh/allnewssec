@@ -5,7 +5,7 @@ import Happening from "@/components/ourCompanies/happening";
 import Stories from "@/components/ourCompanies/stories";
 import VolunteeringOpportunities from "@/components/ourCompanies/volunteeringOpportunities";
 import PartnerSwiperSection from "@cc/partner-swiper-section";
-import CsrReport from "@/components/ourCompanies/csr-repots";
+import CsrReport from "@/components/ourCompanies/csr-reports";
 import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 import SectionNavigation, {
   SectionNavigationProps,
