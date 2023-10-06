@@ -33,7 +33,7 @@ const caseStudyData = [
     title: "Digital Skilling for Youth",
     subTitle:
       "Helping students learn digitally in order to keep them future and employment ready. ",
-    href: "/",
+    href: "",
   },
   {
     img: womens,
@@ -41,7 +41,7 @@ const caseStudyData = [
     title: "Providing Vocational Training for Women in Maharashtra",
     subTitle:
       "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-    href: "/",
+    href: "",
   },
   {
     img: childrens,
@@ -49,7 +49,7 @@ const caseStudyData = [
     title: "Digital Skilling for Youth",
     subTitle:
       "Helping students learn digitally in order to keep them future and employment ready. ",
-    href: "/",
+    href: "",
   },
   {
     img: womens,
@@ -57,6 +57,6 @@ const caseStudyData = [
     title: "Providing Vocational Training for Women in Maharashtra",
     subTitle:
       "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-    href: "/",
+    href: "",
   },
 ];
