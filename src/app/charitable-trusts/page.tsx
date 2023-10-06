@@ -40,7 +40,7 @@ const CharitableTrusts = () => {
       <Wardha />
       <Initiatives />
       <Stories />
-      <PartnerSwiperSection />
+      <PartnerSwiperSection SectionProps={{ id: "partners" }} />
       <Enquire data={enquireData} />
       <Discover
         title='DISCOVER JAMNALAL BAJAJ FOUNDATION'

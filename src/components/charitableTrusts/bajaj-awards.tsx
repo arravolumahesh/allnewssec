@@ -34,6 +34,7 @@ const BajajAwards = () => {
         sx: {
           background: (theme) => theme.palette.gradient.darkToLight,
         },
+        id: "awards",
       }}
       SectionHeaderProps={{
         title: "Jamnalal Bajaj Awards",

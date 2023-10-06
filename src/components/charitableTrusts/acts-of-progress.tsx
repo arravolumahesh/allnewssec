@@ -22,6 +22,7 @@ const ActsOfProgress = () => {
           sx: {
             backgroundColor: (theme) => theme.palette.primary.main,
           },
+          id: "whats-new",
         },
         SectionHeaderProps: {
           title: "ACTS OF PROGRESS, ONE AT A TIME",

@@ -16,7 +16,12 @@ import ScrollTriggeredSwiperSection, {
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
 const Stories = () => {
-  return <ScrollTriggeredSwiperSection data={data} />;
+  return (
+    <ScrollTriggeredSwiperSection
+      data={data}
+      SectionProps={{ id: "stories" }}
+    />
+  );
 };
 
 export default Stories;

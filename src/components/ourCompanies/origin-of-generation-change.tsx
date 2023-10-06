@@ -17,14 +17,18 @@ const OriginOfGenerationChange = () => {
       rowGap={3}
       justifyContent={"space-between"}
       alignItems={"center"}
+      SectionProps={{
+        id: "about-us",
+      }}
     >
       <MotionImage
         src={originOfGenerational}
-        alt="The Origin of generational Change"
+        alt='The Origin of generational Change'
         sx={{
           width: { xs: "100%", md_lg: "50%" },
-          maxWidth: 599,
+          maxWidth: 559,
           aspectRatio: "4/2.556",
+          objectFit: "cover",
         }}
       />
       <Stack
@@ -45,9 +49,9 @@ const OriginOfGenerationChange = () => {
         <AnimatedButton
           variant={"contained"}
           color={"primary"}
-          sx={{
-            mx: "auto",
-          }}
+          // sx={{
+          //   mx: "auto",
+          // }}
         >
           View Our Legacy
         </AnimatedButton>

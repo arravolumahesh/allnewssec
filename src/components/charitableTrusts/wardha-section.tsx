@@ -31,6 +31,7 @@ const Wardha = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
         },
+        id: "initiatives",
       }}
       SectionHeaderProps={{
         title: "Wardha - A sanctuary of hope & change",
