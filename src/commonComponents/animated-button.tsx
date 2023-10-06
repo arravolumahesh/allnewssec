@@ -1,9 +1,15 @@
 "use client";
 import { buttonClasses, SxProps, Theme } from "@mui/material";
 import { useMemo, useState } from "react";
-import { MotionLink, MotionLinkProps } from "./motion-components";
+import {
+  MotionButtonProps,
+  MotionLink,
+  MotionLinkProps,
+} from "./motion-components";
 
-export interface AnimatedButtonProps extends MotionLinkProps {
+export interface AnimatedButtonProps
+  extends Omit<MotionLinkProps, "href">,
+    MotionButtonProps {
   /*
    * Animation delay in milliseconds
    *
@@ -13,6 +19,7 @@ export interface AnimatedButtonProps extends MotionLinkProps {
    * */
   animationDelay?: number;
   rotation?: "clockwise" | "anticlockwise";
+  href?: MotionLinkProps["href"];
 }
 
 const AnimatedButton = (props: AnimatedButtonProps) => {
@@ -105,8 +112,10 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
     };
   }, [after, before, color, isInView, variant]);
 
+  const RenderComponent = restProps.href ? MotionLink : MotionButton;
+
   return (
-    <MotionLink
+    <RenderComponent
       sx={[
         animatedButtonInitialSx,
         animatedButtonOnViewportEnterSx,
