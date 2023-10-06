@@ -125,7 +125,7 @@ const ScrollTriggeredSwiperSection = <
             },
             fontSize: { xs: 45, md: 70 },
             top: {
-              xs: "15%",
+              xs: "18%",
               sm: "22%",
               md: "50%",
             },
