@@ -1,7 +1,9 @@
 "use client";
 import {
+  Box,
   Dialog,
   DialogContent,
+  IconButton,
   Stack,
   Theme,
   Typography,
@@ -10,14 +12,30 @@ import {
 import React, { ReactNode, useState } from "react";
 import AnimatedButton, { AnimatedButtonProps } from "./animated-button";
 import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
-import { CalendarToday, Call, LocationOn } from "@mui/icons-material";
+import { CalendarToday, Call, Close, LocationOn } from "@mui/icons-material";
+import { StaticImageData } from "next/image";
 
 interface FormDialogButtonProps extends AnimatedButtonProps {
+  title: string;
+  image: StaticImageData | string;
+  description?: string;
+  region?: string;
+  date?: string;
+  number?: string;
   ReactiveForm?: ReactNode;
 }
 
 const FormDialogButton = (props: FormDialogButtonProps) => {
-  const { ReactiveForm, ...restAnimatedButtonProps } = props;
+  const {
+    image,
+    title,
+    description,
+    region,
+    date,
+    number,
+    ReactiveForm,
+    ...restAnimatedButtonProps
+  } = props;
   const [open, setOpen] = useState(false);
   const fullScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md")
@@ -40,7 +58,21 @@ const FormDialogButton = (props: FormDialogButtonProps) => {
         maxWidth={"lg_xl"}
         scroll='paper'
       >
-        <DialogContent sx={{ width: 1, p: 0, bgcolor: "primary.main" }}>
+        <DialogContent
+          sx={{ width: 1, p: 0, position: "relative", bgcolor: "primary.main" }}
+        >
+          <IconButton
+            onClick={() => setOpen(false)}
+            sx={{
+              position: "absolute",
+              top: 24,
+              right: 24,
+              color: "common.white",
+              zIndex: 1,
+            }}
+          >
+            <Close />
+          </IconButton>
           <Stack
             width={1}
             direction={{ xs: "column", md: "row" }}
@@ -48,55 +80,80 @@ const FormDialogButton = (props: FormDialogButtonProps) => {
           >
             <Stack
               width={{ xs: 1, md: "40%" }}
-              py={{ xs: 3, md: 9 }}
+              py={{ xs: 8, md: 9 }}
               px={{ xs: 3, md: 5 }}
+              sx={{
+                backgroundImage: `url(${image})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
               bgcolor={"rgba(0, 0, 0, 0.85)"}
               justifyContent={"space-between"}
+              minWidth={{ xs: "none", md: 390 }}
               minHeight={{ xs: "none", md: 625 }}
+              position='relative'
             >
+              <Box
+                sx={{
+                  position: "absolute",
+                  bgcolor: "#000000d9",
+                  width: 1,
+                  height: 1,
+                  top: 0,
+                  left: 0,
+                }}
+              />
               <Stack rowGap={5}>
                 <Typography variant='h3' fontSize={H5_1}>
-                  Restocking Community Fridges
+                  {title}
                 </Typography>
                 {/* ADD ACCORDION */}
-                <Typography variant='body1'>
-                  The Restocking Community Fridges volunteering event is an
-                  initiative that aims to address food insecurity. The event
-                  focuses on replenishing and maintaining community fridges
-                  placed in public spaces to provide free and accessible food to
-                  those in need.
-                </Typography>
+                {description && (
+                  <Typography variant='body1'>{description}</Typography>
+                )}
               </Stack>
-              <Stack rowGap={2}>
-                <Typography
-                  display={"flex"}
-                  gap={1}
-                  alignItems={"center"}
-                  fontSize={"16px"}
-                >
-                  <LocationOn fontSize='small' /> Mumbai, Maharashtra
-                </Typography>
+              {(region || date || number) && (
+                <Stack rowGap={2} mt={3}>
+                  {region && (
+                    <Typography
+                      display={"flex"}
+                      gap={1}
+                      alignItems={"center"}
+                      fontSize={"16px"}
+                    >
+                      <LocationOn fontSize='small' /> {region}
+                    </Typography>
+                  )}
 
-                <Typography
-                  display={"flex"}
-                  gap={1}
-                  alignItems={"center"}
-                  fontSize={"16px"}
-                >
-                  <CalendarToday fontSize='small' />
-                  15 July 2023 | 10:00 AM - 6:00 PM
-                </Typography>
-                <Typography
-                  display={"flex"}
-                  gap={1}
-                  alignItems={"center"}
-                  fontSize={"16px"}
-                >
-                  <Call fontSize='small' /> +91 7607907690
-                </Typography>
-              </Stack>
+                  {date && (
+                    <Typography
+                      display={"flex"}
+                      gap={1}
+                      alignItems={"center"}
+                      fontSize={"16px"}
+                    >
+                      <CalendarToday fontSize='small' />
+                      {date}
+                    </Typography>
+                  )}
+                  {number && (
+                    <Typography
+                      display={"flex"}
+                      gap={1}
+                      alignItems={"center"}
+                      fontSize={"16px"}
+                    >
+                      <Call fontSize='small' /> {number}
+                    </Typography>
+                  )}
+                </Stack>
+              )}
             </Stack>
-            <Stack width={{ xs: 1, md: "60%" }} px={5} py={7}>
+            <Stack
+              width={{ xs: 1, md: "60%" }}
+              py={{ xs: 4, md: 7 }}
+              px={{ xs: 3, md: 5 }}
+            >
               {ReactiveForm}
             </Stack>
           </Stack>
