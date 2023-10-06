@@ -9,11 +9,12 @@ import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button"
 import { CaseStudySlide, CaseStudySlideProps } from "./cards/case-study-slide";
 
 type CaseStudiesProps = {
+  SectioHeader?: string;
   data: CaseStudySlideProps[];
 };
 
 const CaseStudies = (props: CaseStudiesProps) => {
-  const { data } = props;
+  const { SectioHeader, data } = props;
   return (
     <SectionWrapper
       SectionProps={{ id: "case-studies" }}
@@ -48,7 +49,7 @@ const CaseStudies = (props: CaseStudiesProps) => {
                 mb={{ xs: 5, md: 6 }}
               >
                 <MotionTypography variant='h3'>
-                  Our Case Studies
+                  {SectioHeader || "Our Case Studies"}
                 </MotionTypography>
                 <SwiperNavigationButton
                   display={{

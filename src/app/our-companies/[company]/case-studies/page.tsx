@@ -19,7 +19,7 @@ const CaseStudy = () => {
       <HowWeDid />
       <ChallengesFaced />
       <GallaryWall />
-      <CaseStudies data={caseStudyData} />
+      <CaseStudies SectioHeader='More Case Studies' data={caseStudyData} />
     </>
   );
 };
