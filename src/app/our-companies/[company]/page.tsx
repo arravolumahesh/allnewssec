@@ -40,7 +40,6 @@ const Company = () => {
         ImageData={imageData}
       />
       <CsrReport />
-      {/*<FormDialog />*/}
     </>
   );
 };
