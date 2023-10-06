@@ -1,5 +1,4 @@
 import BuildFuture from "@/components/ourCompanies/build-future";
-import CaseStudies from "@/components/ourCompanies/our-studies";
 import OurFocusAreas from "@/components/ourCompanies/our-focus-areas";
 import Sustainability from "@/components/ourCompanies/sustainability";
 import Happening from "@/components/ourCompanies/happening";
@@ -18,6 +17,9 @@ import group5 from "@/components/ourCompanies/images/group5.png";
 import group7 from "@/components/ourCompanies/images/group7.png";
 import group8 from "@/components/ourCompanies/images/group8.png";
 import FundsAndPartners from "@c/ourCompanies/fund-and-partners";
+import CaseStudies from "@/commonComponents/case-studies";
+import womens from "@/components/ourCompanies/images/womens.png";
+import childrens from "@/components/ourCompanies/images/childrens.png";
 
 const Company = () => {
   return (
@@ -28,15 +30,15 @@ const Company = () => {
       <OurFocusAreas />
       <Stories />
       <Sustainability />
-      <CaseStudies />
+      <CaseStudies data={caseStudyData} />
       <HerosOfInitiatives />
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
       <FundsAndPartners />
       <Discover
-        title="Discover bajaj Auto"
-        link="Visit Bajaj Auto Website"
-        href="/"
+        title='Discover bajaj Auto'
+        link='Visit Bajaj Auto Website'
+        href='/'
         ImageData={imageData}
       />
       <CsrReport />
@@ -57,6 +59,41 @@ const imageData = [
   { img: group5 },
   { img: group7 },
   { img: group8 },
+];
+
+const caseStudyData = [
+  {
+    img: childrens,
+    tag: "IPH-Triveni Program",
+    title: "Digital Skilling for Youth",
+    subTitle:
+      "Helping students learn digitally in order to keep them future and employment ready. ",
+    href: "/",
+  },
+  {
+    img: womens,
+    tag: "IPH-Triveni Program",
+    title: "Providing Vocational Training for Women in Maharashtra",
+    subTitle:
+      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+    href: "/",
+  },
+  {
+    img: childrens,
+    tag: "IPH-Triveni Program",
+    title: "Digital Skilling for Youth",
+    subTitle:
+      "Helping students learn digitally in order to keep them future and employment ready. ",
+    href: "/",
+  },
+  {
+    img: womens,
+    tag: "IPH-Triveni Program",
+    title: "Providing Vocational Training for Women in Maharashtra",
+    subTitle:
+      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+    href: "/",
+  },
 ];
 
 const menus: SectionNavigationProps["Sections"] = [

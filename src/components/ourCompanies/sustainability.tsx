@@ -60,7 +60,7 @@ const Sustainability = () => {
           fontSize: "18px",
           maxWidth: 716,
           mt: "16px !important",
-          variants: staggerTextChildrenLowOpacity,
+          variants: staggerTextChildrenLowOpacity(0.8),
         },
       }}
     >
@@ -95,7 +95,7 @@ const Sustainability = () => {
                 </MotionTypography>
                 <MotionTypography
                   variant='body2'
-                  variants={staggerTextChildrenLowOpacity}
+                  variants={staggerTextChildrenLowOpacity(0.68)}
                 >
                   {item.subtitle}
                 </MotionTypography>

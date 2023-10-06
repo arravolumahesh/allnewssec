@@ -80,6 +80,9 @@ const Nominations = () => {
             TitleTypographyProps: {
               fontSize: H3_2,
             },
+            PrefixTypographyProps: {
+              variant: "body2",
+            },
           }}
         />
       </Stack>

@@ -18,6 +18,7 @@ import MaharogiSevaSamiti from "./images/MaharogiSevaSamiti.png";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
 import InfoSlides from "@/commonComponents/cards/info-slides";
+import { staggerTextChildrenLowOpacity } from "@/commonComponents/animations";
 
 const Wardha = () => {
   return (
@@ -41,6 +42,7 @@ const Wardha = () => {
         DescriptionTypographyProps: {
           fontSize: Body1,
           maxWidth: 738,
+          variants: staggerTextChildrenLowOpacity(0.8),
         },
         LinkProps: {
           href: "/",

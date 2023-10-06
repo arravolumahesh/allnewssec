@@ -119,19 +119,21 @@ export const staggerTextChildren: MotionVariantProps = {
     },
   },
 };
-export const staggerTextChildrenLowOpacity: MotionVariantProps = {
+export const staggerTextChildrenLowOpacity = (
+  opacity: number
+): MotionVariantProps => ({
   initial: {
     opacity: 0,
     y: "100%",
   },
   animate: {
-    opacity: 0.68,
+    opacity: opacity,
     y: 0,
     transition: {
       duration: 0.7,
     },
   },
-};
+});
 
 export const staggerArrowChildren: MotionVariantProps = {
   initial: {

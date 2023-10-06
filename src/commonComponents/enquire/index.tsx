@@ -30,7 +30,7 @@ const Enquire = (props: EnquireProps) => {
       rowGap={10}
     >
       {data.map((item, index) => {
-          const { image, title, description, btn } = item;
+        const { image, title, description, btn } = item;
         return (
           <Grid2
             key={`${title}-${index}`}
@@ -78,7 +78,10 @@ const Enquire = (props: EnquireProps) => {
               display={"flex"}
               justifyContent={{ xs: "center", xl: "flex-start" }}
             >
-              <Typography textAlign={{ xs: "center", xl: "left" }}>
+              <Typography
+                fontSize={"18px"}
+                textAlign={{ xs: "center", xl: "left" }}
+              >
                 {description}
               </Typography>
             </Grid2>

@@ -126,6 +126,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
                 px: 0,
                 height: { xs: 56, md: 64 },
                 color: "inherit",
+                fontWeight: 400,
                 opacity: 0.6,
                 [`&.${tabClasses.selected}`]: {
                   color: "primary.main",

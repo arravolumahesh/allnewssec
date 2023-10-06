@@ -1,24 +1,19 @@
 "use client";
 import { Navigation } from "swiper/modules";
-import {
-  MotionTypography,
-  MotionVariantProps,
-} from "@/commonComponents/motion-components";
+import { MotionTypography } from "@/commonComponents/motion-components";
 import React from "react";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Stack, Theme, useMediaQuery } from "@mui/material";
-import womens from "@/components/ourCompanies/images/womens.png";
-import childrens from "@/components/ourCompanies/images/childrens.png";
-import { MaterialImage } from "@/commonComponents/material-components";
-import { StaticImageData } from "next/image";
+import { Stack } from "@mui/material";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
-import { H6_1, H6_2 } from "@/styles/theme/components/typography.fontvariant";
-import Link from "next/link";
-import { ArrowForwardIos } from "@mui/icons-material";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
-import { CaseStudySlide } from "../ourCompanies/our-studies";
+import { CaseStudySlide, CaseStudySlideProps } from "./cards/case-study-slide";
 
-const CaseStudies = () => {
+type CaseStudiesProps = {
+  data: CaseStudySlideProps[];
+};
+
+const CaseStudies = (props: CaseStudiesProps) => {
+  const { data } = props;
   return (
     <SectionWrapper
       SectionProps={{ id: "case-studies" }}
@@ -43,7 +38,7 @@ const CaseStudies = () => {
             overflow: { xs: "visible", xxl: "hidden" },
           }}
           SlideComponent={CaseStudySlide}
-          data={swiperData}
+          data={data}
           Slots={{
             ContainerStartChildren: (
               <Stack
@@ -53,7 +48,7 @@ const CaseStudies = () => {
                 mb={{ xs: 5, md: 6 }}
               >
                 <MotionTypography variant='h3'>
-                  More Case Studies
+                  Our Case Studies
                 </MotionTypography>
                 <SwiperNavigationButton
                   display={{
@@ -76,7 +71,7 @@ const CaseStudies = () => {
                   xs: "flex",
                   md: "none",
                 }}
-                alignSelf={"flex-start"}
+                alignSelf={"center"}
                 PrevButtonProps={{
                   className: "swiper-case-prev",
                 }}
@@ -93,50 +88,3 @@ const CaseStudies = () => {
 };
 
 export default CaseStudies;
-
-
-
-const swiperData = [
-  {
-    img: childrens,
-    tag: "IPH-Triveni Program",
-    title: "Digital Skilling for Youth",
-    subTitle:
-      "Helping students learn digitally in order to keep them future and employment ready. ",
-  },
-  {
-    img: womens,
-    tag: "IPH-Triveni Program",
-    title: "Providing Vocational Training for Women in Maharashtra",
-    subTitle:
-      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-  },
-  {
-    img: childrens,
-    tag: "IPH-Triveni Program",
-    title: "Digital Skilling for Youth",
-    subTitle:
-      "Helping students learn digitally in order to keep them future and employment ready. ",
-  },
-  {
-    img: womens,
-    tag: "IPH-Triveni Program",
-    title: "Providing Vocational Training for Women in Maharashtra",
-    subTitle:
-      "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-  },
-];
-
-const staggerChildren: MotionVariantProps = {
-  initial: {
-    opacity: 0,
-    y: "150%",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};

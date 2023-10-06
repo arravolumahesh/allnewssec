@@ -1,5 +1,5 @@
 import Discover from "@/commonComponents/discover";
-import { EnquireProps } from "@/commonComponents/enquire";
+import Enquire, { EnquireProps } from "@/commonComponents/enquire";
 import ObjectiveSection from "@/commonComponents/objective-section";
 import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
@@ -32,7 +32,7 @@ const CharitableTrusts = () => {
           },
         }}
       />
-      <ObjectiveSection Objective="We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation." />
+      <ObjectiveSection Objective='We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation.' />
       <OriginOfGenerationChange />
       <ActsOfProgress />
       <BajajAwards />
@@ -41,11 +41,11 @@ const CharitableTrusts = () => {
       <Initiatives />
       <Stories />
       <PartnerSwiperSection />
-      {/*<Enquire data={enquireData} />*/}
+      <Enquire data={enquireData} />
       <Discover
-        title="DISCOVER JAMNALAL BAJAJ FOUNDATION"
-        link="Visit The Jamnalal Bajaj Foundation Website"
-        href="/"
+        title='DISCOVER JAMNALAL BAJAJ FOUNDATION'
+        link='Visit The Jamnalal Bajaj Foundation Website'
+        href='/'
         ImageData={imageData}
       />
     </>
