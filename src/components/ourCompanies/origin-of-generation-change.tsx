@@ -38,9 +38,9 @@ const OriginOfGenerationChange = () => {
           textAlign={{ xs: "center", md_lg: "left" }}
         >
           Founded in 1977 in memory of Jamnalal Bajaj—a philanthropist, social
-          reformer, Indian freedom fighter, and Mahatma Gandhi's confidant—the
-          Jamnalal Bajaj Foundation echoes his ideals, and advances the Gandhian
-          constructive pursuits he championed.
+          reformer, Indian freedom fighter, and Mahatma Gandhi&apos;s
+          confidant—the Jamnalal Bajaj Foundation echoes his ideals, and
+          advances the Gandhian constructive pursuits he championed.
         </MotionTypography>
         <AnimatedButton
           variant={"contained"}
