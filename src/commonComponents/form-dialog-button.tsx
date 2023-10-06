@@ -7,15 +7,17 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import AnimatedButton, { AnimatedButtonProps } from "./animated-button";
 import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
 import { CalendarToday } from "@mui/icons-material";
 
-interface FormDialogButtonProps extends AnimatedButtonProps {}
+interface FormDialogButtonProps extends AnimatedButtonProps {
+  ReactiveForm?: ReactNode;
+}
 
 const FormDialogButton = (props: FormDialogButtonProps) => {
-  const { ...restAnimatedButtonProps } = props;
+  const { ReactiveForm, ...restAnimatedButtonProps } = props;
   const [open, setOpen] = useState(false);
   const fullScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md"),
@@ -90,7 +92,7 @@ const FormDialogButton = (props: FormDialogButtonProps) => {
                 </Typography>
               </Stack>
             </Stack>
-            <Stack width={{ xs: 1, md: "60%" }}>{/* ADD FORM */}</Stack>
+            <Stack width={{ xs: 1, md: "60%" }}>{ReactiveForm}</Stack>
           </Stack>
         </DialogContent>
       </Dialog>

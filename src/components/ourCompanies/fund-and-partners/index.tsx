@@ -1,5 +1,7 @@
+"use client";
 import Enquire, { EnquireProps } from "@cc/enquire";
 import FormDialogButton from "@cc/form-dialog-button";
+import EnquireAboutFundraising from "@c/ourCompanies/fund-and-partners/enquire-about-fundraising";
 
 const FundsAndPartners = () => {
   return <Enquire data={enquireData} />;
@@ -14,7 +16,11 @@ const enquireData: EnquireProps["data"] = [
       "We can help with spreading the word and collecting funds for your cause.",
     image:
       "https://s3-alpha-sig.figma.com/img/8ec6/c2d6/b2ba014114e354804918c7c439af9b29?Expires=1697414400&Signature=JDgrUUXg3yKTf09VUD-c5VQOfE83S3ZtRe2je8oGYBf79401B8F6Zh58nJb40kP4dhhY1BAah5x1edRDdXUyOuTGVAHTyicAeqOgWaYrZ35F4~Ig2p9r6IPyUaM2j7jRF8UBKCaSuTckSkqkLiR4KWybzLPdrUzLnppE84xEe81VMVwpyvT1VUDl160moisxF9UJz1emmyg8KksHn4fnDd-tBbbP7hZvofqAaMwGDu6vvhsUCYk6pVG0Ua3mUvUoX1pth4R3e-Qq6899r7fJJdSLk0G3HJDRIFF07JclecT76oidiAK0ilKbx438SoRQyA-FOUZeBpi5Ft0Tk9bJPg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-    btn: <FormDialogButton>Enquire About Fundraising</FormDialogButton>,
+    btn: (
+      <FormDialogButton ReactiveForm={<EnquireAboutFundraising />}>
+        Enquire About Fundraising
+      </FormDialogButton>
+    ),
   },
   {
     title: "Partner with us",

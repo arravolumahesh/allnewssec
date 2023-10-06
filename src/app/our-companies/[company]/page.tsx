@@ -17,7 +17,7 @@ import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
 import group7 from "@/components/ourCompanies/images/group7.png";
 import group8 from "@/components/ourCompanies/images/group8.png";
-import FundsAndPartners from "@c/ourCompanies/funds-and-partners";
+import FundsAndPartners from "@c/ourCompanies/fund-and-partners";
 
 const Company = () => {
   return (
