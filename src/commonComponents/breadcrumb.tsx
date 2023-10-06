@@ -50,7 +50,7 @@ export default function CommonBreadcrumb() {
                   variant='body2'
                   key={index}
                 >
-                  {item.replace("-", " ")}
+                  {item.replaceAll("-", " ")}
                 </Typography>
               );
             }
