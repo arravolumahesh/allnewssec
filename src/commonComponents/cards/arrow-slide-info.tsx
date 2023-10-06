@@ -1,6 +1,6 @@
 "use client";
 import { Swiper } from "swiper/types";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { ReactNode, useEffect, useMemo, useState } from "react";
 import {
   MotionStack,
   MotionStackProps,
@@ -30,7 +30,7 @@ export interface ArrowSlideInfoProps extends Omit<StackProps, "children"> {
     title?: string;
     description: string;
     image?: string | StaticImageData;
-    btnText?: string;
+    btnText?: string | ReactNode;
     btnLink?: string;
   }[];
   SlotProps?: {
@@ -66,7 +66,7 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
   const swiper = useObservable(SwiperInstance, null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const { prefix, suffix, applyDate, title, description, btnText } =
+  const { prefix, suffix, applyDate, title, description, btnText, btnLink } =
     useMemo(() => {
       return data[activeIndex];
     }, [activeIndex, data]);
@@ -186,9 +186,9 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
               </MotionTypography>
             </MotionStack>
           )}
-          {btnText && (
+          {typeof btnText === "string" ? (
             <AnimatedButton
-              href={"/"}
+              href={btnLink}
               variant={"outlined"}
               color={"inherit"}
               variants={childMotionVariants}
@@ -197,6 +197,8 @@ const ArrowSlideInfo = (props: ArrowSlideInfoProps) => {
             >
               {btnText}
             </AnimatedButton>
+          ) : (
+            btnText
           )}
         </MotionStack>
       </AnimatePresence>

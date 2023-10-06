@@ -73,6 +73,10 @@ export const TextFieldVariants: Components<
           [`.${inputBaseClasses.root}`]: {
             height: "auto",
             overflow: "unset",
+            "& .Mui-disabled": {
+              opacity: "0.5 !important",
+              WebkitTextFillColor: "white !important",
+            },
           },
           [`.${outlinedInputClasses.notchedOutline}`]: {
             borderRadius: 0,
