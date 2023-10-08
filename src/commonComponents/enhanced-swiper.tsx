@@ -6,7 +6,6 @@ import {
   ReactNode,
   Ref,
 } from "react";
-import { Stack, StackProps } from "@mui/material";
 import {
   MaterialSwiper,
   MaterialSwiperProps,
@@ -16,6 +15,7 @@ import {
 import { sxArrayUtil } from "@util/sx-helpers";
 import { SwiperRef } from "swiper/swiper-react";
 import "../../node_modules/swiper/swiper-bundle.min.css";
+import { MotionStack, MotionStackProps } from "@cc/motion-components";
 
 export type SlideData = {
   isActive?: boolean;
@@ -39,13 +39,13 @@ export interface EnhancedSwiperProps<
   SlideComponent: ComponentType<P & SlideData>;
   Slots?: {
     ContainerStartChildren?: ReactNode;
-    ContainerStartProps?: StackProps;
+    ContainerStartProps?: MotionStackProps;
     ContainerEndChildren?: ReactNode;
-    ContainerEndProps?: StackProps;
+    ContainerEndProps?: MotionStackProps;
     WrapperStartChildren?: ReactNode;
-    WrapperEndProps?: StackProps;
+    WrapperEndProps?: MotionStackProps;
     WrapperEndChildren?: ReactNode;
-    WrapperStartProps?: StackProps;
+    WrapperStartProps?: MotionStackProps;
   };
 }
 
@@ -121,24 +121,24 @@ const EnhancedSwiper = <
         );
       })}
       {ContainerStartChildren && (
-        <Stack slot="container-start" {...ContainerStartProps}>
+        <MotionStack slot="container-start" {...ContainerStartProps}>
           {ContainerStartChildren}
-        </Stack>
+        </MotionStack>
       )}
       {ContainerEndChildren && (
-        <Stack slot="container-end" {...ContainerEndProps}>
+        <MotionStack slot="container-end" {...ContainerEndProps}>
           {ContainerEndChildren}
-        </Stack>
+        </MotionStack>
       )}
       {WrapperStartChildren && (
-        <Stack slot="wrapper-start" {...WrapperStartProps}>
+        <MotionStack slot="wrapper-start" {...WrapperStartProps}>
           {WrapperStartChildren}
-        </Stack>
+        </MotionStack>
       )}
       {WrapperEndChildren && (
-        <Stack slot="wrapper-end" {...WrapperEndProps}>
+        <MotionStack slot="wrapper-end" {...WrapperEndProps}>
           {WrapperEndChildren}
-        </Stack>
+        </MotionStack>
       )}
       {children}
     </MaterialSwiper>

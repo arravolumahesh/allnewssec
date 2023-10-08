@@ -1,4 +1,4 @@
-import Discover from "@/commonComponents/discover";
+import DiscoverSection from "@cc/discover-section";
 import ObjectiveSection from "@/commonComponents/objective-section";
 import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
 import SectionNavigation from "@/commonComponents/section-navigation";
@@ -32,7 +32,7 @@ const CharitableTrusts = () => {
           },
         }}
       />
-      <ObjectiveSection Objective='We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation.' />
+      <ObjectiveSection Objective="We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation." />
       <OriginOfGenerationChange />
       <ActsOfProgress />
       <BajajAwards />
@@ -42,10 +42,12 @@ const CharitableTrusts = () => {
       <Stories />
       <PartnerSwiperSection SectionProps={{ id: "partners" }} />
       <DonationsAndPartners />
-      <Discover
-        title='DISCOVER JAMNALAL BAJAJ FOUNDATION'
-        link='Visit The Jamnalal Bajaj Foundation Website'
-        href='/'
+      <DiscoverSection
+        title="DISCOVER JAMNALAL BAJAJ FOUNDATION"
+        linkProps={{
+          href: "/",
+          children: "Visit The Jamnalal Bajaj Foundation Website",
+        }}
         ImageData={imageData}
       />
     </>

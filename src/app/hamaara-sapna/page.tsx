@@ -3,6 +3,16 @@ import BeginningOfChange from "@c/hamaara-sapna/beginning-of-change";
 import SectionNavigation from "@cc/section-navigation";
 import HeroBanner from "@c/hamaara-sapna/hero-banner";
 import ActOfProgress from "@c/hamaara-sapna/act-of-progress";
+import PartnerSwiperSection from "@cc/partner-swiper-section";
+import DiscoverSection, { DiscoverProps } from "@cc/discover-section";
+import di1 from "@c/hamaara-sapna/images/discover/hs-discover-1.jpg";
+import di2 from "@c/hamaara-sapna/images/discover/hs-discover-2.jpg";
+import di3 from "@c/hamaara-sapna/images/discover/hs-discover-3.jpg";
+import di4 from "@c/hamaara-sapna/images/discover/hs-discover-4.jpg";
+import di5 from "@c/hamaara-sapna/images/discover/hs-discover-5.jpg";
+import di6 from "@c/hamaara-sapna/images/discover/hs-discover-6.jpg";
+import di7 from "@c/hamaara-sapna/images/discover/hs-discover-7.jpg";
+import di8 from "@c/hamaara-sapna/images/discover/hs-discover-8.jpg";
 
 const HamaaraSapna = () => {
   return (
@@ -22,6 +32,15 @@ const HamaaraSapna = () => {
       <ObjectiveSection Objective={objective} />
       <BeginningOfChange />
       <ActOfProgress />
+      <PartnerSwiperSection />
+      <DiscoverSection
+        title={"DISCOVER hamaara sapna"}
+        linkProps={{
+          href: "/",
+          children: "Visit The Hamaara Sapna Website",
+        }}
+        ImageData={discoverImageData}
+      />
     </>
   );
 };
@@ -63,4 +82,15 @@ const menus = [
     title: "Gallery",
     href: "#gallery",
   },
+];
+
+const discoverImageData: DiscoverProps["ImageData"] = [
+  { img: di1 },
+  { img: di2 },
+  { img: di3 },
+  { img: di4 },
+  { img: di5 },
+  { img: di6 },
+  { img: di7 },
+  { img: di8 },
 ];

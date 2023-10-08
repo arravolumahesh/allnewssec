@@ -10,7 +10,7 @@ import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 import SectionNavigation, {
   SectionNavigationProps,
 } from "@cc/section-navigation";
-import Discover from "@/commonComponents/discover";
+import DiscoverSection from "@cc/discover-section";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
@@ -69,10 +69,12 @@ const Company = ({ params }: { params: { company: string } }) => {
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
       <FundsAndPartners />
-      <Discover
-        title='Discover bajaj Auto'
-        link='Visit Bajaj Auto Website'
-        href='/'
+      <DiscoverSection
+        title="Discover bajaj Auto"
+        linkProps={{
+          href: "/",
+          children: "Visit Bajaj Auto Website",
+        }}
         ImageData={imageData}
       />
       <CsrReport />
