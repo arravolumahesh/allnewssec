@@ -2,6 +2,7 @@ import ObjectiveSection from "@cc/objective-section";
 import BeginningOfChange from "@c/hamaara-sapna/beginning-of-change";
 import SectionNavigation from "@cc/section-navigation";
 import HeroBanner from "@c/hamaara-sapna/hero-banner";
+import ActOfProgress from "@c/hamaara-sapna/act-of-progress";
 
 const HamaaraSapna = () => {
   return (
@@ -20,6 +21,7 @@ const HamaaraSapna = () => {
       />
       <ObjectiveSection Objective={objective} />
       <BeginningOfChange />
+      <ActOfProgress />
     </>
   );
 };
