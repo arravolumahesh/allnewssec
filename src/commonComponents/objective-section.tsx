@@ -52,6 +52,8 @@ const ObjectiveSection = (props: ObjectiveSectionProps) => {
           {Objective}
         </Typography>
         {Author && (
+          // <Stack direction={"row"}>
+          //   <HorizontalRule sx={{ mr: 1 }} />
           <Stack rowGap={{ xs: 0.5, md: 0.75 }}>
             <Typography
               component={"p"}
@@ -70,6 +72,7 @@ const ObjectiveSection = (props: ObjectiveSectionProps) => {
               {Company}
             </Typography>
           </Stack>
+          // </Stack>
         )}
       </Stack>
     </SectionWrapper>
