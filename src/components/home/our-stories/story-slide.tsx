@@ -1,5 +1,5 @@
 "use client";
-import { alpha, Box, Stack, Typography, TypographyProps } from "@mui/material";
+import { alpha, Box, Typography, TypographyProps } from "@mui/material";
 import React, { forwardRef, ReactNode } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import {
@@ -84,11 +84,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             }),
           },
         }}
-        pl={{
-          ...basePx,
-          xs: 0,
-        }}
-        pr={{
+        px={{
           ...basePx,
           xs: 0,
         }}
@@ -217,7 +213,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             description
           )}
           {person && (person.name || person.info) && (
-            <Stack
+            <MotionStack
               rowGap={{ xs: 1, md: 2 }}
               mt={"auto"}
               {...PersonContainerProps}
@@ -232,7 +228,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               ) : (
                 person.info
               )}
-            </Stack>
+            </MotionStack>
           )}
           {button && typeof button === "string" ? (
             <AnimatedButton
