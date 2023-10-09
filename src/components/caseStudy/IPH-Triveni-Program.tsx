@@ -102,7 +102,7 @@ const CaseHome = () => {
           rowGap={3}
           sx={{ mt: "40px" }}
         >
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
+          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:1} }}>
             <MotionTypography
               sx={{fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
@@ -122,7 +122,21 @@ const CaseHome = () => {
               Skills Development
             </MotionTypography>
           </Stack>
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
+          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:3,md:2} }}>
+            <MotionTypography
+              sx={{ fontSize: Body2 ,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
+              variants={staggerChildren}
+              initial={"initial"}
+              whileInView={"animate"}
+              viewport={{ once: true }}
+            >
+              Location
+            </MotionTypography>
+            <MotionTypography sx={{ fontSize: "18px" }}>
+              Shahpur, Maharashtra
+            </MotionTypography>
+          </Stack>
+          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:2,md:3} }}>
             <MotionTypography
               sx={{ fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
               variants={staggerChildren}
@@ -141,22 +155,8 @@ const CaseHome = () => {
             >
               Bharitiya Yuva Shakti (BYST)
             </MotionTypography>
-          </Stack>
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
-            <MotionTypography
-              sx={{ fontSize: Body2 ,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
-              variants={staggerChildren}
-              initial={"initial"}
-              whileInView={"animate"}
-              viewport={{ once: true }}
-            >
-              Location
-            </MotionTypography>
-            <MotionTypography sx={{ fontSize: "18px" }}>
-              Shahpur, Maharashtra
-            </MotionTypography>
-          </Stack>
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px" }}>
+          </Stack>          
+          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:4} }}>
             <MotionTypography
               sx={{fontSize: Body2 , color:(theme)=> alpha(theme.palette.common.white,0.6)}}
               variants={staggerChildren}
