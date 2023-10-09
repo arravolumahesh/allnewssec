@@ -1,38 +1,18 @@
 "use client";
-import { IconButton, Stack } from "@mui/material";
-import Image from "next/image";
-import videoImage from "./images/Frame 111142.png";
-import React from "react";
-import {
-  MotionBox,
-  MotionBoxProps,
-  MotionTypography,
-  MotionTypographyProps,
-} from "@/commonComponents/motion-components";
-import { PlayCircle } from "@mui/icons-material";
-import SectionWrapper from "@/commonComponents/section-wrapper";
-import { H3_2, H6_2 } from "@/styles/theme/components/typography.fontvariant";
 import { videoBannerTransition } from "@/commonComponents/animations";
 import { MaterialImage } from "@/commonComponents/material-components";
+import {
+  MotionBox,
+  MotionTypography,
+} from "@/commonComponents/motion-components";
+import SectionWrapper from "@/commonComponents/section-wrapper";
+import { H3_2, H6_2 } from "@/styles/theme/components/typography.fontvariant";
+import { PlayCircle } from "@mui/icons-material";
+import { IconButton, Stack } from "@mui/material";
+import Image from "next/image";
+import React from "react";
 
-const AboveProfits = () => {
-  const descTransition: MotionTypographyProps = {
-    initial: {
-      y: "-130%",
-      opacity: 0,
-    },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-    },
-    transition: {
-      duration: 0.5,
-      delay: 0.8,
-    },
-    viewport: {
-      once: true,
-    },
-  };
+const OurPurpose = () => {
   return (
     <SectionWrapper
       SectionProps={{
@@ -61,11 +41,13 @@ const AboveProfits = () => {
       }}
       color={"common.white"}
       SectionHeaderProps={{
-        title: "Shaping a sustainable legacy ",
-        TitleTypographyProps: {
-          fontSize: H3_2,
+        title: "Our Purpose",
+        description:
+          "Our mission is to elevate our nation's potential by upskilling individuals and communities, for a brighter tomorrow.",
+        DescriptionTypographyProps: {
+          maxWidth: 646,
+          fontSize: H6_2,
         },
-        mb: 0,
       }}
     >
       <Stack textAlign={"center"} width={1} maxWidth={1051} m={"auto"}>
@@ -73,14 +55,12 @@ const AboveProfits = () => {
           position={"relative"}
           width={1}
           sx={{ aspectRatio: 2.04 }}
-          // height={{ xs: 264, md: 513 }}
-          mt={{ xs: 4, md: 6 }}
-          mb={{ xs: 3, md: 4 }}
-          zIndex={1}
           {...videoBannerTransition}
         >
           <MaterialImage
-            src={videoImage}
+            src={
+              "https://s3-alpha-sig.figma.com/img/990d/a72e/a1d7405cd257a822e7f536c49a002067?Expires=1698019200&Signature=nuN8hv5zjJAmzWwOuh1uz0vQBQsBQa2st6M3Df-LzUIAROTHFO~F4NqQ1SqCpHAVar5KalHxUZ3QbfAtaZqa88ONg-GwWbBLh3AVtC8LgVC39WRjqbqP8EGbXKLzGxAkPTCpi7xALbpY86YDb8A730aiPyi~lW7tqaZa6ZJOAiKydv6aveXZI5RNCOnn8fK-TS92qBJGeHgKXYpoXaT1edYcQnYMlMEorcZlK~fH9KLh5kTJ6904F0YrbpwDVEdda8tM8k8jFDIYYQnJ4yGxRysVpNZVBYiSTzmZp5ecXXEokT4qr521fw~NT-lahHvXDOwJV-8rt~VwL-cG9Rumog__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            }
             alt='Video Thumbnail'
             fill
             sx={{ width: "100%", objectFit: "cover" }}
@@ -107,16 +87,9 @@ const AboveProfits = () => {
             />
           </IconButton>
         </MotionBox>
-        <MotionTypography variant='body1' fontSize={H6_2} {...descTransition}>
-          Welcome to Bajaj Beyond, a holistic and integrated platform that
-          brings together the collective CSR initiatives of all Bajaj companies.
-          As a distinguished conglomerate, we share a united commitment towards
-          empowering communities through skill development to foster an
-          equitable society.
-        </MotionTypography>
       </Stack>
     </SectionWrapper>
   );
 };
 
-export default AboveProfits;
+export default OurPurpose;
