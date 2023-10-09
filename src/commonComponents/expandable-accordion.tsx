@@ -30,12 +30,12 @@ import { motion } from "framer-motion";
 interface ExpandableAccordionProps {
   data: {
     title: string;
-    discription: string;
+    description?: string;
     stats?: {
       header: string;
       subHeader?: string;
     }[];
-    intitiatives: {
+    initiatives: {
       img: StaticImageData | string;
       title: string;
     }[];
@@ -55,14 +55,8 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
   return (
     <>
       {TopDivider && <Divider />}
-      <Stack
-      // component={motion.div}
-      // variants={StagAccordion}
-      // initial={"intial"}
-      // whileInView={"animate"}
-      // viewport={{ once: true }}
-      >
-        {data.map((eachArea, index) => (
+      {data.map((eachArea, index) => {
+        return (
           <MotionAccordion
             expanded={expanded === `Area${index}`}
             onChange={handleChange(`Area${index}`)}
@@ -117,17 +111,19 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               </MotionTypography>
             </AccordionSummary>
             <AccordionDetails sx={{ p: 0 }}>
-              <MotionTypography
-                variant="body1"
-                fontSize={H6_3}
-                maxWidth={867}
-                variants={bottomToToptextTransition(0.2)}
-                initial={"initial"}
-                whileInView={"animate"}
-                viewport={{ once: true }}
-              >
-                {eachArea.discription}
-              </MotionTypography>
+              {eachArea.description && (
+                <MotionTypography
+                  variant="body1"
+                  fontSize={H6_3}
+                  maxWidth={867}
+                  variants={bottomToToptextTransition(0.2)}
+                  initial={"initial"}
+                  whileInView={"animate"}
+                  viewport={{ once: true }}
+                >
+                  {eachArea.description}
+                </MotionTypography>
+              )}
               {eachArea.stats && (
                 <MotionStack
                   direction="row"
@@ -192,7 +188,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                     overflow: { xs: "visible", xxl: "hidden" },
                   }}
                   SlideComponent={CompanyCard}
-                  data={eachArea.intitiatives}
+                  data={eachArea.initiatives}
                 />
               </Stack>
               <Stack
@@ -211,8 +207,8 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               </Stack>
             </AccordionDetails>
           </MotionAccordion>
-        ))}
-      </Stack>
+        );
+      })}
       {BottomDivider && <Divider />}
     </>
   );
