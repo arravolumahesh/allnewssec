@@ -1,12 +1,14 @@
 import ObjectiveSection from "@/commonComponents/objective-section";
 import AboutUsBanner from "@/components/aboutUs/banner";
 import OurPurpose from "@/components/aboutUs/our-purpose";
+import Vision from "@/components/aboutUs/vision";
 import React from "react";
 
 const AboutUs = () => {
   return (
     <>
       <AboutUsBanner />
+      <Vision />
       <OurPurpose />
       <ObjectiveSection
         Objective='Success is measured by the smiles we bring, the opportunities we create, and the positive change we ignite.'
