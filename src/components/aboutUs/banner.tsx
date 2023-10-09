@@ -22,7 +22,7 @@ const AboutUsBanner = () => {
         },
       }}
       py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
-      pb={{ /* ...basePy, */ xs: 3, md: 9 }}
+      pb={{ /* ...basePy, */ xs: 3, md: 8 }}
       ContainerProps={{
         // position: "relative",
         overflow: "hidden",
