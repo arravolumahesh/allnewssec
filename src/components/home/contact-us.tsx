@@ -63,7 +63,7 @@ const ContactUs = () => {
           sx={{ aspectRatio: 0.86 }}
           {...arrowImageTransition}
         >
-          <MotionImage src={contact} alt='' fill />
+          <MotionImage src={contact} alt="" fill />
         </MotionBox>
         {/* <ArrowImage
           src={contact}
@@ -77,12 +77,12 @@ const ContactUs = () => {
           rowGap={5}
           maxWidth={{ xs: 1, md_lg: 670 }}
           variants={formStagger}
-          initial='initial'
+          initial="initial"
           whileInView={"animate"}
           viewport={{ once: true }}
         >
           <MotionStack gap={1} variants={formStaggerChildrenRight}>
-            <Typography variant='h3'>REACH OUT TO US</Typography>
+            <Typography variant="h3">REACH OUT TO US</Typography>
             <Typography fontSize={"18px"}>
               We are always looking forward to support you.
             </Typography>
@@ -95,16 +95,16 @@ const ContactUs = () => {
             variants={formStaggerChildrenUp}
           >
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Name' fullWidth />
+              <TextField placeholder="Name" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Email ID' type='email' fullWidth />
+              <TextField placeholder="Email ID" type="email" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Phone Number' fullWidth />
+              <TextField placeholder="Phone Number" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Company Name (optional)' fullWidth />
+              <TextField placeholder="Company Name (optional)" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
               <Select
@@ -121,8 +121,8 @@ const ContactUs = () => {
                 renderValue={(value) => {
                   return value === "" ? "Select Company" : value;
                 }}
-                variant='outlined'
-                color='secondary'
+                variant="outlined"
+                color="secondary"
                 IconComponent={KeyboardArrowDown}
               >
                 {[
@@ -155,8 +155,8 @@ const ContactUs = () => {
                     ? "Select Initiative Category (optional)"
                     : value;
                 }}
-                variant='outlined'
-                color='secondary'
+                variant="outlined"
+                color="secondary"
                 IconComponent={KeyboardArrowDown}
               >
                 {["Category 1", "Category 2"].map((item, idx) => (
@@ -168,7 +168,7 @@ const ContactUs = () => {
             </Grid2>
             <Grid2 xs={12}>
               <TextField
-                placeholder='Enter A Message'
+                placeholder="Enter A Message"
                 multiline
                 fullWidth
                 rows={4}
@@ -177,7 +177,7 @@ const ContactUs = () => {
           </Grid2>
           <AnimatedButton
             href={"#"}
-            rotation='anticlockwise'
+            rotation="anticlockwise"
             variant={"contained"}
             color={"secondary"}
             sx={{
@@ -206,7 +206,7 @@ const ContactUs = () => {
                 sx={{ aspectRatio: 459 / 155 }}
                 position={"relative"}
               >
-                <Image src={dialogbanner} alt='' fill />
+                <Image src={dialogbanner} alt="" fill />
               </Box>
               <Stack
                 maxWidth={357}
@@ -217,8 +217,8 @@ const ContactUs = () => {
                 my={{ xs: 3, md: 4 }}
               >
                 <Typography
-                  variant='body1'
-                  color='primary.main'
+                  variant="body1"
+                  color="primary.main"
                   fontSize={H6}
                   fontWeight={700}
                 >
@@ -229,7 +229,7 @@ const ContactUs = () => {
                   shortly.
                 </Typography>
                 <Button
-                  variant='outlined'
+                  variant="outlined"
                   sx={{ width: { xs: 1, md: 213 } }}
                   onClick={() => setOpen(false)}
                 >

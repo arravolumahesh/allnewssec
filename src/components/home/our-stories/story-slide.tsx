@@ -1,12 +1,16 @@
 "use client";
-import { alpha, Box, Stack, Typography, TypographyProps } from "@mui/material";
-import React, { forwardRef } from "react";
+import { alpha, Box, Typography, TypographyProps } from "@mui/material";
+import React, { forwardRef, ReactNode } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionStack, MotionVariantProps } from "@cc/motion-components";
+import {
+  MotionStack,
+  MotionStackProps,
+  MotionVariantProps,
+} from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
-import AnimatedButton from "@cc/animated-button";
-import { Button, H5_1, H6_2 } from "@theme/components/typography.fontvariant";
+import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
+import { H5_1, H6_2 } from "@theme/components/typography.fontvariant";
 import SectionWrapper, {
   basePx,
   basePy,
@@ -15,20 +19,27 @@ import SectionWrapper, {
 import { LocationOnRounded } from "@mui/icons-material";
 import { MaterialImage } from "@cc/material-components";
 
-export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
+export interface StorySlideProps
+  extends Omit<SectionWrapperProps, "children" | "title"> {
   bgImage: string | StaticImageData;
-  company: string;
-  title: string;
-  location: string;
-  description: string;
+  company?: ReactNode;
+  title?: ReactNode;
+  location?: ReactNode;
+  description?: ReactNode;
   person?: {
-    name: string;
-    info: string;
+    name: ReactNode;
+    NameTypographyProps?: Omit<TypographyProps, "children">;
+    info: ReactNode;
+    InfoTypographyProps?: Omit<TypographyProps, "children">;
   };
-  button: string;
-  CompanyTypographyProps?: TypographyProps;
-  TitleTypographyProps?: TypographyProps;
-  DescriptionTypographyProps?: TypographyProps;
+  PersonContainerProps?: Omit<MotionStackProps, "children">;
+  button?: ReactNode;
+  ButtonProps?: Omit<AnimatedButtonProps, "children">;
+  CompanyTypographyProps?: Omit<TypographyProps, "children">;
+  TitleTypographyProps?: Omit<TypographyProps, "children">;
+  DescriptionTypographyProps?: Omit<TypographyProps, "children">;
+  LocationTypographyProps?: Omit<TypographyProps, "children">;
+  InfoContainerProps?: Omit<MotionStackProps, "children">;
 }
 
 const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
@@ -43,12 +54,14 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
       TitleTypographyProps,
       DescriptionTypographyProps,
       person,
+      PersonContainerProps,
       button,
       isNext,
       isActive,
       isPrev,
       isVisible,
       index,
+      InfoContainerProps,
       ...restCardProps
     } = props;
     const { sx, ...rest } = restCardProps;
@@ -71,11 +84,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             }),
           },
         }}
-        pl={{
-          ...basePx,
-          xs: 0,
-        }}
-        pr={{
+        px={{
           ...basePx,
           xs: 0,
         }}
@@ -96,24 +105,14 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             zIndex: -1,
           }}
         >
-          <MaterialImage src={bgImage} alt={company} fill objectFit='cover' />
+          <MaterialImage
+            src={bgImage}
+            alt={typeof company === "string" ? company : "company-image"}
+            fill
+            objectFit="cover"
+          />
         </Box>
         <MotionStack
-          sx={{
-            width: {
-              xs: 1,
-              md: 590,
-            },
-            height: {
-              xs: "auto",
-              md: 488,
-            },
-            px: { xs: 3, md: 0 },
-            mt: {
-              xs: "50%",
-              md: 0,
-            },
-          }}
           variants={clipTransition}
           {...(index &&
             index > 0 && {
@@ -124,8 +123,27 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
                 amount: 0.5,
               },
             })}
+          {...InfoContainerProps}
+          sx={[
+            {
+              width: {
+                xs: 1,
+                md: 590,
+              },
+              height: {
+                xs: "auto",
+                md: 488,
+              },
+              px: { xs: 3, md: 0 },
+              mt: {
+                xs: "50%",
+                md: 0,
+              },
+            },
+            ...sxArrayUtil(InfoContainerProps?.sx),
+          ]}
         >
-          {company && (
+          {company && typeof company === "string" ? (
             <Typography
               variant={"body2"}
               gutterBottom
@@ -144,8 +162,10 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               {company}
             </Typography>
+          ) : (
+            company
           )}
-          {title && (
+          {title && typeof title === "string" ? (
             <Typography
               fontSize={H5_1}
               fontWeight={"bold"}
@@ -156,8 +176,10 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               {title}
             </Typography>
+          ) : (
+            title
           )}
-          {location && (
+          {location && typeof location === "string" ? (
             <Typography
               variant={"body2"}
               mb={3}
@@ -168,29 +190,47 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               <LocationOnRounded fontSize={"inherit"} /> {location}
             </Typography>
+          ) : (
+            location
           )}
-          <Typography
-            variant={"body1"}
-            mb={{
-              xs: 4,
-              md: 4.5,
-              xxl: 5,
-            }}
-            whiteSpace={"pre-wrap"}
-            sx={{
-              color: (theme) => alpha(theme.palette.secondary.main, 0.6),
-            }}
-            {...DescriptionTypographyProps}
-          >
-            {description}
-          </Typography>
-          {person && (
-            <Stack rowGap={{ xs: 1, md: 2 }} mt={"auto"}>
-              <Typography fontSize={H6_2}>{person.name}</Typography>
-              <Typography variant={"subtitle1"}>{person.info}</Typography>
-            </Stack>
+          {description && typeof description === "string" ? (
+            <Typography
+              variant={"body1"}
+              mb={{
+                xs: 4,
+                md: 4.5,
+                xxl: 5,
+              }}
+              whiteSpace={"pre-wrap"}
+              sx={{
+                color: (theme) => alpha(theme.palette.secondary.main, 0.6),
+              }}
+              {...DescriptionTypographyProps}
+            >
+              {description}
+            </Typography>
+          ) : (
+            description
           )}
-          {button && (
+          {person && (person.name || person.info) && (
+            <MotionStack
+              rowGap={{ xs: 1, md: 2 }}
+              mt={"auto"}
+              {...PersonContainerProps}
+            >
+              {person.name && typeof person.name === "string" ? (
+                <Typography fontSize={H6_2}>{person.name}</Typography>
+              ) : (
+                person.name
+              )}
+              {person.info && typeof person.info === "string" ? (
+                <Typography variant={"subtitle1"}>{person.info}</Typography>
+              ) : (
+                person.info
+              )}
+            </MotionStack>
+          )}
+          {button && typeof button === "string" ? (
             <AnimatedButton
               href={"/bajaj-auto-initiatives"}
               variant={"outlined"}
@@ -201,11 +241,13 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               {button}
             </AnimatedButton>
+          ) : (
+            button
           )}
         </MotionStack>
       </SectionWrapper>
     );
-  }
+  },
 );
 
 export default StorySlide;

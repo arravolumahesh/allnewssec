@@ -9,38 +9,26 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper, { SectionWrapperProps } from "@cc/section-wrapper";
-import EnhancedSwiper, {
-  EnhancedSwiperProps,
-  EnhancedSwiperSlideData,
-} from "@cc/enhanced-swiper";
-import StorySlide from "@c/home/our-stories/story-slide";
+import EnhancedSwiper, { EnhancedSwiperProps } from "@cc/enhanced-swiper";
+import StorySlide, { StorySlideProps } from "@c/home/our-stories/story-slide";
 import { Navigation } from "swiper/modules";
 import SwiperNavigationArrowIcon from "@cc/swiper-navigation-arrow-icon";
 import { deepmerge } from "@mui/utils";
 
 export interface ScrollTriggeredSwiperSectionProps<
-  T extends ComponentType<any> = ComponentType<any>,
+  T extends ComponentType<any> = ComponentType<StorySlideProps>,
   P extends ComponentProps<T> = ComponentProps<T>,
 > extends SectionWrapperProps {
-  data:
-    | EnhancedSwiperProps<T, P>["data"]
-    | EnhancedSwiperSlideData<typeof StorySlide>[];
-  SlideComponent?:
-    | EnhancedSwiperProps<T, P>["SlideComponent"]
-    | EnhancedSwiperProps<typeof StorySlide>["SlideComponent"];
-  EnhancedSwiperProps?: Partial<
-    Omit<
-      EnhancedSwiperProps<T, P> | EnhancedSwiperProps<typeof StorySlide>,
-      "children"
-    >
-  >;
+  data: EnhancedSwiperProps<T, P>["data"];
+  SlideComponent?: T | EnhancedSwiperProps<typeof StorySlide>["SlideComponent"];
+  EnhancedSwiperProps?: Partial<Omit<EnhancedSwiperProps<T, P>, "children">>;
 }
 
 const ScrollTriggeredSwiperSection = <
   T extends ComponentType<any>,
   P extends ComponentProps<T>,
 >(
-  props: ScrollTriggeredSwiperSectionProps<T, P>
+  props: ScrollTriggeredSwiperSectionProps<T, P>,
 ) => {
   const {
     data,

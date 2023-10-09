@@ -10,7 +10,7 @@ import HerosOfInitiatives from "@c/ourCompanies/heroesOfInitiatives";
 import SectionNavigation, {
   SectionNavigationProps,
 } from "@cc/section-navigation";
-import Discover from "@/commonComponents/discover";
+import DiscoverSection from "@cc/discover-section";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
 import group5 from "@/components/ourCompanies/images/group5.png";
@@ -20,42 +20,46 @@ import FundsAndPartners from "@c/ourCompanies/fund-and-partners";
 import CaseStudies from "@/commonComponents/case-studies";
 import womens from "@/components/ourCompanies/images/womens.png";
 import childrens from "@/components/ourCompanies/images/childrens.png";
+import { useMemo } from "react";
 
 const Company = ({ params }: { params: { company: string } }) => {
-  const caseStudyData = [
-    {
-      img: childrens,
-      tag: "IPH-Triveni Program",
-      title: "Digital Skilling for Youth",
-      subTitle:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-      href: `${params.company}/case-studies`,
-    },
-    {
-      img: womens,
-      tag: "IPH-Triveni Program",
-      title: "Providing Vocational Training for Women in Maharashtra",
-      subTitle:
-        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-      href: `${params.company}/case-studies`,
-    },
-    {
-      img: childrens,
-      tag: "IPH-Triveni Program",
-      title: "Digital Skilling for Youth",
-      subTitle:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-      href: `${params.company}/case-studies`,
-    },
-    {
-      img: womens,
-      tag: "IPH-Triveni Program",
-      title: "Providing Vocational Training for Women in Maharashtra",
-      subTitle:
-        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-      href: `${params.company}/case-studies`,
-    },
-  ];
+  const caseStudyData = useMemo(
+    () => [
+      {
+        img: childrens,
+        tag: "IPH-Triveni Program",
+        title: "Digital Skilling for Youth",
+        subTitle:
+          "Helping students learn digitally in order to keep them future and employment ready. ",
+        href: `${params.company}/case-studies`,
+      },
+      {
+        img: womens,
+        tag: "IPH-Triveni Program",
+        title: "Providing Vocational Training for Women in Maharashtra",
+        subTitle:
+          "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+        href: `${params.company}/case-studies`,
+      },
+      {
+        img: childrens,
+        tag: "IPH-Triveni Program",
+        title: "Digital Skilling for Youth",
+        subTitle:
+          "Helping students learn digitally in order to keep them future and employment ready. ",
+        href: `${params.company}/case-studies`,
+      },
+      {
+        img: womens,
+        tag: "IPH-Triveni Program",
+        title: "Providing Vocational Training for Women in Maharashtra",
+        subTitle:
+          "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+        href: `${params.company}/case-studies`,
+      },
+    ],
+    [params.company],
+  );
   return (
     <>
       <BuildFuture />
@@ -69,10 +73,12 @@ const Company = ({ params }: { params: { company: string } }) => {
       <VolunteeringOpportunities />
       <PartnerSwiperSection />
       <FundsAndPartners />
-      <Discover
-        title='Discover bajaj Auto'
-        link='Visit Bajaj Auto Website'
-        href='/'
+      <DiscoverSection
+        title="Discover bajaj Auto"
+        linkProps={{
+          href: "/",
+          children: "Visit Bajaj Auto Website",
+        }}
         ImageData={imageData}
       />
       <CsrReport />

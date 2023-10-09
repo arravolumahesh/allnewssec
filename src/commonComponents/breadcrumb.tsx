@@ -1,80 +1,44 @@
 "use client";
 import * as React from "react";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { usePathname } from "next/navigation";
-import { Typography } from "@mui/material";
 import { Body2 } from "@/styles/theme/components/typography.fontvariant";
+import MLink from "@cc/m-link";
+import { NavigateNextRounded } from "@mui/icons-material";
+import { Stack } from "@mui/material";
 
 export default function CommonBreadcrumb() {
-  const paths = usePathname();
-  const pathNames = paths && paths.split("/").filter((path) => path);
-  const finalpath =
-    pathNames !== null && pathNames?.length > 3
-      ? pathNames.slice(-3)
-      : pathNames;
+  const pathName = usePathname();
+  const pathNames = pathName.split("/");
   return (
-    <Stack spacing={2}>
-      <Breadcrumbs
-        separator={<NavigateNextIcon sx={{ opacity: 0.5 }} fontSize='small' />}
-        aria-label='breadcrumb'
-        sx={{
-          color: "inherit",
-        }}
-      >
-        {Array.isArray(finalpath) && finalpath.length < 3 && (
-          <Typography
-            component={Link}
+    <Stack
+      component={"nav"}
+      direction={"row"}
+      alignItems={"center"}
+      divider={<NavigateNextRounded sx={{ opacity: 0.5 }} fontSize="small" />}
+    >
+      {["Home", ...pathNames].map((item, index, arr) => {
+        if (!item) return null;
+        const isLast = arr.length === index + 1;
+        return (
+          <MLink
+            key={index}
+            href={"/"}
+            disableRipple
+            variant={"text"}
+            color={"secondary"}
             sx={{
-              opacity: 0.5,
+              fontSize: Body2,
+              opacity: isLast ? 1 : 0.5,
+              pointerEvents: isLast ? "none" : "auto",
               "&:hover": {
-                background: "none",
+                textDecoration: isLast ? "none" : "underline",
               },
             }}
-            href='/'
-            variant='body2'
-            underline='hover'
           >
-            Home
-          </Typography>
-        )}
-
-        {Array.isArray(finalpath) &&
-          finalpath.map((item, index) => {
-            if (finalpath?.length === index + 1) {
-              return (
-                <Typography
-                  textTransform='capitalize'
-                  variant='body2'
-                  key={index}
-                >
-                  {item.replaceAll("-", " ")}
-                </Typography>
-              );
-            }
-
-            return (
-              <Typography
-                textTransform='capitalize'
-                component={Link}
-                sx={{
-                  opacity: 0.5,
-                  fontSize: Body2,
-                  "&:hover": {
-                    background: "none",
-                  },
-                }}
-                href={item}
-                underline='hover'
-                key={index}
-              >
-                {item.replace("-", " ")}
-              </Typography>
-            );
-          })}
-      </Breadcrumbs>
+            {item.replaceAll("-", " ")}
+          </MLink>
+        );
+      })}
     </Stack>
   );
 }

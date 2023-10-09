@@ -12,10 +12,10 @@ import { alpha } from "@mui/material";
 
 interface InfoSlidesProps {
   img: StaticImageData | string;
+  ImageProps?: MaterialImageProps;
   title: string;
   description: string;
   CardWrapperProps?: MotionStackProps;
-  ImageProps?: MaterialImageProps;
   ContentWrapperProps?: MotionStackProps;
   TagProps?: MotionBoxProps;
   DescriptionTypographyProps?: MotionTypographyProps;
@@ -24,12 +24,12 @@ interface InfoSlidesProps {
 const InfoSlides = (props: InfoSlidesProps) => {
   const {
     img,
-    title,
-    description,
-    CardWrapperProps,
     ImageProps,
+    title,
+    CardWrapperProps,
     ContentWrapperProps,
     TagProps,
+    description,
     DescriptionTypographyProps,
     ...restProps
   } = props;

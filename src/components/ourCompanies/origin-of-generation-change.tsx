@@ -1,10 +1,12 @@
 import SectionWrapper from "@cc/section-wrapper";
-import { MotionImage, MotionTypography } from "@cc/motion-components";
+import {MotionImage, MotionTypography} from "@cc/motion-components";
 import originOfGenerational from "./images/origin-of-generational-change.jpg";
-import { H6_2 } from "@theme/components/typography.fontvariant";
-import { Stack } from "@mui/material";
+import {H6_2} from "@theme/components/typography.fontvariant";
+import {Stack} from "@mui/material";
 import AnimatedButton from "@cc/animated-button";
 
+
+// Todo: Similar with Hamaara-sapna Beginning of an change
 const OriginOfGenerationChange = () => {
   return (
     <SectionWrapper
@@ -49,9 +51,6 @@ const OriginOfGenerationChange = () => {
         <AnimatedButton
           variant={"contained"}
           color={"primary"}
-          // sx={{
-          //   mx: "auto",
-          // }}
         >
           View Our Legacy
         </AnimatedButton>
