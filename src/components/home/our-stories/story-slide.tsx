@@ -2,7 +2,11 @@
 import { alpha, Box, Stack, Typography, TypographyProps } from "@mui/material";
 import React, { forwardRef, ReactNode } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import { MotionStack, MotionVariantProps } from "@cc/motion-components";
+import {
+  MotionStack,
+  MotionStackProps,
+  MotionVariantProps,
+} from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
 import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
@@ -15,7 +19,8 @@ import SectionWrapper, {
 import { LocationOnRounded } from "@mui/icons-material";
 import { MaterialImage } from "@cc/material-components";
 
-export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
+export interface StorySlideProps
+  extends Omit<SectionWrapperProps, "children" | "title"> {
   bgImage: string | StaticImageData;
   company?: ReactNode;
   title?: ReactNode;
@@ -27,12 +32,14 @@ export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
     info: ReactNode;
     InfoTypographyProps?: Omit<TypographyProps, "children">;
   };
+  PersonContainerProps?: Omit<MotionStackProps, "children">;
   button?: ReactNode;
   ButtonProps?: Omit<AnimatedButtonProps, "children">;
   CompanyTypographyProps?: Omit<TypographyProps, "children">;
   TitleTypographyProps?: Omit<TypographyProps, "children">;
   DescriptionTypographyProps?: Omit<TypographyProps, "children">;
   LocationTypographyProps?: Omit<TypographyProps, "children">;
+  InfoContainerProps?: Omit<MotionStackProps, "children">;
 }
 
 const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
@@ -47,12 +54,14 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
       TitleTypographyProps,
       DescriptionTypographyProps,
       person,
+      PersonContainerProps,
       button,
       isNext,
       isActive,
       isPrev,
       isVisible,
       index,
+      InfoContainerProps,
       ...restCardProps
     } = props;
     const { sx, ...rest } = restCardProps;
@@ -108,21 +117,6 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
           />
         </Box>
         <MotionStack
-          sx={{
-            width: {
-              xs: 1,
-              md: 590,
-            },
-            height: {
-              xs: "auto",
-              md: 488,
-            },
-            px: { xs: 3, md: 0 },
-            mt: {
-              xs: "50%",
-              md: 0,
-            },
-          }}
           variants={clipTransition}
           {...(index &&
             index > 0 && {
@@ -133,6 +127,25 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
                 amount: 0.5,
               },
             })}
+          {...InfoContainerProps}
+          sx={[
+            {
+              width: {
+                xs: 1,
+                md: 590,
+              },
+              height: {
+                xs: "auto",
+                md: 488,
+              },
+              px: { xs: 3, md: 0 },
+              mt: {
+                xs: "50%",
+                md: 0,
+              },
+            },
+            ...sxArrayUtil(InfoContainerProps?.sx),
+          ]}
         >
           {company && typeof company === "string" ? (
             <Typography
@@ -204,7 +217,11 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             description
           )}
           {person && (person.name || person.info) && (
-            <Stack rowGap={{ xs: 1, md: 2 }} mt={"auto"}>
+            <Stack
+              rowGap={{ xs: 1, md: 2 }}
+              mt={"auto"}
+              {...PersonContainerProps}
+            >
               {person.name && typeof person.name === "string" ? (
                 <Typography fontSize={H6_2}>{person.name}</Typography>
               ) : (

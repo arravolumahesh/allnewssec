@@ -11,6 +11,18 @@ const HamaaraSapnaStories = () => {
       data={data}
       SectionProps={{ id: "stories" }}
       py={0}
+      EnhancedSwiperProps={{
+        SlideComponentProps: {
+          InfoContainerProps: {
+            sx: {
+              height: {
+                xs: "100%",
+                md: 361,
+              },
+            },
+          },
+        },
+      }}
     />
   );
 };
