@@ -1,16 +1,14 @@
-import { Box, CardContent, Typography } from "@mui/material";
+import { CardContent } from "@mui/material";
 import React, { forwardRef } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
-import Link from "next/link";
 import {
   MotionCard,
   MotionCardProps,
   MotionImage,
   MotionTypography,
 } from "@cc/motion-components";
-import { H6_2, H6_3 } from "@/styles/theme/components/typography.fontvariant";
-import Image, { StaticImageData } from "next/image";
-import { MaterialImage } from "../material-components";
+import { H6_3 } from "@/styles/theme/components/typography.fontvariant";
+import { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import {
   bottomToToptextStagger,
