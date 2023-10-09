@@ -51,7 +51,7 @@ const ChallengesFaced = () => {
           CHALLENGES FACED
         </MotionTypography>
 
-        <Grid container>
+        <Grid container spacing={{md:2,xs:0}}>
           {data.map((eachItem, index) => (
             <Grid key={index} xs={12} md={6} item>
               <Box display={"flex"} alignItems={"baseline"}>
@@ -68,16 +68,17 @@ const ChallengesFaced = () => {
                 }
                 <Stack
                   spacing={4.5}
-                  alignSelf={"center"}
+                  alignSelf={"center"}                  
                   sx={{
                     marginTop: {
                       xs: "40px",
-                      md: "50px",
+                      md: "40px",
                     },
-                    marginLeft: "40px",
+                    marginLeft: 2.5,
                   }}
                 >
                   <MotionTypography
+                    maxWidth={{md:(index===1 ? '50%' : 'max-content')}}
                     variant="body1"
                     sx={{
                       fontSize: H6_1,
@@ -103,7 +104,7 @@ export default ChallengesFaced;
 
 const data = [
   {
-    title: "Helping to make measurable and long lasting impact.",
+    title: "Helping to make measurable and long lasting impact",
     description:
       "Measuring the impact of the initiative on digital literacy levels and other relevant outcomes requires well-defined metrics and systematic data collection.",
   },
