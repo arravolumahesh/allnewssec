@@ -13,6 +13,7 @@ import di5 from "@c/hamaara-sapna/images/discover/hs-discover-5.jpg";
 import di6 from "@c/hamaara-sapna/images/discover/hs-discover-6.jpg";
 import di7 from "@c/hamaara-sapna/images/discover/hs-discover-7.jpg";
 import di8 from "@c/hamaara-sapna/images/discover/hs-discover-8.jpg";
+import HamaaraSapnaStories from "@c/hamaara-sapna/hamaara-sapna-stories";
 
 const HamaaraSapna = () => {
   return (
@@ -32,6 +33,7 @@ const HamaaraSapna = () => {
       <ObjectiveSection Objective={objective} />
       <BeginningOfChange />
       <ActOfProgress />
+      <HamaaraSapnaStories />
       <PartnerSwiperSection />
       <DiscoverSection
         title={"DISCOVER hamaara sapna"}

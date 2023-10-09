@@ -8,7 +8,7 @@ import CarryingServies from "@/components/charitableTrusts/carring-servies";
 import DonationsAndPartners from "@/components/charitableTrusts/donation-and-partner";
 import Initiatives from "@/components/charitableTrusts/initiatives";
 import Nominations from "@/components/charitableTrusts/nominations";
-import Stories from "@/components/charitableTrusts/stories";
+import CharitableTrustsStories from "@c/charitableTrusts/charitable-trusts-stories";
 import Wardha from "@/components/charitableTrusts/wardha-section";
 import group2 from "@/components/ourCompanies/images/group2.png";
 import group3 from "@/components/ourCompanies/images/group3.png";
@@ -39,7 +39,7 @@ const CharitableTrusts = () => {
       <Nominations />
       <Wardha />
       <Initiatives />
-      <Stories />
+      <CharitableTrustsStories />
       <PartnerSwiperSection SectionProps={{ id: "partners" }} />
       <DonationsAndPartners />
       <DiscoverSection

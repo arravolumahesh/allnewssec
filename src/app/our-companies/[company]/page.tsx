@@ -20,42 +20,46 @@ import FundsAndPartners from "@c/ourCompanies/fund-and-partners";
 import CaseStudies from "@/commonComponents/case-studies";
 import womens from "@/components/ourCompanies/images/womens.png";
 import childrens from "@/components/ourCompanies/images/childrens.png";
+import { useMemo } from "react";
 
 const Company = ({ params }: { params: { company: string } }) => {
-  const caseStudyData = [
-    {
-      img: childrens,
-      tag: "IPH-Triveni Program",
-      title: "Digital Skilling for Youth",
-      subTitle:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-      href: `${params.company}/case-studies`,
-    },
-    {
-      img: womens,
-      tag: "IPH-Triveni Program",
-      title: "Providing Vocational Training for Women in Maharashtra",
-      subTitle:
-        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-      href: `${params.company}/case-studies`,
-    },
-    {
-      img: childrens,
-      tag: "IPH-Triveni Program",
-      title: "Digital Skilling for Youth",
-      subTitle:
-        "Helping students learn digitally in order to keep them future and employment ready. ",
-      href: `${params.company}/case-studies`,
-    },
-    {
-      img: womens,
-      tag: "IPH-Triveni Program",
-      title: "Providing Vocational Training for Women in Maharashtra",
-      subTitle:
-        "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
-      href: `${params.company}/case-studies`,
-    },
-  ];
+  const caseStudyData = useMemo(
+    () => [
+      {
+        img: childrens,
+        tag: "IPH-Triveni Program",
+        title: "Digital Skilling for Youth",
+        subTitle:
+          "Helping students learn digitally in order to keep them future and employment ready. ",
+        href: `${params.company}/case-studies`,
+      },
+      {
+        img: womens,
+        tag: "IPH-Triveni Program",
+        title: "Providing Vocational Training for Women in Maharashtra",
+        subTitle:
+          "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+        href: `${params.company}/case-studies`,
+      },
+      {
+        img: childrens,
+        tag: "IPH-Triveni Program",
+        title: "Digital Skilling for Youth",
+        subTitle:
+          "Helping students learn digitally in order to keep them future and employment ready. ",
+        href: `${params.company}/case-studies`,
+      },
+      {
+        img: womens,
+        tag: "IPH-Triveni Program",
+        title: "Providing Vocational Training for Women in Maharashtra",
+        subTitle:
+          "Aiding women in growing skills that help them achieve financial independence through mindfully curated training programmes. ",
+        href: `${params.company}/case-studies`,
+      },
+    ],
+    [params.company],
+  );
   return (
     <>
       <BuildFuture />

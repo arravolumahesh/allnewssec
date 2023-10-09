@@ -1,13 +1,12 @@
 "use client";
 import { Stack } from "@mui/material";
-import { motion } from "framer-motion";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
-import { H5_1, Body1 } from "@/styles/theme/components/typography.fontvariant";
+import { Body1, H5_1 } from "@/styles/theme/components/typography.fontvariant";
 
 import { Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
@@ -88,12 +87,12 @@ const Wardha = () => {
         Slots={{
           ContainerStartChildren: (
             <Stack
-              direction='row'
+              direction="row"
               alignItems={"center"}
               justifyContent={"space-between"}
               mb={{ xs: 3, md: 6 }}
             >
-              <MotionTypography variant='h3' fontSize={H5_1}>
+              <MotionTypography variant="h3" fontSize={H5_1}>
                 Our CONTRIBUTIONS
               </MotionTypography>
               <SwiperNavigationButton

@@ -1,21 +1,11 @@
 "use client";
-import { MotionTypography } from "@/commonComponents/motion-components";
-import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Stack } from "@mui/material";
-import { Box } from "@mui/material";
-import { Button } from "@mui/material";
-import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { randomFillSync } from "crypto";
-import { Translate } from "@mui/icons-material";
-import Sunitha from "@/commonComponents/images/sunitha.png";
-import Arrow from "@/commonComponents/images/arrow.svg";
+import React from "react";
 import ScrollTriggeredSwiperSection, {
   ScrollTriggeredSwiperSectionProps,
 } from "@/commonComponents/scrollTriggeredSwiperSection";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
 
-const Stories = () => {
+const HamaaraSapnaStories = () => {
   return (
     <ScrollTriggeredSwiperSection
       data={data}
@@ -25,7 +15,7 @@ const Stories = () => {
   );
 };
 
-export default Stories;
+export default HamaaraSapnaStories;
 
 const data: ScrollTriggeredSwiperSectionProps["data"] = [
   {

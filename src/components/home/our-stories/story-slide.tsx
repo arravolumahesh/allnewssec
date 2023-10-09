@@ -1,12 +1,12 @@
 "use client";
 import { alpha, Box, Stack, Typography, TypographyProps } from "@mui/material";
-import React, { forwardRef } from "react";
+import React, { forwardRef, ReactNode } from "react";
 import { EnhancedSwiperSlideComponent } from "@cc/enhanced-swiper";
 import { MotionStack, MotionVariantProps } from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { StaticImageData } from "next/image";
-import AnimatedButton from "@cc/animated-button";
-import { Button, H5_1, H6_2 } from "@theme/components/typography.fontvariant";
+import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
+import { H5_1, H6_2 } from "@theme/components/typography.fontvariant";
 import SectionWrapper, {
   basePx,
   basePy,
@@ -17,18 +17,22 @@ import { MaterialImage } from "@cc/material-components";
 
 export interface StorySlideProps extends Omit<SectionWrapperProps, "children"> {
   bgImage: string | StaticImageData;
-  company: string;
-  title: string;
-  location: string;
-  description: string;
+  company?: ReactNode;
+  title?: ReactNode;
+  location?: ReactNode;
+  description?: ReactNode;
   person?: {
-    name: string;
-    info: string;
+    name: ReactNode;
+    NameTypographyProps?: Omit<TypographyProps, "children">;
+    info: ReactNode;
+    InfoTypographyProps?: Omit<TypographyProps, "children">;
   };
-  button: string;
-  CompanyTypographyProps?: TypographyProps;
-  TitleTypographyProps?: TypographyProps;
-  DescriptionTypographyProps?: TypographyProps;
+  button?: ReactNode;
+  ButtonProps?: Omit<AnimatedButtonProps, "children">;
+  CompanyTypographyProps?: Omit<TypographyProps, "children">;
+  TitleTypographyProps?: Omit<TypographyProps, "children">;
+  DescriptionTypographyProps?: Omit<TypographyProps, "children">;
+  LocationTypographyProps?: Omit<TypographyProps, "children">;
 }
 
 const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
@@ -96,7 +100,12 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             zIndex: -1,
           }}
         >
-          <MaterialImage src={bgImage} alt={company} fill objectFit='cover' />
+          <MaterialImage
+            src={bgImage}
+            alt={typeof company === "string" ? company : "company-image"}
+            fill
+            objectFit="cover"
+          />
         </Box>
         <MotionStack
           sx={{
@@ -125,7 +134,7 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
               },
             })}
         >
-          {company && (
+          {company && typeof company === "string" ? (
             <Typography
               variant={"body2"}
               gutterBottom
@@ -144,8 +153,10 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               {company}
             </Typography>
+          ) : (
+            company
           )}
-          {title && (
+          {title && typeof title === "string" ? (
             <Typography
               fontSize={H5_1}
               fontWeight={"bold"}
@@ -156,8 +167,10 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               {title}
             </Typography>
+          ) : (
+            title
           )}
-          {location && (
+          {location && typeof location === "string" ? (
             <Typography
               variant={"body2"}
               mb={3}
@@ -168,29 +181,43 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               <LocationOnRounded fontSize={"inherit"} /> {location}
             </Typography>
+          ) : (
+            location
           )}
-          <Typography
-            variant={"body1"}
-            mb={{
-              xs: 4,
-              md: 4.5,
-              xxl: 5,
-            }}
-            whiteSpace={"pre-wrap"}
-            sx={{
-              color: (theme) => alpha(theme.palette.secondary.main, 0.6),
-            }}
-            {...DescriptionTypographyProps}
-          >
-            {description}
-          </Typography>
-          {person && (
+          {description && typeof description === "string" ? (
+            <Typography
+              variant={"body1"}
+              mb={{
+                xs: 4,
+                md: 4.5,
+                xxl: 5,
+              }}
+              whiteSpace={"pre-wrap"}
+              sx={{
+                color: (theme) => alpha(theme.palette.secondary.main, 0.6),
+              }}
+              {...DescriptionTypographyProps}
+            >
+              {description}
+            </Typography>
+          ) : (
+            description
+          )}
+          {person && (person.name || person.info) && (
             <Stack rowGap={{ xs: 1, md: 2 }} mt={"auto"}>
-              <Typography fontSize={H6_2}>{person.name}</Typography>
-              <Typography variant={"subtitle1"}>{person.info}</Typography>
+              {person.name && typeof person.name === "string" ? (
+                <Typography fontSize={H6_2}>{person.name}</Typography>
+              ) : (
+                person.name
+              )}
+              {person.info && typeof person.info === "string" ? (
+                <Typography variant={"subtitle1"}>{person.info}</Typography>
+              ) : (
+                person.info
+              )}
             </Stack>
           )}
-          {button && (
+          {button && typeof button === "string" ? (
             <AnimatedButton
               href={"/bajaj-auto-initiatives"}
               variant={"outlined"}
@@ -201,11 +228,13 @@ const StorySlide: EnhancedSwiperSlideComponent<StorySlideProps> = forwardRef(
             >
               {button}
             </AnimatedButton>
+          ) : (
+            button
           )}
         </MotionStack>
       </SectionWrapper>
     );
-  }
+  },
 );
 
 export default StorySlide;
