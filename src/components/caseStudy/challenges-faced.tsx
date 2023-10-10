@@ -78,7 +78,7 @@ const ChallengesFaced = () => {
                   }}
                 >
                   <MotionTypography
-                    maxWidth={{md:(index===1 ? '50%' : 'max-content')}}
+                    maxWidth={{md:(index===1 ? '50%' : '80%')}}
                     variant="body1"
                     sx={{
                       fontSize: H6_1,
