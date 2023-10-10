@@ -36,7 +36,10 @@ const Leadership = () => {
         <MotionTypography
           component={"p"}
           variant='h1'
-          {...bottomToToptextTransition(0)}
+          variants={bottomToToptextTransition(0)}
+          initial='initial'
+          whileInView={"animate"}
+          viewport={{ once: true }}
         >
           Our Inspiring Leadership
         </MotionTypography>
