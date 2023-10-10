@@ -122,7 +122,7 @@ const CaseHome = () => {
               whileInView={"animate"}
               viewport={{ once: true }}
             >
-              Skills Development
+              Skill Development
             </MotionTypography>
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:3,md:2} }}>
