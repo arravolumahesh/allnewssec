@@ -88,7 +88,10 @@ const HowWeDid = () => {
           <MotionTypography
             variant="body1"
             sx={{  color:(theme)=> alpha(theme.palette.common.white,0.8),fontWeight:400 }}
-            variants={staggerText}
+            variants={{...staggerText,animate: {
+              ...staggerText?.animate,
+              ...{opacity: 0.8}
+            }}}
           >
             Bajaj Group, in collaboration with the Maharashtra State Government,
             devised a comprehensive solution to tackle the unemployment issue
