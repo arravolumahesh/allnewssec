@@ -8,7 +8,17 @@ import { Stack, Typography, TypographyProps } from "@mui/material";
 import { H5_1, H6_3 } from "@theme/components/typography.fontvariant";
 import { deepmerge } from "@mui/utils";
 import { HorizontalRule } from "@mui/icons-material";
-import { MotionSvgProps } from "./motion-components";
+import {
+  MotionStack,
+  MotionSvgProps,
+  MotionTypography,
+  MotionTypographyProps,
+} from "./motion-components";
+import {
+  arrowInfoStaggerDiv,
+  arrowInfoStaggerDivChildren,
+  arrowLeftToRightTransition,
+} from "./animations";
 
 export interface ObjectiveSectionProps
   extends Omit<SectionWrapperProps, "children"> {
@@ -16,7 +26,7 @@ export interface ObjectiveSectionProps
   Author?: string;
   Company?: string;
   SVGProps?: MotionSvgProps;
-  ObjectiveTypographyProps?: Omit<TypographyProps, "children">;
+  ObjectiveTypographyProps?: Omit<MotionTypographyProps, "children">;
   AuthorTypographyProps?: Omit<TypographyProps, "children">;
 }
 
@@ -41,18 +51,31 @@ const ObjectiveSection = (props: ObjectiveSectionProps) => {
           ...SVGProps,
         }}
         display={{ xs: "none", md: "block" }}
+        {...arrowLeftToRightTransition}
       />
-      <Stack rowGap={{ xs: 2, md: 3 }}>
-        <Typography
+      <MotionStack
+        rowGap={{ xs: 2, md: 3 }}
+        variants={arrowInfoStaggerDiv}
+        initial={"initial"}
+        whileInView={"animate"}
+        viewport={{ once: true }}
+      >
+        <MotionTypography
           component={"p"}
           fontSize={H5_1}
           textAlign={{ xs: "center", md: "left" }}
           {...ObjectiveTypographyProps}
+          variants={arrowInfoStaggerDivChildren}
         >
           {Objective}
-        </Typography>
+        </MotionTypography>
         {Author && (
-          <Stack rowGap={{ xs: 0.5, md: 0.75 }}>
+          // <Stack direction={"row"}>
+          //   <HorizontalRule sx={{ mr: 1 }} />
+          <MotionStack
+            rowGap={{ xs: 0.5, md: 0.75 }}
+            variants={arrowInfoStaggerDivChildren}
+          >
             <Typography
               component={"p"}
               fontSize={H6_3}
@@ -69,9 +92,10 @@ const ObjectiveSection = (props: ObjectiveSectionProps) => {
             >
               {Company}
             </Typography>
-          </Stack>
+          </MotionStack>
+          // </Stack>
         )}
-      </Stack>
+      </MotionStack>
     </SectionWrapper>
   );
 };

@@ -37,7 +37,7 @@ const ArrowBgBanner = (props: ArrowBannerProps) => {
         height={458}
         sx={{
           width: { xs: 400, md: 650 },
-          minWidth: { xxl_wide: 900 },
+          minWidth: { xs: 400, md: 650, xxl_wide: 900 },
           height: "100%",
           clipPath:
             "polygon(80% 0%, 100% 50%, 80% 100%, 0% 100%, 20% 50%, 0 0)",
@@ -53,7 +53,7 @@ const ArrowBgBanner = (props: ArrowBannerProps) => {
         height={458}
         sx={{
           width: { xs: 400, md: 650 },
-          minWidth: { xxl_wide: 900 },
+          minWidth: { xs: 400, md: 650, xxl_wide: 900 },
           height: "100%",
           clipPath:
             "polygon(80% 0%, 100% 50%, 80% 100%, 0% 100%, 20% 50%, 0 0)",
@@ -69,7 +69,7 @@ const ArrowBgBanner = (props: ArrowBannerProps) => {
         height={458}
         sx={{
           width: { xs: 400, md: 650 },
-          minWidth: { xxl_wide: 900 },
+          minWidth: { xs: 400, md: 650, xxl_wide: 900 },
           height: "100%",
           clipPath:
             "polygon(80% 0%, 100% 50%, 80% 100%, 0% 100%, 20% 50%, 0 0)",

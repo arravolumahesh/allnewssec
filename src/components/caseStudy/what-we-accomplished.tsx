@@ -19,7 +19,7 @@ import {
   Subtitle2,
 } from "@/styles/theme/components/typography.fontvariant";
 import SlideButtons from "../intermediate/swiper/swiperButton";
-import { useTheme } from "@mui/material/styles";
+import { alpha, useTheme } from "@mui/material/styles";
 import { useState } from "react";
 import { common } from "@mui/material/colors";
 
@@ -104,11 +104,14 @@ const Accomplished = () => {
           textAlign: "center",
           alignSelf: "center",
           width: { xs: "342px", md: "692px" },
-          opacity: 0.8,
-          mt: "16px",
-          mb: { xs: "56px", md: "32px" },
+          color:(theme)=> alpha(theme.palette.common.white,1),
+          mt:2,
+          mb: { xs: 4, md: 7 },
         }}
-        variants={staggerChildren}
+        variants={{...staggerChildren,animate: {
+          ...staggerChildren?.animate,
+          ...{opacity: 0.8}
+        }}}
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
@@ -250,6 +253,8 @@ const staggerChildren: MotionVariantProps = {
     },
   },
 };
+
+
 
 const textAnimation: MotionVariantProps = {
   initial: {

@@ -89,7 +89,10 @@ const CaseHome = () => {
             href={"/caseStudy"}
             variant={"outlined"}
             color={"inherit"}
-            animationDelay={1000}
+            animationDelay={500}
+            initial={"initial"}
+            whileInView={"animate"}
+            viewport={{ once: true }}
             variants={staggerChildren}
           >
             Download Case Study
@@ -119,7 +122,7 @@ const CaseHome = () => {
               whileInView={"animate"}
               viewport={{ once: true }}
             >
-              Skills Development
+              Skill Development
             </MotionTypography>
           </Stack>
           <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:3,md:2} }}>
@@ -132,7 +135,12 @@ const CaseHome = () => {
             >
               Location
             </MotionTypography>
-            <MotionTypography sx={{ fontSize: "18px" }}>
+            <MotionTypography sx={{ fontSize: "18px" }} 
+              variants={staggerChildren}
+              initial={"initial"}
+              whileInView={"animate"}
+              viewport={{ once: true }}
+            >
               Shahpur, Maharashtra
             </MotionTypography>
           </Stack>

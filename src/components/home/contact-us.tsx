@@ -164,7 +164,6 @@ const ContactUs = () => {
             </Grid2>
           </Grid2>
           <AnimatedButton
-            href={"#"}
             rotation="anticlockwise"
             variant={"contained"}
             color={"secondary"}

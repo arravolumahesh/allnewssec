@@ -8,7 +8,7 @@ import {
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Body2, Caption } from "@/styles/theme/components/typography.fontvariant";
-import { Box, Grid, Stack } from "@mui/material";
+import { Box, Grid, Stack, alpha } from "@mui/material";
 
 import bg from "../ourCompanies/images/workForce.png";
 
@@ -87,8 +87,11 @@ const HowWeDid = () => {
           </MotionTypography>
           <MotionTypography
             variant="body1"
-            sx={{ opacity: 0.8 }}
-            variants={staggerText}
+            sx={{  color:(theme)=> alpha(theme.palette.common.white,0.8),fontWeight:400 }}
+            variants={{...staggerText,animate: {
+              ...staggerText?.animate,
+              ...{opacity: 0.8}
+            }}}
           >
             Bajaj Group, in collaboration with the Maharashtra State Government,
             devised a comprehensive solution to tackle the unemployment issue
