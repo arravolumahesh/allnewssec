@@ -33,6 +33,7 @@ function a11yProps(index: number): TabProps {
         md: 26,
         xxl: 32,
       },
+      fontWeight: 400,
       textTransform: { md: "uppercase" },
       borderColor: (theme) => theme.palette.secondary.main,
       color: "secondary.500",
