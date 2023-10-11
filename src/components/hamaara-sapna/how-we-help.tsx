@@ -1,6 +1,6 @@
 "use client";
 import SectionWrapper from "@cc/section-wrapper";
-import { Body1 } from "@theme/components/typography.fontvariant";
+import { Body1, H6_3 } from "@theme/components/typography.fontvariant";
 import { Stack, Typography } from "@mui/material";
 import hwh1 from "./images/how-we-help/how-we-help-1.jpg";
 import hwh2 from "./images/how-we-help/how-we-help-2.jpg";
@@ -45,6 +45,7 @@ const HowWeHelp = () => {
                 alt={tag}
               />
               <Typography
+                variant={"caption"}
                 sx={{
                   bgcolor: "secondary.400",
                   width: "fit-content",
@@ -54,7 +55,7 @@ const HowWeHelp = () => {
               >
                 {tag}
               </Typography>
-              <Typography>{description}</Typography>
+              <Typography fontSize={H6_3}>{description}</Typography>
             </Grid2>
           );
         })}

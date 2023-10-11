@@ -165,19 +165,19 @@ const footerLinks: FooterLinksProps["data"] = [
     links: [
       {
         name: "Bajaj Auto Limited",
-        url: "/bajaj-auto-limited",
-      },
-      {
-        name: "Bajaj Finserv Limited",
-        url: "/bajaj-finserv-limited",
+        url: "/our-companies/bajaj-auto-limited",
       },
       {
         name: "Bajaj Electricals Limited",
-        url: "/bajaj-electricals-limited",
+        url: "/our-companies/bajaj-electricals-limited",
+      },
+      {
+        name: "Bajaj Finserv Limited",
+        url: "/our-companies/bajaj-finserv-limited",
       },
       {
         name: "Mukand Limited",
-        url: "/mukand-limited",
+        url: "/our-companies/mukand-limited",
       },
     ],
   },
@@ -186,15 +186,15 @@ const footerLinks: FooterLinksProps["data"] = [
     links: [
       {
         name: "Jamnalal Bajaj Foundation",
-        url: "/jamnalal-bajaj-trust",
+        url: "/charitable-trusts/jamnalal-bajaj-foundation",
       },
       {
         name: "Jamnalal Bajaj Sewa Trust",
-        url: "/jamnalal-bajaj-sewa-trust",
+        url: "/charitable-trusts/jamnalal-bajaj-sewa-trust",
       },
       {
         name: "Hamaara Sapna",
-        url: "/hamaara-sapna",
+        url: "/charitable-trusts/hamaara-sapna",
       },
     ],
   },
@@ -203,19 +203,19 @@ const footerLinks: FooterLinksProps["data"] = [
     links: [
       {
         name: "About Bajaj Beyond",
-        url: "/about-bajaj-beyond",
+        url: "/about-us/#about-bajaj-beyond",
       },
       {
         name: "Story Of Bajaj",
-        url: "/story-of-bajaj",
+        url: "/about-us/#story-of-bajaj",
       },
       {
         name: "Leadership",
-        url: "/leadership",
+        url: "/about-us/#leadership",
       },
       {
         name: "Gallery",
-        url: "/gallery",
+        url: "/about-us/#gallery",
       },
     ],
   },
