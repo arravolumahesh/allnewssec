@@ -110,7 +110,13 @@ const Programmes = () => {
           rowGap={{ xs: 4, md: 5 }}
           variants={formStaggerChildrenRight}
         >
-          <Typography fontSize={"18px"}>
+          <Typography
+            fontSize={"18px"}
+            textAlign={{
+              xs: "center",
+              sm: "left",
+            }}
+          >
             {value === 0
               ? "Spread your talent in the areas of music, culture, dance, spirituality, meditation, etc. and conduct classes for our beneficiaries."
               : "Conduct workshops for women and children covering a range of activities including art, crafts, life skills, fine arts, dance, music, cooking, and much more."}

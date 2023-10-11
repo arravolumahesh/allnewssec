@@ -27,7 +27,7 @@ import {
 } from "./animations";
 import { motion } from "framer-motion";
 
-interface ExpandableAccordionProps {
+export interface ExpandableAccordionProps {
   data: {
     title: string;
     description?: string;
