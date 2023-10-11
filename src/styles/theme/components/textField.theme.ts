@@ -7,7 +7,6 @@ import {
   selectClasses,
   Theme,
 } from "@mui/material";
-import {KeyboardArrowDown} from "@mui/icons-material";
 
 /**
  * @TextFieldVariants
@@ -97,10 +96,4 @@ export const TextFieldVariants: Components<Omit<Theme, "components">>["MuiTextFi
         },
       },
     ],
-    defaultProps: {
-      SelectProps: {
-        displayEmpty: true,
-        IconComponent: KeyboardArrowDown,
-      },
-    },
   };

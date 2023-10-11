@@ -91,8 +91,8 @@ const InputValidatorsMapper = <
                     error={!!error?.message}
                     placeholder={
                       isString(label)
-                        ? startCase("enter" + label)
-                        : startCase("enter" + name)
+                        ? startCase("enter " + label)
+                        : startCase("enter " + name)
                     }
                     inputRef={ref}
                     helperText={error?.message}
