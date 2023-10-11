@@ -15,6 +15,7 @@ import di7 from "@c/hamaara-sapna/images/discover/hs-discover-7.jpg";
 import di8 from "@c/hamaara-sapna/images/discover/hs-discover-8.jpg";
 import HamaaraSapnaStories from "@c/hamaara-sapna/hamaara-sapna-stories";
 import HowWeHelp from "@c/hamaara-sapna/how-we-help";
+import Programmes from "@c/hamaara-sapna/programmes";
 
 const HamaaraSapna = () => {
   return (
@@ -36,6 +37,7 @@ const HamaaraSapna = () => {
       <ActOfProgress />
       <HowWeHelp />
       <HamaaraSapnaStories />
+      <Programmes />
       <PartnerSwiperSection />
       <DiscoverSection
         title={"DISCOVER hamaara sapna"}

@@ -1,10 +1,8 @@
 "use client";
 import {
   MotionBox,
-  MotionBoxProps,
   MotionImage,
   MotionStack,
-  MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
@@ -15,7 +13,6 @@ import {
   DialogContent,
   MenuItem,
   Select,
-  selectClasses,
   Stack,
   TextField,
   Typography,
@@ -29,7 +26,6 @@ import { motion } from "framer-motion";
 import { Body1, H6 } from "@/styles/theme/components/typography.fontvariant";
 import dialogbanner from "./images/Group 427321833.svg";
 import Image from "next/image";
-import ArrowImage from "@/commonComponents/arrow-image";
 import {
   arrowImageTransition,
   formStagger,
@@ -63,26 +59,18 @@ const ContactUs = () => {
           sx={{ aspectRatio: 0.86 }}
           {...arrowImageTransition}
         >
-          <MotionImage src={contact} alt='' fill />
+          <MotionImage src={contact} alt="" fill />
         </MotionBox>
-        {/* <ArrowImage
-          src={contact}
-          alt=''
-          width={{ xs: 342, xl: 470 }}
-          height={{ xs: 342, xl: 470 }}
-          sx={{ aspectRatio: 0.86 }}
-          {...boxTransition}
-        /> */}
         <MotionStack
           rowGap={5}
           maxWidth={{ xs: 1, md_lg: 670 }}
           variants={formStagger}
-          initial='initial'
+          initial="initial"
           whileInView={"animate"}
           viewport={{ once: true }}
         >
           <MotionStack gap={1} variants={formStaggerChildrenRight}>
-            <Typography variant='h3'>REACH OUT TO US</Typography>
+            <Typography variant="h3">REACH OUT TO US</Typography>
             <Typography fontSize={"18px"}>
               We are always looking forward to support you.
             </Typography>
@@ -95,16 +83,16 @@ const ContactUs = () => {
             variants={formStaggerChildrenUp}
           >
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Name' fullWidth />
+              <TextField placeholder="Name" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Email ID' type='email' fullWidth />
+              <TextField placeholder="Email ID" type="email" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Phone Number' fullWidth />
+              <TextField placeholder="Phone Number" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
-              <TextField placeholder='Company Name (optional)' fullWidth />
+              <TextField placeholder="Company Name (optional)" fullWidth />
             </Grid2>
             <Grid2 xs={12} md={6}>
               <Select
@@ -112,7 +100,7 @@ const ContactUs = () => {
                 sx={(theme) => ({
                   color: alpha(
                     theme.palette.secondary.main,
-                    !!company ? 1 : 0.4
+                    !!company ? 1 : 0.4,
                   ),
                 })}
                 value={company}
@@ -121,8 +109,8 @@ const ContactUs = () => {
                 renderValue={(value) => {
                   return value === "" ? "Select Company" : value;
                 }}
-                variant='outlined'
-                color='secondary'
+                variant="outlined"
+                color="secondary"
                 IconComponent={KeyboardArrowDown}
               >
                 {[
@@ -144,7 +132,7 @@ const ContactUs = () => {
                 sx={(theme) => ({
                   color: alpha(
                     theme.palette.secondary.main,
-                    !!category ? 1 : 0.4
+                    !!category ? 1 : 0.4,
                   ),
                 })}
                 value={category}
@@ -155,8 +143,8 @@ const ContactUs = () => {
                     ? "Select Initiative Category (optional)"
                     : value;
                 }}
-                variant='outlined'
-                color='secondary'
+                variant="outlined"
+                color="secondary"
                 IconComponent={KeyboardArrowDown}
               >
                 {["Category 1", "Category 2"].map((item, idx) => (
@@ -168,7 +156,7 @@ const ContactUs = () => {
             </Grid2>
             <Grid2 xs={12}>
               <TextField
-                placeholder='Enter A Message'
+                placeholder="Enter A Message"
                 multiline
                 fullWidth
                 rows={4}
@@ -177,7 +165,7 @@ const ContactUs = () => {
           </Grid2>
           <AnimatedButton
             href={"#"}
-            rotation='anticlockwise'
+            rotation="anticlockwise"
             variant={"contained"}
             color={"secondary"}
             sx={{
@@ -206,7 +194,7 @@ const ContactUs = () => {
                 sx={{ aspectRatio: 459 / 155 }}
                 position={"relative"}
               >
-                <Image src={dialogbanner} alt='' fill />
+                <Image src={dialogbanner} alt="" fill />
               </Box>
               <Stack
                 maxWidth={357}
@@ -217,8 +205,8 @@ const ContactUs = () => {
                 my={{ xs: 3, md: 4 }}
               >
                 <Typography
-                  variant='body1'
-                  color='primary.main'
+                  variant="body1"
+                  color="primary.main"
                   fontSize={H6}
                   fontWeight={700}
                 >
@@ -229,7 +217,7 @@ const ContactUs = () => {
                   shortly.
                 </Typography>
                 <Button
-                  variant='outlined'
+                  variant="outlined"
                   sx={{ width: { xs: 1, md: 213 } }}
                   onClick={() => setOpen(false)}
                 >
