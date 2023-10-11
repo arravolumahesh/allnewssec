@@ -80,11 +80,6 @@ const Programmes = () => {
         }}
         {...arrowImageTransition}
       >
-        {/*<MotionImage*/}
-        {/*  src={value === 0 ? artfulGiving : summerWorkshop}*/}
-        {/*  alt=""*/}
-        {/*  fill*/}
-        {/*/>*/}
         <ArrowImage
           src={value === 0 ? artfulGiving : summerWorkshop}
           alt=""
