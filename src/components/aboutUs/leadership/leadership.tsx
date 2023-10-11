@@ -15,6 +15,7 @@ import GalleryDialog from "./gallery-dialog";
 
 const Leadership = () => {
   const [open, setOpen] = useState(false);
+  const [activeIndex, setactiveIndex] = useState(0);
   return (
     <SectionWrapper
       SectionProps={{
@@ -79,12 +80,19 @@ const Leadership = () => {
               ContentWrapperSxProps={{
                 p: 1.5,
               }}
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                setOpen(true), setactiveIndex(idx);
+              }}
             />
           </Grid2>
         ))}
       </Grid2>
-      <GalleryDialog open={open} setOpen={setOpen} data={leaderData} />
+      <GalleryDialog
+        open={open}
+        setOpen={setOpen}
+        data={leaderData}
+        activeIndex={activeIndex}
+      />
     </SectionWrapper>
   );
 };

@@ -23,10 +23,11 @@ type GalleryDialogProps = {
   open: boolean;
   setOpen: (d: boolean) => void;
   data: LeaderData;
+  activeIndex: number;
 };
 
 const GalleryDialog = (props: GalleryDialogProps) => {
-  const { open, setOpen, data } = props;
+  const { open, setOpen, data, activeIndex } = props;
   const [thumbsSwiper, setThumbsSwiper] = useState<Swiper | null>(null);
 
   const fullScreen = useMediaQuery((theme: Theme) =>
@@ -93,6 +94,7 @@ const GalleryDialog = (props: GalleryDialogProps) => {
           data={data}
           SlideComponent={leaderSlide}
           loop={true}
+          initialSlide={activeIndex}
           thumbs={{
             swiper:
               thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
