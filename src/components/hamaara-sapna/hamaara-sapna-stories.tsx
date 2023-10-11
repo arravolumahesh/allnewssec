@@ -10,7 +10,6 @@ const HamaaraSapnaStories = () => {
     <ScrollTriggeredSwiperSection
       data={data}
       SectionProps={{ id: "stories" }}
-      py={0}
       EnhancedSwiperProps={{
         SlideComponentProps: {
           InfoContainerProps: {

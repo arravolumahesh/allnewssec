@@ -5,7 +5,7 @@ import {
   formStagger,
   formStaggerChildrenRight,
 } from "@cc/animations";
-import { MotionBox, MotionImage, MotionStack } from "@cc/motion-components";
+import { MotionBox, MotionStack } from "@cc/motion-components";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 import {
   MenuItem,
@@ -21,6 +21,7 @@ import ValidationForm, { ValidatorFormProps } from "@cc/validation-form";
 
 import artfulGiving from "./images/programmes/artful-giving.jpg";
 import summerWorkshop from "./images/programmes/summer-workshop.jpg";
+import ArrowImage from "@cc/arrow-image";
 
 function a11yProps(index: number): TabProps {
   return {
@@ -32,7 +33,7 @@ function a11yProps(index: number): TabProps {
         md: 26,
         xxl: 32,
       },
-      textTransform: "uppercase",
+      textTransform: { md: "uppercase" },
       borderColor: (theme) => theme.palette.secondary.main,
       color: "secondary.500",
       opacity: 0.6,
@@ -79,10 +80,27 @@ const Programmes = () => {
         }}
         {...arrowImageTransition}
       >
-        <MotionImage
+        {/*<MotionImage*/}
+        {/*  src={value === 0 ? artfulGiving : summerWorkshop}*/}
+        {/*  alt=""*/}
+        {/*  fill*/}
+        {/*/>*/}
+        <ArrowImage
           src={value === 0 ? artfulGiving : summerWorkshop}
           alt=""
-          fill
+          width={470}
+          height={545}
+          sx={{
+            display: {
+              xs: "none",
+              md: "block",
+            },
+            minWidth: 217,
+            width: "100%",
+            height: "100%",
+            aspectRatio: "1/1.2",
+          }}
+          ContainerProps={{ ...arrowImageTransition }}
         />
       </MotionBox>
       <MotionStack
@@ -117,25 +135,23 @@ const Programmes = () => {
               : "Conduct workshops for women and children covering a range of activities including art, crafts, life skills, fine arts, dance, music, cooking, and much more."}
           </Typography>
 
-          <MotionBox
-            position={"relative"}
-            width={{ xs: 342, xl: 470 }}
-            minWidth={{ xs: 342, xl: 470 }}
+          <ArrowImage
+            src={value === 0 ? artfulGiving : summerWorkshop}
+            alt=""
+            width={342}
+            height={398}
             sx={{
               display: {
                 xs: "block",
                 md: "none",
               },
-              aspectRatio: 0.86,
+              width: "100%",
+              maxWidth: 342,
+              maxHeight: 398,
+              aspectRatio: "1/1.2",
             }}
-            {...arrowImageTransition}
-          >
-            <MotionImage
-              src={value === 0 ? artfulGiving : summerWorkshop}
-              alt=""
-              fill
-            />
-          </MotionBox>
+            ContainerProps={{ ...arrowImageTransition }}
+          />
 
           <ValidationForm
             Dto={ProgrammeFormDto}
