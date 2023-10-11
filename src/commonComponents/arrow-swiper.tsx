@@ -129,7 +129,7 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
           ...childMotionVariants,
           initial: {
             opacity: 0,
-            x: "-900%",
+            x: "-200%",
           },
         }}
       />

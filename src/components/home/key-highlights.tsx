@@ -5,15 +5,12 @@ import ArrowSwiperWithInfoSection, {
 } from "@cc/arrow-swiper-with-info-section";
 import ArrowSlideInfo from "@cc/cards/arrow-slide-info";
 import { ArrowSlideDefaultImageProps } from "@cc/cards/arrow-slide-default-image";
-import keyHighlights from "@/components/home/images/key-highlights.jpg";
-import inTheNews from "@/components/home/images/in-the-news.jpg";
 import { H3_1 } from "@theme/components/typography.fontvariant";
-import keyhighlight1 from './images/keyhighlightImg/keyhighlit1.jpg'
-import keyhighlight2 from './images/keyhighlightImg/Jamnalal-Bajaj-Awards_JBF.jpg'
-import keyhighlight3 from './images/keyhighlightImg/Nutritious Food Distribution to school kids (5).jpeg'
-import keyhighlight4 from './images/keyhighlightImg/highlight4.jpeg'
-import keyhighlight5 from './images/keyhighlightImg/keyhighlight5.jpg'
-
+import keyhighlight1 from "./images/keyhighlightImg/keyhighlit1.jpg";
+import keyhighlight2 from "./images/keyhighlightImg/Jamnalal-Bajaj-Awards_JBF.jpg";
+import keyhighlight3 from "./images/keyhighlightImg/Nutritious Food Distribution to school kids (5).jpeg";
+import keyhighlight4 from "./images/keyhighlightImg/highlight4.jpeg";
+import keyhighlight5 from "./images/keyhighlightImg/keyhighlight5.jpg";
 
 const KeyHighlights = () => {
   return (

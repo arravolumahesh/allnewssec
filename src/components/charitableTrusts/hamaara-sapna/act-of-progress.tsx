@@ -30,6 +30,7 @@ const ActOfProgress = () => {
             fontSize: H3_2,
           },
           ButtonProps: {
+            href: "#",
             variant: "outlined",
             color: "secondary",
           },
