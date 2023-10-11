@@ -65,15 +65,15 @@ const menus = [
     href: "#whats-new",
   },
   {
-    title: "Awards",
+    title: "Our Ideas",
     href: "#awards",
   },
   {
-    title: "Initiatives",
+    title: "Stories",
     href: "#initiatives",
   },
   {
-    title: "Stories",
+    title: "Volunteering",
     href: "#stories",
   },
   {
