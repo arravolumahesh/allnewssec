@@ -40,7 +40,7 @@ export const PaletteTheme = (
       100: "#ffffff",
       200: "#ffffff",
       300: "#ffffff",
-      400: "#ffffff",
+      400: "#DADADA",
       500: "#e6e6e6",
       600: "#cccccc",
       700: "#b3b3b3",
