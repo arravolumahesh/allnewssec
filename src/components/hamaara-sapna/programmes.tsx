@@ -6,7 +6,7 @@ import {
   formStaggerChildrenRight,
 } from "@cc/animations";
 import { MotionStack } from "@cc/motion-components";
-import React, { SyntheticEvent, useCallback, useState } from "react";
+import React, { ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import {
   MenuItem,
   Tab,
@@ -22,6 +22,7 @@ import ValidationForm, { ValidatorFormProps } from "@cc/validation-form";
 import artfulGiving from "./images/programmes/artful-giving.jpg";
 import summerWorkshop from "./images/programmes/summer-workshop.jpg";
 import ArrowImage from "@cc/arrow-image";
+import { KeyboardArrowDown } from "@mui/icons-material";
 
 function a11yProps(index: number): TabProps {
   return {
@@ -217,8 +218,17 @@ const inputFields: ValidatorFormProps<ProgrammeFormDto>["inputFields"] = [
   },
   {
     name: "session",
-    placeholder: "What session can you offer?",
     select: true,
+    placeholder: "What session can you offer?",
+    SelectProps: {
+      renderValue: (value: unknown) => {
+        return (
+          value === "" ? "What session can you offer?" : value
+        ) as ReactNode;
+      },
+      displayEmpty: true,
+      IconComponent: KeyboardArrowDown,
+    },
     ItemComponentProps: {
       md: 6,
     },
@@ -234,6 +244,15 @@ const inputFields: ValidatorFormProps<ProgrammeFormDto>["inputFields"] = [
     name: "volunteerCenter",
     placeholder: "Preferred Volunteering Center",
     select: true,
+    SelectProps: {
+      renderValue: (value: unknown) => {
+        return (
+          value === "" ? "Preferred Volunteering Center" : value
+        ) as ReactNode;
+      },
+      displayEmpty: true,
+      IconComponent: KeyboardArrowDown,
+    },
     ItemComponentProps: {
       md: 6,
     },

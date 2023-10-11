@@ -132,7 +132,7 @@ const InputValidator = (props: InputValidatorProps) => {
       value={value}
       placeholder={
         rest.placeholder || isString(label)
-          ? startCase("Enter" + label)
+          ? startCase("Enter " + label)
           : undefined
       }
       onChange={handleChange}
