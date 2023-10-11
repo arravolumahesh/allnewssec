@@ -2,8 +2,8 @@
 import React from "react";
 import ScrollTriggeredSwiperSection, {
   ScrollTriggeredSwiperSectionProps,
-} from "@/commonComponents/scrollTriggeredSwiperSection";
-import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
+} from "@cc/scrollTriggeredSwiperSection";
+import { H6_2 } from "@theme/components/typography.fontvariant";
 
 const HamaaraSapnaStories = () => {
   return (

@@ -1,12 +1,9 @@
 "use client";
-import SectionWrapper from "@/commonComponents/section-wrapper";
+import SectionWrapper from "@cc/section-wrapper";
 import { Stack } from "@mui/material";
 import React from "react";
-import {
-  MotionTypography,
-  MotionVariantProps,
-} from "@/commonComponents/motion-components";
-import CommonBreadcrumb from "@/commonComponents/breadcrumb";
+import { MotionTypography, MotionVariantProps } from "@cc/motion-components";
+import CommonBreadcrumb from "@cc/breadcrumb";
 
 const HeroBanner = () => {
   return (
