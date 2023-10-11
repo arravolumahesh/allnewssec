@@ -5,7 +5,7 @@ import {
   formStagger,
   formStaggerChildrenRight,
 } from "@cc/animations";
-import { MotionBox, MotionStack } from "@cc/motion-components";
+import { MotionStack } from "@cc/motion-components";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 import {
   MenuItem,
@@ -61,43 +61,29 @@ const Programmes = () => {
           background: (theme) => theme.palette.gradient.lightToDark,
         },
       }}
-      direction={{ xs: "column", md_lg: "row" }}
+      direction={{ xs: "column", lg: "row" }}
       rowGap={3}
       columnGap={5}
       alignItems={"center"}
       justifyContent={"space-between"}
     >
-      <MotionBox
-        position={"relative"}
-        width={{ xs: 342, xl: 470 }}
-        minWidth={{ xs: 342, xl: 470 }}
+      <ArrowImage
+        src={value === 0 ? artfulGiving : summerWorkshop}
+        alt=""
+        width={470}
+        height={545}
         sx={{
           display: {
             xs: "none",
-            md: "block",
+            lg: "block",
           },
-          aspectRatio: 0.86,
+          minWidth: 217,
+          width: "100%",
+          height: "100%",
+          aspectRatio: "1/1.2",
         }}
-        {...arrowImageTransition}
-      >
-        <ArrowImage
-          src={value === 0 ? artfulGiving : summerWorkshop}
-          alt=""
-          width={470}
-          height={545}
-          sx={{
-            display: {
-              xs: "none",
-              md: "block",
-            },
-            minWidth: 217,
-            width: "100%",
-            height: "100%",
-            aspectRatio: "1/1.2",
-          }}
-          ContainerProps={{ ...arrowImageTransition }}
-        />
-      </MotionBox>
+        ContainerProps={{ ...arrowImageTransition }}
+      />
       <MotionStack
         rowGap={5}
         maxWidth={{ xs: 1, md_lg: 670 }}
@@ -138,7 +124,7 @@ const Programmes = () => {
             sx={{
               display: {
                 xs: "block",
-                md: "none",
+                lg: "none",
               },
               width: "100%",
               maxWidth: 342,
