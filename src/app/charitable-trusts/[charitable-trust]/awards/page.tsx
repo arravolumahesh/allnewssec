@@ -1,5 +1,11 @@
+import AwardsSwiper from "@c/charitableTrusts/awards/awards-swiper";
+
 const CharitableTrustAwards = () => {
-  return <></>;
+  return (
+    <>
+      <AwardsSwiper />
+    </>
+  );
 };
 
 export default CharitableTrustAwards;

@@ -77,8 +77,6 @@ const ObjectiveSection = (props: ObjectiveSectionProps) => {
           {Objective}
         </MotionTypography>
         {Author && (
-          // <Stack direction={"row"}>
-          //   <HorizontalRule sx={{ mr: 1 }} />
           <MotionStack
             rowGap={{ xs: 0.5, md: 0.75 }}
             variants={arrowInfoStaggerDivChildren}
@@ -100,7 +98,6 @@ const ObjectiveSection = (props: ObjectiveSectionProps) => {
               {Company}
             </Typography>
           </MotionStack>
-          // </Stack>
         )}
       </MotionStack>
     </SectionWrapper>
