@@ -54,7 +54,7 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
     >
       <EnhancedSwiper
         data={ImageData}
-        SlideComponent={ImageSlics}
+        SlideComponent={ImageSlice}
         Slots={{
           ContainerEndChildren: (
             <>
@@ -122,11 +122,11 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
 
 export default DiscoverSection;
 
-interface ImageSlicsProps {
+interface ImageSliceProps {
   img: StaticImageData | string;
 }
 
-const ImageSlics = (props: ImageSlicsProps) => {
+const ImageSlice = (props: ImageSliceProps) => {
   const { img } = props;
   return (
     <MaterialImage
