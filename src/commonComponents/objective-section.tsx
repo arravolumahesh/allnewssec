@@ -4,10 +4,14 @@ import SectionWrapper, {
   SectionWrapperProps,
 } from "@cc/section-wrapper";
 import ArrowGradient from "@cc/arrow-gradient";
-import { Stack, Typography, TypographyProps } from "@mui/material";
+import {
+  Theme,
+  Typography,
+  TypographyProps,
+  useMediaQuery,
+} from "@mui/material";
 import { H5_1, H6_3 } from "@theme/components/typography.fontvariant";
 import { deepmerge } from "@mui/utils";
-import { HorizontalRule } from "@mui/icons-material";
 import {
   MotionStack,
   MotionSvgProps,
@@ -40,20 +44,23 @@ const ObjectiveSection = (props: ObjectiveSectionProps) => {
     SVGProps,
     ...restSectionWrapperProps
   } = props;
+  const isMd = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
   return (
     <SectionWrapper
       {...deepmerge(defaultSectionProps, restSectionWrapperProps)}
     >
-      <ArrowGradient
-        SVGProps={{
-          width: 80,
-          height: 232,
-          ...SVGProps,
-        }}
-        display={{ xs: "none", md: "block" }}
-        {...arrowLeftToRightTransition}
-      />
+      {isMd && (
+        <ArrowGradient
+          SVGProps={{
+            width: 80,
+            height: 232,
+            ...SVGProps,
+          }}
+          {...arrowLeftToRightTransition}
+        />
+      )}
       <MotionStack
+        width={1}
         rowGap={{ xs: 2, md: 3 }}
         variants={arrowInfoStaggerDiv}
         initial={"initial"}
