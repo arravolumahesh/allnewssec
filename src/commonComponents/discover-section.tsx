@@ -28,7 +28,7 @@ import {
   textStaggerChildren,
 } from "@/commonComponents/animations";
 
-export interface DiscoverProps {
+export interface DiscoverSectionProps {
   title: string;
   linkProps: MotionLinkProps; // Todo update in other components
   ImageData: {
@@ -36,7 +36,7 @@ export interface DiscoverProps {
   }[];
 }
 
-const DiscoverSection = (props: DiscoverProps) => {
+const DiscoverSection = (props: DiscoverSectionProps) => {
   const { title, linkProps, ImageData } = props;
   return (
     <SectionWrapper

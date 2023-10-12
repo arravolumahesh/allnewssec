@@ -4,7 +4,7 @@ import SectionNavigation from "@cc/section-navigation";
 import HeroBanner from "@c/charitableTrusts/hamaara-sapna/hero-banner";
 import ActOfProgress from "@c/charitableTrusts/hamaara-sapna/act-of-progress";
 import PartnerSwiperSection from "@cc/partner-swiper-section";
-import DiscoverSection, { DiscoverProps } from "@cc/discover-section";
+import DiscoverSection, { DiscoverSectionProps } from "@cc/discover-section";
 import di1 from "@c/charitableTrusts/hamaara-sapna/images/discover/hs-discover-1.jpg";
 import di2 from "@c/charitableTrusts/hamaara-sapna/images/discover/hs-discover-2.jpg";
 import di3 from "@c/charitableTrusts/hamaara-sapna/images/discover/hs-discover-3.jpg";
@@ -90,7 +90,7 @@ const menus = [
   },
 ];
 
-const discoverImageData: DiscoverProps["ImageData"] = [
+const discoverImageData: DiscoverSectionProps["ImageData"] = [
   { img: di1 },
   { img: di2 },
   { img: di3 },
