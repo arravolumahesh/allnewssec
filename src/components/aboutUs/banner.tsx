@@ -21,12 +21,8 @@ const AboutUsBanner = () => {
           position: "relative",
         },
       }}
-      py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
-      pb={{ /* ...basePy, */ xs: 3, md: 8 }}
-      ContainerProps={{
-        // position: "relative",
-        overflow: "hidden",
-      }}
+      py={{ xs: 2, md: 4 }} //Todo: basePy
+      pb={{ xs: 3, md: 8 }}
     >
       <CommonBreadcrumb />
       <ArrowBgBanner
@@ -49,7 +45,7 @@ const AboutUsBanner = () => {
         animate={"animate"}
       >
         <MotionTypography
-          variant='h1'
+          variant="h1"
           variants={bottomToToptextStaggerChildren}
         >
           Strengthening the nation, beyond just business
