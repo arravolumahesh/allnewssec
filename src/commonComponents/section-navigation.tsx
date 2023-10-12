@@ -31,7 +31,6 @@ export interface SectionNavigationProps
   }[];
   TabProps?: Omit<TabProps, "children">;
   TabsProps?: Omit<TabsProps, "children">;
-  CompanyName?: string;
 }
 
 const SectionNavigation = (props: SectionNavigationProps) => {
@@ -41,7 +40,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
     TabProps,
     TabsProps,
     SectionProps = {},
-    CompanyName = "Bajaj",
+    ContainerProps = {},
     ...rest
   } = props;
   const { sx, ...restSectionProps } = SectionProps;
@@ -56,12 +55,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
   return (
     <SectionWrapper
       width={1}
-      py={0}
-      pr={{ ...basePx, xs: 0, md: 0 }}
       direction={"row"}
-      alignItems={"center"}
-      columnGap={{ xs: 3, md: 4 }}
-      color={"grey.600"}
       SectionProps={{
         bgcolor: "common.white",
         sx: [
@@ -75,25 +69,30 @@ const SectionNavigation = (props: SectionNavigationProps) => {
         ],
         ...restSectionProps,
       }}
+      ContainerProps={{
+        py: 0,
+        px: { ...basePx, xs: 0, md: 0 },
+        alignItems: "center",
+        columnGap: { xs: 3, md: 4 },
+        ...ContainerProps,
+      }}
       {...rest}
     >
-      <MaterialImage
-        src={
-          "https://s3-alpha-sig.figma.com/img/db64/8e41/5817c9640f87a5e65c72730fd3c68df2?Expires=1696809600&Signature=CxQFzRXfbXHrEnJKXnG95laUmKKq0nOqnAW3CoeP6OJE8EgqbwkdNVdkbz8K8ya3yuv0M9gwESb1P9Afo80u4LFknhiblu3NbFUdVnwE37E2DRmDAxGQfxVuF0YuWaph~XlnMjaiXRowaPo-~TnQaSojfiLGvazwMENkDsq55s3KFItCsjDwnzuOvSoOQzGlljE9Ef1qBtcSa2Sn3RchKZqkN07-weEozkD7KHgdieV1CyHeCSq1c5hT4ZziO0JK8fTKmGtBrPbGvkkNbb7LhWBtkLrhbhZT4PyV69qAGfMVvaA8eKliQFEI53JIyKicQBE0gsmG6Nw1XZ~DByHKbg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-        }
-        width={124}
-        height={32}
-        alt={CompanyName}
-        {...LogoImageProps}
-        sx={[
-          {
-            width: { xs: 94, md: 124 },
-            height: { xs: 24, md: 32 },
-            objectFit: "contain",
-          },
-          ...sxArrayUtil(LogoImageProps?.sx),
-        ]}
-      />
+      {LogoImageProps && (
+        <MaterialImage
+          width={124}
+          height={32}
+          {...LogoImageProps}
+          sx={[
+            {
+              width: { xs: 94, md: 124 },
+              height: { xs: 24, md: 32 },
+              objectFit: "contain",
+            },
+            ...sxArrayUtil(LogoImageProps?.sx),
+          ]}
+        />
+      )}
       <Tabs
         value={value}
         onChange={handleChange}
@@ -103,6 +102,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
         sx={[
           {
             width: 1,
+            color: "grey.600",
             [`.${tabsClasses.flexContainer}`]: {
               justifyContent: "space-between",
               columnGap: 4,
@@ -123,7 +123,7 @@ const SectionNavigation = (props: SectionNavigationProps) => {
               {
                 border: "none",
                 fontSize: Button,
-                px: 0,
+                px: 2,
                 height: { xs: 56, md: 64 },
                 color: "inherit",
                 fontWeight: 400,
