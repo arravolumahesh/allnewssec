@@ -5,6 +5,7 @@ import {
   DialogContent,
   IconButton,
   Stack,
+  SxProps,
   Theme,
   Typography,
   dialogClasses,
@@ -12,7 +13,10 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { LeaderData } from "./leadership";
-import { MaterialImage } from "@/commonComponents/material-components";
+import {
+  MaterialImage,
+  MaterialImageProps,
+} from "@/commonComponents/material-components";
 import { H5_1 } from "@/styles/theme/components/typography.fontvariant";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
@@ -22,13 +26,37 @@ import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button"
 type GalleryDialogProps = {
   open: boolean;
   setOpen: (d: boolean) => void;
-  data: LeaderData;
+  data: {
+    title?: string;
+    designation?: string;
+    image: string;
+    quote?: string;
+    biography?: string;
+  }[];
   activeIndex: number;
   fullImage?: boolean;
+  MainImageProps?: Partial<MaterialImageProps>;
+  MiniSwiperWrapperProps?: SxProps<Theme>;
+};
+
+type LeaderSlideProps = {
+  title: string;
+  designation: string;
+  image: string;
+  quote: string;
+  biography: string;
 };
 
 const GalleryDialog = (props: GalleryDialogProps) => {
-  const { open, setOpen, data, activeIndex, fullImage } = props;
+  const {
+    open,
+    setOpen,
+    data,
+    activeIndex,
+    fullImage,
+    MainImageProps,
+    MiniSwiperWrapperProps,
+  } = props;
   const [thumbsSwiper, setThumbsSwiper] = useState<Swiper | null>(null);
 
   const fullScreen = useMediaQuery((theme: Theme) =>
@@ -51,6 +79,48 @@ const GalleryDialog = (props: GalleryDialogProps) => {
           objectFit: "cover",
         }}
       />
+    );
+  };
+
+  const leaderSlide = (props: LeaderSlideProps) => {
+    const { title, designation, image, quote, biography } = props;
+    return (
+      <Stack
+        width={1}
+        direction={{ xs: "column", md: "row" }}
+        alignItems={{ xs: "none", md: "center" }}
+        rowGap={4}
+        bgcolor={"common.white"}
+        py={{ xs: 5, md: 0 }}
+        px={{ xs: 3, md: 0 }}
+      >
+        <MaterialImage
+          src={image}
+          alt=''
+          width={450}
+          height={533}
+          sx={{
+            width: { xs: "100%", md: 450 },
+            height: { xs: 254, md: 533 },
+            objectFit: "cover",
+          }}
+          {...MainImageProps}
+        />
+        {!fullImage && (
+          <Stack px={{ xs: 0, md: 2, md_lg: 7 }} rowGap={3}>
+            <Typography variant='h3' fontSize={H5_1}>
+              {quote}
+            </Typography>
+            <Stack rowGap={0.5}>
+              <Typography fontSize={"18px !important"}>{title}</Typography>
+              <Typography variant='body2'>{designation}</Typography>
+            </Stack>
+            <Typography fontSize={"16px !important"} sx={{ opacity: 0.7 }}>
+              {biography}
+            </Typography>
+          </Stack>
+        )}
+      </Stack>
     );
   };
   return (
@@ -154,6 +224,7 @@ const GalleryDialog = (props: GalleryDialogProps) => {
                 md: "flex-start",
                 md_lg: "center",
               },
+              ...MiniSwiperWrapperProps,
             },
             ".swiper-slide-thumb-active": {
               border: "1.5px solid #fff",
@@ -166,50 +237,3 @@ const GalleryDialog = (props: GalleryDialogProps) => {
 };
 
 export default GalleryDialog;
-
-type LeaderSlideProps = {
-  title: string;
-  designation: string;
-  image: string;
-  quote: string;
-  biography: string;
-};
-
-const leaderSlide = (props: LeaderSlideProps) => {
-  const { title, designation, image, quote, biography } = props;
-  return (
-    <Stack
-      width={1}
-      direction={{ xs: "column", md: "row" }}
-      alignItems={{ xs: "none", md: "center" }}
-      rowGap={4}
-      bgcolor={"common.white"}
-      py={{ xs: 5, md: 0 }}
-      px={{ xs: 3, md: 0 }}
-    >
-      <MaterialImage
-        src={image}
-        alt=''
-        width={450}
-        height={533}
-        sx={{
-          width: { xs: "100%", md: 450 },
-          height: { xs: 254, md: 533 },
-          objectFit: "cover",
-        }}
-      />
-      <Stack px={{ xs: 0, md: 2, md_lg: 7 }} rowGap={3}>
-        <Typography variant='h3' fontSize={H5_1}>
-          {quote}
-        </Typography>
-        <Stack rowGap={0.5}>
-          <Typography fontSize={"18px !important"}>{title}</Typography>
-          <Typography variant='body2'>{designation}</Typography>
-        </Stack>
-        <Typography fontSize={"16px !important"} sx={{ opacity: 0.7 }}>
-          {biography}
-        </Typography>
-      </Stack>
-    </Stack>
-  );
-};

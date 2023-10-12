@@ -19,12 +19,25 @@ const Gallery = () => {
           setOpen(true), setactiveIndex(index);
         }}
       />
-      {/* <GalleryDialog
+      <GalleryDialog
         open={open}
         setOpen={setOpen}
-        data={leaderData}
+        data={imageData}
         activeIndex={activeIndex}
-      /> */}
+        fullImage
+        MainImageProps={{
+          width: 1078,
+          height: 592,
+          sx: {
+            width: "100%",
+            height: { xs: 254, md: 592 },
+            objectFit: "cover",
+          },
+        }}
+        MiniSwiperWrapperProps={{
+          justifyContent: "flex-start",
+        }}
+      />
     </>
   );
 };
