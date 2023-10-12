@@ -12,7 +12,7 @@ const CharitableTrustAwards = () => {
       <AwardsSwiper />
       <AwardsAssociatedWithUs />
       <DiscoverSection
-        title="Moments From our Award Ceremonies"
+        title='Moments From our Award Ceremonies'
         linkProps={{
           href: "#",
           children: "Visit The Jamnalal Bajaj Awards Website",
@@ -26,8 +26,8 @@ const CharitableTrustAwards = () => {
 export default CharitableTrustAwards;
 
 const imageData: DiscoverSectionProps["ImageData"] = [
-  { img: awardCeremony1 },
-  { img: awardCeremony2 },
-  { img: awardCeremony3 },
-  { img: awardCeremony4 },
+  { image: awardCeremony1 },
+  { image: awardCeremony2 },
+  { image: awardCeremony3 },
+  { image: awardCeremony4 },
 ];

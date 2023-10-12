@@ -90,16 +90,16 @@ const Company = ({ params }: { params: { company: string } }) => {
 export default Company;
 
 const imageData = [
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
+  { image: group2 },
+  { image: group3 },
+  { image: group5 },
+  { image: group7 },
+  { image: group8 },
+  { image: group2 },
+  { image: group3 },
+  { image: group5 },
+  { image: group7 },
+  { image: group8 },
 ];
 
 const menus: SectionNavigationProps["Sections"] = [

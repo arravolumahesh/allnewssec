@@ -91,12 +91,12 @@ const menus = [
 ];
 
 const discoverImageData: DiscoverSectionProps["ImageData"] = [
-  { img: di1 },
-  { img: di2 },
-  { img: di3 },
-  { img: di4 },
-  { img: di5 },
-  { img: di6 },
-  { img: di7 },
-  { img: di8 },
+  { image: di1 },
+  { image: di2 },
+  { image: di3 },
+  { image: di4 },
+  { image: di5 },
+  { image: di6 },
+  { image: di7 },
+  { image: di8 },
 ];

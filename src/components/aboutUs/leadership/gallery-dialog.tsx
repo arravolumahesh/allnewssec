@@ -24,10 +24,11 @@ type GalleryDialogProps = {
   setOpen: (d: boolean) => void;
   data: LeaderData;
   activeIndex: number;
+  fullImage?: boolean;
 };
 
 const GalleryDialog = (props: GalleryDialogProps) => {
-  const { open, setOpen, data, activeIndex } = props;
+  const { open, setOpen, data, activeIndex, fullImage } = props;
   const [thumbsSwiper, setThumbsSwiper] = useState<Swiper | null>(null);
 
   const fullScreen = useMediaQuery((theme: Theme) =>

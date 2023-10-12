@@ -10,10 +10,7 @@ import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
 import { Autoplay } from "swiper/modules";
-import {
-  MaterialImage,
-  MaterialImageProps,
-} from "@/commonComponents/material-components";
+import { MaterialImage } from "@/commonComponents/material-components";
 import { StaticImageData } from "next/image";
 import { ArrowForwardIos } from "@mui/icons-material";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
@@ -34,18 +31,16 @@ import {
 export interface DiscoverSectionProps {
   title: string;
   linkProps?: MotionLinkProps; // Todo update in other components
-  ImageData: {
-    img: StaticImageData | string;
-  }[];
+  ImageData: Array<ImageSliceProps>;
   hasSocials?: boolean;
   bgcolor?: string;
   color?: string;
   clickableSlides?: boolean;
-  onImageClick: MaterialImageProps["onClick"];
+  onImageClick?: (index: number) => void;
 }
 
 interface ImageSliceProps {
-  img: StaticImageData | string;
+  image: StaticImageData | string;
 }
 
 const DiscoverSection = (props: DiscoverSectionProps) => {
@@ -61,10 +56,10 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
   } = props;
 
   const ImageSlice = (props: ImageSliceProps) => {
-    const { img } = props;
+    const { image } = props;
     return (
       <MaterialImage
-        src={img}
+        src={image}
         alt=''
         width={421}
         height={484}
@@ -80,7 +75,6 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
               }
             : {},
         }}
-        onClick={onImageClick}
       />
     );
   };
@@ -102,6 +96,15 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
       <EnhancedSwiper
         data={ImageData}
         SlideComponent={ImageSlice}
+        SlideWrapperProps={(index) => ({
+          sx: {
+            width: "auto",
+            maxHeight: 484,
+            mr: { xs: 2, md: 3 },
+            overflow: "hidden",
+          },
+          onClick: () => onImageClick && onImageClick(index),
+        })}
         Slots={{
           ContainerEndChildren: hasSocials && (
             <>
@@ -178,13 +181,6 @@ const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
     delay: 0,
     disableOnInteraction: false,
     reverseDirection: true,
-  },
-  SlideWrapperProps: {
-    sx: {
-      width: "auto",
-      mr: { xs: 2, md: 3 },
-      overflow: "hidden",
-    },
   },
   sx: {
     overflow: {
