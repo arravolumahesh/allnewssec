@@ -82,8 +82,8 @@ const GalleryDialog = (props: GalleryDialogProps) => {
           onClick={() => setOpen(false)}
           sx={{
             position: "absolute",
-            top: { xs: 2, md: 20 },
-            right: { xs: 8, md: 20 },
+            top: { xs: 2, md: 10, lg: 20 },
+            right: { xs: 8, md: 10, lg: 20 },
             color: "common.white",
             zIndex: 2,
           }}
@@ -115,11 +115,9 @@ const GalleryDialog = (props: GalleryDialogProps) => {
                 NextButtonProps={{
                   className: "swiper-leader-next",
                 }}
-                sx={{
-                  width: 1,
-                  justifyContent: { xs: "center", md: "space-between" },
-                  mt: { xs: 15, md: 6.5 },
-                }}
+                width={1}
+                justifyContent={{ xs: "center", md: "space-between" }}
+                mt={{ xs: 15, md: 6.5 }}
               />
             ),
           }}
@@ -146,10 +144,15 @@ const GalleryDialog = (props: GalleryDialogProps) => {
           sx={{
             pt: 3,
             mt: { xs: "-160px", md: "-100px" },
-            zIndex: 0,
+            width: { xs: 1, md: "calc(100% - 96px)" },
             height: "auto",
             ".swiper-wrapper": {
-              justifyContent: { xs: "flex-start", sm: "center" },
+              justifyContent: {
+                xs: "flex-start",
+                sm: "center",
+                md: "flex-start",
+                md_lg: "center",
+              },
             },
             ".swiper-slide-thumb-active": {
               border: "1.5px solid #fff",
