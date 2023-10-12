@@ -2,6 +2,7 @@ import WardhaBanner from "@c/charitableTrusts/wardha/wardha-banner";
 import ObjectiveSection from "@cc/objective-section";
 import { H6_1 } from "@theme/components/typography.fontvariant";
 import HistoricLegacy from "@c/charitableTrusts/wardha/historic-legacy";
+import AreasOfWork from "@c/charitableTrusts/wardha/areas-of-work";
 
 const CharitableTrustWardha = () => {
   return (
@@ -14,6 +15,7 @@ const CharitableTrustWardha = () => {
         }}
       />
       <HistoricLegacy />
+      <AreasOfWork />
     </>
   );
 };

@@ -127,7 +127,7 @@ const OurFocusAreas = () => {
       SectionHeaderProps={{
         title: "OUR FOCUS AREAS",
       }}
-      color={"common.white"}
+      color={"secondary.main"}
     >
       <ArrowSwiperWithInfoSection
         data={arrowData}
