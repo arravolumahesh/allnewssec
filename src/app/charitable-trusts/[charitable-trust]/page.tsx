@@ -32,7 +32,7 @@ const CharitableTrusts = () => {
           },
         }}
       />
-      <ObjectiveSection Objective="We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation." />
+      <ObjectiveSection Objective='We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation.' />
       <OriginOfGenerationChange />
       <ActsOfProgress />
       <BajajAwards />
@@ -43,12 +43,13 @@ const CharitableTrusts = () => {
       <PartnerSwiperSection SectionProps={{ id: "partners" }} />
       <DonationsAndPartners />
       <DiscoverSection
-        title="DISCOVER JAMNALAL BAJAJ FOUNDATION"
+        title='DISCOVER JAMNALAL BAJAJ FOUNDATION'
         linkProps={{
           href: "/",
           children: "Visit The Jamnalal Bajaj Foundation Website",
         }}
         ImageData={imageData}
+        hasSocials
       />
     </>
   );

@@ -1,14 +1,30 @@
 "use client";
+import {
+  bottomTextStagger,
+  textStaggerChildren,
+} from "@/commonComponents/animations";
 import InfoSlides from "@/commonComponents/cards/info-slides";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import MLink from "@/commonComponents/m-link";
+import { MotionLink } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import SwiperNavigationButton from "@/commonComponents/swiper-navigation-button";
-import { H6_3 } from "@/styles/theme/components/typography.fontvariant";
-import { Divider, Stack, Typography, alpha } from "@mui/material";
+import { H6_2, H6_3 } from "@/styles/theme/components/typography.fontvariant";
+import { ArrowForwardIos } from "@mui/icons-material";
+import {
+  Divider,
+  Stack,
+  Theme,
+  Typography,
+  alpha,
+  useMediaQuery,
+} from "@mui/material";
+import Link from "next/link";
 import React from "react";
 import { Navigation } from "swiper/modules";
 
 const Impact = () => {
+  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
   return (
     <SectionWrapper
       SectionProps={{
@@ -27,22 +43,51 @@ const Impact = () => {
           fontSize: H6_3,
           maxWidth: 866,
         },
+        sx: {
+          mb: { xs: 6, md: 10 },
+        },
       }}
     >
       <EnhancedSwiper
         data={ImpactData}
         SlideComponent={ImpactSlides}
         centeredSlides
+        initialSlide={1}
         slidesPerView={"auto"}
-        spaceBetween={76}
+        spaceBetween={matches ? -15 : 30}
         SlideWrapperProps={{
           sx: {
-            width: 423,
+            width: { xs: 330, md: 423 },
+            mt: { xs: "-15px", md: "-50px" },
+            // mr: { xs: 0, md: "30px" },
           },
         }}
         navigation={{
           nextEl: ".swiper-impact-next",
           prevEl: ".swiper-impact-prev",
+        }}
+        sx={{
+          overflow: { xs: "visible", md: "hidden" },
+          ".swiper-slide": {
+            img: {
+              opacity: 0.3,
+              transform: { xs: "scale(0.8)", md: "scale(0.7)" },
+              transition: "all .3s ease-out",
+            },
+            ".description": {
+              opacity: 0,
+              transition: "all .3s ease-out",
+            },
+          },
+          ".swiper-slide-active": {
+            img: {
+              opacity: 1,
+              transform: "scale(1)",
+            },
+            ".description": {
+              opacity: 1,
+            },
+          },
         }}
         modules={[Navigation]}
         Slots={{
@@ -52,6 +97,7 @@ const Impact = () => {
                 className: "swiper-impact-prev",
                 sx: {
                   zIndex: 2,
+                  display: { xs: "none", md: "flex" },
                 },
               }}
               NextButtonProps={{
@@ -59,23 +105,61 @@ const Impact = () => {
                 sx: {
                   ml: "0 !important",
                   zIndex: 2,
+                  display: { xs: "none", md: "flex" },
                 },
               }}
               alignItems={"center"}
               justifyContent={"space-between"}
               width={1}
-              mb={"-50px"}
               divider={
                 <Divider
                   sx={{
-                    width: "calc(100% - 96px)",
-                    ml: "0 !important",
+                    width: { xs: "113%", md: "calc(100% - 96px)" },
+                    ml: { xs: "-20px !important", md: "0 !important" },
                     borderBottom: "2px dashed #ffffff4d",
                   }}
                 />
               }
             />
           ),
+          ContainerEndChildren: (
+            <>
+              <SwiperNavigationButton
+                display={{ xs: "flex", md: "none" }}
+                PrevButtonProps={{
+                  className: "swiper-impact-prev",
+                }}
+                NextButtonProps={{
+                  className: "swiper-impact-next",
+                }}
+              />
+              <Divider sx={{ width: 1, borderBottom: "solid 1px #EAEAEA1A" }} />
+              <MotionLink
+                sx={{
+                  fontSize: H6_2,
+                  alignSelf: "center",
+                }}
+                href={"/"}
+                disableRipple
+                variant={"text"}
+                color={"inherit"}
+                variants={textStaggerChildren}
+                endIcon={<ArrowForwardIos fontSize='inherit' />}
+              >
+                Visit The Bajaj Group Website
+              </MotionLink>
+            </>
+          ),
+          ContainerEndProps: {
+            mt: { xs: 3, md: 6 },
+            pt: { xs: 3, md: 0 },
+            alignItems: "center",
+            rowGap: { xs: 3, md: 7 },
+            variants: bottomTextStagger(0),
+            initial: "initial",
+            whileInView: "animate",
+            viewport: { once: true },
+          },
         }}
       />
     </SectionWrapper>
@@ -93,7 +177,7 @@ type ImpactSlidesProps = {
 const ImpactSlides = (props: ImpactSlidesProps) => {
   const { date, image, description } = props;
   return (
-    <Stack rowGap={5.5} alignItems={"center"}>
+    <Stack rowGap={{ xs: 4, md: 5.5 }} alignItems={"center"}>
       <Typography
         py={{ xs: 0.75, md: 2 }}
         px={{ xs: 2, md: 3 }}
@@ -109,7 +193,7 @@ const ImpactSlides = (props: ImpactSlidesProps) => {
         CardWrapperProps={{
           direction: "column",
           rowGap: 2,
-          width: 423,
+          width: { xs: 330, md: 423 },
         }}
         ImageProps={{
           width: 423,

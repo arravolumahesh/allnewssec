@@ -43,7 +43,7 @@ const InfoSlides = (props: InfoSlidesProps) => {
     >
       <MaterialImage
         src={img}
-        alt={title!}
+        alt={title || ""}
         width={120}
         height={120}
         {...ImageProps}
@@ -64,7 +64,11 @@ const InfoSlides = (props: InfoSlidesProps) => {
             {title}
           </MotionBox>
         )}
-        <MotionTypography variant='body1' {...DescriptionTypographyProps}>
+        <MotionTypography
+          className='description'
+          variant='body1'
+          {...DescriptionTypographyProps}
+        >
           {description}
         </MotionTypography>
       </MotionStack>

@@ -10,7 +10,10 @@ import EnhancedSwiper, {
   EnhancedSwiperProps,
 } from "@/commonComponents/enhanced-swiper";
 import { Autoplay } from "swiper/modules";
-import { MaterialImage } from "@/commonComponents/material-components";
+import {
+  MaterialImage,
+  MaterialImageProps,
+} from "@/commonComponents/material-components";
 import { StaticImageData } from "next/image";
 import { ArrowForwardIos } from "@mui/icons-material";
 import { H6_2 } from "@/styles/theme/components/typography.fontvariant";
@@ -30,21 +33,65 @@ import {
 
 export interface DiscoverSectionProps {
   title: string;
-  linkProps: MotionLinkProps; // Todo update in other components
+  linkProps?: MotionLinkProps; // Todo update in other components
   ImageData: {
     img: StaticImageData | string;
   }[];
+  hasSocials?: boolean;
+  bgcolor?: string;
+  color?: string;
+  clickableSlides?: boolean;
+  onImageClick: MaterialImageProps["onClick"];
+}
+
+interface ImageSliceProps {
+  img: StaticImageData | string;
 }
 
 const DiscoverSection = (props: DiscoverSectionProps) => {
-  const { title, linkProps, ImageData } = props;
+  const {
+    title,
+    linkProps,
+    ImageData,
+    hasSocials,
+    bgcolor,
+    color,
+    clickableSlides,
+    onImageClick,
+  } = props;
+
+  const ImageSlice = (props: ImageSliceProps) => {
+    const { img } = props;
+    return (
+      <MaterialImage
+        src={img}
+        alt=''
+        width={421}
+        height={484}
+        sx={{
+          width: { xs: 250, md: 421 },
+          height: { xs: 290, md: 484 },
+          objectFit: "cover",
+          "&:hover": clickableSlides
+            ? {
+                transform: "scale(1.1)",
+                cursor: "pointer",
+                transition: "all .3s ease-out",
+              }
+            : {},
+        }}
+        onClick={onImageClick}
+      />
+    );
+  };
+
   return (
     <SectionWrapper
       SectionProps={{
-        bgcolor: "primary.500",
+        bgcolor: bgcolor || "primary.500",
         id: "gallery",
       }}
-      color={"secondary.main"}
+      color={color || "secondary.main"}
       SectionHeaderProps={{
         title: title,
         TitleTypographyProps: {
@@ -56,7 +103,7 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
         data={ImageData}
         SlideComponent={ImageSlice}
         Slots={{
-          ContainerEndChildren: (
+          ContainerEndChildren: hasSocials && (
             <>
               <MotionLink
                 sx={{
@@ -69,7 +116,7 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
                 variant={"text"}
                 color={"inherit"}
                 variants={textStaggerChildren}
-                endIcon={<ArrowForwardIos fontSize="inherit" />}
+                endIcon={<ArrowForwardIos fontSize='inherit' />}
                 {...linkProps}
               />
               <MotionStack
@@ -86,7 +133,7 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
                 ].map((Icon, idx) => (
                   <Icon
                     key={idx}
-                    variant="contained"
+                    variant='contained'
                     SvgIconProps={{
                       sx: {
                         bgcolor: "common.white",
@@ -122,27 +169,6 @@ const DiscoverSection = (props: DiscoverSectionProps) => {
 
 export default DiscoverSection;
 
-interface ImageSliceProps {
-  img: StaticImageData | string;
-}
-
-const ImageSlice = (props: ImageSliceProps) => {
-  const { img } = props;
-  return (
-    <MaterialImage
-      src={img}
-      alt=""
-      width={421}
-      height={484}
-      sx={{
-        width: { xs: 250, md: 421 },
-        height: { xs: 290, md: 484 },
-        objectFit: "cover",
-      }}
-    />
-  );
-};
-
 const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
   slidesPerView: "auto",
   speed: 5000,
@@ -157,6 +183,7 @@ const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
     sx: {
       width: "auto",
       mr: { xs: 2, md: 3 },
+      overflow: "hidden",
     },
   },
   sx: {
