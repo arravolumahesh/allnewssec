@@ -134,6 +134,7 @@ const Programmes = () => {
                 xs: "block",
                 lg: "none",
               },
+              mx: "auto",
               width: "100%",
               maxWidth: 342,
               maxHeight: 398,
@@ -163,13 +164,13 @@ const Programmes = () => {
                 },
               },
             }}
-            InputFieldsProps={{
-              color: "secondary",
-              SelectProps: {
-                displayEmpty: true,
-                IconComponent: KeyboardArrowDown,
-              },
-            }}
+            // InputFieldsProps={{
+            //   color: "secondary",
+            //   SelectProps: {
+            //     displayEmpty: true,
+            //     IconComponent: KeyboardArrowDown,
+            //   },
+            // }}
           />
         </MotionStack>
       </MotionStack>
@@ -226,12 +227,15 @@ const inputFields: ValidatorFormProps<ProgrammeFormDto>["inputFields"] = [
   {
     name: "session",
     select: true,
+    color: "secondary",
     SelectProps: {
       renderValue: (value: unknown) => {
         return (
           value === "" ? "What session can you offer?" : value
         ) as ReactNode;
       },
+      displayEmpty: true,
+      IconComponent: KeyboardArrowDown,
     },
     ItemComponentProps: {
       md: 6,
@@ -247,12 +251,15 @@ const inputFields: ValidatorFormProps<ProgrammeFormDto>["inputFields"] = [
   {
     name: "volunteerCenter",
     select: true,
+    color: "secondary",
     SelectProps: {
       renderValue: (value: unknown) => {
         return (
           value === "" ? "Preferred Volunteering Center" : value
         ) as ReactNode;
       },
+      displayEmpty: true,
+      IconComponent: KeyboardArrowDown,
     },
     ItemComponentProps: {
       md: 6,
