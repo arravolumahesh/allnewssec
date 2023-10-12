@@ -1,5 +1,6 @@
 import ObjectiveSection from "@/commonComponents/objective-section";
 import AboutUsBanner from "@/components/aboutUs/banner";
+import Gallery from "@/components/aboutUs/gallery";
 import Impact from "@/components/aboutUs/impact";
 import Leadership from "@/components/aboutUs/leadership/leadership";
 import OurInitiatives from "@/components/aboutUs/our-initiatives";
@@ -32,6 +33,7 @@ const AboutUs = () => {
       <Leadership />
       <OurInspringLeadership />
       <Impact />
+      <Gallery />
       <OurInitiatives />
     </>
   );

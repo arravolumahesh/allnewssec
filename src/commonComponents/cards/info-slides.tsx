@@ -43,7 +43,7 @@ const InfoSlides = (props: InfoSlidesProps) => {
     >
       <MaterialImage
         src={img}
-        alt={title!}
+        alt={title || ""}
         width={120}
         height={120}
         {...ImageProps}

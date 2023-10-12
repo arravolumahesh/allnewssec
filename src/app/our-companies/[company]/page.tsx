@@ -58,7 +58,7 @@ const Company = ({ params }: { params: { company: string } }) => {
         href: `${params.company}/case-studies`,
       },
     ],
-    [params.company],
+    [params.company]
   );
   return (
     <>
@@ -74,12 +74,13 @@ const Company = ({ params }: { params: { company: string } }) => {
       <PartnerSwiperSection />
       <FundsAndPartners />
       <DiscoverSection
-        title="Discover bajaj Auto"
+        title='Discover bajaj Auto'
         linkProps={{
           href: "/",
           children: "Visit Bajaj Auto Website",
         }}
         ImageData={imageData}
+        hasSocials
       />
       <CsrReport />
     </>
