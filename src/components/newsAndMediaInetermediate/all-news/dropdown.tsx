@@ -64,13 +64,13 @@ const DropDown = () => {
    <MotionTypography pt={2}  color={"secondary.900"} variant="body1">
       Filters
       </MotionTypography>
-      {/* <Grid2
+      <Grid2
             container
             rowGap={2}
             columnSpacing={5}
             component={motion.div}
             variants={formStaggerChildrenUp}
-          > */}
+          >
       <Grid2 xs={12} md={4}>
         <Select
           fullWidth
@@ -188,8 +188,8 @@ const DropDown = () => {
           ))}
         </Select>
       </Grid2>
-       {/* </Grid2>
-        */}
+        </Grid2> 
+        
         <ToggleButton/>
    </Stack>
    </MotionStack>
