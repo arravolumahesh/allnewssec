@@ -123,25 +123,38 @@ const Impact = () => {
             />
           ),
           ContainerEndChildren: (
-            <MotionLink
-              sx={{
-                fontSize: H6_2,
-                alignSelf: "center",
-              }}
-              href={"/"}
-              disableRipple
-              variant={"text"}
-              color={"inherit"}
-              variants={textStaggerChildren}
-              endIcon={<ArrowForwardIos fontSize='inherit' />}
-            >
-              Visit The Bajaj Group Website
-            </MotionLink>
+            <>
+              <SwiperNavigationButton
+                display={{ xs: "flex", md: "none" }}
+                PrevButtonProps={{
+                  className: "swiper-impact-prev",
+                }}
+                NextButtonProps={{
+                  className: "swiper-impact-next",
+                }}
+              />
+              <Divider sx={{ width: 1, borderBottom: "solid 1px #EAEAEA1A" }} />
+              <MotionLink
+                sx={{
+                  fontSize: H6_2,
+                  alignSelf: "center",
+                }}
+                href={"/"}
+                disableRipple
+                variant={"text"}
+                color={"inherit"}
+                variants={textStaggerChildren}
+                endIcon={<ArrowForwardIos fontSize='inherit' />}
+              >
+                Visit The Bajaj Group Website
+              </MotionLink>
+            </>
           ),
           ContainerEndProps: {
             mt: { xs: 3, md: 6 },
-            pt: { xs: 3, md: 7 },
-            borderTop: "solid 1px #EAEAEA1A",
+            pt: { xs: 3, md: 0 },
+            alignItems: "center",
+            rowGap: { xs: 3, md: 7 },
             variants: bottomTextStagger(0),
             initial: "initial",
             whileInView: "animate",
