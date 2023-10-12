@@ -39,7 +39,7 @@ const ValidatorForm = <T extends FieldValues = FieldValues>(
     WrapperComponentProps,
     ItemComponentProps,
     ItemComponent,
-    InputFieldsProps,
+    InputFieldsProps, // Todo add InputFieldsProps to props of input fields
     WrapperComponent,
     isLoading,
     ...rest

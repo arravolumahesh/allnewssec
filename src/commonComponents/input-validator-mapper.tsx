@@ -83,7 +83,7 @@ const InputValidatorsMapper = <
               control={control}
               name={name}
               rules={merge(controllerRules, rules)}
-              render={({ field, fieldState, formState }) => {
+              render={({ field, fieldState }) => {
                 const { ref, ...restFields } = field;
                 const { error } = fieldState;
                 return (
