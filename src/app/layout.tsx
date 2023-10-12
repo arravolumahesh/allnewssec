@@ -50,20 +50,16 @@ const routes: HeaderProps["routes"] = [
     title: "Charitable Trusts",
     children: [
       {
-        title: "Bajaj Auto Limited",
-        href: "bajaj-auto-limited",
+        title: "Jamnalal Bajaj Foundation",
+        href: "/charitable-trusts/jamnalal-bajaj-foundation",
       },
       {
-        title: "Bajaj Electricals Limited",
-        href: "bajaj-electricals-limited",
+        title: "Jamnalal Bajaj Sewa Trust",
+        href: "/charitable-trusts/jamnalal-bajaj-sewa-trust",
       },
       {
-        title: "Bajaj Finserv Limited",
-        href: "bajaj-finserv-limited",
-      },
-      {
-        title: "Mukand Limited",
-        href: "mukand-limited",
+        title: "Hamaara Sapna",
+        href: "/charitable-trusts/hamaara-sapna",
       },
     ],
   },

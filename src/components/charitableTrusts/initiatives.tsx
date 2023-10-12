@@ -2,12 +2,13 @@
 import { MotionVariantProps } from "@/commonComponents/motion-components";
 
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { motion } from "framer-motion";
 
 import GramVikas from "./images/GramVikas.png";
 import RuralDevelopment from "./images/RuralDevelopment.png";
 import CentreofScience from "./images/CentreofScience.png";
-import ExpandableAccordion from "@/commonComponents/expandable-accordion";
+import ExpandableAccordion, {
+  ExpandableAccordionProps,
+} from "@/commonComponents/expandable-accordion";
 
 const Initiatives = () => {
   return (
@@ -26,12 +27,12 @@ const Initiatives = () => {
 
 export default Initiatives;
 
-const data = [
+const data: ExpandableAccordionProps["data"] = [
   {
     title: "Community Development",
-    discrption:
+    description:
       "Making communities live a holistic and quality life through various activities & initiatives. ",
-    intitiatives: [
+    initiatives: [
       {
         img: CentreofScience,
         title: "Centre of Science for Villages",
@@ -48,9 +49,9 @@ const data = [
   },
   {
     title: "Healthcare",
-    discrption:
+    description:
       "Making communities live a holistic and quality life through various activities & initiatives. ",
-    intitiatives: [
+    initiatives: [
       {
         img: CentreofScience,
         title: "Centre of Science for Villages",
@@ -67,9 +68,9 @@ const data = [
   },
   {
     title: "Education",
-    discrption:
+    description:
       "Making communities live a holistic and quality life through various activities & initiatives. ",
-    intitiatives: [
+    initiatives: [
       {
         img: CentreofScience,
         title: "Centre of Science for Villages",
@@ -86,9 +87,9 @@ const data = [
   },
   {
     title: "Arts, Culture & Sports",
-    discrption:
+    description:
       "Making communities live a holistic and quality life through various activities & initiatives. ",
-    intitiatives: [
+    initiatives: [
       {
         img: CentreofScience,
         title: "Centre of Science for Villages",
@@ -105,9 +106,9 @@ const data = [
   },
   {
     title: "Peace & Spirituality",
-    discrption:
+    description:
       "Making communities live a holistic and quality life through various activities & initiatives. ",
-    intitiatives: [
+    initiatives: [
       {
         img: CentreofScience,
         title: "Centre of Science for Villages",

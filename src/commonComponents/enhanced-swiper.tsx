@@ -63,7 +63,7 @@ const EnhancedSwiper = <
   P extends ComponentProps<T>,
 >(
   props: EnhancedSwiperProps<T, P>,
-  ref: Ref<SwiperRef>,
+  ref: Ref<SwiperRef>
 ) => {
   const {
     data = [],
@@ -121,22 +121,22 @@ const EnhancedSwiper = <
         );
       })}
       {ContainerStartChildren && (
-        <MotionStack slot="container-start" {...ContainerStartProps}>
+        <MotionStack slot='container-start' {...ContainerStartProps}>
           {ContainerStartChildren}
         </MotionStack>
       )}
       {ContainerEndChildren && (
-        <MotionStack slot="container-end" {...ContainerEndProps}>
+        <MotionStack slot='container-end' {...ContainerEndProps}>
           {ContainerEndChildren}
         </MotionStack>
       )}
       {WrapperStartChildren && (
-        <MotionStack slot="wrapper-start" {...WrapperStartProps}>
+        <MotionStack slot='wrapper-start' {...WrapperStartProps}>
           {WrapperStartChildren}
         </MotionStack>
       )}
       {WrapperEndChildren && (
-        <MotionStack slot="wrapper-end" {...WrapperEndProps}>
+        <MotionStack slot='wrapper-end' {...WrapperEndProps}>
           {WrapperEndChildren}
         </MotionStack>
       )}

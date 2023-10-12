@@ -28,23 +28,64 @@ import {
   textStaggerChildren,
 } from "@/commonComponents/animations";
 
-export interface DiscoverProps {
+export interface DiscoverSectionProps {
   title: string;
-  linkProps: MotionLinkProps; // Todo update in other components
-  ImageData: {
-    img: StaticImageData | string;
-  }[];
+  linkProps?: MotionLinkProps; // Todo update in other components
+  ImageData: Array<ImageSliceProps>;
+  hasSocials?: boolean;
+  bgcolor?: string;
+  color?: string;
+  clickableSlides?: boolean;
+  onImageClick?: (index: number) => void;
 }
 
-const DiscoverSection = (props: DiscoverProps) => {
-  const { title, linkProps, ImageData } = props;
+interface ImageSliceProps {
+  image: StaticImageData | string;
+}
+
+const DiscoverSection = (props: DiscoverSectionProps) => {
+  const {
+    title,
+    linkProps,
+    ImageData,
+    hasSocials,
+    bgcolor,
+    color,
+    clickableSlides,
+    onImageClick,
+  } = props;
+
+  const ImageSlice = (props: ImageSliceProps) => {
+    const { image } = props;
+    return (
+      <MaterialImage
+        src={image}
+        alt=''
+        width={421}
+        height={484}
+        sx={{
+          width: { xs: 250, md: 421 },
+          height: { xs: 290, md: 484 },
+          objectFit: "cover",
+          "&:hover": clickableSlides
+            ? {
+                transform: "scale(1.1)",
+                cursor: "pointer",
+                transition: "all .3s ease-out",
+              }
+            : {},
+        }}
+      />
+    );
+  };
+
   return (
     <SectionWrapper
       SectionProps={{
-        bgcolor: "primary.500",
+        bgcolor: bgcolor || "primary.500",
         id: "gallery",
       }}
-      color={"secondary.main"}
+      color={color || "secondary.main"}
       SectionHeaderProps={{
         title: title,
         TitleTypographyProps: {
@@ -54,9 +95,18 @@ const DiscoverSection = (props: DiscoverProps) => {
     >
       <EnhancedSwiper
         data={ImageData}
-        SlideComponent={ImageSlics}
+        SlideComponent={ImageSlice}
+        SlideWrapperProps={(index) => ({
+          sx: {
+            width: "auto",
+            maxHeight: 484,
+            mr: { xs: 2, md: 3 },
+            overflow: "hidden",
+          },
+          onClick: () => onImageClick && onImageClick(index),
+        })}
         Slots={{
-          ContainerEndChildren: (
+          ContainerEndChildren: hasSocials && (
             <>
               <MotionLink
                 sx={{
@@ -69,7 +119,7 @@ const DiscoverSection = (props: DiscoverProps) => {
                 variant={"text"}
                 color={"inherit"}
                 variants={textStaggerChildren}
-                endIcon={<ArrowForwardIos fontSize="inherit" />}
+                endIcon={<ArrowForwardIos fontSize='inherit' />}
                 {...linkProps}
               />
               <MotionStack
@@ -86,7 +136,7 @@ const DiscoverSection = (props: DiscoverProps) => {
                 ].map((Icon, idx) => (
                   <Icon
                     key={idx}
-                    variant="contained"
+                    variant='contained'
                     SvgIconProps={{
                       sx: {
                         bgcolor: "common.white",
@@ -122,27 +172,6 @@ const DiscoverSection = (props: DiscoverProps) => {
 
 export default DiscoverSection;
 
-interface ImageSlicsProps {
-  img: StaticImageData | string;
-}
-
-const ImageSlics = (props: ImageSlicsProps) => {
-  const { img } = props;
-  return (
-    <MaterialImage
-      src={img}
-      alt=""
-      width={421}
-      height={484}
-      sx={{
-        width: { xs: 250, md: 421 },
-        height: { xs: 290, md: 484 },
-        objectFit: "cover",
-      }}
-    />
-  );
-};
-
 const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
   slidesPerView: "auto",
   speed: 5000,
@@ -152,12 +181,6 @@ const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
     delay: 0,
     disableOnInteraction: false,
     reverseDirection: true,
-  },
-  SlideWrapperProps: {
-    sx: {
-      width: "auto",
-      mr: { xs: 2, md: 3 },
-    },
   },
   sx: {
     overflow: {

@@ -12,8 +12,8 @@ import { alpha } from "@mui/material";
 
 interface InfoSlidesProps {
   img: StaticImageData | string;
-  ImageProps?: MaterialImageProps;
-  title: string;
+  ImageProps?: Partial<MaterialImageProps>;
+  title?: string;
   description: string;
   CardWrapperProps?: MotionStackProps;
   ContentWrapperProps?: MotionStackProps;
@@ -43,7 +43,7 @@ const InfoSlides = (props: InfoSlidesProps) => {
     >
       <MaterialImage
         src={img}
-        alt={title}
+        alt={title || ""}
         width={120}
         height={120}
         {...ImageProps}
@@ -54,15 +54,21 @@ const InfoSlides = (props: InfoSlidesProps) => {
         justifyContent={"space-between"}
         {...ContentWrapperProps}
       >
-        <MotionBox
-          bgcolor={alpha("#fff", 0.2)}
-          p={"6px 16px"}
-          fontSize={"14px"}
-          {...TagProps}
+        {title && (
+          <MotionBox
+            bgcolor={alpha("#fff", 0.2)}
+            p={"6px 16px"}
+            fontSize={"14px"}
+            {...TagProps}
+          >
+            {title}
+          </MotionBox>
+        )}
+        <MotionTypography
+          className='description'
+          variant='body1'
+          {...DescriptionTypographyProps}
         >
-          {title}
-        </MotionBox>
-        <MotionTypography variant='body1' {...DescriptionTypographyProps}>
           {description}
         </MotionTypography>
       </MotionStack>

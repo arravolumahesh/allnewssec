@@ -1,6 +1,5 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { motion } from "framer-motion";
 
 import { MotionVariantProps } from "@/commonComponents/motion-components";
 import OFA3 from "./images/OFA3.png";
@@ -19,23 +18,23 @@ import { ArrowSlideDefaultImageProps } from "@/commonComponents/cards/arrow-slid
 const data = [
   {
     title: "Skill Development",
-    discrption:
+    description:
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
-      stats:[
-        {
-        header:'93K',
-        subHeader:'Students Educated'
+    stats: [
+      {
+        header: "93K",
+        subHeader: "Students Educated",
       },
-        {
-        header:' 100+',
-        subHeader:'Training Institutions'
+      {
+        header: " 100+",
+        subHeader: "Training Institutions",
       },
-        {
-        header:'300+',
-        subHeader:'Programs Conducted'
-      }
+      {
+        header: "300+",
+        subHeader: "Programs Conducted",
+      },
     ],
-    intitiatives: [
+    initiatives: [
       {
         img: WorkForce,
         title: "Building a Skilled-Workforce",
@@ -56,9 +55,9 @@ const data = [
   },
   {
     title: "Education",
-    discrption:
+    description:
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
-    intitiatives: [
+    initiatives: [
       {
         img: WorkForce,
         title: "Building a Skilled-Workforce",
@@ -79,23 +78,23 @@ const data = [
   },
   {
     title: "Miscellaneous",
-    discrption:
+    description:
       "Changing the landscape of the skilling ecosystem through various initiatives and programs to bridge the gap between academia and industry.",
-      stats:[
-        {
-        header:'93K',
-        subHeader:'Students Educated'
+    stats: [
+      {
+        header: "93K",
+        subHeader: "Students Educated",
       },
-        {
-        header:' 100+',
-        subHeader:'Training Institutions'
+      {
+        header: " 100+",
+        subHeader: "Training Institutions",
       },
-        {
-        header:'300+',
-        subHeader:'Programs Conducted'
-      }
+      {
+        header: "300+",
+        subHeader: "Programs Conducted",
+      },
     ],
-      intitiatives: [
+    initiatives: [
       {
         img: WorkForce,
         title: "Building a Skilled-Workforce",
@@ -128,7 +127,7 @@ const OurFocusAreas = () => {
       SectionHeaderProps={{
         title: "OUR FOCUS AREAS",
       }}
-      color={"common.white"}
+      color={"secondary.main"}
     >
       <ArrowSwiperWithInfoSection
         data={arrowData}

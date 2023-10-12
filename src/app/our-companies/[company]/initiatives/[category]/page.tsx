@@ -1,7 +1,7 @@
 import CompanyIntermediateBanner from "@c/companyIntermediate/companyIntermediateBanner";
 import IntermediateMenu from "@cc/commonIntermediates/intermediateMenu";
 import { NextPage } from "next";
-import DiscoverCompanyIntermidiate from "@c/companyIntermediate/discover";
+import DiscoverOtherInitiatives from "@c/companyIntermediate/discover";
 import IntermediateCountAndCards from "@c/companyIntermediate/companyInitiativecountandcards";
 
 const menus = [
@@ -68,23 +68,23 @@ const IntermediatePage: NextPage = () => {
   return (
     <>
       <CompanyIntermediateBanner />
-        <IntermediateMenu
-          logoImg={logoImg}
-          menus={menus}
-          // styles={{
-          //   alignItems:'center',
-          //   justifyContent:'flex-start',
-          //   gap:{xs:5,lg:12},          
-          //     '& a:nth-child(2)':{
-          //       ml:-12
-          //     },
-          //     '& a:last-child':{
-          //       mr:'auto'
-          //     }          
-          // }}
-        />
-        <IntermediateCountAndCards initiative={initiative} />
-        <DiscoverCompanyIntermidiate />
+      <IntermediateMenu
+        logoImg={logoImg}
+        menus={menus}
+        // styles={{
+        //   alignItems:'center',
+        //   justifyContent:'flex-start',
+        //   gap:{xs:5,lg:12},
+        //     '& a:nth-child(2)':{
+        //       ml:-12
+        //     },
+        //     '& a:last-child':{
+        //       mr:'auto'
+        //     }
+        // }}
+      />
+      <IntermediateCountAndCards initiative={initiative} />
+      <DiscoverOtherInitiatives />
     </>
   );
 };

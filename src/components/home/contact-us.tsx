@@ -1,10 +1,8 @@
 "use client";
 import {
   MotionBox,
-  MotionBoxProps,
   MotionImage,
   MotionStack,
-  MotionVariantProps,
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import {
@@ -15,7 +13,6 @@ import {
   DialogContent,
   MenuItem,
   Select,
-  selectClasses,
   Stack,
   TextField,
   Typography,
@@ -29,7 +26,6 @@ import { motion } from "framer-motion";
 import { Body1, H6 } from "@/styles/theme/components/typography.fontvariant";
 import dialogbanner from "./images/Group 427321833.svg";
 import Image from "next/image";
-import ArrowImage from "@/commonComponents/arrow-image";
 import {
   arrowImageTransition,
   formStagger,
@@ -65,14 +61,6 @@ const ContactUs = () => {
         >
           <MotionImage src={contact} alt="" fill />
         </MotionBox>
-        {/* <ArrowImage
-          src={contact}
-          alt=''
-          width={{ xs: 342, xl: 470 }}
-          height={{ xs: 342, xl: 470 }}
-          sx={{ aspectRatio: 0.86 }}
-          {...boxTransition}
-        /> */}
         <MotionStack
           rowGap={5}
           maxWidth={{ xs: 1, md_lg: 670 }}
@@ -112,7 +100,7 @@ const ContactUs = () => {
                 sx={(theme) => ({
                   color: alpha(
                     theme.palette.secondary.main,
-                    !!company ? 1 : 0.4
+                    !!company ? 1 : 0.4,
                   ),
                 })}
                 value={company}
@@ -144,7 +132,7 @@ const ContactUs = () => {
                 sx={(theme) => ({
                   color: alpha(
                     theme.palette.secondary.main,
-                    !!category ? 1 : 0.4
+                    !!category ? 1 : 0.4,
                   ),
                 })}
                 value={category}
@@ -176,7 +164,6 @@ const ContactUs = () => {
             </Grid2>
           </Grid2>
           <AnimatedButton
-            href={"#"}
             rotation="anticlockwise"
             variant={"contained"}
             color={"secondary"}

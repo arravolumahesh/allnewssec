@@ -1,3 +1,4 @@
+"use client";
 import {
   MotionStack,
   MotionStackProps,
@@ -9,6 +10,13 @@ import { H6_4 } from "@theme/components/typography.fontvariant";
 import { MotionProps } from "framer-motion";
 import AnimatedButton, { AnimatedButtonProps } from "@cc/animated-button";
 import { deepmerge } from "@mui/utils";
+import { Stack, Theme, useMediaQuery } from "@mui/material";
+import ArrowGradient, { ArrowGradientProps } from "@cc/arrow-gradient";
+import {
+  arrowInfoStaggerDiv,
+  arrowInfoStaggerDivChildren,
+  arrowLeftToRightTransition,
+} from "@cc/animations";
 
 export interface SectionHeaderProps
   extends Omit<MotionStackProps, "children" | "title"> {
@@ -17,6 +25,8 @@ export interface SectionHeaderProps
   description?: string | ReactNode;
   DescriptionTypographyProps?: Omit<MotionTypographyProps, "children">;
   LinkProps?: AnimatedButtonProps;
+  isArrow?: boolean;
+  ArrowProps?: ArrowGradientProps;
 }
 
 const SectionHeader = (props: SectionHeaderProps) => {
@@ -26,8 +36,12 @@ const SectionHeader = (props: SectionHeaderProps) => {
     description,
     DescriptionTypographyProps,
     LinkProps,
+    isArrow,
+    ArrowProps,
     ...restStackProps
   } = props;
+  const isMd = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+
   return (
     <MotionStack
       width={1}
@@ -35,7 +49,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
       color={"inherit"}
       alignItems={"center"}
       mb={{ xs: 5, md: 6, xl: 7 }}
-      spacing={{ xs: 2, md: 3, xl: 4 }}
+      spacing={{ xs: 2, md: 3, xl: isArrow ? 0 : 4 }}
       initial={"initial"}
       whileInView={"animate"}
       viewport={{
@@ -44,25 +58,78 @@ const SectionHeader = (props: SectionHeaderProps) => {
       }}
       {...restStackProps}
     >
-      <MotionTypography
-        variant={"h1"}
-        component={"h2"}
-        textAlign={"center"}
-        variants={childMotionVariant}
-        {...TitleTypographyProps}
-      >
-        {title}
-      </MotionTypography>
-      {description && (
-        <MotionTypography
-          component={"p"}
-          fontSize={H6_4}
-          textAlign={"center"}
-          variants={childMotionVariant}
-          {...DescriptionTypographyProps}
+      {isArrow ? (
+        <Stack
+          direction={"row"}
+          alignItems={isMd ? "flex-start" : "center"}
+          columnGap={12.5}
+          width={1}
         >
-          {description}
-        </MotionTypography>
+          {isMd && (
+            <ArrowGradient
+              ml={4.5}
+              {...ArrowProps}
+              SVGProps={{
+                width: 80,
+                height: 194,
+                ...ArrowProps?.SVGProps,
+              }}
+              {...arrowLeftToRightTransition}
+            />
+          )}
+          <MotionStack
+            width={isMd ? "fit-content" : 1}
+            rowGap={{ xs: 2, md: 3 }}
+            variants={arrowInfoStaggerDiv}
+            initial={"initial"}
+            whileInView={"animate"}
+            viewport={{ once: true }}
+          >
+            <MotionTypography
+              variant={"h1"}
+              component={"h2"}
+              textAlign={"center"}
+              variants={arrowInfoStaggerDivChildren}
+              {...TitleTypographyProps}
+            >
+              {title}
+            </MotionTypography>
+            {description && (
+              <MotionTypography
+                component={"p"}
+                fontSize={H6_4}
+                textAlign={"center"}
+                variants={arrowInfoStaggerDivChildren}
+                {...DescriptionTypographyProps}
+              >
+                {description}
+              </MotionTypography>
+            )}
+          </MotionStack>
+        </Stack>
+      ) : (
+        <>
+          <MotionTypography
+            variant={"h1"}
+            component={"h2"}
+            textAlign={"center"}
+            variants={childMotionVariant}
+            {...TitleTypographyProps}
+          >
+            {title}
+          </MotionTypography>
+          {description && (
+            <MotionTypography
+              component={"p"}
+              fontSize={H6_4}
+              textAlign={"center"}
+              variants={childMotionVariant}
+              {...DescriptionTypographyProps}
+            >
+              {description}
+            </MotionTypography>
+          )}
+        </>
       )}
       {LinkProps && (
         <AnimatedButton {...deepmerge(defaultLinkProps, LinkProps)} />
@@ -70,7 +137,6 @@ const SectionHeader = (props: SectionHeaderProps) => {
     </MotionStack>
   );
 };
-
 export default SectionHeader;
 
 const defaultLinkProps: AnimatedButtonProps = {

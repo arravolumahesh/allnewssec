@@ -104,11 +104,14 @@ const Accomplished = () => {
           textAlign: "center",
           alignSelf: "center",
           width: { xs: "342px", md: "692px" },
-          color:(theme)=> alpha(theme.palette.common.white,0.8),
+          color:(theme)=> alpha(theme.palette.common.white,1),
           mt:2,
-          mb: { xs: "56px", md: "32px" },
+          mb: { xs: 4, md: 7 },
         }}
-        variants={staggerChildren}
+        variants={{...staggerChildren,animate: {
+          ...staggerChildren?.animate,
+          ...{opacity: 0.8}
+        }}}
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
@@ -250,6 +253,8 @@ const staggerChildren: MotionVariantProps = {
     },
   },
 };
+
+
 
 const textAnimation: MotionVariantProps = {
   initial: {

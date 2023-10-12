@@ -3,7 +3,7 @@ import ArrowSwiperWithInfoSection, {
 } from "@cc/arrow-swiper-with-info-section";
 import ArrowSlideInfo from "@cc/cards/arrow-slide-info";
 import { ArrowSlideDefaultImageProps } from "@cc/cards/arrow-slide-default-image";
-import actOfProgress from "@c/hamaara-sapna/images/act-of-progress.jpg";
+import actOfProgress from "@c/charitableTrusts/hamaara-sapna/images/act-of-progress.jpg";
 import React from "react";
 import { H3_2 } from "@theme/components/typography.fontvariant";
 
@@ -30,6 +30,7 @@ const ActOfProgress = () => {
             fontSize: H3_2,
           },
           ButtonProps: {
+            href: "#",
             variant: "outlined",
             color: "secondary",
           },

@@ -1,3 +1,4 @@
+"use client";
 import { isString, map, merge, startCase } from "lodash";
 import {
   Controller,
@@ -27,6 +28,10 @@ export type InputValidatorsMapperProps<
     })[];
   isLoading?: boolean;
   SubmitButtonProps?: AnimatedButtonProps;
+  InputFieldsProps?: Omit<
+    InputValidatorsMapperProps<T, W, I>["inputFields"][number],
+    "name"
+  >;
 } & WrapperAndItemType<W, I>;
 
 type WrapperAndItemType<W extends ComponentType, I extends ComponentType> = {
@@ -50,6 +55,7 @@ const InputValidatorsMapper = <
     WrapperComponentProps,
     ItemComponent = Fragment,
     ItemComponentProps,
+    InputFieldsProps,
     isLoading,
     SubmitButtonProps,
     ButtonItemComponentProps,
@@ -85,13 +91,12 @@ const InputValidatorsMapper = <
                     error={!!error?.message}
                     placeholder={
                       isString(label)
-                        ? startCase("enter" + label)
-                        : startCase("enter" + name)
+                        ? startCase("enter " + label)
+                        : startCase("enter " + name)
                     }
                     inputRef={ref}
                     helperText={error?.message}
-                    {...rest}
-                    {...restFields}
+                    {...merge(InputFieldsProps, rest, restFields)}
                   />
                 );
               }}

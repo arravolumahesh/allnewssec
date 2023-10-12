@@ -1,3 +1,4 @@
+"use client";
 import {
   AccordionDetails,
   AccordionSummary,
@@ -27,15 +28,15 @@ import {
 } from "./animations";
 import { motion } from "framer-motion";
 
-interface ExpandableAccordionProps {
+export interface ExpandableAccordionProps {
   data: {
     title: string;
-    discrption: string;
+    description?: string;
     stats?: {
       header: string;
       subHeader?: string;
     }[];
-    intitiatives: {
+    initiatives: {
       img: StaticImageData | string;
       title: string;
     }[];
@@ -55,14 +56,8 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
   return (
     <>
       {TopDivider && <Divider />}
-      <Stack
-      // component={motion.div}
-      // variants={StagAccordion}
-      // initial={"intial"}
-      // whileInView={"animate"}
-      // viewport={{ once: true }}
-      >
-        {data.map((eachArea, index) => (
+      {data.map((eachArea, index) => {
+        return (
           <MotionAccordion
             expanded={expanded === `Area${index}`}
             onChange={handleChange(`Area${index}`)}
@@ -106,7 +101,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               }
             >
               <MotionTypography
-                variant='h3'
+                variant="h3"
                 fontSize={H3_2}
                 variants={bottomToToptextTransition(0)}
                 initial={"initial"}
@@ -117,20 +112,22 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               </MotionTypography>
             </AccordionSummary>
             <AccordionDetails sx={{ p: 0 }}>
-              <MotionTypography
-                variant='body1'
-                fontSize={H6_3}
-                maxWidth={867}
-                variants={bottomToToptextTransition(0.2)}
-                initial={"initial"}
-                whileInView={"animate"}
-                viewport={{ once: true }}
-              >
-                {eachArea.discrption}
-              </MotionTypography>
+              {eachArea.description && (
+                <MotionTypography
+                  variant="body1"
+                  fontSize={H6_3}
+                  maxWidth={867}
+                  variants={bottomToToptextTransition(0.2)}
+                  initial={"initial"}
+                  whileInView={"animate"}
+                  viewport={{ once: true }}
+                >
+                  {eachArea.description}
+                </MotionTypography>
+              )}
               {eachArea.stats && (
                 <MotionStack
-                  direction='row'
+                  direction="row"
                   alignItems={"center"}
                   justifyContent={"space-around"}
                   py={1.5}
@@ -143,7 +140,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                   viewport={{ once: true }}
                   divider={
                     <Divider
-                      orientation='vertical'
+                      orientation="vertical"
                       component={motion.hr}
                       variants={staggerArrowChildren}
                       sx={{
@@ -161,7 +158,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                       variants={staggerStackChildren}
                     >
                       <MotionTypography
-                        variant='h4'
+                        variant="h4"
                         fontWeight={700}
                         variants={staggerTextChildren}
                       >
@@ -169,7 +166,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                       </MotionTypography>
                       {item.subHeader && (
                         <MotionTypography
-                          variant='body2'
+                          variant="body2"
                           variants={staggerTextChildren}
                         >
                           {item.subHeader}
@@ -179,7 +176,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                   ))}
                 </MotionStack>
               )}
-              <Stack direction='row' mt={{ xs: 4, md: 7 }} width={1}>
+              <Stack direction="row" mt={{ xs: 4, md: 7 }} width={1}>
                 <EnhancedSwiper
                   slidesPerView={"auto"}
                   SlideWrapperProps={{
@@ -192,7 +189,7 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
                     overflow: { xs: "visible", xxl: "hidden" },
                   }}
                   SlideComponent={CompanyCard}
-                  data={eachArea.intitiatives}
+                  data={eachArea.initiatives}
                 />
               </Stack>
               <Stack
@@ -202,8 +199,8 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               >
                 <AnimatedButton
                   href={"./"}
-                  variant='outlined'
-                  color='secondary'
+                  variant="outlined"
+                  color="secondary"
                   // variants={staggerBtn}
                 >
                   View More Initiatives
@@ -211,8 +208,8 @@ const ExpandableAccordion = (props: ExpandableAccordionProps) => {
               </Stack>
             </AccordionDetails>
           </MotionAccordion>
-        ))}
-      </Stack>
+        );
+      })}
       {BottomDivider && <Divider />}
     </>
   );

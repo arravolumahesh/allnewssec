@@ -4,7 +4,7 @@ import {
   bottomToToptextStaggerChildren,
 } from "@/commonComponents/animations";
 import ArrowBgBanner from "@/commonComponents/arrow-bg-banner";
-import CommonBreadcrumb from "@/commonComponents/breadcrumb";
+import ReactiveBreadcrumb from "@/commonComponents/breadcrumb";
 import {
   MotionStack,
   MotionTypography,
@@ -21,14 +21,10 @@ const AboutUsBanner = () => {
           position: "relative",
         },
       }}
-      py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
-      pb={{ /* ...basePy, */ xs: 3, md: 8 }}
-      ContainerProps={{
-        // position: "relative",
-        overflow: "hidden",
-      }}
+      py={{ xs: 2, md: 4 }} //Todo: basePy
+      pb={{ xs: 3, md: 8 }}
     >
-      <CommonBreadcrumb />
+      <ReactiveBreadcrumb />
       <ArrowBgBanner
         img1={
           "https://s3-alpha-sig.figma.com/img/8ccc/9c64/da47be3b8da21a2f8eac9b5123f58988?Expires=1697414400&Signature=FMhYbqCzhBtTVof494qcZaIS8cMf9Vm~dtQ2E9Vv671MoF9EN4gK0ft9B9mFen8xhAW2lCYzWAX7tFEaI7bLQ~OPa3fFHyzsLZID9uOfbOKD2k1l20-054RCLmrfvoFjO6L93QO2yfvn-8YkYieBicjdBZE3JIwdPFsNC0CK4sC8u6dxgIY-NquJQzzm8T2BpK1ADh2aeD9e-psk1Hc8Svf3NKJ2NuHCw1G40ctF-L4nFzHPdYN5AJTcXkYKRD3whymaw-fx2LTMrwrl8u5ESK~QaY4~tjRumwvE-9pOt1ITNyKUmK0ujPXSX9WB6Fl3IuIFDXtNpjjwXdH3SK4tqg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -49,7 +45,7 @@ const AboutUsBanner = () => {
         animate={"animate"}
       >
         <MotionTypography
-          variant='h1'
+          variant="h1"
           variants={bottomToToptextStaggerChildren}
         >
           Strengthening the nation, beyond just business

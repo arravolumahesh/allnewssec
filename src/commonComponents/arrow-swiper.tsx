@@ -123,13 +123,13 @@ const ArrowSwiper = <T extends ComponentType<any>, P extends ComponentProps<T>>(
       <ArrowGradient
         width={"10%"}
         height={"100%"}
-        ml={"-116px"}
+        ml={{ xs: "-106px", md: "-108px" }}
         zIndex={1}
         variants={{
           ...childMotionVariants,
           initial: {
             opacity: 0,
-            x: "-900%",
+            x: "-200%",
           },
         }}
       />

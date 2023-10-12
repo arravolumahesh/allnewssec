@@ -1,22 +1,34 @@
 "use client";
 import { StaticImageData } from "next/image";
-import { MotionStack, MotionStackProps } from "@cc/motion-components";
+import {
+  MotionStack,
+  MotionStackProps,
+  MotionTypographyProps,
+} from "@cc/motion-components";
 import { sxArrayUtil } from "@util/sx-helpers";
-import { Stack, Typography } from "@mui/material";
+import { Stack, StackProps, Typography, TypographyProps } from "@mui/material";
 
 export interface InitiativeHeroCardProps
   extends Omit<MotionStackProps, "children"> {
   data: {
     title: string;
     designation: string;
-    description: string;
+    description?: string;
     image: string | StaticImageData;
   };
+  TitleTypographyProps?: TypographyProps;
+  ContentWrapperSxProps?: StackProps["sx"];
   isActive?: boolean;
 }
 
 const InitiativeHeroCard = (props: InitiativeHeroCardProps) => {
-  const { data, isActive, ...restMotionStackProps } = props;
+  const {
+    data,
+    isActive,
+    TitleTypographyProps,
+    ContentWrapperSxProps,
+    ...restMotionStackProps
+  } = props;
   const { title, designation, description, image } = data;
   const { sx, ...restProps } = restMotionStackProps;
   return (
@@ -46,9 +58,10 @@ const InitiativeHeroCard = (props: InitiativeHeroCardProps) => {
             p: 2,
             mt: "auto",
             background: (theme) => theme.palette.gradient.transparentToDark_V2,
+            ...ContentWrapperSxProps,
           }}
         >
-          <Typography variant={"h6"} mb={0.5}>
+          <Typography variant={"h6"} mb={0.5} {...TitleTypographyProps}>
             {title}
           </Typography>
           <Typography variant={"subtitle1"} component={"span"} mb={1}>

@@ -39,6 +39,7 @@ const ValidatorForm = <T extends FieldValues = FieldValues>(
     WrapperComponentProps,
     ItemComponentProps,
     ItemComponent,
+    InputFieldsProps, // Todo add InputFieldsProps to props of input fields
     WrapperComponent,
     isLoading,
     ...rest
@@ -96,6 +97,7 @@ const ValidatorForm = <T extends FieldValues = FieldValues>(
             md: 6,
             ...ButtonItemComponentProps,
           }}
+          InputFieldsProps={InputFieldsProps}
         />
       </Stack>
     </FormProvider>

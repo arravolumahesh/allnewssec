@@ -1,7 +1,7 @@
 "use client";
 import EnhancedSwiper, {
-    EnhancedSwiperProps,
-  } from "@/commonComponents/enhanced-swiper";
+  EnhancedSwiperProps,
+} from "@/commonComponents/enhanced-swiper";
 import { MaterialImage } from "@/commonComponents/material-components";
 
 import group2 from "./image/Rectangle 25147.png";
@@ -14,98 +14,99 @@ import { StaticImageData } from "next/image";
 import { Autoplay } from "swiper/modules";
 
 const imageData = [
-{ img: group2 },
-{ img: group3 },
-{ img: group2 },
-{ img: group7 },
-{ img: group8 },
-{ img: group2 },
-{ img: group3 },
-{ img: group5 },
-{ img: group7 },
-{ img: group8 },
+  { img: group2 },
+  { img: group3 },
+  { img: group2 },
+  { img: group7 },
+  { img: group8 },
+  { img: group2 },
+  { img: group3 },
+  { img: group5 },
+  { img: group7 },
+  { img: group8 },
 ];
 
-interface ImageSliesProps {
-    img: StaticImageData | string;
+interface ImageSliceProps {
+  img: StaticImageData | string;
 }
+
+const ImageSlice = (props: ImageSliceProps) => {
+  const { img } = props;
+  return (
+    <MaterialImage
+      src={img}
+      alt=""
+      width={421}
+      height={267}
+      sx={{
+        height: { xs: 230, md: 267 },
+        objectFit: "cover",
+      }}
+    />
+  );
+};
+
+export interface VerticalSwiperProps {
+  data?: ImageSliceProps[];
+}
+
+const VerticalSwiper = (props: VerticalSwiperProps) => {
+  const { data } = props;
+  return (
+    <>
+      <Box sx={{ display: "flex", gap: 1 }}>
+        <EnhancedSwiper
+          data={data || imageData}
+          SlideComponent={ImageSlice}
+          {...swiperProps}
+        />
+
+        <EnhancedSwiper
+          data={data || imageData}
+          SlideComponent={ImageSlice}
+          {...swiperProps}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+            reverseDirection: false,
+          }}
+        />
+      </Box>
+    </>
+  );
+};
+
+export default VerticalSwiper;
 
 const swiperProps: Omit<EnhancedSwiperProps, "data" | "SlideComponent"> = {
-    slidesPerView: "auto",
-    speed: 5000,
-    direction:'vertical',
-    loop: true,
-    modules: [Autoplay],
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-      reverseDirection: true,
-    },
-    SlideWrapperProps: {
-      sx: {
-        width: "auto",
-        height:"max-content",       
-      },
-    },
+  slidesPerView: "auto",
+  speed: 5000,
+  direction: "vertical",
+  loop: true,
+  modules: [Autoplay],
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+    reverseDirection: true,
+  },
+  SlideWrapperProps: {
     sx: {
-      width: "100%",
-      height:{
-        md:522,
-        xs:290
-      },
-      "& .swiper-wrapper": {
-        height:{
-            md:522,
-            xs:290
-          },
-        transitionTimingFunction: "linear !important",
-      },
+      width: "auto",
+      height: "max-content",
     },
-  };
-
-  
-  const ImageSlies = (props: ImageSliesProps) => {
-    const { img } = props;
-    return (
-      <MaterialImage
-        src={img}
-        alt=""
-        width={421}
-        height={267}
-        sx={{
-          // width: { xs: 200, md: 421 },
-          // height: { xs: 164, md: 247 },
-        //   width: { xs: 250, md: 421 },
-          height: { xs: 230, md: 267 },
-          objectFit: "cover",
-        }}
-      />
-    );
-  };
-
-const UpdownSlide = () => {
-    return (
-        <>
-        <Box sx={{display:'flex',gap:1}}>
-            <EnhancedSwiper
-            data={imageData}
-            SlideComponent={ImageSlies}
-            {...swiperProps}
-            />
-
-            <EnhancedSwiper
-            data={imageData}
-            SlideComponent={ImageSlies}
-            {...swiperProps}
-            autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-                reverseDirection: false,
-              }}
-            />
-        </Box>
-        </>
-    )
-}
-
-export default UpdownSlide;
+  },
+  sx: {
+    width: "100%",
+    height: {
+      md: 522,
+      xs: 290,
+    },
+    "& .swiper-wrapper": {
+      height: {
+        md: 522,
+        xs: 290,
+      },
+      transitionTimingFunction: "linear !important",
+    },
+  },
+};

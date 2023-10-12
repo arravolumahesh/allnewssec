@@ -1,20 +1,20 @@
 import DiscoverSection from "@cc/discover-section";
-import ObjectiveSection from "@/commonComponents/objective-section";
-import PartnerSwiperSection from "@/commonComponents/partner-swiper-section";
-import SectionNavigation from "@/commonComponents/section-navigation";
-import ActsOfProgress from "@/components/charitableTrusts/acts-of-progress";
-import BajajAwards from "@/components/charitableTrusts/bajaj-awards";
-import CarryingServies from "@/components/charitableTrusts/carring-servies";
-import DonationsAndPartners from "@/components/charitableTrusts/donation-and-partner";
-import Initiatives from "@/components/charitableTrusts/initiatives";
-import Nominations from "@/components/charitableTrusts/nominations";
+import ObjectiveSection from "@cc/objective-section";
+import PartnerSwiperSection from "@cc/partner-swiper-section";
+import SectionNavigation from "@cc/section-navigation";
+import ActsOfProgress from "@c/charitableTrusts/acts-of-progress";
+import BajajAwards from "@c/charitableTrusts/bajaj-awards";
+import CarryingServies from "@c/charitableTrusts/carring-servies";
+import DonationsAndPartners from "@c/charitableTrusts/donation-and-partner";
+import Initiatives from "@c/charitableTrusts/initiatives";
+import Nominations from "@c/charitableTrusts/nominations";
 import CharitableTrustsStories from "@c/charitableTrusts/charitable-trusts-stories";
-import Wardha from "@/components/charitableTrusts/wardha-section";
-import group2 from "@/components/ourCompanies/images/group2.png";
-import group3 from "@/components/ourCompanies/images/group3.png";
-import group5 from "@/components/ourCompanies/images/group5.png";
-import group7 from "@/components/ourCompanies/images/group7.png";
-import group8 from "@/components/ourCompanies/images/group8.png";
+import Wardha from "@c/charitableTrusts/wardha-section";
+import group2 from "@c/ourCompanies/images/group2.png";
+import group3 from "@c/ourCompanies/images/group3.png";
+import group5 from "@c/ourCompanies/images/group5.png";
+import group7 from "@c/ourCompanies/images/group7.png";
+import group8 from "@c/ourCompanies/images/group8.png";
 import OriginOfGenerationChange from "@c/ourCompanies/origin-of-generation-change";
 
 const CharitableTrusts = () => {
@@ -32,7 +32,7 @@ const CharitableTrusts = () => {
           },
         }}
       />
-      <ObjectiveSection Objective="We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation." />
+      <ObjectiveSection Objective='We are guided by the timeless principles of Gandhiji. With a strong commitment to uplift the underserved communities, we transform lives across our nation.' />
       <OriginOfGenerationChange />
       <ActsOfProgress />
       <BajajAwards />
@@ -43,12 +43,13 @@ const CharitableTrusts = () => {
       <PartnerSwiperSection SectionProps={{ id: "partners" }} />
       <DonationsAndPartners />
       <DiscoverSection
-        title="DISCOVER JAMNALAL BAJAJ FOUNDATION"
+        title='DISCOVER JAMNALAL BAJAJ FOUNDATION'
         linkProps={{
           href: "/",
           children: "Visit The Jamnalal Bajaj Foundation Website",
         }}
         ImageData={imageData}
+        hasSocials
       />
     </>
   );
@@ -57,16 +58,16 @@ const CharitableTrusts = () => {
 export default CharitableTrusts;
 
 const imageData = [
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
+  { image: group2 },
+  { image: group3 },
+  { image: group5 },
+  { image: group7 },
+  { image: group8 },
+  { image: group2 },
+  { image: group3 },
+  { image: group5 },
+  { image: group7 },
+  { image: group8 },
 ];
 
 const menus = [

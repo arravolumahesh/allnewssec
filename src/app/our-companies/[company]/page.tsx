@@ -58,7 +58,7 @@ const Company = ({ params }: { params: { company: string } }) => {
         href: `${params.company}/case-studies`,
       },
     ],
-    [params.company],
+    [params.company]
   );
   return (
     <>
@@ -74,12 +74,13 @@ const Company = ({ params }: { params: { company: string } }) => {
       <PartnerSwiperSection />
       <FundsAndPartners />
       <DiscoverSection
-        title="Discover bajaj Auto"
+        title='Discover bajaj Auto'
         linkProps={{
           href: "/",
           children: "Visit Bajaj Auto Website",
         }}
         ImageData={imageData}
+        hasSocials
       />
       <CsrReport />
     </>
@@ -89,16 +90,16 @@ const Company = ({ params }: { params: { company: string } }) => {
 export default Company;
 
 const imageData = [
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
-  { img: group2 },
-  { img: group3 },
-  { img: group5 },
-  { img: group7 },
-  { img: group8 },
+  { image: group2 },
+  { image: group3 },
+  { image: group5 },
+  { image: group7 },
+  { image: group8 },
+  { image: group2 },
+  { image: group3 },
+  { image: group5 },
+  { image: group7 },
+  { image: group8 },
 ];
 
 const menus: SectionNavigationProps["Sections"] = [
