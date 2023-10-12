@@ -28,7 +28,7 @@ import {
   textStaggerChildren,
 } from "@/commonComponents/animations";
 
-export interface DiscoverProps {
+export interface DiscoverSectionProps {
   title: string;
   linkProps: MotionLinkProps; // Todo update in other components
   ImageData: {
@@ -36,7 +36,7 @@ export interface DiscoverProps {
   }[];
 }
 
-const DiscoverSection = (props: DiscoverProps) => {
+const DiscoverSection = (props: DiscoverSectionProps) => {
   const { title, linkProps, ImageData } = props;
   return (
     <SectionWrapper
@@ -54,7 +54,7 @@ const DiscoverSection = (props: DiscoverProps) => {
     >
       <EnhancedSwiper
         data={ImageData}
-        SlideComponent={ImageSlics}
+        SlideComponent={ImageSlice}
         Slots={{
           ContainerEndChildren: (
             <>
@@ -122,11 +122,11 @@ const DiscoverSection = (props: DiscoverProps) => {
 
 export default DiscoverSection;
 
-interface ImageSlicsProps {
+interface ImageSliceProps {
   img: StaticImageData | string;
 }
 
-const ImageSlics = (props: ImageSlicsProps) => {
+const ImageSlice = (props: ImageSliceProps) => {
   const { img } = props;
   return (
     <MaterialImage

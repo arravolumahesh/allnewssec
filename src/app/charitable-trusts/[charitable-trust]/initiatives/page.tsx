@@ -10,6 +10,7 @@ import discoverCharitableTrust4 from "@c/charitableTrusts/initiatives/images/dis
 import discoverCharitableTrust5 from "@c/charitableTrusts/initiatives/images/discoverCharitableTrust/discover-charitable-trust-5.jpg";
 import discoverCharitableTrust6 from "@c/charitableTrusts/initiatives/images/discoverCharitableTrust/discover-charitable-trust-6.jpg";
 import InitiativeStats from "@c/charitableTrusts/initiatives/initiative-stats";
+import InitiativeData from "@c/charitableTrusts/initiatives/initiative-data";
 
 const CharitableTrustsInitiatives = () => {
   return (
@@ -27,6 +28,7 @@ const CharitableTrustsInitiatives = () => {
         }}
       />
       <InitiativeStats />
+      <InitiativeData />
       <DiscoverOtherInitiatives
         SwiperData={verticalSwiperData}
         OtherOrganization={otherCompanies}

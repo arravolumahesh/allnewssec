@@ -9,6 +9,11 @@ const InitiativeStats = () => {
         ...basePx,
         xs: 0,
       }}
+      py={{
+        xs: 2,
+        md: 3.5,
+        xxl: 5,
+      }}
     >
       <Statistics
         data={staticsData}
