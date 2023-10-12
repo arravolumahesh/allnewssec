@@ -9,8 +9,8 @@ import {
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import Image from "next/image";
-import CommonBreadcrumb from "@/commonComponents/breadcrumb";
-import cbanner from './image/cbanner.png'
+import ReactiveBreadcrumb from "@/commonComponents/breadcrumb";
+import cbanner from "./image/cbanner.png";
 
 const CompanyIntermediateBanner = () => {
   const [textTransition, setTextTransition] = useState(false);
@@ -50,13 +50,13 @@ const CompanyIntermediateBanner = () => {
 
   return (
     <Stack
-      sx={{        
+      sx={{
         position: "relative",
         overflow: "hidden",
         "& img": {
           width: "100%",
           height: "100%",
-          objectFit:'cover',
+          objectFit: "cover",
         },
       }}
       component={"section"}
@@ -74,7 +74,7 @@ const CompanyIntermediateBanner = () => {
       >
         <MotionBox
           sx={{
-            height: {md:"464px",xs:'265px'},
+            height: { md: "464px", xs: "265px" },
             flex: 1,
             overflow: "hidden",
           }}
@@ -103,17 +103,17 @@ const CompanyIntermediateBanner = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          pb:{xxl:9,xs:1},
-          pt:{xxl:4,xs:2},          
+          pb: { xxl: 9, xs: 1 },
+          pt: { xxl: 4, xs: 2 },
         }}
-        color={'white'}
+        color={"white"}
       >
-        <CommonBreadcrumb />
+        <ReactiveBreadcrumb />
         <MotionTypography
           variant="h3"
           color="white"
           mb={2}
-          sx={{textTransform:'uppercase',maxWidth:550}}
+          sx={{ textTransform: "uppercase", maxWidth: 550 }}
           {...headerTransition}
         >
           Building futures, one skill at a time.
