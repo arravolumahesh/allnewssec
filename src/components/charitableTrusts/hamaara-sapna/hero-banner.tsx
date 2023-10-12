@@ -3,7 +3,7 @@ import SectionWrapper from "@cc/section-wrapper";
 import { Stack } from "@mui/material";
 import React from "react";
 import { MotionTypography, MotionVariantProps } from "@cc/motion-components";
-import CommonBreadcrumb from "@cc/breadcrumb";
+import ReactiveBreadcrumb from "@cc/breadcrumb";
 
 const HeroBanner = () => {
   return (
@@ -20,7 +20,7 @@ const HeroBanner = () => {
         py={{ xs: 2, md: 4 }} // Todo: basePy
         pb={{ xs: 4, md: 8 }}
       >
-        <CommonBreadcrumb />
+        <ReactiveBreadcrumb />
         <Stack mt={23} maxWidth={863} rowGap={3}>
           <MotionTypography variant="h1">
             A Better Tomorrow for ‘Her’

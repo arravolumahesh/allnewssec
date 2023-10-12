@@ -1,5 +1,5 @@
 "use client";
-import CommonBreadcrumb from "@cc/breadcrumb";
+import ReactiveBreadcrumb from "@cc/breadcrumb";
 import { Stack } from "@mui/material";
 import { MotionTypography } from "@cc/motion-components";
 import SectionWrapper from "@cc/section-wrapper";
@@ -19,7 +19,7 @@ const CharitableTrustsInitiativesBanner = () => {
       py={{ xs: 2, md: 4 }} // Todo: basePy
       pb={{ xs: 4, md: 8 }}
     >
-      <CommonBreadcrumb />
+      <ReactiveBreadcrumb />
       <Stack mt={{ xs: 18.125, md: 23.5 }} maxWidth={863} rowGap={3}>
         <MotionTypography variant="h1">
           Carrying forward

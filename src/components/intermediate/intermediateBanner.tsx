@@ -12,7 +12,7 @@ import {
 } from "@/commonComponents/motion-components";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import Image from "next/image";
-import CommonBreadcrumb from "@/commonComponents/breadcrumb";
+import ReactiveBreadcrumb from "@/commonComponents/breadcrumb";
 
 const IntermediateBanner = () => {
   const [textTransition, setTextTransition] = useState(false);
@@ -52,13 +52,13 @@ const IntermediateBanner = () => {
 
   return (
     <Stack
-      sx={{        
+      sx={{
         position: "relative",
         overflow: "hidden",
         "& img": {
           width: "100%",
           height: "100%",
-          objectFit:'cover',
+          objectFit: "cover",
         },
       }}
       component={"section"}
@@ -146,16 +146,16 @@ const IntermediateBanner = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          pb:{xxl:9,xs:1},
-          pt:{xxl:4,xs:2}
+          pb: { xxl: 9, xs: 1 },
+          pt: { xxl: 4, xs: 2 },
         }}
       >
-        <CommonBreadcrumb/>
+        <ReactiveBreadcrumb />
         <MotionTypography
           variant="h3"
           color="white"
           mb={2}
-          sx={{textTransform:'uppercase'}}
+          sx={{ textTransform: "uppercase" }}
           {...headerTransition}
         >
           Empowering Lives

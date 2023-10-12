@@ -1,26 +1,22 @@
 "use client";
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import { Box, Card, Container, Stack, Typography, alpha } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { alpha, Stack } from "@mui/material";
 import React from "react";
 import {
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
-import { motion } from "framer-motion";
 import {
   Body1,
   Body2,
   H2,
   H6_3,
-  Subtitle1,
 } from "@/styles/theme/components/typography.fontvariant";
-import theme from "@/styles/theme";
-import { Height } from "@mui/icons-material";
 import AnimatedButton from "@/commonComponents/animated-button";
-import CommonBreadcrumb from "@/commonComponents/breadcrumb";
+import ReactiveBreadcrumb from "@/commonComponents/breadcrumb";
 
-const backUrl = "https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png";
+const backUrl =
+  "https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png";
 const CaseHome = () => {
   return (
     <>
@@ -28,18 +24,24 @@ const CaseHome = () => {
         SectionProps={{
           sx: {
             // background:"linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),url(https://res.cloudinary.com/dgvec2ipx/image/upload/v1695968756/header_qacffr.png),lightgray 50% / cover no-repeat",
-            background:{md:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(${backUrl})`,xs:`linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(${backUrl}) left +65% center`},
-            backgroundRepeat: {xs:"no-repeat",md:"no-repeat"},
-            backgroundSize: {xs:"cover",md:"cover"},
+            background: {
+              md: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) -74.89%, rgba(0, 0, 0, 0.86) 57.41%, #000 100%), url(${backUrl})`,
+              xs: `linear-gradient(180deg, rgba(0, 0, 0, 0.80) 2.82%, rgba(0, 0, 0, 0.50) 50.9%, #000 100%), url(${backUrl}) left +65% center`,
+            },
+            backgroundRepeat: { xs: "no-repeat", md: "no-repeat" },
+            backgroundSize: { xs: "cover", md: "cover" },
             // backgroundPosition:{xs:'center'}
           },
         }}
-        sx={{pt:{xxl:4}}}
+        sx={{ pt: { xxl: 4 } }}
       >
-        <CommonBreadcrumb />  
-       
+        <ReactiveBreadcrumb />
+
         <Stack
-          sx={{ md: { width: "667px", height: "255px", marginTop: H6_3 },mt:10 }}
+          sx={{
+            md: { width: "667px", height: "255px", marginTop: H6_3 },
+            mt: 10,
+          }}
         >
           <MotionTypography
             variant="h1"
@@ -49,7 +51,7 @@ const CaseHome = () => {
               alignItems: "stretch",
               height: "67px",
               paddingTop: "40px",
-              textTransform:'inherit'
+              textTransform: "inherit",
             }}
             variants={staggerChildren}
             initial={"initial"}
@@ -62,7 +64,7 @@ const CaseHome = () => {
           <MotionTypography
             variant="body2"
             sx={{
-              color: (theme) => alpha(theme.palette.common.white,0.7),
+              color: (theme) => alpha(theme.palette.common.white, 0.7),
               alignItems: "stretch",
               fontSize: Body2,
               paddingTop: "50px",
@@ -105,9 +107,18 @@ const CaseHome = () => {
           rowGap={3}
           sx={{ mt: "40px" }}
         >
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:1} }}>
+          <Stack
+            sx={{
+              width: { xs: "100%", md: "40%" },
+              gap: "8px",
+              order: { xs: 1 },
+            }}
+          >
             <MotionTypography
-              sx={{fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
+              sx={{
+                fontSize: Body2,
+                color: (theme) => alpha(theme.palette.common.white, 0.6),
+              }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -125,9 +136,18 @@ const CaseHome = () => {
               Skill Development
             </MotionTypography>
           </Stack>
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:3,md:2} }}>
+          <Stack
+            sx={{
+              width: { xs: "100%", md: "40%" },
+              gap: "8px",
+              order: { xs: 3, md: 2 },
+            }}
+          >
             <MotionTypography
-              sx={{ fontSize: Body2 ,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
+              sx={{
+                fontSize: Body2,
+                color: (theme) => alpha(theme.palette.common.white, 0.6),
+              }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -135,7 +155,8 @@ const CaseHome = () => {
             >
               Location
             </MotionTypography>
-            <MotionTypography sx={{ fontSize: "18px" }} 
+            <MotionTypography
+              sx={{ fontSize: "18px" }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -144,9 +165,18 @@ const CaseHome = () => {
               Shahpur, Maharashtra
             </MotionTypography>
           </Stack>
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:2,md:3} }}>
+          <Stack
+            sx={{
+              width: { xs: "100%", md: "40%" },
+              gap: "8px",
+              order: { xs: 2, md: 3 },
+            }}
+          >
             <MotionTypography
-              sx={{ fontSize: Body2,color:(theme)=> alpha(theme.palette.common.white,0.6) }}
+              sx={{
+                fontSize: Body2,
+                color: (theme) => alpha(theme.palette.common.white, 0.6),
+              }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}
@@ -163,10 +193,19 @@ const CaseHome = () => {
             >
               Bharitiya Yuva Shakti (BYST)
             </MotionTypography>
-          </Stack>          
-          <Stack sx={{ width: { xs: "100%", md: "40%" }, gap: "8px", order:{xs:4} }}>
+          </Stack>
+          <Stack
+            sx={{
+              width: { xs: "100%", md: "40%" },
+              gap: "8px",
+              order: { xs: 4 },
+            }}
+          >
             <MotionTypography
-              sx={{fontSize: Body2 , color:(theme)=> alpha(theme.palette.common.white,0.6)}}
+              sx={{
+                fontSize: Body2,
+                color: (theme) => alpha(theme.palette.common.white, 0.6),
+              }}
               variants={staggerChildren}
               initial={"initial"}
               whileInView={"animate"}

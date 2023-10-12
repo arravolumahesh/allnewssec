@@ -1,13 +1,12 @@
 "use client";
-import SectionWrapper, { basePy } from "@/commonComponents/section-wrapper";
-import { Stack, Typography } from "@mui/material";
+import SectionWrapper from "@/commonComponents/section-wrapper";
+import { Stack } from "@mui/material";
 import React from "react";
 import {
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-components";
-import bg from "./images/bg.png";
-import CommonBreadcrumb from "@/commonComponents/breadcrumb";
+import ReactiveBreadcrumb from "@/commonComponents/breadcrumb";
 
 const CarryingService = () => {
   return (
@@ -24,10 +23,10 @@ const CarryingService = () => {
         py={{ /* ...basePy, */ xs: 2, md: 4 }} //Todo: basePy
         pb={{ /* ...basePy, */ xs: 4, md: 8 }}
       >
-        <CommonBreadcrumb />
+        <ReactiveBreadcrumb />
         <Stack mt={23} maxWidth={863} rowGap={3}>
           <MotionTypography
-            variant='h1'
+            variant="h1"
 
             // variants={staggerChildren}
             // initial={"initial"}
