@@ -38,10 +38,13 @@ import {
   formStaggerChildrenRight,
   formStaggerChildrenUp,
 } from "@/commonComponents/animations";
+import { sortBy } from "lodash";
 
 const DropDown = () => {
   const [company, setCompany] = useState("");
-  const [category, setCategory] = useState("");
+  const [topic, setTopic] = useState("");
+  const [year, setYear] = useState("");
+  const [sortby, setSortBy] = useState("");
   const [open, setOpen] = useState(false);
   return (
     <MotionStack
@@ -71,21 +74,22 @@ const DropDown = () => {
             component={motion.div}
             variants={formStaggerChildrenUp}
           >
-      <Grid2 xs={12} md={4}>
+      <Grid2 xs={12} md={3}>
         <Select
           fullWidth
           sx={(theme) => ({
             color: alpha(
               theme.palette.primary.main,
-              !!company ? 1 : 0.4
+              !!company ? 1 : 0.6
             ),
-            background:"common.white"
+            background:"common.white",
+           // minWidth:250
           })}
-          value={company}
+         value={company}
           onChange={(e) => setCompany(e.target.value)}
           displayEmpty
           renderValue={(value) => {
-            return value === "" ? "Company / Trust" : value;
+            return company === "" ? "Company / Trust" : company;
           }}
           variant="outlined"
           color="primary"
@@ -102,22 +106,22 @@ const DropDown = () => {
           ))}
         </Select>
       </Grid2>
-      <Grid2 xs={12} md={4}>
+      <Grid2 xs={12} md={3}>
         <Select
           fullWidth
           sx={(theme) => ({
             color: alpha(
               theme.palette.primary.main,
-              !!category ? 1 : 0.4
+              !!topic ? 1 : 0.6
             ),
           })}
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
           displayEmpty
           renderValue={(value) => {
-            return value === ""
+            return topic === ""
               ? "Topic"
-              : value;
+              : topic;
           }}
           variant="outlined"
           color="primary"
@@ -132,22 +136,22 @@ const DropDown = () => {
           ))}
         </Select>
       </Grid2>
-      <Grid2 xs={12} md={4}>
+      <Grid2 xs={12} md={3}>
         <Select
           fullWidth
           sx={(theme) => ({
             color: alpha(
               theme.palette.primary.main,
-              !!category ? 1 : 0.4
+              !!year ? 1 : 0.6
             ),
           })}
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
           displayEmpty
           renderValue={(value) => {
             return value === ""
               ? "Year"
-              : value;
+              : year;
           }}
           variant="outlined"
           color="primary"
@@ -160,22 +164,24 @@ const DropDown = () => {
           ))}
         </Select>
       </Grid2>
-       <Grid2 marginLeft={20} xs={12} md={4}>
+      </Grid2>
+      <Grid2>
+       <Grid2 marginLeft={20} xs={12} md={3}>
         <Select
           fullWidth
           sx={(theme) => ({
             color: alpha(
               theme.palette.primary.main,
-              !!category ? 1 : 0.4
+              !!sortby ? 1 : 0.6
             ),
           })}
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={sortby}
+          onChange={(e) => setSortBy(e.target.value)}
           displayEmpty
           renderValue={(value) => {
-            return value === ""
+            return sortby === ""
               ? "Sort By: Recent"
-              : value;
+              :sortby;
           }}
           variant="outlined"
           color="primary"
@@ -189,7 +195,7 @@ const DropDown = () => {
         </Select>
       </Grid2>
         </Grid2> 
-        
+       
         <ToggleButton/>
    </Stack>
    </MotionStack>
